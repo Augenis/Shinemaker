@@ -22484,6 +22484,7 @@ window.setInterval(changechart,200)
           const results = e.final_state_results[i].result;
           const result = redistributeVotes(results, weights);
       }
+	  e.final_overall_results.sort((a, b) => b.electoral_votes - a.electoral_votes || b.popular_votes - a.popular_votes);
 	  aa = campaignTrail_temp.final_overall_results
 	  }
     
