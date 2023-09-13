@@ -22522,19 +22522,80 @@ window.setInterval(changechart,200)
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1149798365920506047/hunter.png";
           return construct(0);
       }
-		if (quickstats[0] >= 71 && quickstats[0] < 119) { // TS-LKD majority
+	  // Minor party majority screens:
+	  if (aa[0].candidate == 80 && aa[0].electoral_votes >= 71) { // LRLS
+          e.header = "<h2>Your child asks: Why didn't you invest in Lithuania?</h2>"
+          e.pages = [`<p>Incredible! As the results trickle in, it becomes clear that none of the three major parties will be the winner of the election. The Liberal Movement, deemed a spent force or outright dead since 2015, surpassed all expectations and won a majority of the seats! Nobody expected this upset. Viktorija Čmilytė-Nielsen will, of course, become the next Prime Minister - finishing the most successful chess play in her career.</p><p>What’s on the agenda now? Well, I hope you like doing business, because the whole country’s going to have to stop snoozing and start hustling. You’ll be lucky if income tax is only cut to a 15% flat rate - when getting to Top 7 in the worldwide Doing Business Index is on the line, there can be no holds barred. Maybe, once that is finished, they can also think about legal weed and same-sex marriage, too.</p>`]
+          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596165587009536/LRLS_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 13761 && aa[0].electoral_votes >= 71) { // Freedom
+          e.header = "<h2>Bestie, let’s #yassify homophobes and antivaxxers together!</h2>"
+          e.pages = [`<p>Incredible! The Supreme Election Commission has announced that the Freedom Party won a majority of the seats in the election. How was this even possible? They didn’t even run candidates in many constituencies. Clearly, the desire for social liberalism was greater than anyone in the race had anticipated - or maybe half of the country accidentally voted for the wrong party, who knows.</p><p>What will be on the agenda of Prime Minister Aušrinė Armonaitė and her cabinet? Immediate legalization of same-sex marriage and recreational drugs is certainly going to be their first move. Full dual citizenship, too. Oh, and carbon neutrality, and flat taxes, and withdrawing recognition of China, too! There’s a lot of dreams to fulfill when you’ve been given infinite power. Make sure to follow Freedom’s Tiktok - it’ll probably become the government’s main platform for major announcements. </p>`]
+          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596165167583272/LP_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 13915 && aa[0].electoral_votes >= 71) { // Labour
+          e.header = "<h2>The King of Pickles Rises!</h2>"
+          e.pages = [`<p>Incredible! Rising from the dead, the Labour Party has not only regained their previous standing, but also won a majority of the seats in the election. Shock and horror rolls throughout the nation - no cordon sanitaire is going to stop them from bringing Viktor Uspaskich from exile and putting him as Prime Minister now. Perhaps the pickles they distribute to their voters in jars were just that good.</p><p>What is on their agenda? Well, nobody’s really certain - Labour certainly never expected to get this far themselves. Of course, any remaining investigations into their finances and corruption will cease, and don’t even think about a harsher stance towards Russia. And keep in mind that you have just elected a party led by a man who sells mineral water that supposedly protects you from COVID - and tasked him to handle the response to the second COVID wave. Yeah... that’s not good.</p>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164295168020/DP_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 13838 && aa[0].electoral_votes >= 71) { // LLRA
+          e.header = "<h2>Druga Żeligiada!</h2>"
+          e.pages = [`<p>Niesamowite! Po podliczeniu głosów Najwyższa Komisja Wyborcza ogłosiła, że Akcja Wyborcza Polaków zdobyła większość mandatów! Jak to się mogło stać? Czyżbyśmy skrajnie nie doszacowali liczby naszych rodaków? Żaden rodowity Litwin by na nas nie zagłosował, więc ten wynik miałby jakiś sens tylko, gdyby jedna trzecia, bądź więcej, tego kraju była od początku Polakami – jak w starych dobrych czasach międzywojnia.</p><p>W takim razie pora na uruchomienie Planu X. Podczas gdy Litwini pozostają osłupieni wynikiem, robimy telefon do Prezydenta Dudy żeby przemieścił dywizję wojska na Przesmyk Suwalski. Ci „buntownicy”, przysięgając wyzwolenie rodaków z opresji, zrobią przemarsz na Wilno i po raz kolejny naprawią błędy przeszłości.</p>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164693643275/LLRA_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 14146 && aa[0].electoral_votes >= 71) { // NS
+          e.header = "<h2>The State Reclaimed.</h2>"
+          e.pages = [`<p>...</p><p>...</p>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596319291494532/NS_pergale.png";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 14069 && aa[0].electoral_votes >= 71) { // CP-T
+          e.header = "<h2>Power to the People!</h2>"
+          e.pages = [`<p>...</p><p>...</p>`]
+          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596163909308426/CP-T_pergale.png";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 13992 && aa[0].electoral_votes >= 71) { // LSDDP
+          e.header = "<h2>Power to the Beavers!</h2>"
+          e.pages = [`<p>...</p><p>...</p>`]
+          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166035820581/LSDDP_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 14223 && aa[0].electoral_votes >= 71) { // LT
+          e.header = "<h2>Night of the Walking Dead Parties!</h2>"
+          e.pages = [`<p>...</p><p>...</p>`]
+          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166312628356/LT_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 14300 && aa[0].electoral_votes >= 71) { // LŽP
+          e.header = "<h2>Nature doesn't have its candidates, but it has a Prime Minister!</h2>"
+          e.pages = [`<p>...</p><p>...</p>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318721065030/LZP_pergale.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 14377 && aa[0].electoral_votes >= 71) { // Minors
+          e.header = "<h2>Lithuania, 2172.</h2>"
+          e.pages = [`<p>...</p><p>...</p>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318993682462/Minors_pergale.jpg";
+          return construct(0);
+      }
+		else if (quickstats[0] >= 71 && quickstats[0] < 119) { // TS-LKD majority
           e.header = "<h2>Victory for the Right!</h2>"
           e.pages = [`<p>Amazing! Though the polls were predicting the TS-LKD to receive an even larger share of the vote than 2016, nobody was anticipating you to do so well in single-member constituencies that you will obtain an outright majority in the Seimas! This is the greatest result for your party since 1996, and if you were following a certain tactic to achieve this, then it is certain to become the cornerstone of the party's strategy for decades.</p><p>You will not need to invite the Liberals or any other party to government, although, much like in 1996, you may consider it to give the Šimonytė Cabinet an illusion of uniting the centre-right. The country is now your oyster. You will be able to undo many of the Peasants' controlling policies and take a more aggressive position towards Russia and China - if you are feeling confident, perhaps you can also legalize same-sex partnerships. Just watch the polls, where you will inevitably eventually slip, and hope that no war breaks out by 2024.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1149307377787621447/Conservative_victory.png";
           return construct(0);
       }
-	  if (aa[0].candidate == 77 && !negotiationsDone) { // TS-LKD Plurality
+	  else if (aa[0].candidate == 77 && !negotiationsDone) { // TS-LKD Plurality
           e.header = "<h2>2016 Redeemed!</h2>"
           e.pages = [`<p>Though you had your fears, the failure of 2016 did not manifest twice. You performed admirably in the proportional vote and single-member constituencies alike, and obtained a plurality of the seats in the next Seimas. In Vilnius, your supporters and newly elected representatives celebrate to the sound of Metallica, and far-right sites buzz with conspiracies about another election won by the 'Landsbergis family clan'.</p><p>What is next on the agenda? Assuming that you are able to form a working coalition - whether with the Liberals or some other force - you have a lot on your plate. You will be forced to manage the COVID-19 pandemic in its peak, all while trying to revert the Peasants' most draconic policies. A more aggressive policy towards Russia and China will also be on the table. Just watch the polls, where you will inevitably eventually slip - after all, no party has ever managed to get reelected in Lithuanian history...</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1149307377787621447/Conservative_victory.png";
           return construct(0);
       }
-	  if (aa[0].candidate !== 77) { // TS-LKD Loss
+	  else if (aa[0].candidate !== 77) { // TS-LKD Loss
           e.header = "<h2>Defeated.</h2>"
           e.pages = [`<p>Did you repeat your mistakes from four years ago? In spite of promising initial polling, you were unable to acquire a plurality of the seats in the Seimas, and so the initiative in the coalition formation process will fall to the Peasant and Social Democratic 'Left'. Did your party collapse outright, or were you simply unable to win a large enough number of single-member constituencies? Either way, losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy.</p><p>It is possible that the party will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1149307377787621447/Conservative_victory.png";
