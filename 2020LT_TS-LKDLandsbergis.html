@@ -6564,7 +6564,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 77,
             "state": 13161,
-            "state_multiplier": 1.5
+            "state_multiplier": 2
         }
     },
     {
@@ -21315,7 +21315,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 14522,
             "candidate": 77,
-            "answer_feedback": "There has never been a significant challenge to you from the right and Lithuania remains unique in Europe for having no prominent Eurosceptic party - it seems that this will hold true in this election."
+            "answer_feedback": "There has never been a significant challenge to you from the right and Lithuania remains unique in Europe for having no prominent eurosceptic party - it seems that this will hold true in this election."
         }
     },
     {
@@ -21950,24 +21950,24 @@ if(answer == 3476) {
 }
 if(answer == 14552) {
   // Nationalists less likely to vote for you if you vow to abolish the VLKK.
-  changeWeight(weights, 14146, 77, -0.1);
+  changeWeight(weights, 14146, 77, -0.15);
   changeWeight(weights, 14069, 77, -0.1);
   return;
 }
 if(answer == 14556) {
   // Nationalists less likely to vote for you if you vow to allow Polish letters.
-  changeWeight(weights, 14146, 77, -0.1);
+  changeWeight(weights, 14146, 77, -0.15);
   changeWeight(weights, 14069, 77, -0.1);
   return;
 }
 if(answer == 14557) {
   // Freedom would like you vote for allowing Polish letters, please.
-  changeWeight(weights, 13761, 77, -0.1);
+  changeWeight(weights, 13761, 77, -0.15);
   return;
 }
 if(answer == 14558) {
   // Freedom would like you vote for allowing Polish letters, please.
-  changeWeight(weights, 13761, 77, -0.1);
+  changeWeight(weights, 13761, 77, -0.15);
   return;
 }
 };
@@ -22368,16 +22368,16 @@ window.setInterval(changechart,200)
   const coalitions = [
     { id: 1, name: 'Centre-Right Coalition: TS-LKD, LRLS, Freedom', weight: 1.5, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
 	{ id: 2, name: 'Centre-Right Coalition: TS-LKD, LRLS, Freedom, LT, LŽP', weight: 1.0, parties: [77, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
-	{ id: 3, name: 'Breakthrough Coalition: TS-LKD, LRLS, Freedom, Labour', weight: 0.5, parties: [77, 80, 13761, 13915], impossibleCoalitions: [] },
-	{ id: 4, name: 'Grand Coalition: TS-LKD, LSDP', weight: 1.0, parties: [77, 79], impossibleCoalitions: [5, 6] },
-	{ id: 5, name: 'Grand Coalition: TS-LKD, LSDP, LRLS', weight: 0.7, parties: [77, 79, 80], impossibleCoalitions: [6] },
-	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LRLS, LSDDP', weight: 0.5, parties: [77, 79, 80, 13992], impossibleCoalitions: [] },
-	{ id: 7, name: 'National Coalition: TS-LKD, Labour, CP-T, NS, LT', weight: 0.7, parties: [77, 13915, 14069, 14146, 14223], impossibleCoalitions: [] },
+	{ id: 3, name: 'Breakthrough Coalition: TS-LKD, LRLS, Freedom, Labour', weight: 0.3, parties: [77, 80, 13761, 13915], impossibleCoalitions: [] },
+	{ id: 4, name: 'Grand Coalition: TS-LKD, LSDP', weight: 0.8, parties: [77, 79], impossibleCoalitions: [5, 6] },
+	{ id: 5, name: 'Grand Coalition: TS-LKD, LSDP, LRLS', weight: 0.5, parties: [77, 79, 80], impossibleCoalitions: [6] },
+	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LRLS, LSDDP', weight: 0.3, parties: [77, 79, 80, 13992], impossibleCoalitions: [] },
+	{ id: 7, name: 'National Coalition: TS-LKD, Labour, CP-T, NS, LT', weight: 0.5, parties: [77, 13915, 14069, 14146, 14223], impossibleCoalitions: [] },
 	{ id: 8, name: 'Continued Left Coalition: LVŽS, LSDDP', weight: 1.5, parties: [78, 13992], impossibleCoalitions: [9, 10] },
 	{ id: 9, name: 'Continued Left Coalition: LVŽS, Labour, LSDDP, CP-T, Minors', weight: 1.2, parties: [78, 13915, 13992, 14069, 14377], impossibleCoalitions: [10] },
 	{ id: 10, name: 'Continued Left Coalition: LVŽS, LLRA-KŠS, Labour, LSDDP, CP-T, Minors', weight: 1.0, parties: [78, 13838, 13915, 13992, 14069, 14377], impossibleCoalitions: [] },
-	{ id: 11, name: 'Centre-Left Coalition: LVŽS, LSDP', weight: 1.2, parties: [78, 79], impossibleCoalitions: [12, 13] },
-	{ id: 12, name: 'Centre-Left Coalition: LVŽS, LSDP, LSDDP', weight: 1.0, parties: [78, 79, 13992], impossibleCoalitions: [13] },
+	{ id: 11, name: 'Centre-Left Coalition: LVŽS, LSDP', weight: 1.3, parties: [78, 79], impossibleCoalitions: [12, 13] },
+	{ id: 12, name: 'Centre-Left Coalition: LVŽS, LSDP, LSDDP', weight: 1.1, parties: [78, 79, 13992], impossibleCoalitions: [13] },
 	{ id: 13, name: 'Centre-Left Coalition: LVŽS, LSDP, Labour, LSDDP, LŽP', weight: 0.8, parties: [78, 79, 13915, 13992, 14300], impossibleCoalitions: [] },
 	{ id: 14, name: 'National Coalition: LVŽS, Labour, CP-T, NS, Minors', weight: 0.8, parties: [78, 13915, 14069, 14146, 14377], impossibleCoalitions: [] },
 	{ id: 15, name: 'Dual Left Coalition: LSDP, LSDDP', weight: 1.5, parties: [79, 13992], impossibleCoalitions: [16] },
@@ -22385,7 +22385,7 @@ window.setInterval(changechart,200)
 	{ id: 17, name: '2012 Coalition: LSDP, Labour, LT', weight: 1.2, parties: [79, 13915, 14223], impossibleCoalitions: [18] },
 	{ id: 18, name: '2012 Coalition: LSDP, LLRA-KŠS, Labour, LT, LŽP, Minors', weight: 1.0, parties: [79, 13838, 13915, 14223, 14300, 14377], impossibleCoalitions: [] },
 	{ id: 19, name: 'Liberal-Left Coalition: LSDP, LRLS', weight: 1.0, parties: [79, 80], impossibleCoalitions: [21] },
-	{ id: 20, name: 'Liberal-Left Coalition: LSDP, Freedom', weight: 0.9, parties: [79, 13761], impossibleCoalitions: [21] },
+	{ id: 20, name: 'Liberal-Left Coalition: LSDP, Freedom', weight: 0.8, parties: [79, 13761], impossibleCoalitions: [21] },
 	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LRLS, Freedom, LŽP', weight: 0.5, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
   ];
   var possibleCoalitions = [];
@@ -22549,13 +22549,13 @@ window.setInterval(changechart,200)
       }
 	  else if (aa[0].candidate == 14146 && aa[0].electoral_votes >= 71) { // NS
           e.header = "<h2>The State Reclaimed.</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! After the results were tallied, it was announced that the National Alliance won a majority of the seats in the election! A party only founded last year winning a majority, and with an eurosceptic platform no less? Even for Lithuania, this result is extraordinarily unhinged. The Philosopher, Vytautas Radžvilas, will become the Prime Minister, and he will appoint the most intellectual - in a specific, philosophical kind of way - cabinet in history.</p><p>What is on their agenda? Who knows how far they will go. At this point, even abandoning the Euro, closing the borders to anyone trying to emigrate to the West, and a full ban on 'LGBT propaganda' could be on the table. The so-called liberal-bolshevists in the Freedom Party and Liberal Movement will not escape their torch, either. Or, probably more likely, they'll just copy whatever Poland's PiS is doing wholesale.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596319291494532/NS_pergale.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14069 && aa[0].electoral_votes >= 71) { // CP-T
           e.header = "<h2>Power to the People!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! The Supreme Election Commission has announced that the Centre-Nationalists won a majority of the seats! Nobody expected this result and neither did they - as they immediately broke down into five different parties over which of their leaders should become the Prime Minister. Naglis Puteikis, technically commanding the largest of the splinters, will become the next Prime Minister, but... let's just say that he's not lasting long.</p><p>What will be on the agenda of their five-minute government? Not much, but it is possible that they will declare war on Norway to free all of the children which their child protection services have stolen from honest Lithuanian parents. Someone has to fight God's hardest battles.</p>`]
           e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596163909308426/CP-T_pergale.png";
           return construct(0);
       }
@@ -22598,7 +22598,7 @@ window.setInterval(changechart,200)
 	  else if (aa[0].candidate !== 77) { // TS-LKD Loss
           e.header = "<h2>Defeated.</h2>"
           e.pages = [`<p>Did you repeat your mistakes from four years ago? In spite of promising initial polling, you were unable to acquire a plurality of the seats in the Seimas, and so the initiative in the coalition formation process will fall to the Peasant and Social Democratic 'Left'. Did your party collapse outright, or were you simply unable to win a large enough number of single-member constituencies? Either way, losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy.</p><p>It is possible that the party will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1149307377787621447/Conservative_victory.png";
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1152284482368438403/Conservative_loss.png";
           return construct(0);
       }
 	  
@@ -22660,7 +22660,7 @@ window.setInterval(changechart,200)
 		  leader23.image = 'https://media.discordapp.net/attachments/559653590390800384/1149792282468438036/Saudargas.jpeg';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, Paulius Saudargas was appointed as the head of a new Saudargas Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are Eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
+		  e.pages=[`<p>After a lengthy negotiation process, Paulius Saudargas was appointed as the head of a new Saudargas Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -22670,14 +22670,14 @@ window.setInterval(changechart,200)
 		  leader23.image = 'https://media.discordapp.net/attachments/559653590390800384/1149708706913734676/Masiulis.jpg';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, Rokas Masiulis was appointed as the head of a new Masiulis Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are Eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
+		  e.pages=[`<p>After a lengthy negotiation process, Rokas Masiulis was appointed as the head of a new Masiulis Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		else if (negotiationsDone && selectedCoalition.id === 7){ // National Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are Eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
+		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -22726,7 +22726,7 @@ window.setInterval(changechart,200)
 		if (negotiationsDone && selectedCoalition.id === 14){ // LVŽS National Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Peasants form an Eurosceptic Government!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, Labour, CP-T, NS and independents. Vilnius and Kaunas are in uproar - this is the closest that Lithuania has been to an Eurosceptic government, as all of the parties making it up are either actually sceptics or toy with the platform. Already, the looming COVID wave is showing the first cracks in the coalition, as its right-wing members increasingly adopt vaccine hesitancy.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that this 'National Coalition' will be short lived - and hopefully, nothing crazy happens, like a war.</p>`]
+		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, Labour, CP-T, NS and independents. Vilnius and Kaunas are in uproar - this is the closest that Lithuania has been to an eurosceptic government, as all of the parties making it up are either actually sceptics or toy with the platform. Already, the looming COVID wave is showing the first cracks in the coalition, as its right-wing members increasingly adopt vaccine hesitancy.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that this 'National Coalition' will be short lived - and hopefully, nothing crazy happens, like a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
