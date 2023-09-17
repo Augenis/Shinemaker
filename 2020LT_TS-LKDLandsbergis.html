@@ -184,7 +184,7 @@ campaignTrail_temp.questions_json = [
         "pk": 360,
         "fields": {
             "priority": 3,
-            "description": "The COVID-19 pandemic is putting the deficiencies of the Lithuanian healthcare system on full display. Hospitals, already struggling to cope with an aging society and one of the highest rates of cancer and heart disease in Europe, have been completely overloaded by the virus. Should you win the elections this year, how do you intend to reform the healthcare system?",
+            "description": "The COVID-19 pandemic is putting the deficiencies of the Lithuanian healthcare system on full display. Hospitals, already struggling to cope with an aging population and one of the highest rates of cancer and heart disease in Europe, have been completely overloaded. Should you win the elections this year, how do you intend to reform the healthcare system?",
             "likelihood": 1
         }
     },
@@ -628,7 +628,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14534,
         "fields": {
             "question": 353,
-            "description": "Actually, the Genocide Research Centre has confirmed that not only did Noreika not know about the purposes of the Jewish ghettos, but also fought to protect Jews. The Jewish community should offer an apology for an attack against a Lithuanian national hero."
+            "description": "Actually, the Genocide Research Centre has confirmed that not only did Noreika not know about the purposes of the Jewish ghettos, but also fought to protect Jews. The Jewish community should offer an apology for this attack against a Lithuanian national hero."
         }
     },
     {
@@ -21897,7 +21897,7 @@ if(answer == 14535) {
   changeWeight(weights, 13915, 77, -0.15);
   return;
 }
-if(answer == 14543) {
+if(answer == 14544) {
   // Liberals support dual citizenship. Nationalist parties hate it.
   changeWeight(weights, 80, 77, 0.3);
   changeWeight(weights, 13761, 77, 0.3);
@@ -22469,13 +22469,23 @@ window.setInterval(changechart,200)
 	  e.init = false
 	  if (!e.init) {
       e.init = true
-	  // get a simple array of popular votes for each candidate
-      let votes = aa.map(x=>x.popular_votes)
+	  // get an array of popular votes for each candidate (remove the Minor Parties)
+      let candidateIndex;
+		let votes = aa
+			.filter((x, index) => {
+				if (x.candidate === 14377) {
+					candidateIndex = index;
+					return false;
+				}
+				return true;
+			})
+			.map(x => x.popular_votes);
 	  
 	  // feed it to the d'Hondt(ish) algorithm
       let allocations = dHondtAllocationWithFewerBugs(votes, 70, 0.05);
 	  
 	  // store the resulting number of seats for the candidate in their object
+	  allocations.splice(candidateIndex, 0, 0);
       allocations.forEach((a,i) => aa[i].electoral_votes = a);
 	  
 	  // set up the second round in constituency 1
