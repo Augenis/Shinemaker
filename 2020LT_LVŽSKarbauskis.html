@@ -1,4 +1,11 @@
 e = campaignTrail_temp;
+campaignTrail_temp.election_json[0].fields.advisor_url = 'https://media.discordapp.net/attachments/559653590390800384/1155084951268630578/Campaign_advisors_LVZS.png';
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#009F6B"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#00d28d"
+$("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window;
+$(".footer a").css({"color":"#200000"});
+document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
+$(".container")[0].style.backgroundColor = "#66e4ba"
 const partyLeaders = [
     { party: 77, leaderName: 'Šimonytė', image: 'https://media.discordapp.net/attachments/559653590390800384/1148337429904887839/Simonyte.jpeg' },
     { party: 78, leaderName: 'Skvernelis II', image: 'https://media.discordapp.net/attachments/559653590390800384/1148337861280682086/Skvernelis.jpeg' },
@@ -596,7 +603,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14832,
         "fields": {
             "question": 348,
-            "description": "We will place a lot of emphasis on battling LGBT ideology in our election campaign. We will agitate against the Istanbul Convention, which the Liberal parties intend to sign, and individual members of our party will endorse Poland's recent \"LGBT-free zone\" program."
+            "description": "We will place a lot of emphasis on battling LGBT ideology in our election campaign. We will agitate against the Istanbul Convention, which the Liberal parties intend to sign, and individual members of our party will endorse the recent \"LGBT-free zone\" program in Polish municipalities."
         }
     },
     {
@@ -740,7 +747,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14980,
         "fields": {
             "question": 350,
-            "description": "They are clearly the unfortunate third in this race, but they might cause us to go under by splitting the vote. We will attack their chairman - Paluckas is a bleeding-heart liberal who stands with the LGBT agenda, and he does not deserve the vote of a honest Lithuanian peasant."
+            "description": "They are clearly the unfortunate third in this race, but they might cause us to go under by splitting the vote. We will attack their chairman - Paluckas is a bleeding-heart liberal who stands with the LGBT agenda and intends to form a coalition with the Conservatives - after all, he is a former Conservative himself!"
         }
     },
     {
@@ -24630,6 +24637,39 @@ window.setInterval(changechart,200)
     });
     return (partyLeaders.find((p) => p.party === partyWithHighestVotes))
   }
+  
+  changeTheme = (theme) => { // I'm borrowing your stuff Decstar
+    if (theme == "dark") {
+      nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#4f4f4f"
+      nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#383838"
+      document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
+      $("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window
+      $(".container")[0].style.backgroundColor = "#111111"
+      document.getElementById("header").src = "https://media.discordapp.net/attachments/559653590390800384/1154120209075015740/ship_of_idiots.png"
+	  document.body.background = "https://cdn2.onlithuania.com/content/uploads/2016/11/IMG_3185.jpg"
+      document.body.style.backgroundColor = "black"
+  
+      corrr = ''
+  
+      // text color
+  
+      if (document.getElementById("styler")) document.getElementById("styler").remove();
+  
+      let styler = document.createElement("style")
+      styler.innerHTML = `
+        #final_results_description {
+          color: white;
+        }
+          
+      `
+      styler.id = "styler"
+      document.body.appendChild(styler);
+      return;
+    }
+  
+  
+    return "Unknown theme";
+  }
 	
 	construct = (a = 1) => {
       e.page = e.page + a < e.pages.length ? e.page + a : 0
@@ -24748,9 +24788,10 @@ window.setInterval(changechart,200)
 	  
       // ENDINGS
 	  
-	  if (quickstats[0] >= 119) { // LVŽS hyper win
-          e.header = "<h2>Our glorious return.</h2>"
-          e.pages = [`<p>... (WIP, write some cool stuff here)</p>`]
+	  if (aa[0].candidate == 78 && aa[0].electoral_votes >= 119) { // LVŽS hyper win
+          changeTheme("dark")
+		  e.header = "<h2>Our impending return.</h2>"
+          e.pages = [`<p>"Have you found it?"</p><p>"Yes, my Lord..."</p><p>Slowly, one of Ramūnas' underlings carried forth a large and heavy book, before placing it down in front of the businessman. His body was a very helpful vessel - <em>Valstybininkai</em>, the Statesmen, they did not even suspect that the brash and arrogant leader of the Peasants was more than he seems. While they are busy going after empty leads, he could track down what he needed to restore the power of the velniai clan.</p><p>A thick tome. written in seemingly indescripherable language, was before Ramūnas' eyes. Hundreds of years ago, King Sigismund II Augustus invited a mage from Bohemia to perform a seance in which he could connect with his dead lover, Barbara Radziwill - after the wizard fled, his book of magic remained in the possession of the mortals of this land ever since. Ramūnas opened the tome. A powerful aura was radiating just from the words themselves - and the pathetic mortals never deciphered a single one of them!</p><p>"Perfect, Veryga, perfect..."</p><p>"Actually... that is not all, my Lord."</p><p>Ramūnas raised his eyebrow. "How so?"</p><p>"A hunter, a <em>Statesman...</em> he is closing in on our location as we speak. It is Gabrielius Landsbergis, my lord. The leader of the hunters himself."</p><p>"The Grandson...? How pathetic, he is repeating Albinas Januška's mistake. Very well. Bring me to him. He shall be destroyed."</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151598928190509056/vampire.png";
           return construct(0);
       }
@@ -24773,7 +24814,7 @@ window.setInterval(changechart,200)
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164295168020/DP_pergale.jpg";
           return construct(0);
       }
-	  else if (aa[0].candidate == 13838 && aa[0].electoral_votes >= 71) { // LLRA
+	  else if (aa[0].candidate == 13838) { // LLRA
           e.header = "<h2>Druga Żeligiada!</h2>"
           e.pages = [`<p>Niesamowite! Po podliczeniu głosów Najwyższa Komisja Wyborcza ogłosiła, że Akcja Wyborcza Polaków zdobyła większość mandatów! Jak to się mogło stać? Czyżbyśmy skrajnie nie doszacowali liczby naszych rodaków? Żaden rodowity Litwin by na nas nie zagłosował, więc ten wynik miałby jakiś sens tylko, gdyby jedna trzecia, bądź więcej, tego kraju była od początku Polakami – jak w starych dobrych czasach międzywojnia.</p><p>W takim razie pora na uruchomienie Planu X. Podczas gdy Litwini pozostają osłupieni wynikiem, robimy telefon do Prezydenta Dudy żeby przemieścił dywizję wojska na Przesmyk Suwalski. Ci „buntownicy”, przysięgając wyzwolenie rodaków z opresji, zrobią przemarsz na Wilno i po raz kolejny naprawią błędy przeszłości.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164693643275/LLRA_pergale.jpg";
@@ -24793,31 +24834,31 @@ window.setInterval(changechart,200)
       }
 	  else if (aa[0].candidate == 13992 && aa[0].electoral_votes >= 71) { // LSDDP
           e.header = "<h2>Power to the Beavers!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! After the votes were tallied, it became clear that the Social Democratic Labour Party, the ‘beavers’ - as some call all patriots who worked for Lithuania in government since the 1950s - won a majority of the seats! Nobody expected them to pull this off or even do better than the party they split off from, but they sure have been proven wrong.</p><p>Gediminas Kirkilas will form a Kirkilas II Cabinet, and his party has a lot to do. A statue to the great late Algirdas Mykolas Brazauskas will be raised in Vilnius, Kaišiadorys and by the Kaunas Reservoir, and the wages for all parliamentarians will be tripled. Let’s not forget, even more privatizations are in order - of course, we already know whose spouse’s company will win which contract. It’s just good governance.</p>`]
           e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166035820581/LSDDP_pergale.jpg";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14223 && aa[0].electoral_votes >= 71) { // LT
           e.header = "<h2>Night of the Walking Dead Parties!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! The news broadcast reports that Freedom and Justice won a majority of the seats in the election and will be forming the next government. Now, you would assume that one of the ‘Three Musketeers’ would be elevated to the office of Prime Minister - but you would be wrong.</p><p>Rolandas Paksas, the political zombie, is back. His impeachment will be overturned on the first day of the new Seimas and he will become the Prime Minister, through which he shall finally make his agenda reality. The Conservative deep state will be destroyed, the Euro will be abandoned, and Paksas will be provided with a fridge of hard drinks every day. His faith healer Lena Lolishvili will become the Minister of Health and will use her magic toilet paper to predict a bright future for the President of Hearts.</p>`]
           e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166312628356/LT_pergale.jpg";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14300 && aa[0].electoral_votes >= 71) { // LŽP
           e.header = "<h2>Nature doesn't have its candidates, but it has a Prime Minister!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! According to reports from the Supreme Electoral Commission, the Greens Party - not to be confused with the Farmers and Greens, that is the ‘Peasants’, very different - surpassed all expectations, including their own! Now, they have a majority of the seats, and green activist Remigijus Lapinskas will be sworn in as the new Prime Minister.</p><p>Most political scientists agree that the LŽP could only achieve this victory because every single Peasant voter confused the two parties on the ballot and so voted for the wrong party. But then why didn’t Green voters switch to the Peasants? The world wonders. You will be able to ponder this question while watching the one-millionth wind turbine being erected over some farmer’s property.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318721065030/LZP_pergale.jpg";
           return construct(0);
       }
-	  else if (aa[0].candidate == 14377 && aa[0].electoral_votes >= 71) { // Minors
+	  else if (aa[0].candidate == 14377) { // Minors
           e.header = "<h2>Lithuania, 2172.</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>It has been 152 years since the beginning of the great Lithuanian-Swedish Hyperwar. On one fateful day in 2020, Lithuanians declared that 'billions must die', and so they did. A parliament of kooks and nutters was elected, and the leader of this circus was Valdemaras Valkiūnas - former mayor of Biržai and far right businessman, once the only member of the Seimas to vote against Sweden's accession to NATO because they had yet to return the cannons they stole from the Biržai Castle during the Deluge.</p><p>And so, we went to war. Air pollution has made Vilnius inhospitable to life, but thousands of Lithuanians live here anyway. COVID-171 is ravaging Samogitia and turning people into brain-eating mutants. The National Stadium still hasn't been built.</p><p>At least it's better than under the Conservatives.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318993682462/Minors_pergale.jpg";
           return construct(0);
       }
-	  else if (quickstats[0] >= 71 && quickstats[0] < 119) { // LVŽS Majority
+	  else if (aa[0].candidate == 78 && aa[0].electoral_votes >= 71) { // LVŽS Majority
           e.header = "<h2>Victory for the 'Second Lithuania'!</h2>"
-          e.pages = [`<p>wip</p><p>wip</p>`]
+          e.pages = [`<p>Amazing! Though you started out on the back foot, you overcame your distance from the Conservatives, defended your record, destroyed Landsbergis' and Paluckas' arguments and won a majority of the seats! No party has managed to accomplish this since 1992, and the fragmentation of the party system made it seem as if it was impossible. Yet, you proved those no-good politologists wrong - nobody is going to doubt that your policies are supported by a majority of the people now!</p><p>You won't need to deal with the LSDDP, LLRA or any other party - they were only good for collecting scandals, anyway. Instead, you will govern alone, and push through an ambitious agenda of statist economics. The State Development Bank, reforms to healthcare and the education system, and a progressive taxation system are all on the table, as well as a war on drugs, alcohol and smoking. Make sure to also shut down any discussion on same-sex marriage. Just watch the polls, where you will inevitably eventually slip, and hope that no war breaks out by 2024.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1150117005706416270/Peasant_victory.jpg";
           return construct(0);
       }
@@ -24843,49 +24884,49 @@ window.setInterval(changechart,200)
 		if (negotiationsDone && selectedCoalition.id === 1){ // Historical coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Centre-Right Coalition!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD, LRLS and Freedom. This is the 'Right's' dream government - a conservative-liberal bloc which will roll back your alcohol restrictions, bury your plans for a Development Bank, and open discussion on LGBT rights and decriminalisation. Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 2){ // Historical coalition + LT
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Centre-Right Coalition!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD, LRLS, Freedom and LT. This is the 'Right's' dream government - a conservative-liberal bloc which will roll back your alcohol restrictions, bury your plans for a Development Bank, and open discussion on LGBT rights and decriminalisation. Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 3){ // Historical coalition + Labour
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Conservatives and Labour Dance!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD, LRLS, Freedom and Labour. Many people were caught off-guard by this arrangement, especially as this means Labour chose to betray you - a fact you will not take lightly. Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 4){ // Grand Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! A Grand Coalition Rises!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD and LSDP. The Social Democrats betrayed you! Paluckas, a Conservative in sheep's clothing, decided to ally with the right for an economically moderate, socially liberal government. Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 5){ // Grand Coalition + Liberals
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! A Grand Coalition Rises!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD, LSDP and LRLS. The Social Democrats betrayed you! Paluckas, a Conservative in sheep's clothing, decided to ally with the right for an economically moderate, socially liberal government. Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 6){ // Grand Coalition + Liberals + LSDDP
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! A Grand Coalition Rises!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD, LSDP, LRLS and LSDDP. The Social Democrats betrayed you! Paluckas, a Conservative in sheep's clothing, decided to ally with the right for an economically moderate, socially liberal government. Not only that, but your 'loyal' LSDDP allies joined them, too! Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 7){ // National Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! 'National Coalition' Established!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of your parliamentary plurality, the long time it took for you to negotiate a coalition meant that the right eventually seized initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the TS-LKD, Labour, CP-T, NS and LT. The Conservatives decided to pivot to the right and establish a surprisingly Eurosceptic and nationalist government, although the tendencies of their coalition partners will be tempered by the TS-LKD's traditional pro-EU stance. Your party will now be relegated to leading the opposition.</p><p>You personally will seethe, rage, and announce your resignation from your seat days later, intending to criticize the government without abate from the audience. Between their hardline anti-Russian stance and hints of gender-neutral partnership law, you will have plenty of ammunition. However, not all will be fine and dandy. Already, you hear rumors that Skvernelis, frustrated by your leadership, intends to take the moderate wing of the party and split off. How will you deal with this rebellion? If you retain control, perhaps you can return to power in 2024 - as long as something crazy doesn't happen, like a war...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
