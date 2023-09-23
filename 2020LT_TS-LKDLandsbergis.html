@@ -1,4 +1,5 @@
 e = campaignTrail_temp;
+campaignTrail_temp.election_json[0].fields.advisor_url = 'https://media.discordapp.net/attachments/559653590390800384/1155084950899535882/Campaign_advisors.png';
 const partyLeaders = [
     { party: 77, leaderName: 'Šimonytė', image: 'https://media.discordapp.net/attachments/559653590390800384/1148337429904887839/Simonyte.jpeg' },
     { party: 78, leaderName: 'Skvernelis II', image: 'https://media.discordapp.net/attachments/559653590390800384/1148337861280682086/Skvernelis.jpeg' },
@@ -22408,6 +22409,39 @@ window.setInterval(changechart,200)
     });
     return (partyLeaders.find((p) => p.party === partyWithHighestVotes))
   }
+  
+changeTheme = (theme) => { // I'm borrowing your stuff Decstar
+    if (theme == "dark") {
+      nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#4f4f4f"
+      nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#383838"
+      document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
+      $("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window
+      $(".container")[0].style.backgroundColor = "#111111"
+      document.getElementById("header").src = "https://media.discordapp.net/attachments/559653590390800384/1154120209075015740/ship_of_idiots.png"
+	  document.body.background = "https://cdn2.onlithuania.com/content/uploads/2016/11/IMG_3185.jpg"
+      document.body.style.backgroundColor = "black"
+  
+      corrr = ''
+  
+      // text color
+  
+      if (document.getElementById("styler")) document.getElementById("styler").remove();
+  
+      let styler = document.createElement("style")
+      styler.innerHTML = `
+        #final_results_description {
+          color: white;
+        }
+          
+      `
+      styler.id = "styler"
+      document.body.appendChild(styler);
+      return;
+    }
+  
+  
+    return "Unknown theme";
+  }
 	
 	construct = (a = 1) => {
       e.page = e.page + a < e.pages.length ? e.page + a : 0
@@ -22526,9 +22560,10 @@ window.setInterval(changechart,200)
       
       // ENDINGS
 	  
-		if (quickstats[0] >= 119) { // TS-LKD hyper win
+		if (aa[0].candidate == 77 && aa[0].electoral_votes >= 119) { // TS-LKD hyper win
+          changeTheme("dark")
           e.header = "<h2>Target eliminated.</h2>"
-          e.pages = [`<p>... (WIP, write some cool stuff here)</p>`]
+          e.pages = [`<p>Upon the strike of a bolt of lightning, the grotesque monstrosity fizzled into ash, and for the first time in half an hour, a silence set in Lukiškės Square. Gabrielius let out an easier breath.</p><p>It was rather foolish to think that it would end with the destruction of MG Baltic. A demonic race which has existed for millennia obviously had contingency plans within contingency plans, themselves within contingency plans.</p><p><em>Nor did Mockus bring all of his associates to battle eight years ago, either.</em> This one - a veteran of the velniai clan, perhaps, judging from his size and power - decided to take over the mind of the brash, confident CEO of Agrokoncernas. He had never seen such an ability before - taking over a politician through demonic possession, as opposed to the more common murder and shapeshifting.</p><p>Gabrielius holstered his gun, crackling with raw electric power, and walked away from the scene, hands in his pockets. Tomorrow, the media will report that Ramūnas Karbauskis was hospitalized, some conspiracies will crop up in the DELFI comment section, but most will read the news and move on, while a responsible centre-right government will take power like it should have back in 2016. The hunter pulled out his iPhone.</p><p>"Andrius, are you there? Have you tracked down <em>Cellophane</em>?"</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1149798365920506047/hunter.png";
           return construct(0);
       }
@@ -22551,7 +22586,7 @@ window.setInterval(changechart,200)
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164295168020/DP_pergale.jpg";
           return construct(0);
       }
-	  else if (aa[0].candidate == 13838 && aa[0].electoral_votes >= 71) { // LLRA
+	  else if (aa[0].candidate == 13838) { // LLRA
           e.header = "<h2>Druga Żeligiada!</h2>"
           e.pages = [`<p>Niesamowite! Po podliczeniu głosów Najwyższa Komisja Wyborcza ogłosiła, że Akcja Wyborcza Polaków zdobyła większość mandatów! Jak to się mogło stać? Czyżbyśmy skrajnie nie doszacowali liczby naszych rodaków? Żaden rodowity Litwin by na nas nie zagłosował, więc ten wynik miałby jakiś sens tylko, gdyby jedna trzecia, bądź więcej, tego kraju była od początku Polakami – jak w starych dobrych czasach międzywojnia.</p><p>W takim razie pora na uruchomienie Planu X. Podczas gdy Litwini pozostają osłupieni wynikiem, robimy telefon do Prezydenta Dudy żeby przemieścił dywizję wojska na Przesmyk Suwalski. Ci „buntownicy”, przysięgając wyzwolenie rodaków z opresji, zrobią przemarsz na Wilno i po raz kolejny naprawią błędy przeszłości.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164693643275/LLRA_pergale.jpg";
@@ -22571,29 +22606,29 @@ window.setInterval(changechart,200)
       }
 	  else if (aa[0].candidate == 13992 && aa[0].electoral_votes >= 71) { // LSDDP
           e.header = "<h2>Power to the Beavers!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! After the votes were tallied, it became clear that the Social Democratic Labour Party, the ‘beavers’ - as some call all patriots who worked for Lithuania in government since the 1950s - won a majority of the seats! Nobody expected them to pull this off or even do better than the party they split off from, but they sure have been proven wrong.</p><p>Gediminas Kirkilas will form a Kirkilas II Cabinet, and his party has a lot to do. A statue to the great late Algirdas Mykolas Brazauskas will be raised in Vilnius, Kaišiadorys and by the Kaunas Reservoir, and the wages for all parliamentarians will be tripled. Let’s not forget, even more privatizations are in order - of course, we already know whose spouse’s company will win which contract. It’s just good governance.</p>`]
           e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166035820581/LSDDP_pergale.jpg";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14223 && aa[0].electoral_votes >= 71) { // LT
           e.header = "<h2>Night of the Walking Dead Parties!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! The news broadcast reports that Freedom and Justice won a majority of the seats in the election and will be forming the next government. Now, you would assume that one of the ‘Three Musketeers’ would be elevated to the office of Prime Minister - but you would be wrong.</p><p>Rolandas Paksas, the political zombie, is back. His impeachment will be overturned on the first day of the new Seimas and he will become the Prime Minister, through which he shall finally make his agenda reality. The Conservative deep state will be destroyed, the Euro will be abandoned, and Paksas will be provided with a fridge of hard drinks every day. His faith healer Lena Lolishvili will become the Minister of Health and will use her magic toilet paper to predict a bright future for the President of Hearts.</p>`]
           e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166312628356/LT_pergale.jpg";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14300 && aa[0].electoral_votes >= 71) { // LŽP
           e.header = "<h2>Nature doesn't have its candidates, but it has a Prime Minister!</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>Incredible! According to reports from the Supreme Electoral Commission, the Greens Party - not to be confused with the Farmers and Greens, that is the ‘Peasants’, very different - surpassed all expectations, including their own! Now, they have a majority of the seats, and green activist Remigijus Lapinskas will be sworn in as the new Prime Minister.</p><p>Most political scientists agree that the LŽP could only achieve this victory because every single Peasant voter confused the two parties on the ballot and so voted for the wrong party. But then why didn’t Green voters switch to the Peasants? The world wonders. You will be able to ponder this question while watching the one-millionth wind turbine being erected over some farmer’s property.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318721065030/LZP_pergale.jpg";
           return construct(0);
       }
-	  else if (aa[0].candidate == 14377 && aa[0].electoral_votes >= 71) { // Minors
+	  else if (aa[0].candidate == 14377) { // Minors
           e.header = "<h2>Lithuania, 2172.</h2>"
-          e.pages = [`<p>...</p><p>...</p>`]
+          e.pages = [`<p>It has been 152 years since the beginning of the great Lithuanian-Swedish Hyperwar. On one fateful day in 2020, Lithuanians declared that 'billions must die', and so they did. A parliament of kooks and nutters was elected, and the leader of this circus was Valdemaras Valkiūnas - former mayor of Biržai and far right businessman, once the only member of the Seimas to vote against Sweden's accession to NATO because they had yet to return the cannons they stole from the Biržai Castle during the Deluge.</p><p>And so, we went to war. Air pollution has made Vilnius inhospitable to life, but thousands of Lithuanians live here anyway. COVID-171 is ravaging Samogitia and turning people into brain-eating mutants. The National Stadium still hasn't been built.</p><p>At least it's better than under the Conservatives.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318993682462/Minors_pergale.jpg";
           return construct(0);
       }
-		else if (quickstats[0] >= 71 && quickstats[0] < 119) { // TS-LKD majority
+		else if (aa[0].candidate == 77 && aa[0].electoral_votes >= 71) { // TS-LKD majority
           e.header = "<h2>Victory for the Right!</h2>"
           e.pages = [`<p>Amazing! Though the polls were predicting the TS-LKD to receive an even larger share of the vote than 2016, nobody was anticipating you to do so well in single-member constituencies that you will obtain an outright majority in the Seimas! This is the greatest result for your party since 1996, and if you were following a certain tactic to achieve this, then it is certain to become the cornerstone of the party's strategy for decades.</p><p>You will not need to invite the Liberals or any other party to government, although, much like in 1996, you may consider it to give the Šimonytė Cabinet an illusion of uniting the centre-right. The country is now your oyster. You will be able to undo many of the Peasants' controlling policies and take a more aggressive position towards Russia and China - if you are feeling confident, perhaps you can also legalize same-sex partnerships. Just watch the polls, where you will inevitably eventually slip, and hope that no war breaks out by 2024.</p>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1149307377787621447/Conservative_victory.png";
