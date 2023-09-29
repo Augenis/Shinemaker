@@ -80,24 +80,6 @@ campaignTrail_temp.questions_json = [
     },
     {
         "model": "campaign_trail.question",
-        "pk": 348,
-        "fields": {
-            "priority": 2,
-            "description": "Most voters in Lithuania know you not as a committed social democrat, but as an official formerly convicted of corruption. In 2012, working in the Vilnius city administration, you were ultimately found guilty of non-transparent public procurement of rodent extermination services, the so-called \"rat case\". Even members of your own party were hesitant to vote for you as chairman in 2017. What will your response be to this line of attack?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
-        "pk": 349,
-        "fields": {
-            "priority": 2,
-            "description": "You first entered politics not as a Social Democrat, but as a member of the Young Conservative League (JKL), the youth organization of the TS-LKD. In the media, this is mostly a source of harmless ridicule, but Ramūnas Karbauskis has decided to run with this and claims that you are colluding with your former \"comrades\" to form a coalition with the Conservatives after the election. How will you answer these allegations?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
         "pk": 345,
         "fields": {
             "priority": 2,
@@ -27161,7 +27143,25 @@ questionSheath = [
       "description": "Finally, those annoying kids and their gay agenda have been pushed out of the party leadership, and the old trusted respectables have regained control. Immediately, the LSDDP has begun observing you in another light. Gediminas Kirkilas has hinted before that he would be open to a reunification of the Social Democrats should you be elected chairman. Is it time - shall we rebuild our broken and battered party once more?",
       "likelihood": 1
     }
-  }
+  },
+  {
+        "model": "campaign_trail.question",
+        "pk": 348,
+        "fields": {
+            "priority": 2,
+            "description": "Most voters in Lithuania know you not as a committed social democrat, but as an official formerly convicted of corruption. In 2012, working in the Vilnius city administration, you were ultimately found guilty of non-transparent public procurement of rodent extermination services, the so-called \"rat case\". Even members of your own party were hesitant to vote for you as chairman in 2017. What will your response be to this line of attack?",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 349,
+        "fields": {
+            "priority": 2,
+            "description": "You first entered politics not as a Social Democrat, but as a member of the Young Conservative League (JKL), the youth organization of the TS-LKD. In the media, this is mostly a source of harmless ridicule, but Ramūnas Karbauskis has decided to run with this and claims that you are colluding with your former \"comrades\" to form a coalition with the Conservatives after the election. How will you answer these allegations?",
+            "likelihood": 1
+        }
+    },
 ]
 
 e.cyoa = true;
@@ -27202,8 +27202,8 @@ let hell_answerCount = controversyCount(e.player_answers, a => a.fields.hell_ans
 let controversialCount = controversyCount(e.player_answers);
 if (( controversialCount > 3 ) && !e.switched) {
     e.switched = true;
-e.questions_json.splice(6, 0 , getQuestionFromPk(4025))
-e.global_parameter_json[0].fields.question_count = 26
+e.questions_json.splice(4, 0 , getQuestionFromPk(4025))
+e.global_parameter_json[0].fields.question_count = 25
 return;
 }
 // Answers which affect a party's likelihood to support you. Or your likelihood to support others.
@@ -27216,11 +27216,35 @@ return;
 // weights is weights, source candidate is the "outer" one, target candidate the "inner" one and changeAmount is added to it
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
 // Answers for the secret path
+if(answer == 15122 && controversialCount < 4) {
+	e.questions_json.splice(4, 0 , getQuestionFromPk(348))
+	e.questions_json.splice(5, 0 , getQuestionFromPk(349))
+	e.global_parameter_json[0].fields.question_count = 25
+	return;
+}
+if(answer == 15123 && controversialCount < 4) {
+	e.questions_json.splice(4, 0 , getQuestionFromPk(348))
+	e.questions_json.splice(5, 0 , getQuestionFromPk(349))
+	e.global_parameter_json[0].fields.question_count = 25
+	return;
+}
+if(answer == 15124 && controversialCount < 4) {
+	e.questions_json.splice(4, 0 , getQuestionFromPk(348))
+	e.questions_json.splice(5, 0 , getQuestionFromPk(349))
+	e.global_parameter_json[0].fields.question_count = 25
+	return;
+}
+if(answer == 15128 && controversialCount < 4) {
+	e.questions_json.splice(4, 0 , getQuestionFromPk(348))
+	e.questions_json.splice(5, 0 , getQuestionFromPk(349))
+	e.global_parameter_json[0].fields.question_count = 25
+	return;
+}
 if(answer == 15466) {
   // Olekas is elected.
   olekas = true;
-  e.questions_json.splice(7, 0 , getQuestionFromPk(4026))
-  e.global_parameter_json[0].fields.question_count = 27
+  e.questions_json.splice(5, 0 , getQuestionFromPk(4026))
+  e.global_parameter_json[0].fields.question_count = 25
   const leader105 = partyLeaders.find((leader) => leader.party === 79);
   leader105.leaderName = 'Olekas';
   leader105.image = 'https://media.discordapp.net/attachments/559653590390800384/1157411560482938960/Olekas.jpg';
@@ -27241,6 +27265,8 @@ if(answer == 15466) {
 }
 if(answer == 15467) {
   // The old guard leaves the party.
+  e.questions_json.splice(5, 0 , getQuestionFromPk(348))
+  e.global_parameter_json[0].fields.question_count = 25
   changeWeight(weights, 13761, 79, 0.4);
   changeWeight(weights, 80, 79, 0.2);
   changeWeight(weights, 77, 79, 0.2);
