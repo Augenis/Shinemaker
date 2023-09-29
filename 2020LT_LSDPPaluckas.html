@@ -459,7 +459,8 @@ campaignTrail_temp.answers_json = [
         "pk": 15104,
         "fields": {
             "question": 366,
-            "description": "After the split in 2017, our party needs a victory to inspire them ahead of the 2020 election. Winning a constituency in Vilnius would also prove that our new progressive course can attract urban voters."
+            "description": "After the split in 2017, our party needs a victory to inspire them ahead of the 2020 election. Winning a constituency in Vilnius would also prove that our new progressive course can attract urban voters.", 
+			"controversial": true
         }
     },
     {
@@ -475,7 +476,8 @@ campaignTrail_temp.answers_json = [
         "pk": 15108,
         "fields": {
             "question": 393,
-            "description": "He is perhaps the most esteemed social democratic intellectual in the nation, a rare kind of person who has a real vision for the future. We will give him this opportunity."
+            "description": "He is perhaps the most esteemed social democratic intellectual in the nation, a rare kind of person who has a real vision for the future. We will give him this opportunity.", 
+			"controversial": true
         }
     },
     {
@@ -507,7 +509,8 @@ campaignTrail_temp.answers_json = [
         "pk": 15115,
         "fields": {
             "question": 369,
-            "description": "This campaign is where we will fully display our party's renewal. We are the progressive alternative to the Conservatives and Peasants, and we promise to fight for social equality and economic democracy."
+            "description": "This campaign is where we will fully display our party's renewal. We are the progressive alternative to the Conservatives and Peasants, and we promise to fight for social equality and economic democracy.", 
+			"controversial": true
         }
     },
     {
@@ -539,7 +542,8 @@ campaignTrail_temp.answers_json = [
         "pk": 15123,
         "fields": {
             "question": 343,
-            "description": "How can we claim that partnerships are enough? If we truly desire equality for all, no matter their sexual orientation, we must allow gender-neutral marriage and allow transgender individuals to legally change their gender."
+            "description": "How can we claim that partnerships are enough? If we truly desire equality for all, no matter their sexual orientation, we must allow gender-neutral marriage and allow transgender individuals to legally change their gender.", 
+			"controversial": true
         }
     },
     {
@@ -916,6 +920,38 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 364,
             "description": "I will go on television, and I will push back against Karbauskis' claims. I will assert that we never counted out the possibility of a centre-left coalition and that my party will not form a coalition with the TS-LKD."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15466,
+        "fields": {
+            "question": 4025,
+            "description": "This is very troubling. I need to hold an emergency party conference where we settle our differences and return to the campaign as a united party."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15467,
+        "fields": {
+            "question": 4025,
+            "description": "Most of their allies have left for the LSDDP years ago, they are powerless. We will offer the conservative wing some reassurances, but no more than that."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15477,
+        "fields": {
+            "question": 4026,
+            "description": "Let us immediately begin negotiations. We don't have the time to orchestrate a reunification, so let us establish a common electoral list and run as one."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15478,
+        "fields": {
+            "question": 4026,
+            "description": "I have great respect for my comrades in the Social Democratic Labour, but even I have to accept that we have diverged too much from one another. We will run separately."
         }
     }
 ]
@@ -20426,6 +20462,126 @@ campaignTrail_temp.answer_score_global_json = [
             "affected_candidate": 79,
             "global_multiplier": -0.05
         }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15469,
+        "fields": {
+            "answer": 15466,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "global_multiplier": -0.1
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15472,
+        "fields": {
+            "answer": 15467,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "global_multiplier": -0.1
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15473,
+        "fields": {
+            "answer": 15467,
+            "candidate": 79,
+            "affected_candidate": 78,
+            "global_multiplier": 0.05
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15474,
+        "fields": {
+            "answer": 15467,
+            "candidate": 79,
+            "affected_candidate": 13992,
+            "global_multiplier": 0.2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15475,
+        "fields": {
+            "answer": 15467,
+            "candidate": 79,
+            "affected_candidate": 13915,
+            "global_multiplier": 0.1
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15480,
+        "fields": {
+            "answer": 15477,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "global_multiplier": 0.25
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15481,
+        "fields": {
+            "answer": 15477,
+            "candidate": 79,
+            "affected_candidate": 13992,
+            "global_multiplier": -2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15482,
+        "fields": {
+            "answer": 15477,
+            "candidate": 79,
+            "affected_candidate": 13992,
+            "global_multiplier": -1
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15483,
+        "fields": {
+            "answer": 15477,
+            "candidate": 79,
+            "affected_candidate": 78,
+            "global_multiplier": -0.1
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15484,
+        "fields": {
+            "answer": 15477,
+            "candidate": 79,
+            "affected_candidate": 13915,
+            "global_multiplier": -0.2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15487,
+        "fields": {
+            "answer": 15478,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "global_multiplier": 0.1
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15488,
+        "fields": {
+            "answer": 15478,
+            "candidate": 79,
+            "affected_candidate": 13992,
+            "global_multiplier": -0.4
+        }
     }
 ]
 
@@ -22699,6 +22855,66 @@ campaignTrail_temp.answer_score_issue_json = [
             "issue_score": -0.33,
             "issue_importance": 3
         }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15470,
+        "fields": {
+            "answer": 15466,
+            "issue": 28,
+            "issue_score": -0.5,
+            "issue_importance": 5
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15476,
+        "fields": {
+            "answer": 15467,
+            "issue": 28,
+            "issue_score": 0.5,
+            "issue_importance": 12
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15483,
+        "fields": {
+            "answer": 15477,
+            "issue": 28,
+            "issue_score": -0.5,
+            "issue_importance": 4
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15484,
+        "fields": {
+            "answer": 15477,
+            "issue": 30,
+            "issue_score": -0.5,
+            "issue_importance": 4
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15489,
+        "fields": {
+            "answer": 15478,
+            "issue": 28,
+            "issue_score": -0.3,
+            "issue_importance": 4
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15490,
+        "fields": {
+            "answer": 15478,
+            "issue": 30,
+            "issue_score": -0.4,
+            "issue_importance": 4
+        }
     }
 ]
 
@@ -23636,6 +23852,94 @@ campaignTrail_temp.answer_score_state_json = [
             "candidate": 79,
             "affected_candidate": 79,
             "state_multiplier": 0.05
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15485,
+        "fields": {
+            "answer": 15477,
+            "state": 13601,
+            "candidate": 79,
+            "affected_candidate": 14377,
+            "state_multiplier": 1.8
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15486,
+        "fields": {
+            "answer": 15477,
+            "state": 13751,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "state_multiplier": 2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15491,
+        "fields": {
+            "answer": 15466,
+            "state": 13201,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "state_multiplier": -3
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15492,
+        "fields": {
+            "answer": 15466,
+            "state": 13201,
+            "candidate": 79,
+            "affected_candidate": 14377,
+            "state_multiplier": 1
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15493,
+        "fields": {
+            "answer": 15466,
+            "state": 13071,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "state_multiplier": -3
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15494,
+        "fields": {
+            "answer": 15466,
+            "state": 13071,
+            "candidate": 79,
+            "affected_candidate": 14377,
+            "state_multiplier": 1
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15495,
+        "fields": {
+            "answer": 15467,
+            "state": 13521,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "state_multiplier": -5
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_state",
+        "pk": 15496,
+        "fields": {
+            "answer": 15467,
+            "state": 13521,
+            "candidate": 79,
+            "affected_candidate": 13992,
+            "state_multiplier": 1.2
         }
     }
 ]
@@ -26754,6 +27058,42 @@ campaignTrail_temp.answer_feedback_json = [
             "candidate": 79,
             "answer_feedback": "It appears that you are experiencing a slight dip in the polls - it is uncertain if Karbauskis' attacks are to blame or if undecided Social Democratic voters decided to cast their votes for the likely leading left party."
         }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 15468,
+        "fields": {
+            "answer": 15466,
+            "candidate": 79,
+            "answer_feedback": "This is exactly what the old guard was waiting for. Rallying the conservative party groups, they challenge your leadership in the conference and outvote you. Juozas Olekas is elected as the new chairman."
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 15471,
+        "fields": {
+            "answer": 15467,
+            "candidate": 79,
+            "answer_feedback": "Over the following weeks, even more old-guard figures bleed out from your ranks, most of them either choosing to become independents or leaving for the LSDDP. It doesn't seem like we're winning this..."
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 15479,
+        "fields": {
+            "answer": 15477,
+            "candidate": 79,
+            "answer_feedback": "Together with the LSDDP, you establish the \"Social Democratic Coalition - 2020\" list. \nSocial Democracy is back."
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 15486,
+        "fields": {
+            "answer": 15478,
+            "candidate": 79,
+            "answer_feedback": "Even if you may not be unified, many LSDDP voters will bleed to you. Social Democracy is back."
+        }
     }
 ]
 
@@ -26803,6 +27143,27 @@ function changeWeight(weights, sourceCandidateId, targetCandidateId, changeAmoun
 	candidateWeights.weights[targetCandidateId] = Math.max(0, candidateWeights.weights[targetCandidateId] );
 }
 
+questionSheath = [
+  {
+    "model": "campaign_trail.question",
+    "pk": 4025,
+    "fields": {
+      "priority": 1,
+      "description": "The party is in rebellion. The election campaign has barely begun and you have taken the most progressive position possible, infuriating the conservative wing of the party, led by old-guard figures such as Alfonsas Brazas and Juozas Olekas. There are rumors of another party split, or even a challenge to party leadership. ",
+      "likelihood": 1
+    }
+  },
+  {
+    "model": "campaign_trail.question",
+    "pk": 4026,
+    "fields": {
+      "priority": 1,
+      "description": "Finally, those annoying kids and their gay agenda have been pushed out of the party leadership, and the old trusted respectables have regained control. Immediately, the LSDDP has begun observing you in another light. Gediminas Kirkilas has hinted before that he would be open to a reunification of the Social Democrats should you be elected chairman. Is it time - shall we rebuild our broken and battered party once more?",
+      "likelihood": 1
+    }
+  }
+]
+
 e.cyoa = true;
 
 getQuestionFromPk = function (pk) {
@@ -26813,10 +27174,38 @@ return false;
 return questionSheath[index];
 };
 
+// counts how many controversial answers a player makes & has an extra function to count different aspects of answers
+
+controversyCount = (array, call = a => a.fields.controversial) => { 
+array = array.filter(a=>a);
+let answers = e.answers_json.map(f=>f.pk);
+let controversy = 0;
+for (i in array) {
+  let answer = e.answers_json[answers.indexOf(array[i])];
+  if (!call(answer)) {
+      continue;
+  }
+  controversy++;
+}
+return controversy;
+}
+
 let threshold = 0.05;
+
+e.switched = false;
+olekas = false;
 
 cyoAdventure = function (a) {
 answer = e.player_answers[e.player_answers.length - 1]; // get current answer selection
+
+let hell_answerCount = controversyCount(e.player_answers, a => a.fields.hell_answer);  
+let controversialCount = controversyCount(e.player_answers);
+if (( controversialCount > 3 ) && !e.switched) {
+    e.switched = true;
+e.questions_json.splice(6, 0 , getQuestionFromPk(4025))
+e.global_parameter_json[0].fields.question_count = 26
+return;
+}
 // Answers which affect a party's likelihood to support you. Or your likelihood to support others.
 /*
   function changeWeight(weights, sourceCandidateId, targetCandidateId, changeAmount) {
@@ -26826,6 +27215,72 @@ answer = e.player_answers[e.player_answers.length - 1]; // get current answer se
 */
 // weights is weights, source candidate is the "outer" one, target candidate the "inner" one and changeAmount is added to it
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
+// Answers for the secret path
+if(answer == 15466) {
+  // Olekas is elected.
+  olekas = true;
+  e.questions_json.splice(7, 0 , getQuestionFromPk(4026))
+  e.global_parameter_json[0].fields.question_count = 27
+  const leader105 = partyLeaders.find((leader) => leader.party === 79);
+  leader105.leaderName = 'Olekas';
+  leader105.image = 'https://media.discordapp.net/attachments/559653590390800384/1157411560482938960/Olekas.jpg';
+  campaignTrail_temp.running_mate_image_url = 'https://media.discordapp.net/attachments/559653590390800384/1157411560482938960/Olekas.jpg';
+  campaignTrail_temp.running_mate_last_name = 'Olekas';
+  changeWeight(weights, 78, 79, 0.3);
+  changeWeight(weights, 13915, 79, 0.5);
+  changeWeight(weights, 13992, 79, 0.5);
+  changeWeight(weights, 14069, 79, 0.5);
+  changeWeight(weights, 14146, 79, 0.5);
+  changeWeight(weights, 14223, 79, 0.25);
+  changeWeight(weights, 14377, 79, 0.25);
+  changeWeight(weights, 77, 79, -0.3);
+  changeWeight(weights, 80, 79, -0.5);
+  changeWeight(weights, 13761, 79, -1);
+  changeWeight(weights, 14300, 79, -0.2);
+  return;
+}
+if(answer == 15467) {
+  // The old guard leaves the party.
+  changeWeight(weights, 13761, 79, 0.4);
+  changeWeight(weights, 80, 79, 0.2);
+  changeWeight(weights, 77, 79, 0.2);
+  changeWeight(weights, 78, 79, -0.2);
+  changeWeight(weights, 13915, 79, -0.2);
+  changeWeight(weights, 13992, 79, -0.5);
+  changeWeight(weights, 14146, 79, -0.2);
+  changeWeight(weights, 14069, 79, -0.2);
+  return;
+}
+if(answer == 15477) {
+  // Social Democracy 2020
+  e.candidate_json[2].fields.last_name = "SDK-2020"
+  campaignTrail_temp.candidate_image_url = 'https://media.discordapp.net/attachments/559653590390800384/1157412541333524540/SD.png';
+  campaignTrail_temp.candidate_last_name = 'SDK-2020';
+  changeWeight(weights, 78, 79, 0.2);
+  changeWeight(weights, 13915, 79, 0.5);
+  changeWeight(weights, 14069, 79, 0.2);
+  changeWeight(weights, 14146, 79, 0.2);
+  changeWeight(weights, 14223, 79, 0.2);
+  changeWeight(weights, 14377, 79, 0.2);
+  changeWeight(weights, 77, 79, -0.2);
+  changeWeight(weights, 80, 79, -0.2);
+  changeWeight(weights, 13761, 79, -0.4);
+  return;
+}
+if(answer == 15478) {
+  // No Social Democracy 2020
+  changeWeight(weights, 78, 79, 0.1);
+  changeWeight(weights, 13915, 79, 0.2);
+  changeWeight(weights, 14069, 79, 0.1);
+  changeWeight(weights, 14146, 79, 0.1);
+  changeWeight(weights, 14223, 79, 0.1);
+  changeWeight(weights, 14377, 79, 0.1);
+  changeWeight(weights, 77, 79, -0.1);
+  changeWeight(weights, 80, 79, -0.1);
+  changeWeight(weights, 13761, 79, -0.2);
+  return;
+}
+
 if(answer == 14563) {
   // Voting against the conservatives.
   changeWeight(weights, 79, 77, -0.25);
@@ -27791,10 +28246,22 @@ window.setInterval(changechart,200)
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1154173892382949416/Socdem_victory.jpg";
           return construct(0);
       }
+	  else if (aa[0].candidate == 79 && !negotiationsDone && olekas) { // LSDP Plurality (Olekas)
+          e.header = "<h2>The Old Course Redeemed!</h2>"
+          e.pages = [`<p>wip</p><p>wip</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1157425254176669738/Olekas_win.jpg";
+          return construct(0);
+      }
 	  else if (aa[0].candidate == 79 && !negotiationsDone) { // LSDP Plurality
           e.header = "<h2>The New Course Redeemed!</h2>"
           e.pages = [`<p>Incredible! Mere months ago, you and your party were written off as a doomed runner-up to the Peasants and Conservatives, yet, with a stellar election campaign, you overcame them both and won a plurality of the seats - so, you will receive the initiative to form a government. Your doubters have been proven wrong - the progressive turn was the right direction for the LSDP after all. No longer will it be a party for retired nomenklatura and corrupt mayors with little to no ideology - no, it will join the pantheon of progressive, Westernized social democratic parties.</p><p>What next? Assuming you manage to form a government, you will have to manage the COVID-19 pandemic at its peak and then consider your options. A real system of progressive taxation, reforms to the healthcare system and social security, perhaps even gender-neutral partnerships - all will be on the table. Just watch the polls - where you will eventually slip - after all, no party has ever managed to get reelected in Lithuanian history...</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://media.discordapp.net/attachments/559653590390800384/1154173892382949416/Socdem_victory.jpg";
+          return construct(0);
+      }
+	  else if (aa[0].candidate !== 79 && olekas) { // LSDP Loss (Olekas)
+          e.header = "<h2>Defeated.</h2>"
+          e.pages = [`<p>wip</p><p>wip</p>`]
+          e.image = "https://media.discordapp.net/attachments/559653590390800384/1157425253904023652/Olekas_loss.jpg";
           return construct(0);
       }
 	  else if (aa[1].candidate == 79) { // LSDP Loss (Second Place)
