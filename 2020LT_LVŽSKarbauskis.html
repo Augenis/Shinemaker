@@ -24201,106 +24201,86 @@ if(answer == 14552) {
 }
 };
 
-function loadScript(url, callback) {
-    var script = document.createElement('script');
-    script.src = url;
-    script.onload = callback;
-  
-    document.head.appendChild(script);
-  }
-  
-  function mcaHeight() {
-      var mca = document.getElementById("main_content_area");
-      var map = document.getElementById("map_container")
-      if (mca) {
-        mca.style.height = "79%";
-        if(map){
-         mca.style.height = "76%";
-        }
-      }
+    function loadScript(url, callback) {
+      var script = document.createElement('script');
+      script.src = url;
+      script.onload = callback;
+    
+      document.head.appendChild(script);
     }
-    const mcaObserver = new MutationObserver(mcaHeight);
-    mcaObserver.observe(document.documentElement, { childList: true, subtree: true });
-  
-  var charts = ["voteshare", "seats"]
-
-  let observerRunning = false;
-  let changeChartRunning = false;
-  let mcaHeightRunning = false;
-  let processedNodes = new Set();
-  
-  async function handleMutations(mutationsList, observer) {
-      if (observerRunning) return;
-      observerRunning = true;
-  
-      // stop observing
-      observer.disconnect();
-  
-      // addScrollbar
-      const overallResult = document.getElementById('overall_result');
-      if (overallResult && !processedNodes.has(overallResult)) {
-          overallResult.style.overflow = 'auto';
-          const buttons = document.querySelectorAll('#view_electoral_map, #answer_select_button, #ok_button, #final_election_map_button');
-          const handleClick = () => {
-              overallResult.style.overflow = 'auto';
-          };
-          buttons.forEach(button => button.addEventListener('click', handleClick));
-          processedNodes.add(overallResult);
-      }
-  
-      // changechart
-      if (!changeChartRunning) {
-          changeChartRunning = true;
-          const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_details_container"];
-          for(let id of elementIDs) {
-              let element = document.getElementById(id);
-              if (element && !processedNodes.has(element)) {
-                  let overallthing = element.innerHTML;
-                  overallthing = overallthing.replace("Electoral Votes","Allocated Seats");
-                  overallthing = overallthing.replace("Candidate","Party");
-                  element.innerHTML = overallthing;
-                  processedNodes.add(element);
-              }
-          }
-          changeChartRunning = false;
-      }
-   // mcaHeight
-      if (!mcaHeightRunning) {
-          mcaHeightRunning = true;
-          let results_container = document.getElementById("results_container");
-          let chart = document.getElementById("myChart");
-          if (results_container && !processedNodes.has(results_container)) {
-              if (!chart){
-                  results_container.style.height = "98%";
-                  results_container.style.overflow = "scroll";
-              } else {
-                  let mca = document.getElementById("main_content_area");
-                  if (mca) {
-                      mca.style.height = "80%";
-                  }
-              }
-              processedNodes.add(results_container);
-          }
-          mcaHeightRunning = false;
-      }
-  
-      // Resume observing
-      observer.observe(document.documentElement, { childList: true, subtree: true });
-      observerRunning = false;
-  }
-  
-  let singleObserver = new MutationObserver(handleMutations);
-  singleObserver.observe(document.documentElement, { childList: true, subtree: true });
-
-function changechart(){
-  if (document.getElementById("overall_vote_statistics")!=null) {
-  overallthing=document.getElementById("overall_vote_statistics").innerHTML;
-  overallthing.toString()
-  overallthing=overallthing.replace("Electoral Votes","Seats Won")
-  document.getElementById("overall_vote_statistics").innerHTML=overallthing
-  }
-  }
-window.setInterval(changechart,200)
+    
+    
+    var charts = ["voteshare", "seats"]
+    
+    let observerRunning = false;
+    let changeChartRunning = false;
+    let mcaHeightRunning = false;
+    let processedNodes = new Set();
+    
+    async function handleMutations(mutationsList, observer) {
+        if (observerRunning) return;
+        observerRunning = true;
+    
+        // stop observing
+        observer.disconnect();
+    
+        // addScrollbar
+        const overallResult = document.getElementById('overall_result');
+        if (overallResult && !processedNodes.has(overallResult)) {
+            overallResult.style.overflow = 'auto';
+            const buttons = document.querySelectorAll('#view_electoral_map, #answer_select_button, #ok_button, #final_election_map_button');
+            const handleClick = () => {
+                overallResult.style.overflow = 'auto';
+            };
+            buttons.forEach(button => button.addEventListener('click', handleClick));
+            processedNodes.add(overallResult);
+        }
+    
+        // changechart
+        if (!changeChartRunning) {
+            changeChartRunning = true;
+            const elementIDs = ["overall_vote_statistics", "state_result_data_summary", "overall_details_container"];
+            for(let id of elementIDs) {
+                let element = document.getElementById(id);
+                if (element && !processedNodes.has(element)) {
+                    let overallthing = element.innerHTML;
+                    overallthing = overallthing.replace("Delegates","Allocated Seats");
+					overallthing = overallthing.replace("Electoral Votes","Seat Won By");
+                    overallthing = overallthing.replace("Candidate","Party List");
+					overallthing = overallthing.replace("Popular Votes","Popular Votes (First Round)");
+                    element.innerHTML = overallthing;
+                    processedNodes.add(element);
+                }
+            }
+            changeChartRunning = false;
+        }
+     // mcaHeight
+        if (!mcaHeightRunning) {
+            mcaHeightRunning = true;
+            let results_container = document.getElementById("results_container");
+            let chart = document.getElementById("myChart");
+            if (results_container && !processedNodes.has(results_container)) {
+                if (!chart){
+                    results_container.style.height = "98%";
+                    results_container.style.overflow = "scroll";
+                } else {
+                    let mca = document.getElementById("main_content_area");
+                    if (mca) {
+                        mca.style.height = "80%";
+                    }
+                }
+                processedNodes.add(results_container);
+            }
+            mcaHeightRunning = false;
+        }
+    
+        // Resume observing
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+        observerRunning = false;
+    }
+    
+    let singleObserver = new MutationObserver(handleMutations);
+    singleObserver.observe(document.documentElement, { childList: true, subtree: true });
 
     function dHondtAllocationWithFewerBugs(votes, seats, thresh = 0.05) {
       let quotients = votes.splice()
