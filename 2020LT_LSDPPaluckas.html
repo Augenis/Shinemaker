@@ -28272,7 +28272,7 @@ if(answer == 14552) {
       }
 	  else if (aa[0].candidate == 79 && aa[0].electoral_votes >= 71 && olekas) { // LSDP Majority (Olekas)
           e.header = "<h2>Victory for the Left!</h2>"
-          e.pages = [`<p>wip</p><p>wip</p>`]
+          e.pages = [`<p>Amazing! When you were elected chairman of the LSDP, the Social Democrats were in a polling rut and few expected much of you - yet, you proved the doubters wrong and ran the campaign so well that you won an outright majority of the vote! A party controlling a majority of the Seimas has never been seen since 1992 - when, incidentally, your party's predecessor, the Democratic Labour Party, made an upset and won a majority of the seats. You won't need to form a coalition with anyone else in parliament - although you might still have to work across the aisle at times.</p><p>You are now free to implement your social democratic program and lay down the foundations for a welfare state - of course, a pragmatic one, not like the extremists on the progressive wing. Large expansion to the healthcare system, especially in the regions, a more inclusive system of social security, all funded with a system of progressive income taxation. Or you can abandon these goals entirely and follow the fiscally conservative policies of the Butkevičius Cabinet. If you succeed, you may consolidate Social Democracy's traditional foundations for decades - as long as nothing unexpected happens, like a war.</p>`]
           e.image = "https://i.imgur.com/b7MGMxn.jpg";
           return construct(0);
       }
@@ -28290,7 +28290,7 @@ if(answer == 14552) {
       }
 	  else if (aa[0].candidate == 79 && !negotiationsDone) { // LSDP Plurality
           e.header = "<h2>The New Course Redeemed!</h2>"
-          e.pages = [`<p>Incredible! Mere months ago, you and your party were written off as a doomed runner-up to the Peasants and Conservatives, yet, with a stellar election campaign, you overcame them both and won a plurality of the seats - so, you will receive the initiative to form a government. Your doubters have been proven wrong - the progressive turn was the right direction for the LSDP after all. No longer will it be a party for retired nomenklatura and corrupt mayors with little to no ideology - no, it will join the pantheon of progressive, Westernized social democratic parties.</p><p>What next? Assuming you manage to form a government, you will have to manage the COVID-19 pandemic at its peak and then consider your options. A real system of progressive taxation, reforms to the healthcare system and social security, perhaps even gender-neutral partnerships - all will be on the table. Just watch the polls, where you will eventually slip - after all, no party has ever managed to get reelected in Lithuanian history...</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.pages = [`<p>Incredible! Mere months ago, you and your party were written off as a doomed runner-up to the Peasants and Conservatives, yet, with a stellar election campaign, you overcame them both and won a plurality of the seats - so, you will receive the initiative to form a government. The doubters have been proven wrong - the progressive turn was the right direction for the LSDP after all. No longer will it be a party for retired nomenklatura and corrupt mayors with little to no ideology - no, it will join the pantheon of progressive, Westernized social democratic parties.</p><p>What next? Assuming you manage to form a government, you will have to manage the COVID-19 pandemic at its peak and then consider your options. A real system of progressive taxation, reforms to the healthcare system and social security, perhaps even gender-neutral partnerships - all will be on the table. Just watch the polls, where you will eventually slip - after all, no party has ever managed to get reelected in Lithuanian history...</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/gCQDsqL.jpg";
           return construct(0);
       }
@@ -28322,21 +28322,21 @@ if(answer == 14552) {
 		if (negotiationsDone && selectedCoalition.id === 1){ // Historical coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Centre-Right Coalition!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the TS-LKD, LRLS and Freedom. With such an unfortunate makeup of the Seimas, you never stood a chance - the three 'Right' parties were going to get together and resist you regardless. They will immediately escalate aggression towards Russia and China, roll back alcohol restrictions, bury the State Development Bank, begin the 'Millennium School' program and open discussion on gender-neutral partnerships.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - for example, a few of your party's veterans may leave to tag along with Skvernelis, once he splits from the LVŽS and forms his own party - but you are in perfect position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 2){ // Historical coalition + LT
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Centre-Right Coalition!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the TS-LKD, LRLS, Freedom and LT. With such an unfortunate makeup of the Seimas, you never stood a chance - the three 'Right' parties were going to get together and resist you regardless. They will immediately escalate aggression towards Russia and China, roll back alcohol restrictions, bury the State Development Bank, begin the 'Millennium School' program and open discussion on gender-neutral partnerships.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - for example, a few of your party's veterans may leave to tag along with Skvernelis, once he splits from the LVŽS and forms his own party - but you are in perfect position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 3){ // Historical coalition + Labour
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! Conservatives and Labour Dance!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the TS-LKD, LRLS, Freedom and Labour. How did this even happen? Labour chose to betray the 'Left' and somehow managed to overcome their mutual hatred with the Conservatives to form an unstable, fragile arrangement which is unlikely to last until 2024 - if this helps.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - for example, a few of your party's veterans may leave to tag along with Skvernelis, once he splits from the LVŽS and forms his own party - but you are in perfect position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -28362,30 +28362,33 @@ if(answer == 14552) {
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 7){ // National Coalition
+		  const leader23 = partyLeaders.find((leader) => leader.party === 77);
+		  leader23.leaderName = 'Saudargas';
+		  leader23.image = 'https://i.imgur.com/Ne28BDV.jpg';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! 'National Coalition' Established!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the TS-LKD, Labour, CP-T, NS and LT. How did this happen? Not only did the Conservatives and Labour overcome their mutual hatred towards one another, but established the first Eurosceptic government in Lithuanian history, too. The TS-LKD's traditional pro-EU stance should temper them somewhat, but this, plus many of the coalition members increasingly embracing anti-vaccination rhetoric, means that the coalition is not going to be very stable.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - for example, a few of your party's veterans may leave to tag along with Skvernelis, once he splits from the LVŽS and forms his own party - but you are in perfect position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 8){ // Continued Left Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! The Skvernelis Coalition Continues!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the LVŽS and LSDDP. The unfortunate composition of the new Seimas made this almost inevitable - this is a continuation of the Peasant-led coalition prior to the election, except, without the LLRA, it will be even more stable. This is beyond even their expectations, and they will certainly put this wide control of the Seimas to use for more populist economic reforms.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - you will still have to find ways to stand out from the Peasants, after all - but you are in a good position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 9){ // Continued Left Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! The Skvernelis Coalition Continues!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the LVŽS, LSDDP and Labour, with support from Centre and independents. The unfortunate composition of the new Seimas made this almost inevitable - this is a continuation of the Peasant-led coalition prior to the election, except, without the LLRA, it will be even more stable. This is beyond even their expectations, and they will certainly put this wide control of the Seimas to use for more populist economic reforms.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - you will still have to find ways to stand out from the Peasants, after all - but you are in a good position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 10){ // Continued Left Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Outplayed! The Skvernelis Coalition Continues!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the LVŽS, LSDDP, Labour and LLRA, with support from Centre and independents. The unfortunate composition of the new Seimas made this almost inevitable - this is a continuation of the Peasant-led coalition prior to the election, although it is hardly going to be any more stable. The Peasants will certainly put this wide control of the Seimas to use for more populist economic reforms.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - you will still have to find ways to stand out from the Peasants, after all - but you are in a good position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -28413,7 +28416,7 @@ if(answer == 14552) {
 		if (negotiationsDone && selectedCoalition.id === 14){ // LVŽS National Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Defeated! Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>In spite of having the largest group in the Seimas, you were outplayed - a ${leader.leaderName} Cabinet has been formed by the LVŽS, Labour, CP-T, NS and independents. This is unfortunate - the Peasants chose to pivot to the right and establish an explicitly Eurosceptic government. It is unlikely to be very stable, and the coalition increasingly adopting anti-vaccination rhetoric is concerning to the entire nation, too. You can only hope that this makeup will not last long and something more tolerable arises from the stew in the next few years.</p><p>Losing the chance at forming a government like this leaves a bitter taste, but, at least, you accomplished what you set out to do from the beginning - you redeemed the progressive wing of the LSDP and will transform it into a modern, Western-style social democratic party. You might still face some issues - you will still have to find ways to stand out from the Peasants, after all - but you are in a good position to claim the role of Leader of the Opposition and win in 2024.</p><p>Hopefully, nothing messes up your plans, like a war breaking out.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -28434,35 +28437,35 @@ if(answer == 14552) {
 		if (negotiationsDone && selectedCoalition.id === 17){ // 2012 Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Social Democrats and Labour - 2012 Coalition Reformed!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>After a relatively quick negotiation process, you received the mandate for a ${leader.leaderName} Cabinet with Labour and LT. The Butkevičius era is back! This is the coalition which he formed after the Social Democrats won the 2012 election, although Order and Justice has been replaced by their far more impotent successor. The progressive wing of the party is furious - they despise both of our coalition partners, but it should not be difficult to control them as long as we prove that this cabinet will bring results.</p><p>What is on the agenda now? If you successfully handle the COVID-19 pandemic, you will have a lot on your plate. Most of your progressive economic reforms, such as healthcare and education reform, will have to be watered down somewhat - although you are certain that you can push through a reformed progressive taxation system with only a little resistance. The future of LGBT rights will be awkward, as both of your coalition partners are strongly against any actions here. It is even possible that Labour will bolt from the coalition if you give in to the demands of the party's progressives.</p><p>In addition, Labour is starting to collapse again, as expected - however, as the Peasants and Conservatives are both going through leadership conflicts, you should still have a fighting chance in 2024. Let's just hope nothing crazy happens, like a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 18){ // 2012 Coalition
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Social Democrats and Labour - 2012 Coalition Reformed!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.pages=[`<p>After a relatively quick negotiation process, you received the mandate for a ${leader.leaderName} Cabinet withLLRA-KŠS, Labour, LT, LŽP and independents. The Butkevičius era is back! This is very similar to the coalition which he formed after the Social Democrats won the 2012 election - Order and Justice has been replaced by their far more impotent successor, and LLRA-KŠS and Greens have both joined as well. The progressive wing of the party is furious - they despise both of our coalition partners, but it should not be difficult to control them as long as we prove that this cabinet will bring results.</p><p>What is on the agenda now? If you successfully handle the COVID-19 pandemic, you will have a lot on your plate. Most of your progressive economic reforms, such as healthcare and education reform, will have to be watered down somewhat - although you are certain that you can push through a reformed progressive taxation system with only a little resistance. The future of LGBT rights will be awkward, as both of your coalition partners are strongly against any actions here. It is even possible that Labour or the Poles will bolt from the coalition if you give in to the demands of the party's progressives.</p><p>In addition, Labour is starting to collapse again, as expected - however, as the Peasants and Conservatives are both going through leadership conflicts, you should still have a fighting chance in 2024. Let's just hope nothing crazy happens, like a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 19){ // Liberal-Left Coalition
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>'Traffic Light' Coalition! Liberals and Social Democrats Dance!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.header="<h2>'Orange' Coalition! Liberals and Social Democrats Dance!</h2>"
+		  e.pages=[`<p>After a moderately long negotiation period, you received the mandate for a ${leader.leaderName} Cabinet with the LRLS. This was unexpected. Coalitions between social democrats and liberals are common in the West, but they were deemed almost unthinkable in Lithuania until today, as these two groups represent radically different cultural-political blocs, Left and Right. Also, only requiring LRLS means that you probably had a massive electoral sweep, which makes your decision to take the Liberals on-board over anyone else even more puzzling.</p><p>What is on the agenda now? If you successfully handle the response to COVID-19, you will absolutely have to propose gender-neutral partnerships before parliament, and whether they pass depends on whether you can control your conservative wing and overcome their hesitation. Your economic program will likely get neutered somewhat, but you will at least prevent the restoration of flat income taxation and you will establish a more equitable social security system.</p><p>Anxieties and frustration over having to work with your mortal enemies will build up over time, and it's possible that one of you will bolt in favor of a better party arrangement in a few years. You should be able to remain in power until 2024, however. Let's just hope that nothing unexpected happens before that - like, say, a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 20){ // Liberal-Left Coalition
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>'Traffic Light' Coalition! Liberals and Social Democrats Dance!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.header="<h2>'Orange' Coalition! Liberals and Social Democrats Dance!</h2>"
+		  e.pages=[`<p>After a moderately long negotiation period, you received the mandate for a ${leader.leaderName} Cabinet with Freedom. This was unexpected. Coalitions between social democrats and liberals are common in the West, but they were deemed almost unthinkable in Lithuania until today, as these two groups represent radically different cultural-political blocs, Left and Right. Also, only requiring Freedom means that you probably had a massive electoral sweep, which makes your decision to take the liberals on-board over anyone else even more puzzling.</p><p>What is on the agenda now? If you successfully handle the response to COVID-19, you will absolutely have to propose gender-neutral partnerships before parliament, and whether they pass depends on whether you can control your conservative wing and overcome their hesitation. Thankfully, Freedom does not have a lot of political experience, so you should be able to dance around them and mostly retain your progressive economic agenda - although some of your more radical proposals like guaranteed minimum taxation will have to wait for another term.</p><p>Anxieties and frustration over having to work with your mortal enemies will build up over time, and it's possible that one of you will bolt in favor of a better party arrangement in a few years. You should be able to remain in power until 2024, however. Let's just hope that nothing unexpected happens before that - like, say, a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 21){ // Liberal-Left Coalition
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>'Traffic Light' Coalition! Liberals and Social Democrats Dance!</h2>"
-		  e.pages=[`<p>wip</p><p>wip</p><p>wip</p>`]
+		  e.header="<h2>'Orange' Coalition! Liberals and Social Democrats Dance!</h2>"
+		  e.pages=[`<p>After a moderately long negotiation period, you received the mandate for a ${leader.leaderName} Cabinet with the LRLS, Freedom and LŽP. This was unexpected. Coalitions between social democrats and liberals are common in the West, but they were deemed almost unthinkable in Lithuania until today, as these two groups represent radically different cultural-political blocs, Left and Right. Perhaps this iron curtain is finally breaking down? Political scientists will have a field day trying to explain how this coalition came about.</p><p>What is on the agenda now? If you successfully handle the response to COVID-19, you will absolutely have to propose gender-neutral partnerships before parliament, and whether they pass depends on whether you can control your conservative wing and overcome their hesitation. Your economic program will likely get neutered somewhat, but you will at least prevent the restoration of flat income taxation and you will establish a more equitable social security system.</p><p>Anxieties and frustration over having to work with your mortal enemies will build up over time, and it's possible that one of you will bolt in favor of a better party arrangement in a few years. You should be able to remain in power until 2024, however. Let's just hope that nothing unexpected happens before that - like, say, a war.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -28473,7 +28476,7 @@ if(answer == 14552) {
   }
   
 campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/E5GTkEf.png';
-campaignTrail_temp.running_mate_image_url = 'https://media.discordapp.net/attachments/550037150440095746/1145739350525628488/Paluckas.jpeg';
+campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/ss0p6bm.jpg';
 campaignTrail_temp.candidate_last_name = 'LSDP';
 campaignTrail_temp.running_mate_last_name = 'Paluckas';
 campaignTrail_temp.running_mate_state_id = '13571';
