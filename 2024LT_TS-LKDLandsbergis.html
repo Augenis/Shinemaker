@@ -47,7 +47,7 @@ campaignTrail_temp.questions_json = [
         "pk": 366,
         "fields": {
             "priority": 0,
-            "description": "It is finally 2020. Unfortunately, the Skvernelis Cabinet limps along in spite of constantly losing ministers and coalition members. You achieved a symbolic victory against the Peasants in the 2019 presidential election, when Šimonytė surpassed Skvernelis in the first round, but they have yet to be expelled from power. What line will you take as the election campaign begins?",
+            "description": "It is the night of May 26, 2024. Your candidate, Prime Minister Ingrida Šimonytė, is competing against the incumbent, Gitanas Nausėda, in the second round, and the result... is staggering. Nausėda enters his second term with the greatest share of the vote in Lithuanian history. Is there any conclusion we can draw from this inevitable defeat? What shall be our strategy during the final stretch?",
             "likelihood": 1
         }
     },
@@ -275,7 +275,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3393,
         "fields": {
             "question": 366,
-            "description": "We will claim that the Skvernelis Cabinet is a \"cabinet of restrictions\". Their anti-alcohol and anti-smoking campaigns are unpopular and we will present the LVŽS as incompetent moral crusaders."
+            "description": "We would like to \"congratulate\" the Social Democrats. With their ceaseless kowtowing, they have helped reelect a homophobic, weathervane president for a second term. We must hammer on their duplicitous nature."
         }
     },
     {
@@ -283,7 +283,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3394,
         "fields": {
             "question": 366,
-            "description": "2016 has shown us that we will falter in the second round if we only position ourselves as \"against\" others. We will run a positive campaign, offering an agenda of free markets and education reform."
+            "description": "Nausėda's victory was inevitable. Instead, we will draw attention to Eduardas Vaitkus, who got over 7 percent of the vote. His success shows the growth of a pro-Russian fifth column in our nation."
         }
     },
     {
@@ -291,7 +291,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3395,
         "fields": {
             "question": 366,
-            "description": "We lost in 2016 because we managed to lose in Kaunas and even in some Vilnius constituencies - we need to mobilize the urban, liberal vote by fearmongering about the right-wing populist regime and the unpopular Karbauskis."
+            "description": "We must spin this result as a victory. We maintained our positions and prevented one of the anti-systemic populists from advancing to the second round. We need to maintain the faith of our voter base until October."
         }
     },
     {
@@ -299,7 +299,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3396,
         "fields": {
             "question": 366,
-            "description": "We must bring up the failed promises and two-faced nature of the Peasant government. They botched the healthcare reform and their education policy led to a teachers' strike - this is not a party that represents the common people as it claims."
+            "description": "This result shows that we need to hold back on our conflict with Nausėda from now on - all this squabbling over ministers and vetoes is only driving up votes for the Social Democrats. It may hurt our pride, but we mustn't lose this election."
         }
     },
     {
@@ -7372,7 +7372,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 78,
             "state": 13381,
-            "state_multiplier": 0.8
+            "state_multiplier": 0.65
         }
     },
     {
@@ -10306,7 +10306,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13381,
-            "state_multiplier": 0.7
+            "state_multiplier": 1.6
         }
     },
     {
@@ -10360,7 +10360,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13441,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.6
         }
     },
     {
@@ -10378,7 +10378,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13461,
-            "state_multiplier": 1.1
+            "state_multiplier": 0.9
         }
     },
     {
@@ -10396,7 +10396,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13481,
-            "state_multiplier": 1.2
+            "state_multiplier": 0.95
         }
     },
     {
@@ -10414,7 +10414,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13501,
-            "state_multiplier": 0.7
+            "state_multiplier": 1
         }
     },
     {
@@ -10432,7 +10432,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13521,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.8
         }
     },
     {
@@ -10441,7 +10441,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13531,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.8
         }
     },
     {
@@ -22845,10 +22845,71 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       
     return construct(0);
   }
-  
+
+    function getTooltips(str) {
+    let matches = [];
+
+    tooltipList.forEach((tooltip, index) => {
+        // Adjust the regex to match searchString potentially surrounded by “ and followed by optional punctuation
+       let regex = new RegExp(`(?<=\\b|\\s|^|“)${tooltip.searchString}(?=[.,;!?]?\\b|\\s|”|$)`, 'g');
+
+
+        let match;
+        while ((match = regex.exec(str)) !== null) {
+            matches.push({
+                start: match.index + (match[0].startsWith('“') ? 1 : 0), // Adjust for potential starting “
+                end: match.index + match[0].length - (match[0].endsWith('”') ? 1 : 0) - (match[2] ? 1 : 0), 
+                tooltipIndex: index
+            });
+        }
+    });
+
+    // Sort by starting position; if two start at the same position, longer match comes first
+    matches.sort((a, b) => a.start - b.start || b.end - b.start - (a.end - a.start));
+
+    // Filter out overlaps
+    for (let i = 0; i < matches.length - 1; ) {
+        if (matches[i + 1].start < matches[i].end) {
+            matches.splice(i + 1, 1); // Remove the next match since it overlaps
+        } else {
+            i++; // Move to next match
+        }
+    }
+
+    return matches;
+}
+function applyTooltips(str) {
+    const matches = getTooltips(str);
+    let result = '';
+    let lastIndex = 0;
+
+    matches.forEach(match => {
+        const tooltip = tooltipList[match.tooltipIndex];
+        result += str.slice(lastIndex, match.start);
+        result += `<span class='mytooltip'>${tooltip.searchString}<span class='mytooltiptext'>${tooltip.explanationText}</span></span>`;
+        lastIndex = match.end;
+    });
+
+    result += str.slice(lastIndex); // Add the remainder of the original string
+    return result;
+}
+
+function applyTooltipsToObject(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            obj[key] = applyTooltips(obj[key]);
+        } else if (typeof obj[key] === 'object') {
+            applyTooltipsToObject(obj[key]); // Recursive call
+        }
+    }
+}
+
+applyTooltipsToObject(campaignTrail_temp.questions_json);
+applyTooltipsToObject(campaignTrail_temp.answers_json);
+applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
+
 campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/70jKvNm.jpg';
 campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/MbMbly1.jpg';
 campaignTrail_temp.candidate_last_name = 'TS-LKD';
 campaignTrail_temp.running_mate_last_name = 'Landsbergis';
 campaignTrail_temp.running_mate_state_id = '13261';
-
