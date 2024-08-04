@@ -436,3 +436,68 @@ var soundtracks = {
 // Set up new music player
 
 newMusicPlayer()
+
+function addDynamicCSS() {
+    var css = `
+        .inner_window_question h3 .mytooltip{
+            background-color: lightskyblue;
+        }
+
+        .mytooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            background-color: lightblue;
+        }
+
+        .mytooltip .mytooltiptext {
+            width: 240px;
+            background-color: lightblue;
+            color: black;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 99;
+            bottom: 20%;
+            left: 20%;
+            margin-left: -90px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid black;
+            pointer-events: none;
+            font-size: 13px !important;
+            line-height: 1.5em !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+        }
+
+        .mytooltip .mytooltiptext img {
+            max-width: 240px;
+            height: auto;
+        }
+
+        .mytooltip:hover .mytooltiptext {
+            opacity: 1;
+            transition-delay: 0.5s;
+        }
+    `;
+
+    var styleElem = document.createElement('style');
+    styleElem.type = 'text/css';
+    
+    styleElem.appendChild(document.createTextNode(css));
+    
+    document.head.appendChild(styleElem);
+}
+
+
+addDynamicCSS();
+
+tooltipList = [
+    {searchString: "Gitanas Nausėda", explanationText: "<img src=https://ve.lt/sites/default/files/styles/straipsnis_1x_640x422/public/2024-03/gitanas_nauseda_0.jpg?h=c0d19119&itok=D2IfImuA> The 'Tall and Handsome' President. A bothersome former banker who seemingly holds no views except whatever's currently in vogue. Supported by the entire opposition, but especially the Social Democrats."},
+	{searchString: "Ingrida Šimonytė", explanationText: "<img src=https://www.vz.lt/apps/pbcsi.dll/storyimage/vz/20240302/ARTICLE/240309895/AR/0/AR-240309895.jpg?exactW=800&AlignV=middle&imageversion=Horizontalus&lu=1122> The Prime Minister, delegated by the TS-LKD. An exhausted, frustrated economist hiding behind her famous snark and confident attitude."},
+	{searchString: "is staggering", explanationText: "<img src=https://s3.eu-central-1.wasabisys.com/alkas/alkas.lt/1/2024/05/Prezidento-rinkimai-2024-2-ratas-Alkas-lt-koliazas-b-1000.jpg>"},
+	  {searchString: "Eduardas Vaitkus", explanationText: "<img src=https://www.lrt.lt/img/2024/04/12/1749298-538548-756x425.jpg> Independent candidate in the 2024 presidential election, anti-vaccine activist. Ran on a platform of leaving NATO and the European Union. Described as a Russian fifth-columnist."}
+        
+];
