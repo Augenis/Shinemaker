@@ -23072,27 +23072,35 @@ if(answer == 14558) {
 
   // Define a list of possible coalitions
   const coalitions = [
-    { id: 1, name: 'Centre-Right Coalition: TS-LKD, LRLS, Freedom', weight: 1.5, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
-	{ id: 2, name: 'Centre-Right Coalition: TS-LKD, LRLS, Freedom, LT, LŽP', weight: 1.0, parties: [77, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
-	{ id: 3, name: 'Breakthrough Coalition: TS-LKD, LRLS, Freedom, Labour', weight: 0.3, parties: [77, 80, 13761, 13915], impossibleCoalitions: [] },
-	{ id: 4, name: 'Grand Coalition: TS-LKD, LSDP', weight: 0.8, parties: [77, 79], impossibleCoalitions: [5, 6] },
-	{ id: 5, name: 'Grand Coalition: TS-LKD, LSDP, LRLS', weight: 0.5, parties: [77, 79, 80], impossibleCoalitions: [6] },
-	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LRLS, LSDDP', weight: 0.3, parties: [77, 79, 80, 13992], impossibleCoalitions: [] },
-	{ id: 7, name: 'National Coalition: TS-LKD, Labour, CP-T, NS, LT', weight: 0.5, parties: [77, 13915, 14069, 14146, 14223], impossibleCoalitions: [] },
-	{ id: 8, name: 'Continued Left Coalition: LVŽS, LSDDP', weight: 1.5, parties: [78, 13992], impossibleCoalitions: [9, 10] },
-	{ id: 9, name: 'Continued Left Coalition: LVŽS, Labour, LSDDP, CP-T, Minors', weight: 1.2, parties: [78, 13915, 13992, 14069, 14377], impossibleCoalitions: [10] },
-	{ id: 10, name: 'Continued Left Coalition: LVŽS, LLRA-KŠS, Labour, LSDDP, CP-T, Minors', weight: 1.0, parties: [78, 13838, 13915, 13992, 14069, 14377], impossibleCoalitions: [] },
-	{ id: 11, name: 'Centre-Left Coalition: LVŽS, LSDP', weight: 1.3, parties: [78, 79], impossibleCoalitions: [12, 13] },
-	{ id: 12, name: 'Centre-Left Coalition: LVŽS, LSDP, LSDDP', weight: 1.1, parties: [78, 79, 13992], impossibleCoalitions: [13] },
-	{ id: 13, name: 'Centre-Left Coalition: LVŽS, LSDP, Labour, LSDDP, LŽP', weight: 0.8, parties: [78, 79, 13915, 13992, 14300], impossibleCoalitions: [] },
-	{ id: 14, name: 'National Coalition: LVŽS, Labour, CP-T, NS, Minors', weight: 0.8, parties: [78, 13915, 14069, 14146, 14377], impossibleCoalitions: [] },
-	{ id: 15, name: 'Dual Left Coalition: LSDP, LSDDP', weight: 1.5, parties: [79, 13992], impossibleCoalitions: [16] },
-	{ id: 16, name: 'Triple Left Coalition: LSDP, Labour, LSDDP, LŽP', weight: 1.2, parties: [79, 13915, 13992, 14300], impossibleCoalitions: [] },
-	{ id: 17, name: '2012 Coalition: LSDP, Labour, LT', weight: 1.2, parties: [79, 13915, 14223], impossibleCoalitions: [18] },
-	{ id: 18, name: '2012 Coalition: LSDP, LLRA-KŠS, Labour, LT, LŽP, Minors', weight: 1.0, parties: [79, 13838, 13915, 14223, 14300, 14377], impossibleCoalitions: [] },
-	{ id: 19, name: 'Liberal-Left Coalition: LSDP, LRLS', weight: 1.0, parties: [79, 80], impossibleCoalitions: [21] },
-	{ id: 20, name: 'Liberal-Left Coalition: LSDP, Freedom', weight: 0.8, parties: [79, 13761], impossibleCoalitions: [21] },
-	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LRLS, Freedom, LŽP', weight: 0.5, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
+    { id: 1, name: 'New Right Coalition: TS-LKD, LS, Freedom', weight: 2.0, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
+	{ id: 2, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL', weight: 0.5, parties: [77, 80, 13761, 14223], impossibleCoalitions: [3] },
+	{ id: 3, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL, LŽP', weight: 0.3, parties: [77, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
+	
+	{ id: 4, name: 'Grand Coalition: TS-LKD, LSDP', weight: 0.5, parties: [77, 79], impossibleCoalitions: [5, 6, 7] },
+	{ id: 5, name: 'Grand Coalition: TS-LKD, LSDP, LS', weight: 0.3, parties: [77, 79, 80], impossibleCoalitions: [6] },
+	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LS, Freedom', weight: 0.2, parties: [77, 79, 80, 13761], impossibleCoalitions: [] },
+	{ id: 7, name: 'Grand Coalition: TS-LKD, LSDP, DSVL', weight: 0.4, parties: [77, 79, 14223], impossibleCoalitions: [] },
+	
+	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 2.0, parties: [79, 14223], impossibleCoalitions: [9, 10] },
+	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 1.4, parties: [79, 80, 14223], impossibleCoalitions: [10] },
+	{ id: 10, name: 'Traffic Light Coalition: LSDP, DSVL, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
+	
+	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.0, parties: [78, 79], impossibleCoalitions: [12, 13] },
+	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 0.7, parties: [78, 79, 14223], impossibleCoalitions: [13] },
+	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Peace Coalition', weight: 0.4, parties: [78, 79, 13838, 13992, 14069, 14223], impossibleCoalitions: [] },
+	
+	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 0.8, parties: [79, 13915], impossibleCoalitions: [16] },
+	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 0.3, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
+	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, DSVL', weight: 0.3, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
+	
+	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, TTS, Other', weight: 0.8, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
+	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, TTS, Other', weight: 0.3, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
+	
+	{ id: 19, name: 'Red Fanta Coalition: LSDP, LRLS', weight: 1.0, parties: [79, 80], impossibleCoalitions: [21] },
+	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.3, parties: [79, 13761], impossibleCoalitions: [21] },
+	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LRLS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
+	
+	{ id: 22, name: 'Snap Election', weight: 0.3, parties: [77, 78, 13915], impossibleCoalitions: [] },
   ];
   var possibleCoalitions = [];
   //is the name shown in the coalition table? true or false
