@@ -34,7 +34,7 @@ const weights = [
 	{ candidate: 13992, weights: { 77: 0.5, 78: 2, 79: 3, 80: 0.5, 13761: 0.25, 13838: 0.25, 13915: 2, 14069: 1.5, 14146: 1, 14223: 1.5, 14300: 1, 14377: 2, 14818: 0.5 } },
 	{ candidate: 14069, weights: { 77: 0.75, 78: 3, 79: 1.5, 80: 0.5, 13761: 0.25, 13838: 0.1, 13915: 3, 13992: 2, 14146: 2, 14223: 2, 14300: 1, 14377: 2, 14818: 1.5 } },
 	{ candidate: 14146, weights: { 77: 1.5, 78: 1.5, 79: 0.75, 80: 0.5, 13761: 0.5, 13838: 0.1, 13915: 0.75, 13992: 0.75, 14069: 1.5, 14223: 1, 14300: 0.5, 14377: 1, 14818: 0.1 } },
-	{ candidate: 14223, weights: { 77: 0.75, 78: 2, 79: 2, 80: 1, 13761: 0.5, 13838: 0.1, 13915: 2, 13992: 2, 14069: 2, 14146: 1.5, 14300: 1, 14377: 2, 14818: 0.25 } },
+	{ candidate: 14223, weights: { 77: 1, 78: 2, 79: 2, 80: 1, 13761: 0.5, 13838: 0.1, 13915: 2, 13992: 2, 14069: 2, 14146: 1.5, 14300: 1, 14377: 2, 14818: 0.25 } },
 	{ candidate: 14300, weights: { 77: 1, 78: 2, 79: 1.5, 80: 1.5, 13761: 1, 13838: 0.1, 13915: 0.5, 13992: 1, 14069: 0.5, 14146: 1, 14223: 0.5, 14377: 1, 14818: 0.15 } },
 	{ candidate: 14818, weights: { 77: 0.1, 78: 1, 79: 1, 80: 0.1, 13761: 0.01, 13838: 2, 13915: 1.5, 13992: 1, 14069: 2, 14146: 0.5, 14223: 0.75, 14300: 0.25, 14377: 1 } },
 	{ candidate: 14377, weights: { 77: 1, 78: 1, 79: 1.5, 80: 1, 13761: 0.5, 13838: 0.1, 13915: 1.5, 13992: 1.5, 14069: 1, 14146: 1.5, 14223: 2, 14300: 1, 14818: 0.25 } }
@@ -229,7 +229,7 @@ campaignTrail_temp.questions_json = [
         "pk": 357,
         "fields": {
             "priority": 3,
-            "description": "In general, do you believe it is possible for Ukraine to win? Should you win the election, and Russia's war in Ukraine continues, will you support any peace agreement?",
+            "description": "In general, do you believe it is possible for Ukraine to win? Should you win the election, and Russia's war in Ukraine continues, what will your policy towards the War be? Will you support any peace agreement?",
             "likelihood": 1
         }
     },
@@ -238,7 +238,7 @@ campaignTrail_temp.questions_json = [
         "pk": 364,
         "fields": {
             "priority": 3,
-            "description": "Should personal documents issued in Lithuania be allowed to use non-Lithuanian letters such as 'w', 'x' and 'q' in writing down personal names, allowing Polish and Russian citizens to write down their names as they are spelled in their native language, as opposed to Lithuanizing their names (e.g. Waldemar Tomaszewski -> Valdemar Tomaševski)?",
+            "description": "Spending all your time as the Minister of Foreign Affairs, you have so far dedicated no time to the electoral campaign - you've been entirely absent from the trail and your Prime Minister has been representing your party in all debates. Perhaps that's for the best. Still, with only a few days left before the polls open, do you wish to make one visit to your constituency, Centras-Žaliakalnis?",
             "likelihood": 1
         }
     },
@@ -429,7 +429,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14480,
         "fields": {
             "question": 349,
-            "description": "Much like in 2020, we will not make any official position on the debate. We cannot allow it to divide us. Let Freedom be our attack dogs against the Social Democrats on the gays and it'll work out."
+            "description": "Much like in 2020, we will not make any official position on the debate. We cannot allow it to divide us. Let Freedom be our attack dogs against the Social Democrats on the question and it'll work out."
         }
     },
     {
@@ -608,6 +608,14 @@ campaignTrail_temp.answers_json = [
             "description": "We've always underperformed in single-member constituencies, so this'll be a waste of resources. Let us focus on TV and internet ads instead to increase our reach nationwide."
         }
     },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 14519,
+        "fields": {
+            "question": 344,
+            "description": "They say we are an urban party, but it's not true - we won several rural constituencies in 2020. Utena and Palanga could still turn out for us, as long as we deploy enough resources there."
+        }
+    },
     {
         "model": "campaign_trail.answer",
         "pk": 14522,
@@ -630,6 +638,14 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 350,
             "description": "NS's Euroscepticism and reactionary views make them a potential Russian fifth column. Eduardas Vaitkus was once a member of that party, after all. We need to hammer this message to break Radžvilas's little troupe."
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 14525,
+        "fields": {
+            "question": 350,
+            "description": "We can adjust our rhetoric a little to accommodate the potential losses to NS. They got involved into a scuffle over the plaque of Kazys Škirpa recently - perhaps Valdas Benkunskas can concede and hang the plaque they want."
         }
     },
     {
@@ -749,7 +765,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14556,
         "fields": {
             "question": 364,
-            "description": "I believe that a decision on this has been overdue. Lithuanian citizens should have the right to write their names in the same way they are called by their parents. This is relevant not just for the Poles, but also for Lithuanians who choose to marry foreigners."
+            "description": "I don't see why not. I'll canvass on the street together with my team and local Conservative candidates. We'll get some good video footage."
         }
     },
     {
@@ -757,15 +773,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14557,
         "fields": {
             "question": 364,
-            "description": "The Constitution is clear on this question - the national language of our state is Lithuanian, so all documents must be in Lithuanian. This proposal is a trojan horse to achieve what Mikhail Suslov failed during the Soviet occupation - to eventually erase the Lithuanian language."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 14558,
-        "fields": {
-            "question": 364,
-            "description": "The Constitution is clear on this question - the national language of our state is Lithuanian, so all documents must be in Lithuanian. However, we can compromise by establishing the \"Latvian solution\" - allow the original spelling of the person's name on the second page of their passport."
+            "description": "There's a reason why I'm not rushing to participate on the campaign trail. I have conferences to participate in and Russian aggression to confront."
         }
     },
     {
@@ -8020,7 +8028,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 79,
             "state": 13541,
-            "state_multiplier": 1.4
+            "state_multiplier": 1.5
         }
     },
     {
@@ -8029,7 +8037,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 80,
             "state": 13541,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.6
         }
     },
     {
@@ -8065,7 +8073,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 80,
             "state": 13551,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.65
         }
     },
     {
@@ -8074,7 +8082,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 77,
             "state": 13561,
-            "state_multiplier": 1.2
+            "state_multiplier": 1.1
         }
     },
     {
@@ -8083,7 +8091,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 78,
             "state": 13561,
-            "state_multiplier": 0.75
+            "state_multiplier": 0.7
         }
     },
     {
@@ -8092,7 +8100,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 79,
             "state": 13561,
-            "state_multiplier": 1.65
+            "state_multiplier": 1.75
         }
     },
     {
@@ -8101,7 +8109,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 80,
             "state": 13561,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.65
         }
     },
     {
@@ -8191,7 +8199,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 78,
             "state": 13591,
-            "state_multiplier": 1
+            "state_multiplier": 1.15
         }
     },
     {
@@ -8209,7 +8217,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 80,
             "state": 13591,
-            "state_multiplier": 0.5
+            "state_multiplier": 2.5
         }
     },
     {
@@ -9235,7 +9243,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13761,
             "state": 13541,
-            "state_multiplier": 0.7
+            "state_multiplier": 0.8
         }
     },
     {
@@ -9253,7 +9261,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13761,
             "state": 13561,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.7
         }
     },
     {
@@ -9280,7 +9288,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13761,
             "state": 13591,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.75
         }
     },
     {
@@ -9919,7 +9927,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13838,
             "state": 13591,
-            "state_multiplier": 0.7
+            "state_multiplier": 0.5
         }
     },
     {
@@ -10378,7 +10386,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13391,
-            "state_multiplier": 0.4
+            "state_multiplier": 0.7
         }
     },
     {
@@ -10522,7 +10530,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13551,
-            "state_multiplier": 0.6
+            "state_multiplier": 0.5
         }
     },
     {
@@ -10531,7 +10539,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13915,
             "state": 13561,
-            "state_multiplier": 0.5
+            "state_multiplier": 1
         }
     },
     {
@@ -11017,7 +11025,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13992,
             "state": 13391,
-            "state_multiplier": 0.2
+            "state_multiplier": 0.15
         }
     },
     {
@@ -11152,7 +11160,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13992,
             "state": 13541,
-            "state_multiplier": 0.4
+            "state_multiplier": 0.15
         }
     },
     {
@@ -11170,7 +11178,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13992,
             "state": 13561,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.25
         }
     },
     {
@@ -11197,7 +11205,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 13992,
             "state": 13591,
-            "state_multiplier": 0.35
+            "state_multiplier": 0.25
         }
     },
     {
@@ -11809,7 +11817,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14069,
             "state": 13561,
-            "state_multiplier": 0.4
+            "state_multiplier": 0.35
         }
     },
     {
@@ -11836,7 +11844,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14069,
             "state": 13591,
-            "state_multiplier": 0.5
+            "state_multiplier": 0.2
         }
     },
     {
@@ -12934,7 +12942,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14223,
             "state": 13391,
-            "state_multiplier": 0.6
+            "state_multiplier": 0.55
         }
     },
     {
@@ -13069,7 +13077,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14223,
             "state": 13541,
-            "state_multiplier": 0.7
+            "state_multiplier": 0.5
         }
     },
     {
@@ -13078,7 +13086,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14223,
             "state": 13551,
-            "state_multiplier": 0.65
+            "state_multiplier": 1
         }
     },
     {
@@ -13087,7 +13095,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14223,
             "state": 13561,
-            "state_multiplier": 0.7
+            "state_multiplier": 0.65
         }
     },
     {
@@ -13708,7 +13716,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14300,
             "state": 13541,
-            "state_multiplier": 0
+            "state_multiplier": 0.1
         }
     },
     {
@@ -14347,7 +14355,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14377,
             "state": 13541,
-            "state_multiplier": 0.2
+            "state_multiplier": 0.4
         }
     },
     {
@@ -14374,7 +14382,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14377,
             "state": 13571,
-            "state_multiplier": 1.75
+            "state_multiplier": 2.25
         }
     },
     {
@@ -14851,7 +14859,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14818,
             "state": 13391,
-            "state_multiplier": 0.3
+            "state_multiplier": 0.15
         }
     },
     {
@@ -14995,7 +15003,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14818,
             "state": 13551,
-            "state_multiplier": 0.3
+            "state_multiplier": 0.2
         }
     },
     {
@@ -15004,7 +15012,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14818,
             "state": 13561,
-            "state_multiplier": 0.3
+            "state_multiplier": 0.25
         }
     },
     {
@@ -15031,7 +15039,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 14818,
             "state": 13591,
-            "state_multiplier": 0.3
+            "state_multiplier": 0.6
         }
     },
     {
