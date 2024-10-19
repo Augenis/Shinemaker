@@ -23282,27 +23282,33 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           return construct(0);
       }
 		else if (aa[0].candidate == 77 && aa[0].electoral_votes >= 71) { // TS-LKD majority
-          e.header = "<h2>Victory for the Right!</h2>"
-          e.pages = [`<p>Amazing! Though the polls were predicting the TS-LKD to receive an even larger share of the vote than 2016, nobody was anticipating you to do so well in single-member constituencies that you will obtain an outright majority in the Seimas! This is the greatest result for your party since 1996, and if you were following a certain tactic to achieve this, then it is certain to become the cornerstone of the party's strategy for decades.</p><p>You will not need to invite the Liberals or any other party to government, although, much like in 1996, you may consider it to give the Šimonytė Cabinet an illusion of uniting the centre-right. The country is now your oyster. You will be able to undo many of the Peasants' controlling policies and take a more aggressive position towards Russia and China - if you are feeling confident, perhaps you can also legalize same-sex partnerships. Just watch the polls, where you will inevitably eventually slip, and hope that no war breaks out by 2024.</p>`]
-          e.image = "https://i.imgur.com/ItbQmN6.png";
+          e.header = "<h2>An Unbelievable Victory!</h2>"
+          e.pages = [`<p>You got a majority. Either you got wtf lucky on low difficulties or you cheated.</p><p>wip.</p>`]
+          e.image = "https://i.imgur.com/KYCyTgw.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 77 && !negotiationsDone) { // TS-LKD Plurality
-          e.header = "<h2>2016 Redeemed!</h2>"
-          e.pages = [`<p>Though you had your fears, the failure of 2016 did not manifest twice. You performed admirably in the proportional vote and single-member constituencies alike, and obtained a plurality of the seats in the next Seimas. In Vilnius, your supporters and newly elected representatives celebrate to the sound of Metallica, and far-right sites buzz with conspiracies about another election won by the 'Landsbergis family clan'.</p><p>What is next on the agenda? Assuming that you are able to form a working coalition - whether with the Liberals or some other force - you have a lot on your plate. You will be forced to manage the COVID-19 pandemic in its peak, all while trying to revert the Peasants' most draconic policies. A more aggressive policy towards Russia and China will also be on the table. Just watch the polls, where you will inevitably eventually slip - after all, no party has ever managed to get reelected in Lithuanian history...</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
-          e.image = "https://i.imgur.com/ItbQmN6.png";
+          e.header = "<h2>The Second Mandate!</h2>"
+          e.pages = [`<p>You won.</p><p>wip</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.image = "https://i.imgur.com/vvLzFAr.png";
           return construct(0);
       }
 	  else if (aa[0].candidate !== 77 && quickstats[1] < 5) { // TS-LKD Loss (Destroyed)
-          e.header = "<h2>It's not happening this year.</h2>"
-          e.pages = [`<p>The results published by the Supreme Electoral Commission have left even the lowest, most modest expectations unfulfilled - the TS-LKD collapsed in the polls outright. How could this happen? Everything was set for you to avenge the defeat in 2016 and return to power once again, and yet you squandered your position completely and surrendered to the Left.</p><p>You will resign soon after the election and the TS-LKD will have to choose a new leader in this trying time. It is hard to tell who will succeed you, as it is uncertain which of the party's leaders even managed to return to parliament, but it's safe to say that it won't be a moderate like yourself. Paulius Saudargas or maybe even Laurynas Kasčiūnas will certainly make a go for it, aiming to transform the TS-LKD into a true Christian conservative party. </p><p>Is the party itself on the way out, though? Not likely. The Conservatives have endured a lot of beatings over the years, after all. You were clobbered in the 2000 election, but managed to crawl from 9 seats to 50 in a few election cycles. Who says that you can't do it again?</p>`]
-          e.image = "https://i.imgur.com/BnASAJp.png";
+          e.header = "<h2>A Lithuania without Conservatives...</h2>"
+          e.pages = [`<p>It's actually joever. Your party splits between Liberals and NS.</p><p>wip </p>`]
+          e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
-	  else if (aa[0].candidate !== 77) { // TS-LKD Loss
+	  else if (aa[0].candidate !== 77 && aa[1].candidate == 77 && !negotiationsDone) { // TS-LKD Loss (Second Place)
+          e.header = "<h2>The Runner-Up.</h2>"
+          e.pages = [`<p>You got second place. Disappointing, but you can still try to form something.</p><p>wip.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the second largest party, you may attempt to form a coalition if the winning party is unable to cobble together a working majority.</p></div>`]
+          e.image = "https://i.imgur.com/5RSLvW3.png";
+          return construct(0);
+      }
+	  else if (aa[0].candidate !== 77) { // TS-LKD Loss (Third Place or Lower)
           e.header = "<h2>Defeated.</h2>"
-          e.pages = [`<p>Did you repeat your mistakes from four years ago? In spite of promising initial polling, you were unable to acquire a plurality of the seats in the Seimas, and so the initiative in the coalition formation process will fall to the Peasant and Social Democratic 'Left'. Did your party collapse outright, or were you simply unable to win a large enough number of single-member constituencies? Either way, losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy.</p><p>It is possible that the party will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p>`]
-          e.image = "https://i.imgur.com/BnASAJp.png";
+          e.pages = [`<p>You didn't even get to second place. That's a loss for you.</p><p>wip.</p>`]
+          e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
 	  
