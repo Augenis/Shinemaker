@@ -9,7 +9,7 @@ $(".container")[0].style.backgroundColor = "#d0e4f0"
 const partyLeaders = [
     { party: 77, leaderName: 'Šimonytė II', image: 'https://i.imgur.com/vmNvG7x.jpg' },
     { party: 78, leaderName: 'Veryga', image: 'https://i.imgur.com/eMlJF4x.jpg' },
-    { party: 79, leaderName: 'Blinkevičiūtė', image: 'https://i.imgur.com/ss0p6bm.jpg' },
+    { party: 79, leaderName: 'Blinkevičiūtė', image: 'https://i.imgur.com/b05WCyn.png' },
     { party: 80, leaderName: 'Čmilytė-Nielsen', image: 'https://i.imgur.com/LmcQxUh.jpg' },
     { party: 13761, leaderName: 'Armonaitė', image: 'https://i.imgur.com/6aasavu.jpg' },
     { party: 13838, leaderName: 'Tomaszewski', image: 'https://cdn.discordapp.com/attachments/1085931527537434785/1098906382234812426/image.png' },
@@ -23402,6 +23402,12 @@ if(answer == 14606) {
   changeWeight(weights, 14223, 77, 0.1);
   return;
 }
+if(answer == 14489) {
+  // Liberal voters don't like this.
+  changeWeight(weights, 80, 77, -0.2);
+  changeWeight(weights, 13761, 77, -0.1);
+  return;
+}
 };
 
     function loadScript(url, callback) {
@@ -23565,10 +23571,10 @@ if(answer == 14606) {
             observer.disconnect();
             // Create a new table
             const coalitionTable = document.createElement("table");
-			coalitionTable.style.backgroundColor = "white";
-			coalitionTable.style.margin = "0 auto";
-			coalitionTable.style.width = "70%";
-			coalitionTable.style.border = "1px solid black";
+            coalitionTable.style.backgroundColor = "white";
+            coalitionTable.style.margin = "0 auto";
+            coalitionTable.style.width = "70%";
+            coalitionTable.style.border = "1px solid black";
     
             // Create a header row
             const headerRow = document.createElement("tr");
@@ -23578,18 +23584,20 @@ if(answer == 14606) {
                 const nameHeader = document.createElement("th");
                 nameHeader.style.width = "33%";
                 nameHeader.style.fontWeight = "bold";
-                const nameHeaderText = document.createTextNode("Name");
+                const nameHeaderText = document.createTextNode("Cabinet");
                 nameHeader.appendChild(nameHeaderText);
                 headerRow.appendChild(nameHeader);
             }
     
-            // Create a header cell for the list of parties
-            const partiesHeader = document.createElement("th");
-            partiesHeader.style.width = "33%";
-            partiesHeader.style.fontWeight = "bold";
-            const partiesHeaderText = document.createTextNode("Parties involved");
-            partiesHeader.appendChild(partiesHeaderText);
-            headerRow.appendChild(partiesHeader);
+            if (coalitionParties){
+              // Create a header cell for the list of parties
+              const partiesHeader = document.createElement("th");
+              partiesHeader.style.width = "33%";
+              partiesHeader.style.fontWeight = "bold";
+              const partiesHeaderText = document.createTextNode("Parties involved");
+              partiesHeader.appendChild(partiesHeaderText);
+              headerRow.appendChild(partiesHeader);
+            }
     
             // Create a header cell for the checkbox
             const checkboxHeader = document.createElement("th");
@@ -23617,7 +23625,8 @@ if(answer == 14606) {
                   nameCell.appendChild(coalitionName);
                   row.appendChild(nameCell);
               }
-    
+
+              if(coalitionParties){
                 // Create a cell for the list of parties and add it to the row
                 const partiesCell = document.createElement("td");
                 partiesCell.style.width = "33%";
@@ -23631,16 +23640,16 @@ if(answer == 14606) {
                 const partiesText = document.createTextNode(partiesList);
                 partiesCell.appendChild(partiesText);
                 row.appendChild(partiesCell);
-    
+              }
+
               // Create a cell for the checkbox and add it to the row
               const checkboxCell = document.createElement("td");
               checkboxCell.style.width = "33%";
-              const player = e.candidate_json.find((c) => c.fields.last_name === campaignTrail_temp.running_mate_last_name); //Future modders beware: would've been candidate_last_name if I didn't switch them in my mod
-              const player_pk = e.candidate_id;
+              const player_pk = 23;
               const hasPlayerParty = coalition.parties.includes(player_pk);
     
                 // If the coalition contains the player's party, create a checkbox that can be checked/unchecked
-                if (hasPlayerParty) {
+                if (hasPlayerParty && coalition.id != 60) {
                   const checkbox = document.createElement("input");
                   checkbox.type = "checkbox";
                   checkbox.id = `coalition-${coalition.id}-checkbox`; // Add an id that corresponds to the coalition id
@@ -23697,19 +23706,19 @@ if(answer == 14606) {
                     }
                   });
     
-                  // If a coalition was selected, show an alert with its name
-                  if (selectedCoalition) {
-                    negotiationsDone = true;
-                    console.log(selectedCoalition);
-                    console.log(negotiationsDone);
-                    var totalPV = e.final_overall_results.reduce((sum, party) => sum + party.popular_votes, 0);
-                    var n = e.final_overall_results.findIndex((r) => r.candidate === e.candidate_id);
-                    var quickstats =  [e.final_overall_results[n].electoral_votes, e.final_overall_results[n].popular_votes / totalPV * 100, e.final_overall_results[n].popular_votes];
-                    endingPicker(e.final_outcome, totalPV, e.final_overall_results, quickstats);
-                    endingConstructor();
-                  } else {
-                    alert("No coalition selected");
-                  }
+                // If a coalition was selected, show an alert with its name
+                if (selectedCoalition) {
+                  negotiationsDone = true;
+                  resetPage=true;
+                  e.page = 0;
+                  var totalPV = e.final_overall_results.reduce((sum, party) => sum + party.popular_votes, 0);
+                  var n = e.final_overall_results.findIndex((r) => r.candidate === e.candidate_id);
+                  var quickstats =  [e.final_overall_results[n].electoral_votes, e.final_overall_results[n].popular_votes / totalPV * 100, e.final_overall_results[n].popular_votes];
+                  endingPicker(e.final_outcome, totalPV, e.final_overall_results, quickstats);
+                  endingConstructor();
+                } else {
+                  alert("No coalition selected");
+                }
                 });
     
                 function coalitionCheckbox(coalition) {
@@ -23788,10 +23797,10 @@ if(answer == 14606) {
 	{ id: 7, name: 'Grand Coalition: TS-LKD, LSDP, DSVL', weight: 0.4, parties: [77, 79, 14223], impossibleCoalitions: [] },
 	
 	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 2.0, parties: [79, 14223], impossibleCoalitions: [9, 10] },
-	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 1.4, parties: [79, 80, 14223], impossibleCoalitions: [10] },
+	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 1.2, parties: [79, 80, 14223], impossibleCoalitions: [10] },
 	{ id: 10, name: 'Traffic Light Coalition: LSDP, DSVL, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
 	
-	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.0, parties: [78, 79], impossibleCoalitions: [12, 13] },
+	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.5, parties: [78, 79], impossibleCoalitions: [12, 13] },
 	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 0.7, parties: [78, 79, 14223], impossibleCoalitions: [13] },
 	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Peace Coalition', weight: 0.4, parties: [78, 79, 13838, 13992, 14069, 14223], impossibleCoalitions: [] },
 	
@@ -23806,27 +23815,28 @@ if(answer == 14606) {
 	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.3, parties: [79, 13761], impossibleCoalitions: [21] },
 	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
 	
-	{ id: 22, name: 'Snap Election', weight: 0.3, parties: [77, 78, 13915], impossibleCoalitions: [] },
+	{ id: 22, name: 'Snap Election', weight: 0.3, parties: [77, 79, 13915], impossibleCoalitions: [] },
   ];
   var possibleCoalitions = [];
   //is the name shown in the coalition table? true or false
-  var coalitionNames = false;
+  var coalitionNames = true;
+  var coalitionParties = false;
   var negotiationsDone = false;
   var selectedCoalition = null;
 
   function findLeader(coalition){
 
-    let highestTotalVote = 0;
-    let partyWithHighestVotes = null;
+    let highestTotalSeats = 0;
+    let partyWithHighestSeats = null;
 
     coalition.parties.forEach( party =>{
-          let partyVotes = e.final_overall_results[e.final_overall_results.map(f=>f.candidate).indexOf(party)].popular_votes;
-          if (partyVotes > highestTotalVote) {
-            highestTotalVote = partyVotes;
-            partyWithHighestVotes = party;
+          let partySeats = e.final_overall_results[e.final_overall_results.map(f=>f.candidate).indexOf(party)].electoral_votes;
+          if (partySeats > highestTotalSeats) {
+            highestTotalSeats = partySeats;
+            partyWithHighestSeats = party;
           }
     });
-    return (partyLeaders.find((p) => p.party === partyWithHighestVotes))
+    return (partyLeaders.find((p) => p.party === partyWithHighestSeats))
   }
   
 changeTheme = (theme) => { // I'm borrowing your stuff Decstar
@@ -23997,11 +24007,12 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
         possibleCoalitions = coalitionTalks(e.final_overall_results);
     
         //all coalitions with the winning party have their weight multiplied by this value
-        // adjustWeights(5);
+        adjustWeights(3);
       }
       
       // ENDINGS
 	  
+	  if (!negotiationsDone){
 		if (aa[0].candidate == 77 && aa[0].electoral_votes >= 119) { // TS-LKD hyper win
           changeTheme("dark")
 		  setMusic("")
@@ -24077,19 +24088,19 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           e.image = "https://i.imgur.com/KYCyTgw.png";
           return construct(0);
       }
-	  else if (aa[0].candidate == 77 && !negotiationsDone) { // TS-LKD Plurality
+	  else if (aa[0].candidate == 77) { // TS-LKD Plurality
           e.header = "<h2>The Second Mandate!</h2>"
           e.pages = [`<p>You won.</p><p>wip</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/vvLzFAr.png";
           return construct(0);
       }
-	  else if (aa[0].candidate !== 77 && quickstats[1] < 5) { // TS-LKD Loss (Destroyed)
+	  else if (aa[0].candidate !== 77 && quickstats[1] < 5) {
           e.header = "<h2>A Lithuania without Conservatives...</h2>"
           e.pages = [`<p>It's actually joever. Your party splits between Liberals and NS.</p><p>wip </p>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
-	  else if (aa[0].candidate !== 77 && aa[1].candidate == 77 && !negotiationsDone) { // TS-LKD Loss (Second Place)
+	  else if (aa[0].candidate !== 77 && aa[1].candidate == 77) { // TS-LKD Loss (Second Place)
           e.header = "<h2>The Runner-Up.</h2>"
           e.pages = [`<p>You got second place. Disappointing, but you can still try to form something.</p><p>wip.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the second largest party, you may attempt to form a coalition if the winning party is unable to cobble together a working majority.</p></div>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
@@ -24101,18 +24112,19 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
+	 }
 	  
-		if (negotiationsDone && selectedCoalition.id === 1){ // Historical coalition
+		if (negotiationsDone && selectedCoalition.id === 1){ // 2020 coalition
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Centre-Right Victory: Conservative and Liberal Coalition!</h2>"
-		  e.pages=[`<p>After a relatively quick negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with LRLS and Freedom. With Liberals' Viktorija Čmilytė-Nielsen as Speaker of the Seimas and Freedom's Aušrinė Armonaitė as Minister of Economy, the press has already nicknamed the cabinet as 'the women's government'. You, meanwhile, assume the prestigious position of Minister of Foreign Affairs, and intend to control the government from the sidelines.</p><p>The liberal parties will demand concessions in the government agenda. They, especially Freedom, expect you to pass gender-neutral partnerships and decriminalisation of marijuana by the end of the term - time will tell whether you will be able to fulfill these promises. After all, your 'Christian Democrat' wing will resist it to no end. Together, you agree on free market reforms and the establishment of the 'Millennium School' program, but they will likely be overshadowed by the COVID pandemic and culture war over LGBT rights.</p><p>You, personally, intend to spearhead a change of rhetoric against Russia and China, and aggressively push for common European sanctions against Belarus. Let's just hope that something crazy and unexpected does not mess up your plans - like, say, a war.</p>`]
+		  e.header="<h2>A Second Right Coalition!</h2>"
+		  e.pages=[`<p>Holy shit you won again.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 2){ // Historical coalition + LT
+		if (negotiationsDone && selectedCoalition.id === 2){ // 2020 coalition + DSVL
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Centre-Right Victory: Conservative and Liberal Coalition!</h2>"
-		  e.pages=[`<p>After a relatively quick negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with LRLS, Freedom, LT and Greens. With LRLS' Viktorija Čmilytė-Nielsen as Speaker of the Seimas and Freedom's Aušrinė Armonaitė as Minister of Economy, the press has already nicknamed the cabinet as 'the women's government'. You, meanwhile, assume the prestigious position of Minister of Foreign Affairs, and intend to control the government from the sidelines.</p><p>The liberal parties will demand concessions in the government agenda. They, especially Freedom, expect you to pass gender-neutral partnerships and decriminalisation of marijuana by the end of the term - time will tell whether you will be able to fulfill these promises. After all, your 'Christian Democrat' wing will resist it to no end, and LT will also be very sceptical. Together, you agree on free market reforms and the establishment of the 'Millennium School' program, but they will likely be overshadowed by the COVID pandemic and culture war over LGBT rights.</p><p>You, personally, intend to spearhead a change of rhetoric against Russia and China, and aggressively push for common European sanctions against Belarus. Let's just hope that something crazy and unexpected does not mess up your plans - like, say, a war.</p>`]
+		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
+		  e.pages=[`<p>You formed a coalition with Skvernelis.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24126,156 +24138,191 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.image = leader.image
 		  return construct(0);
 		}
-		else if (negotiationsDone && selectedCoalition.id === 3){ // Historical coalition + Labour
+		if (negotiationsDone && selectedCoalition.id === 3){ // 2020 coalition + DSVL + LŽP
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>'Breakthrough' Coalition? Labour and Conservatives Dance!</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with LRLS, Freedom and Labour. This is a surprising decision, as Labour and TS-LKD has traditionally been diametrically opposed to one another, but lacking other options have somehow made this configuration possible. You assume the prestigious position of Minister of Foreign Affairs, and intend to control the government from the sidelines.</p><p>Media has named your government 'the Breakthrough Coalition', after an attempted similar arrangement between you, LRLS and the New Union in 2006. They also assume that you expect to use Labour much like you had used the National Resurrection Party in 2008 - a populist movement on the upsurge which you can blame all problems on and thus force them into collapse while retaining your own positions. Uspaskich likely knows this, however, especially as his party is already collapsing in the polls, and his relations with Freedom in the government will be... tepid, at best.</p><p>Will your government survive until 2024? Only time will tell. Let's just hope that something crazy and unexpected does not throw a wrench into your already unstable coalition - like, say, a war.</p>`]
+		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
+		  e.pages=[`<p>You formed a coalition with Skvernelis.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 4){ // Grand Coalition
+		  const leader23 = partyLeaders.find((leader) => leader.party === 77);
+		  leader23.leaderName = 'Kuodis';
+		  leader23.image = 'https://i.imgur.com/SSgLP0E.png';
+		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
+		  leader24.leaderName = 'Kuodis';
+		  leader24.image = 'https://i.imgur.com/SSgLP0E.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Grand Coalition! Conservatives and 'Beavers' Together!</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with the LSDP. The possibility of a grand coalition with the Social Democrats was first considered in 2016, but you dismissed the opportunity - it appears that changing political winds have gotten you to reconsider your opposition. Gintautas Paluckas will become the Speaker of the Seimas, and you assume the prestigious position of Minister of Foreign Affairs.</p><p>Their presence will require you to moderate some of your economic agenda. The 'Millennium School' program will likely be watered down or cancelled entirely, and the progressive taxation from the Peasants' government will have to stay. However, the LSDP has enough latitude to allow you to push through some of your desired free market reforms. The future of gender-neutral partnerships will be interesting - both of your parties are nominally in favour, but both also have large conservative wings which will seek to sabotage any progress on LGBT rights.</p><p>You, personally, intend to actively push for common European sanctions against Belarus - though the Social Democrats will restrain some of your most aggressive rhetoric towards Russia and China. Let's just hope that something crazy and unexpected does not mess up your plans - like, say, a war.</p>`]
+		  e.header="<h2>A Grand Coalition!</h2>"
+		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition.</p><p>Raimondas Kuodis is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 5){ // Grand Coalition + Liberals
-		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Grand Coalition! Liberals, Conservatives and 'Beavers' Together!</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with LSDP and LRLS. The possibility of a grand coalition with the Social Democrats was first considered in 2016, but you dismissed the opportunity - it appears that changing political winds have gotten you to reconsider your opposition. Gintautas Paluckas will become the Speaker of the Seimas, and you assume the prestigious position of Minister of Foreign Affairs.</p><p>Their presence will require you to moderate some of your economic agenda. The 'Millennium School' program will likely be watered down or cancelled entirely, and the progressive taxation from the Peasants' government will have to stay. However, with the Liberals' presence, perhaps you can strongarm some thorough free market reform. The future of gender-neutral partnerships will be interesting - both you and LSDP are nominally in favour, but both also have large conservative wings which will seek to sabotage any progress on LGBT rights.</p><p>You, personally, intend to actively push for common European sanctions against Belarus - though the Social Democrats will restrain some of your most aggressive rhetoric towards Russia and China. Let's just hope that something crazy and unexpected does not mess up your plans - like, say, a war.</p>`]
-		  e.image = leader.image
-		  return construct(0);
-		}
-		if (negotiationsDone && selectedCoalition.id === 6){ // Grand Coalition + Liberals + LSDDP
-		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Grand Coalition! Liberals, Conservatives and 'Beavers' Together!</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with LSDP, LRLS and LSDDP. The possibility of a grand coalition with the Social Democrats was first considered in 2016, but you dismissed the opportunity - it appears that changing political winds have gotten you to reconsider your opposition. Gintautas Paluckas will become the Speaker of the Seimas, and you assume the prestigious position of Minister of Foreign Affairs.</p><p>Their presence will require you to moderate some of your economic agenda. The 'Millennium School' program will likely be watered down or cancelled entirely, and the progressive taxation from the Peasants' government will have to stay. However, with the Liberals' presence, perhaps you can strongarm some thorough free market reform. The future of gender-neutral partnerships will be interesting - both you and LSDP are nominally in favour, but both also have large conservative wings which will seek to sabotage any progress on LGBT rights. LRLS and LSDDP will push for and against, respectively.</p><p>You, personally, intend to actively push for common European sanctions against Belarus - though the Social Democrats will restrain some of your most aggressive rhetoric towards Russia and China. Let's just hope that something crazy and unexpected does not mess up your plans - like, say, a war.</p>`]
-		  e.image = leader.image
-		  return construct(0);
-		}
-		if (negotiationsDone && selectedCoalition.id === 7 && e.player_answers.includes(14467)){ // National Coalition
 		  const leader23 = partyLeaders.find((leader) => leader.party === 77);
-		  leader23.leaderName = 'Saudargas';
-		  leader23.image = 'https://i.imgur.com/Ne28BDV.jpg';
+		  leader23.leaderName = 'Kuodis';
+		  leader23.image = 'https://i.imgur.com/SSgLP0E.png';
+		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
+		  leader24.leaderName = 'Kuodis';
+		  leader24.image = 'https://i.imgur.com/SSgLP0E.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, Paulius Saudargas was appointed as the head of a new Saudargas Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
+		  e.header="<h2>A Grand Coalition!</h2>"
+		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition, and somehow with libs in as well.</p><p>Raimondas Kuodis is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		else if (negotiationsDone && selectedCoalition.id === 7 && e.player_answers.includes(14471)){ // National Coalition
+		if (negotiationsDone && selectedCoalition.id === 6){ // Grand Coalition + Liberals + Freedom
 		  const leader23 = partyLeaders.find((leader) => leader.party === 77);
-		  leader23.leaderName = 'Masiulis';
-		  leader23.image = 'https://i.imgur.com/Y2ikAfi.jpg';
+		  leader23.leaderName = 'Žalimas';
+		  leader23.image = 'https://i.imgur.com/ksuYxq1.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, Rokas Masiulis was appointed as the head of a new Masiulis Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
+		  e.header="<h2>A Grand Coalition!</h2>"
+		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition. And somehow with Freedom - you got to have cheated bruh.</p><p>Dainius Žalimas is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		else if (negotiationsDone && selectedCoalition.id === 7){ // National Coalition
+		if (negotiationsDone && selectedCoalition.id === 7){ // Grand Coalition + DSVL
+		  const leader23 = partyLeaders.find((leader) => leader.party === 77);
+		  leader23.leaderName = 'Lazutka';
+		  leader23.image = 'https://i.imgur.com/xWkuulR.png';
+		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
+		  leader24.leaderName = 'Lazutka';
+		  leader24.image = 'https://i.imgur.com/xWkuulR.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Lithuanian Euroscepticism Victorious?</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, your designated Prime Minister candidate, Ingrida Šimonytė, was appointed as the head of a new Šimonytė Cabinet with Labour, CP-T, NS and LT. This is a very unexpected coalition composition, and it signifies a turn of the party towards the right. All of the junior partners in the coalition also are eurosceptic on some level, a fact which both Liberal parties in opposition are quick to the point out. You will personally assume the prestigious position of Minister of Foreign Affairs.</p><p>You will likely be able to push through most of your economic program unimpeded, as all of the parties in the coalition are either economically liberal themselves or do not pay much attention to their economic program. Socially, however, expect no progress on LGBT rights, and the introduction of the 'Lithuanian's Passport' to the Seimas floor - although the liberal members of your party are certain to protest. Also, the COVID pandemic will certainly sharpen the anti-restriction and anti-vaccination tendencies among your partners - which, again, will be a deep wedge in your coalition.</p><p>Already, you are losing many voters to the LRLS and Freedom, and this bleeding is certain to continue. Will your coalition last to 2024, or will it break down beforehand? Let's just hope that something crazy and unexpected does not make this even messier - like, say, a war.</p>`]
+		  e.header="<h2>A Grand Coalition!</h2>"
+		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition.</p><p>Romas Lazutka is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 8){ // Continued Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 8){ // LSDP-DSVL
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! The Left Remains in Power!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas meant that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS and LSDDP. This is a continuation of the coalition prior to the election - except, without the LLRA, it will be even more stable. How did the Peasants even manage this? This is beyond even their expectations, and they will certainly put this wide control of the Seimas to use for more populist economic reforms.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Red-Blue Coalition!</h2>"
+		  e.pages=[`<p>LSDP-DSVL coalition.</p><p>LMAO you got wrecked.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 9){ // Continued Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 9){ // Traffic Light
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! The Left Remains in Power!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, LSDDP and Labour, with support from Centre and independents. This is a continuation of the coalition prior to the election - except, without the LLRA, it will be even more stable. How did the Peasants even manage this? They will certainly put this control of the Seimas to use for more populist economic reforms.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
+		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost</p><p>wip.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 10){ // Continued Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 10){ // Traffic Light + Freedom
+		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
+		  leader24.leaderName = 'Šakalienė';
+		  leader24.image = 'https://i.imgur.com/FR5ZeFj.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! The Left Remains in Power!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, LSDDP, Labour and LLRA, with support from Centre and independents. This is a continuation of the coalition prior to the election - only a marginally stable makeup. They will certainly put this control of the Seimas to use for more populist economic reforms.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
+		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost (also they got Freedom into the coalition lmao)</p><p>wip.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 11){ // Centre-Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 11){ // LSDP-LVŽS
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Coalition of the Centre-Left!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS and LSDP. Some were hoping that the rift between the Peasants and Social Democrats will be too wide to allow them to reconcile, but clearly, it was not the case. You are once again relegated to leader of the opposition against the pro-Russian populists.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>No... A return to 201666...</h2>"
+		  e.pages=[`<p>LSDP formed a coalition with LVŽS.</p><p>bad ending.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 12){ // Centre-Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 12){ // LSDP-DSVL-LVŽS
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Coalition of the Centre-Left!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, LSDP and LSDDP. Some were hoping that the rift between the Peasants and Social Democrats will be too wide to allow them to reconcile, but clearly, it was not the case. You are once again relegated to leader of the opposition against the pro-Russian populists.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>No... A return to 201666...</h2>"
+		  e.pages=[`<p>LSDP formed a coalition with LVŽS and DSVL.</p><p>bad ending (also what is currently being planned lol).</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 13){ // Centre-Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 13){ // LSDP-DSVL-LVŽS + minors
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Coalition of the Centre-Left!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, LSDP, LSDDP, Labour and LŽP. Some were hoping that the rift between the Peasants and Social Democrats will be too wide to allow them to reconcile, but clearly, it was not the case. You are once again relegated to leader of the opposition against the pro-Russian populists.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>No... A return to 201666...</h2>"
+		  e.pages=[`<p>LSDP formed a coalition with LVŽS, DSVL, and a lot of minors.</p><p>bad ending (this coalition will collapse in 2025).</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 14){ // LVŽS National Coalition
+		if (negotiationsDone && selectedCoalition.id === 14){ // LSDP-NA
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Peasants form an Eurosceptic Government!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LVŽS, Labour, CP-T, NS and independents. Vilnius and Kaunas are in uproar - this is the closest that Lithuania has been to an eurosceptic government, as all of the parties making it up are either actually sceptics or toy with the platform. Already, the looming COVID wave is showing the first cracks in the coalition, as its right-wing members increasingly adopt vaccine hesitancy.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that this 'National Coalition' will be short lived, too - and hopefully, nothing crazy happens, like a war.</p>`]
+		  e.header="<h2>Beefsteak Coalition! A Victory for Social Fascism!</h2>"
+		  e.pages=[`<p>LSDP formed a coalition with NA.</p><p>bad ending.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 15){ // Dual Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 15){ // LSDP-NA-LVŽS + minors
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Cesiulis';
+		  leader23.image = 'https://i.imgur.com/IuJM2RA.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! The Social Democrats Return!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP and LSDDP. The Social Democrats rose from the dead! Perhaps, due to your incompetent campaign, they seized the banner of opposition leadership from you, and so reaped the benefits of the anti-LVŽS vote. They will retain the Peasants' economic program and be a bit more progressive and anti-Russian - but, for the most part, it's not much of a difference.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
+		  e.pages=[`<p>LSDP, NA and LVŽS formed a coalition. Alytus mayor Nerijus Cesiulis was the only one suicidal and desperate enough to lead this government.</p><p>bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 16){ // Triple Left Coalition
+		if (negotiationsDone && selectedCoalition.id === 16){ // LSDP-NA-DSVL + minors
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Butkevičius';
+		  leader23.image = 'https://i.imgur.com/nWowYwF.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! The Social Democrats Return!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP, LSDDP, Labour and LŽP. The Social Democrats rose from the dead! Perhaps, due to your incompetent campaign, they seized the banner of opposition leadership from you, and so reaped the benefits of the anti-LVŽS vote. They will retain the Peasants' economic program and be a bit more progressive and anti-Russian - but, for the most part, it's not much of a difference.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
+		  e.pages=[`<p>LSDP, NA and DSVL formed a coalition. Holy shit, Butkevičius is back as PM. This will be an achievement when I implement them.</p><p>but bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 17){ // 2012 Coalition
+		if (negotiationsDone && selectedCoalition.id === 17){ // NA coalition
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Return to 2012!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP, Labour and LT - a return to the Butkevičius Coalition from 2012-2016. The Social Democrats rose from the dead! Perhaps, due to your incompetent campaign, they seized the banner of opposition leadership from you, and so reaped the benefits of the anti-LVŽS vote. Thanks to Labour and LT suppressing the progressive wing of the Social Democrats, there will hardly be a difference from the Skvernelis Cabinet in policy.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Life is Hell. The Anti-Systemics Have Won.</h2>"
+		  e.pages=[`<p>You girlbossed too hard and NA is strong enough to lead a coalition.</p><p>Welp.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 18){ // 2012 Coalition
+		if (negotiationsDone && selectedCoalition.id === 18){ // NA + LVŽS coalition
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Return to 2012!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP, LLRA-KŠS, Labour, LT, LŽP and independents - a return to the Butkevičius Coalition from 2012-2016. The Social Democrats rose from the dead! Perhaps, due to your incompetent campaign, they seized the banner of opposition leadership from you, and so reaped the benefits of the anti-LVŽS vote. Thanks to Labour and LT suppressing the progressive wing of the Social Democrats, there will hardly be a difference from the Skvernelis Cabinet in policy.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Life is Hell. The Anti-Systemics Have Won.</h2>"
+		  e.pages=[`<p>You girlbossed too hard and NA is strong enough to lead a coalition.</p><p>Welp.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 19){ // Liberal-Left Coalition
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Šakalienė';
+		  leader23.image = 'https://i.imgur.com/FR5ZeFj.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Liberals and Social Democrats Dance!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP and LRLS. The Social Democrats rose from the dead and the Liberals betrayed you! A liberal-social democratic coalition may be common in the West, but it was deemed almost unthinkable by political observers here - though it has had some precedent, such as the New Union-LSDP coalition in 2001. The Liberals will surely pressure their allies to pass same-sex partnerships, which is already causing tension.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Red Fanta Coalition! LSDP and Liberals Together</h2>"
+		  e.pages=[`<p>Holy shit LSDP-LS coalition.</p><p>You lost but kinda won because yay victory for normalcy!!</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 20){ // Liberal-Left Coalition
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Baranovas';
+		  leader23.image = 'https://i.imgur.com/FOm78kY.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Liberals and Social Democrats Dance!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP and Freedom. The Social Democrats rose from the dead and the Liberals betrayed you! A liberal-social democratic coalition may be common in the West, but it was deemed almost unthinkable by political observers here - though it has had some precedent, such as the New Union-LSDP coalition in 2001. Freedom will surely pressure their allies to pass same-sex partnerships, which is already causing tension.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Pink Panther Coalition!</h2>"
+		  e.pages=[`<p>Holy shit LSDP-Freedom coalition.</p><p>This is such an impossible and fucked up coalition that I'll just put in whoever tf I want as prime minister.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 21){ // Liberal-Left Coalition
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Outplayed! Liberals and Social Democrats Dance!</h2>"
-		  e.pages=[`<p>Though you control a plurality of the seats, the unfortunate composition of the Seimas means that ultimately, it was the left-wing parties who seized the initiative from you. A ${leader.leaderName} Cabinet has been formed, composed of the LSDP, LRLS, Freedom and LŽP. The Social Democrats rose from the dead and the Liberals betrayed you! A liberal-social democratic coalition may be common in the West, but it was deemed almost unthinkable by political observers here - though it has had some precedent, such as the New Union-LSDP coalition in 2001. The liberals will surely pressure their allies to pass same-sex partnerships, which is already causing tension.</p><p>Losing their chance at government on the cusp of victory two times in a row will force the party to rethink its strategy. It is possible that it will blame your liberal turn for this string of defeats, claiming that you merely surrendered loyal rural supporters for an unreliable voting bloc. If so, then a 'Christian Democrat' like Paulius Saudargas will probably challenge your leadership in the next party internal elections in 2021. Perhaps you can overcome this challenge and lead the party to victory in 2024 - otherwise, your political career will be short-lived.</p><p>Let's just hope that something unexpected will mess things up for the 'Left' - hopefully, not something crazy, like a war.</p>`]
+		  e.header="<h2>Liberal-Left Coalition! Betrayal!</h2>"
+		  e.pages=[`<p>Both lib parties have betrayed you.</p><p>You lost but kinda won because yay victory for normalcy!!</p><p>wip</p>`]
+		  e.image = leader.image
+		  return construct(0);
+		}
+		if (negotiationsDone && selectedCoalition.id === 22){ // Snap Election
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'lmao';
+		  leader23.image = 'https://i.imgur.com/EQW9hNb.png';
+		  const leader24 = partyLeaders.find((leader) => leader.party === 77);
+		  leader24.leaderName = 'lmao';
+		  leader24.image = 'https://i.imgur.com/EQW9hNb.png';
+		  const leader25 = partyLeaders.find((leader) => leader.party === 13915);
+		  leader25.leaderName = 'lmao';
+		  leader25.image = 'https://i.imgur.com/EQW9hNb.png';
+		  leader = findLeader(selectedCoalition);
+		  e.header="<h2>A Snap Election!</h2>"
+		  e.pages=[`<p>You girlbossed too hard and now there's no acceptable coalition.</p><p>This lasts for long enough that parliament has to dissolve and try again. Look forward to >20% of votes for NA!</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
