@@ -23796,26 +23796,27 @@ if(answer == 14489) {
 	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LS, Freedom', weight: 0.2, parties: [77, 79, 80, 13761], impossibleCoalitions: [] },
 	{ id: 7, name: 'Grand Coalition: TS-LKD, LSDP, DSVL', weight: 0.4, parties: [77, 79, 14223], impossibleCoalitions: [] },
 	
-	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 2.0, parties: [79, 14223], impossibleCoalitions: [9, 10] },
-	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 1.2, parties: [79, 80, 14223], impossibleCoalitions: [10] },
+	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 5.0, parties: [79, 14223], impossibleCoalitions: [9, 10] },
+	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 0.7, parties: [79, 80, 14223], impossibleCoalitions: [10] },
 	{ id: 10, name: 'Traffic Light Coalition: LSDP, DSVL, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
 	
 	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.5, parties: [78, 79], impossibleCoalitions: [12, 13] },
-	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 0.7, parties: [78, 79, 14223], impossibleCoalitions: [13] },
+	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 1.2, parties: [78, 79, 14223], impossibleCoalitions: [13] },
 	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Peace Coalition', weight: 0.4, parties: [78, 79, 13838, 13992, 14069, 14223], impossibleCoalitions: [] },
 	
-	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 0.8, parties: [79, 13915], impossibleCoalitions: [16] },
+	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 0.6, parties: [79, 13915], impossibleCoalitions: [15, 16] },
 	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 0.3, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
 	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, DSVL', weight: 0.3, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
 	
 	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, TTS, Other', weight: 0.8, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
 	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, TTS, Other', weight: 0.3, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
 	
-	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 1.0, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
+	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 0.7, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
 	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.3, parties: [79, 13761], impossibleCoalitions: [21] },
 	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
 	
 	{ id: 22, name: 'Snap Election', weight: 0.3, parties: [77, 79, 13915], impossibleCoalitions: [] },
+	{ id: 23, name: 'LSDP Majority', weight: 10.0, parties: [79], impossibleCoalitions: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22] },
   ];
   var possibleCoalitions = [];
   //is the name shown in the coalition table? true or false
@@ -24128,16 +24129,6 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 3 && e.player_answers.includes(14471)){ // Historical coalition + Labour
-		  const leader23 = partyLeaders.find((leader) => leader.party === 77);
-		  leader23.leaderName = 'Masiulis';
-		  leader23.image = 'https://i.imgur.com/Y2ikAfi.jpg';
-		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>'Breakthrough' Coalition? Labour and Conservatives Dance!</h2>"
-		  e.pages=[`<p>After a lengthy negotiation process, Rokas Masiulis was appointed as the head of a new Masiulis Cabinet with LRLS, Freedom and Labour. This is a surprising decision, as Labour and TS-LKD has traditionally been diametrically opposed to one another, but lacking other options have somehow made this configuration possible. In addition, during negotiations, you had to abandon Šimonytė for the more conservative and Labour-friendly newcomer Masiulis, which will cost you even more points with the liberal parties. You assume the prestigious position of Minister of Foreign Affairs, and intend to control the government from the sidelines.</p><p>Media has named your government 'the Breakthrough Coalition', after an attempted similar arrangement between you, LRLS and the New Union in 2006. They also assume that you expect to use Labour much like you had used the National Resurrection Party in 2008 - a populist movement on the upsurge which you can blame all problems on and thus force them into collapse while retaining your own positions. Uspaskich likely knows this, however, especially as his party is already collapsing in the polls, and his relations with Freedom in the government will be... tepid, at best.</p><p>Will your government survive until 2024? Only time will tell. Let's just hope that something crazy and unexpected does not throw a wrench into your already unstable coalition - like, say, a war.</p>`]
-		  e.image = leader.image
-		  return construct(0);
-		}
 		if (negotiationsDone && selectedCoalition.id === 3){ // 2020 coalition + DSVL + LŽP
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
@@ -24195,6 +24186,9 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 8){ // LSDP-DSVL
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Red-Blue Coalition!</h2>"
 		  e.pages=[`<p>LSDP-DSVL coalition.</p><p>LMAO you got wrecked.</p><p>wip</p>`]
@@ -24202,6 +24196,9 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 9){ // Traffic Light
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
 		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost</p><p>wip.</p>`]
@@ -24219,6 +24216,9 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 11){ // LSDP-LVŽS
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>No... A return to 201666...</h2>"
 		  e.pages=[`<p>LSDP formed a coalition with LVŽS.</p><p>bad ending.</p><p>wip</p>`]
@@ -24262,7 +24262,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/nWowYwF.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
-		  e.pages=[`<p>LSDP, NA and DSVL formed a coalition. Holy shit, Butkevičius is back as PM. This will be an achievement when I implement them.</p><p>but bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
+		  e.pages=[`<p>LSDP, NA and DSVL formed a coalition. Holy shit, Butkevičius is back as PM. This will be an achievement when I implement them.</p><p>bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24323,6 +24323,16 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Snap Election!</h2>"
 		  e.pages=[`<p>You girlbossed too hard and now there's no acceptable coalition.</p><p>This lasts for long enough that parliament has to dissolve and try again. Look forward to >20% of votes for NA!</p><p>wip</p>`]
+		  e.image = leader.image
+		  return construct(0);
+		}
+		if (negotiationsDone && selectedCoalition.id === 23){ // LSDP Majority
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
+		  leader = findLeader(selectedCoalition);
+		  e.header="<h2>LSDP Majority!</h2>"
+		  e.pages=[`<p>Really? You screwed up so hard that LSDP got a majority.</p><p>Really should have boosted NA more.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
