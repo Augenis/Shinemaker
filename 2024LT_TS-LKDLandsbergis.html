@@ -24103,13 +24103,13 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       }
 	  else if (aa[0].candidate !== 77 && aa[1].candidate == 77) { // TS-LKD Loss (Second Place)
           e.header = "<h2>The Runner-Up.</h2>"
-          e.pages = [`<p>Four years.</p><p>For four years, your party has provided this country with sound, responsible governance. Defended this country against Russian aggression when anyone else at the helm would have surely invited Putin's goons to Vilnius streets by now. Broke through the economic malaise with free market reforms, provided prosperity and welfare for all. And how does this ungrateful crowd of deplorables thank you for your labour? They turn to the populists, to the Putinists, to that old hag sitting jolly in the European Parliament.</p><p>Even before the election results, the media was theorizing about your potential successor. Will it be Kasčiūnas, who will turn the party to the right, or will it be Šimonytė, your prime minister, who will retain the same moderate course? They won't get to theorize for long. On the day after the second round, you announce your resignation as everything. As member of the next Seimas, as chairman of the Party. Your colleagues claim it's still salvageable - perhaps the Social Democrats will invite us to a grand coalition? You won't be here to see it.</p><p>You much preferred the world beyond this backwards place.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the second largest party, you may attempt to form a coalition if the winning party is unable to cobble together a working majority.</p></div>`]
+          e.pages = [`<p>You got second place. Disappointing, but you can still try to participate in coalition formation (click the button below).</p><p>wip.</p>`,  `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the second largest party, you may attempt to form a coalition if the winning party is unable to cobble together a working majority.</p></div>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
 	  else if (aa[0].candidate !== 77) { // TS-LKD Loss (Third Place or Lower)
           e.header = "<h2>Defeated.</h2>"
-          e.pages = [`<p>You didn't even get to second place. That's a loss for you.</p><p>wip.</p>`]
+          e.pages = [`<p>Four years.</p><p>For four years, your party has provided this country with sound, responsible governance. Defended this country against Russian aggression when anyone else at the helm would have surely invited Putin's goons to Vilnius streets by now. Broke through the economic malaise with free market reforms, provided prosperity and welfare for all. And how does this ungrateful crowd of deplorables thank you for your labour? They turn to the populists, to the Putinists, to that old hag sitting jolly in the European Parliament.</p><p>Even before the election results, the media was theorizing about your potential successor. Will it be Kasčiūnas, who will turn the party to the right, or will it be Šimonytė, your prime minister, who will retain the same moderate course? They won't get to theorize for long. On the day after the second round, you announce your resignation as everything. As member of the next Seimas, as chairman of the Party. Your colleagues claim it's still salvageable - perhaps the Social Democrats will invite us to a grand coalition? You won't be here to see it.</p><p>You much preferred the world beyond this backwards place.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the second largest party, you may attempt to form a coalition if the winning party is unable to cobble together a working majority.</p><p>wip.</p>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
@@ -24191,7 +24191,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Red-Blue Coalition!</h2>"
-		  e.pages=[`<p>LSDP-DSVL coalition.</p><p>LMAO you got wrecked.</p><p>wip</p>`]
+		  e.pages=[`<p>LSDP-DSVL coalition.</p><p>Lol.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24211,7 +24211,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader24.image = 'https://i.imgur.com/FR5ZeFj.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
-		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost (also they got Freedom into the coalition lmao)</p><p>wip.</p>`]
+		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost (also they got Freedom into the coalition somehow lmao)</p><p>wip.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24220,21 +24220,21 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.leaderName = 'Paluckas';
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>No... A return to 201666...</h2>"
+		  e.header="<h2>A return to 201666...</h2>"
 		  e.pages=[`<p>LSDP formed a coalition with LVŽS.</p><p>bad ending.</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 12){ // LSDP-DSVL-LVŽS
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>No... A return to 201666...</h2>"
+		  e.header="<h2>A return to 201666...</h2>"
 		  e.pages=[`<p>LSDP formed a coalition with LVŽS and DSVL.</p><p>bad ending (also what is currently being planned lol).</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 13){ // LSDP-DSVL-LVŽS + minors
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>No... A return to 201666...</h2>"
+		  e.header="<h2>A return to 201666...</h2>"
 		  e.pages=[`<p>LSDP formed a coalition with LVŽS, DSVL, and a lot of minors.</p><p>bad ending (this coalition will collapse in 2025).</p><p>wip</p>`]
 		  e.image = leader.image
 		  return construct(0);
