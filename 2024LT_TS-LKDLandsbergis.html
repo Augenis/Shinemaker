@@ -24091,7 +24091,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       }
 	  else if (aa[0].candidate == 77) { // TS-LKD Plurality
           e.header = "<h2>The Second Mandate!</h2>"
-          e.pages = [`<p>You won.</p><p>wip</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.pages = [`<p>They doubted you and your party. They said that the incumbents always lose in this country, and that the mass of Left voters will unite against you in the second round to kick you out of power. They know nothing. Nothing! Today, you celebrate your victory, as you are the first party leader since independence to lead their party to first place for two elections in a row. If anyone's had doubts about your leadership, they sure do not now - you were always right. You were always right.</p><p>The taste of victory is soured somewhat by the knowledge that forming another coalition will be a lot more difficult than before. Have your two liberal allies even managed to cross the 5% barrier? Even if both of them have, you may still be under the 71 seat threshold together. Beyond you three, any coalition building seems exceedingly difficult... Let's not let that dampen the mood, though. Tonight, the true Lithuania celebrates.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/vvLzFAr.png";
           return construct(0);
       }
@@ -24141,11 +24141,11 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.leaderName = 'Kuodis';
 		  leader23.image = 'https://i.imgur.com/SSgLP0E.png';
 		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
-		  leader24.leaderName = 'Kuodis';
-		  leader24.image = 'https://i.imgur.com/SSgLP0E.png';
+		  leader24.leaderName = 'Lazutka';
+		  leader24.image = 'https://i.imgur.com/xWkuulR.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
-		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition.</p><p>Raimondas Kuodis is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
+		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Strugglng negotiations with the LSDP's other allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24154,11 +24154,11 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.leaderName = 'Kuodis';
 		  leader23.image = 'https://i.imgur.com/SSgLP0E.png';
 		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
-		  leader24.leaderName = 'Kuodis';
-		  leader24.image = 'https://i.imgur.com/SSgLP0E.png';
+		  leader24.leaderName = 'Lazutka';
+		  leader24.image = 'https://i.imgur.com/xWkuulR.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
-		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition, and somehow with libs in as well.</p><p>Raimondas Kuodis is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
+		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with LS as a secondary partner. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Strugglng negotiations with the LSDP's other allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24258,7 +24258,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		}
 		if (negotiationsDone && selectedCoalition.id === 16){ // LSDP-NA-DSVL + minors
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Butkevičius';
+		  leader23.leaderName = 'Butkevičius II';
 		  leader23.image = 'https://i.imgur.com/nWowYwF.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
