@@ -23787,7 +23787,7 @@ if(answer == 14489) {
 
   // Define a list of possible coalitions
   const coalitions = [
-    { id: 1, name: 'New Right Coalition: TS-LKD, LS, Freedom', weight: 2.0, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
+    { id: 1, name: 'New Right Coalition: TS-LKD, LS, Freedom', weight: 5.0, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
 	{ id: 2, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL', weight: 0.5, parties: [77, 80, 13761, 14223], impossibleCoalitions: [3] },
 	{ id: 3, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL, LŽP', weight: 0.3, parties: [77, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
 	
@@ -23796,27 +23796,27 @@ if(answer == 14489) {
 	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LS, Freedom', weight: 0.2, parties: [77, 79, 80, 13761], impossibleCoalitions: [] },
 	{ id: 7, name: 'Grand Coalition: TS-LKD, LSDP, DSVL', weight: 0.4, parties: [77, 79, 14223], impossibleCoalitions: [] },
 	
-	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 5.0, parties: [79, 14223], impossibleCoalitions: [9, 10] },
-	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 0.7, parties: [79, 80, 14223], impossibleCoalitions: [10] },
-	{ id: 10, name: 'Traffic Light Coalition: LSDP, DSVL, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
+	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 5.0, parties: [79, 14223], impossibleCoalitions: [9, 10, 16] },
+	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 0.5, parties: [79, 80, 14223], impossibleCoalitions: [10] },
+	{ id: 10, name: 'Pseudo-Minority Government: LSDP, DSVL, LLRA-KŠS, Independents', weight: 0.8, parties: [79, 13838, 14223, 14377], impossibleCoalitions: [] },
 	
-	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.5, parties: [78, 79], impossibleCoalitions: [12, 13] },
-	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 1.2, parties: [78, 79, 14223], impossibleCoalitions: [13] },
+	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.5, parties: [78, 79], impossibleCoalitions: [12, 13, 15] },
+	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 0.9, parties: [78, 79, 14223], impossibleCoalitions: [13] },
 	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Peace Coalition', weight: 0.4, parties: [78, 79, 13838, 13992, 14069, 14223], impossibleCoalitions: [] },
 	
-	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 0.6, parties: [79, 13915], impossibleCoalitions: [15, 16] },
-	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 0.3, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
-	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, DSVL', weight: 0.3, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
+	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 0.6, parties: [79, 13915], impossibleCoalitions: [15] },
+	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 0.5, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
+	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, DSVL', weight: 1.0, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
 	
-	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, TTS, Other', weight: 0.8, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
-	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, TTS, Other', weight: 0.3, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
+	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, LLP, Other', weight: 0.8, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
+	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, LLP, Other', weight: 0.3, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
 	
-	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 0.7, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
+	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 0.6, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
 	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.3, parties: [79, 13761], impossibleCoalitions: [21] },
 	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
 	
 	{ id: 22, name: 'Snap Election', weight: 0.3, parties: [77, 79, 13915], impossibleCoalitions: [] },
-	{ id: 23, name: 'LSDP Majority', weight: 10.0, parties: [79], impossibleCoalitions: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22] },
+	{ id: 23, name: 'LSDP Majority', weight: 10.0, parties: [79], impossibleCoalitions: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22] },
   ];
   var possibleCoalitions = [];
   //is the name shown in the coalition table? true or false
@@ -24201,17 +24201,17 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
-		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost</p><p>wip.</p>`]
+		  e.pages=[`<p>After lengthy negotiations, which almost crumbled more than once before finally getting back together, a ${leader.leaderName} Cabinet has been formed between LSDP, DSVL and LS - which Western media has likened to the recently collapsed German Traffic Light coalition between social democrats, liberals and greens (which DSVL is on a technical level). It was not a happy marriage and has already been received extremely poorly within the Social Democratic ranks. LS and their libertarian outlook does not mesh well with the Prime Minister's progressive outlook at all, nor is the party popular among the LSDP grassroots.</p><p>The coalition program mentions reaching a higher budget-to-GDP ratio and budget redistribution to social services, but actual plans for raising taxes are quite moderate. Plans to reform the pension system have been moderated as well. The coalition vows to continue supporting Ukraine, although it is not as vehement towards China.</p><p>Watching the Prime Minister's first speech from Greece, you smile. It could have gone poorly, but you're sure Čmilytė's Liberals have got this - they'll ensure that the left is in control.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
-		if (negotiationsDone && selectedCoalition.id === 10){ // Traffic Light + Freedom
+		if (negotiationsDone && selectedCoalition.id === 10){ // Red-Blue Pseudo-Minority Government: LSDP, DSVL, LLRA-KŠS, Independents
 		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
 		  leader24.leaderName = 'Šakalienė';
 		  leader24.image = 'https://i.imgur.com/FR5ZeFj.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
-		  e.pages=[`<p>'Made like a dark fucked up version of the Traffic Light Coalition haha. Just a glimpse into my dark reality. A full stare into my twisted Eastern European political system would make most simply go insane.' - TaxHarbinger</p><p>you lost (also they got Freedom into the coalition somehow lmao)</p><p>wip.</p>`]
+		  e.header="<h2>Red-Blue Coalition Barely Holds!</h2>"
+		  e.pages=[`<p>After negotiations, a ${leader.leaderName} Cabinet has been formed between LSDP and DSVL - however, as these two parties narrowly failed to reach a majority, independent deputies and members from the Polish Electoral Action were added to get over the 71 seat majority. It is believed that the government will also continue negotiations with LVŽS and NA on their support for government bills. Saulius Skvernelis, chairman of DSVL, was nominated as Speaker of the Seimas, and they also acquired a few strategic ministries on economic affairs while leaving the rest to the victorious Social Democrats.</p><p>The coalition program is quite ambitious, vowing to reform the taxation system and establish progressive taxation, reform the pension accumulation system, and increase investment in healthcare while maintaining the current level of defense spending and aid for Ukraine. However, who can tell just how much of the program will actually be achieved when the coalition is so narrow? Any of the MPs of the wide Social Democratic tent could blow up the fragile majority. At minimum, either LVŽS or NA will be invited sometime later in the term.</p><p>Watching the Prime Minister's first speech from Greece, you smirk. A perfect set-up for a failed Left government and a triumphant return in 2028...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24240,6 +24240,9 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 14){ // LSDP-NA
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Beefsteak Coalition! A Victory for Social Fascism!</h2>"
 		  e.pages=[`<p>LSDP formed a coalition with NA.</p><p>bad ending.</p><p>wip</p>`]
@@ -24248,8 +24251,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		}
 		if (negotiationsDone && selectedCoalition.id === 15){ // LSDP-NA-LVŽS + minors
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Cesiulis';
-		  leader23.image = 'https://i.imgur.com/IuJM2RA.png';
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
 		  e.pages=[`<p>LSDP, NA and LVŽS formed a coalition. Alytus mayor Nerijus Cesiulis was the only one suicidal and desperate enough to lead this government.</p><p>bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
@@ -24258,8 +24261,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		}
 		if (negotiationsDone && selectedCoalition.id === 16){ // LSDP-NA-DSVL + minors
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Butkevičius II';
-		  leader23.image = 'https://i.imgur.com/nWowYwF.png';
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
 		  e.pages=[`<p>LSDP, NA and DSVL formed a coalition. Holy shit, Butkevičius is back as PM. This will be an achievement when I implement them.</p><p>bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
