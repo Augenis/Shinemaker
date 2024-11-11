@@ -23787,35 +23787,35 @@ if(answer == 14489) {
 
   // Define a list of possible coalitions
   const coalitions = [
-    { id: 1, name: 'New Right Coalition: TS-LKD, LS, Freedom', weight: 5.0, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
-	{ id: 2, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL', weight: 0.5, parties: [77, 80, 13761, 14223], impossibleCoalitions: [3] },
-	{ id: 3, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL, LŽP', weight: 0.3, parties: [77, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
+    { id: 1, name: 'New Right Coalition: TS-LKD, LS, Freedom', weight: 10.0, parties: [77, 80, 13761], impossibleCoalitions: [2, 3] }, //Historical coalition
+	{ id: 2, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL', weight: 1.0, parties: [77, 80, 13761, 14223], impossibleCoalitions: [3] },
+	{ id: 3, name: 'New Right Coalition: TS-LKD, LS, Freedom, DSVL, LŽP', weight: 1.0, parties: [77, 80, 13761, 14223, 14300], impossibleCoalitions: [] },
 	
-	{ id: 4, name: 'Grand Coalition: TS-LKD, LSDP', weight: 0.5, parties: [77, 79], impossibleCoalitions: [5, 6, 7] },
-	{ id: 5, name: 'Grand Coalition: TS-LKD, LSDP, LS', weight: 0.3, parties: [77, 79, 80], impossibleCoalitions: [6] },
-	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LS, Freedom', weight: 0.2, parties: [77, 79, 80, 13761], impossibleCoalitions: [] },
-	{ id: 7, name: 'Grand Coalition: TS-LKD, LSDP, DSVL', weight: 0.4, parties: [77, 79, 14223], impossibleCoalitions: [] },
+	{ id: 4, name: 'Grand Coalition: TS-LKD, LSDP', weight: 2.0, parties: [77, 79], impossibleCoalitions: [5, 6, 7] },
+	{ id: 5, name: 'Grand Coalition: TS-LKD, LSDP, LS', weight: 1.0, parties: [77, 79, 80], impossibleCoalitions: [6] },
+	{ id: 6, name: 'Grand Coalition: TS-LKD, LSDP, LS, Freedom', weight: 0.5, parties: [77, 79, 80, 13761], impossibleCoalitions: [] },
+	{ id: 7, name: 'Grand Coalition: TS-LKD, LSDP, DSVL', weight: 2.0, parties: [77, 79, 14223], impossibleCoalitions: [] },
 	
-	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 5.0, parties: [79, 14223], impossibleCoalitions: [9, 10, 16] },
-	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 0.5, parties: [79, 80, 14223], impossibleCoalitions: [10] },
-	{ id: 10, name: 'Pseudo-Minority Government: LSDP, DSVL, LLRA-KŠS, Independents', weight: 0.8, parties: [79, 13838, 14223, 14377], impossibleCoalitions: [] },
+	{ id: 8, name: 'Red-Blue Coalition: LSDP, DSVL', weight: 10.0, parties: [79, 14223], impossibleCoalitions: [9, 10, 16] },
+	{ id: 9, name: 'Traffic Light Coalition: LSDP, DSVL, LS', weight: 2.0, parties: [79, 80, 14223], impossibleCoalitions: [10] },
+	{ id: 10, name: 'Pseudo-Minority Government: LSDP, DSVL, LLRA-KŠS, Independents', weight: 5.0, parties: [79, 13838, 14223, 14377], impossibleCoalitions: [13] },
 	
-	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 1.5, parties: [78, 79], impossibleCoalitions: [12, 13, 15] },
-	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 0.9, parties: [78, 79, 14223], impossibleCoalitions: [13] },
-	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Peace Coalition', weight: 0.4, parties: [78, 79, 13838, 13992, 14069, 14223], impossibleCoalitions: [] },
+	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 5.0, parties: [78, 79], impossibleCoalitions: [12, 13, 15] },
+	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 5.0, parties: [78, 79, 14223], impossibleCoalitions: [13] },
+	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Independents', weight: 2.0, parties: [78, 79, 13838, 13992, 14223, 14377], impossibleCoalitions: [] },
 	
-	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 0.6, parties: [79, 13915], impossibleCoalitions: [15] },
-	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 0.5, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
-	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, DSVL', weight: 1.0, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
+	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 6.0, parties: [79, 13915], impossibleCoalitions: [15] },
+	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 4.0, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
+	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, DSVL', weight: 6.0, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
 	
-	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, LLP, Other', weight: 0.8, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
-	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, LLP, Other', weight: 0.3, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
+	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, LLP, Independents', weight: 10.0, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
+	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, LLP, Independents', weight: 6.0, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
 	
-	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 0.6, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
-	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.3, parties: [79, 13761], impossibleCoalitions: [21] },
-	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LS, Freedom, LŽP', weight: 0.2, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
+	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 3.0, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
+	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.5, parties: [79, 13761], impossibleCoalitions: [21] },
+	{ id: 21, name: 'Liberal-Left Coalition: LSDP, LS, Freedom, LŽP', weight: 0.5, parties: [79, 80, 13761, 14300], impossibleCoalitions: [] },
 	
-	{ id: 22, name: 'Snap Election', weight: 0.3, parties: [77, 79, 13915], impossibleCoalitions: [] },
+	{ id: 22, name: 'Snap Election', weight: 1.0, parties: [77, 79, 13915], impossibleCoalitions: [] },
 	{ id: 23, name: 'LSDP Majority', weight: 10.0, parties: [79], impossibleCoalitions: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22] },
   ];
   var possibleCoalitions = [];
@@ -24097,7 +24097,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       }
 	  else if (aa[0].candidate !== 77 && quickstats[1] < 5) {
           e.header = "<h2>Could you imagine a world without TS-LKD?</h2>"
-          e.pages = [`<p><i>October 28th, 2028, 23:45</i></p><p>With over 1400 precincts of 1851 counted, the results already appear clear. The party which came first in the multi-member constituency vote in the first round two weeks ago, the Union of Christians and Nationalists, led by co-leaders Laurynas Kasčiūnas and Vytautas Sinica, will finish first with 45 seats of 141, not counting possible recounts.</p><p>The victory of KNS has already been congratulated by likeminded European leaders such as Marine Le Pen, Viktor Orban and Giorgia Meloni. Speaking to BNS reporters, Sinica, who is expected to be nominated as Prime Minister, stated that they intend to negotiate with the Liberal-Conservative Party, led by Matas Maldeikis, which finished third, as well as other right-wing partners. The new government's first priorities will be tougher immigration standards, abolition of the Life Skills Programme and a stricter ban on LGBT propaganda in schools and the media, deportations of immigrants and revocation of refugee status, withdrawal from the Istanbul Convention...</p>`]
+          e.pages = [`<p><i>October 28th, 2028, 23:45</i></p><p>With over 1400 precincts of 1851 counted, the results of the 2028 parliamentary election seem clear. The party which came first in the multi-member constituency vote in the first round two weeks ago, the Union of Christians and Nationalists (KNS), led by co-leaders Laurynas Kasčiūnas and Vytautas Sinica, will finish first with 45 seats of 141, not considering possible recounts.</p><p>The victory of KNS has already been congratulated by likeminded European leaders such as Marine Le Pen, Viktor Orban and Giorgia Meloni. Speaking to BNS reporters, Sinica, who is expected to be the party's Prime Minister candidate, stated that the party intends to negotiate with the Liberal-Conservative Party, led by Matas Maldeikis, which finished third, as well as other right-wing partners. The new government's first priorities will be tougher immigration standards, abolition of the Life Skills Programme and a stricter ban on LGBT propaganda in schools and the media, deportations of immigrants and revocation of refugee status, withdrawal from the Istanbul Convention...</p>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
@@ -24221,21 +24221,27 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A return to 201666...</h2>"
-		  e.pages=[`<p>LSDP formed a coalition with LVŽS.</p><p>bad ending.</p><p>wip</p>`]
+		  e.pages=[`<p>After relatively quick negotiations, a ${leader.leaderName} Cabinet has been formed between LSDP and LVŽS - a return to the centre-left coalition of 2016, except with the Social Democrats at the head, rather than the Peasants. The decision came as a surprise to the rest of the nation - with so many potential coalition partners, did they really choose Karbauskis, that agribusiness tsar, whom they had previously firmly refuted? Mass dissatisfaction online eventually wavers by the time that the new government is sworn in.</p><p>The coalition agreement mainly reflects the Social Democratic program and calls for greater redistribution via newly implemented progressive taxation, greater investment in education and social affairs, reforms to the pension accumulation system and unwavering support for Ukraine. Still, the Peasants' presence has somewhat moderated some of the coalition's promises. How long will this government last? 2016 tells us that the Social Democrats are hardly comfortable with Karbauskis, and their enormous weight means that they can always consider alternative coalition partners. It's not unlikely that the Peasants will attempt to bolt or even be kicked out to be replaced with another partner sometime during the term.</p><p>Watching the Prime Minister's first speech from Greece, you grit your teeth. You want to say you expected better of the Social Democrats, but, really, come on...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 12){ // LSDP-DSVL-LVŽS
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A return to 201666...</h2>"
-		  e.pages=[`<p>LSDP formed a coalition with LVŽS and DSVL.</p><p>bad ending (also what is currently being planned lol).</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, which nearly crumbled once after personal misgivings between the leaders of the two minor coalition partners arose, a ${leader.leaderName} Cabinet has been formed between LSDP, DSVL and LVŽS - a return to the centre-left coalition of 2016, except with the Social Democrats at the head, rather than the Peasants. Grumbling began among the liberal electorate and progressive Social Democrats immediately, but by the time the ink on the coalition agreement dried, most of the nation accepted the result.</p><p>The coalition agreement mainly reflects the Social Democratic program and calls for greater redistribution via newly implemented progressive taxation, greater investment in education and social affairs, reforms to the pension accumulation system and unwavering support for Ukraine. Still, the Peasants' presence has somewhat moderated some of the coalition's promises. How long will this government last? 2016 tells us that the Social Democrats are hardly comfortable with Karbauskis, and bad blood between the Peasants and their splitter is certain to build up. Should any of the minor partners bolt, LSDP has already begun considering the possibility of a minority government.</p><p>Watching the Prime Minister's first speech from Greece, you sigh, though you feel a bit of relief. At least it's not AS bad as you expected...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 13){ // LSDP-DSVL-LVŽS + minors
+		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A return to 201666...</h2>"
-		  e.pages=[`<p>LSDP formed a coalition with LVŽS, DSVL, and a lot of minors.</p><p>bad ending (this coalition will collapse in 2025).</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, which nearly crumbled once after personal misgivings between the leaders of the two minor coalition partners arose, a ${leader.leaderName} Cabinet has been formed between LSDP, DSVL and LVŽS, with parliamentary support from independents and minor parties to get over the 71 vote threshold - a return to the centre-left coalition of 2016, except with the Social Democrats at the head, rather than the Peasants. Grumbling began among the liberal electorate and progressive Social Democrats immediately, but by the time the ink on the coalition agreement dried, most of the nation accepted the result.</p><p>The coalition agreement mainly reflects the Social Democratic program and calls for greater redistribution via newly implemented progressive taxation, greater investment in education and social affairs, reforms to the pension accumulation system and unwavering support for Ukraine. Still, the Peasants' presence has somewhat moderated some of the coalition's promises. It's also unlikely that the government will last more than a few years. The misgivings between the three coalition partners are severe, and with the majority as narrow as it is, it will only take a single spark to break it apart.</p><p>Watching the Prime Minister's first speech from Greece, you smirk. A perfect set-up for a failed Left government and a triumphant return in 2028...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
