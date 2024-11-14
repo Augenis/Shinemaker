@@ -24085,7 +24085,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       }
 		else if (aa[0].candidate == 77 && aa[0].electoral_votes >= 71) { // TS-LKD majority
           e.header = "<h2>An Unbelievable Victory!</h2>"
-          e.pages = [`<p>You got a majority. Either you got wtf lucky on low difficulties or you cheated.</p><p>wip.</p>`]
+          e.pages = [`<p>You've got to be dreaming. No, no, that can't have happened, that's impossible. But the screen still shows you the same - the Conservatives have not only maintained their positions since 2020, they have also won an unprecedented majority of the seats. That... okay, calm down. Joy has been rare to find in the past four years, but you have to stay calm. I know, it's unbelievable, it's the first time that a right-wing party has ever gotten a majority, it's...</p><p>Hell yeah, we won! The TS-LKD party headquarters immediately start playing Šimonytė's favorite Metallica tracks, and you, your ministers and your party vice-chairs sit down to think what to do next. No, of course we're not inviting the liberal parties this time. Fuck 'em. Straight up. Armonaitė and her weed-smoking kids have caused us more trouble than any opposition parties, and Čmilytė and her Liberals have been speaking behind your backs the whole time. Let them die in opposition, if they even managed to get into parliament. We're going to reform the taxation system, the education system, healthcare, social security exactly how we want. No compromises. Female conscription? Yes. 4% to defense? You got it. And, finally, another term as Minister of Foreign Affairs? Another term of carrying the torch of democracy and liberty towards the East, showing the way of truth to the entire Western world?</p><p>...Yes.</p>`]
           e.image = "https://i.imgur.com/KYCyTgw.png";
           return construct(0);
       }
@@ -24295,11 +24295,11 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		}
 		if (negotiationsDone && selectedCoalition.id === 19){ // Liberal-Left Coalition
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Šakalienė';
-		  leader23.image = 'https://i.imgur.com/FR5ZeFj.png';
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Red Fanta Coalition! LSDP and Liberals Together</h2>"
-		  e.pages=[`<p>Holy shit LSDP-LS coalition.</p><p>You lost but kinda won because yay victory for normalcy!!</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP and LS. Surprising! With so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. The personality conflicts and various rifts among the Left must have been very severe. The Liberals themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>The coalition program represents a moderated version of the Social Democratic program. Vows to increase the budget to GDP ratio via unmentioned reforms to the taxation system were included, as well as reforms to the pension system, a nationwide road fund, and continued support for Ukraine. Needless to say, this is not particularly exciting to the Social Democrats, and the libertarian MPs in the Liberal parliamentary group had to swallow a lot as well. Some question whether this coalition will even last until 2028 or if one of the two partners will quit in search of greener pastures.</p><p>Watching the Prime Minister's first speech from Greece, you smile. This went perfectly. You can retire, knowing the nation is in good hands.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24309,17 +24309,17 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/FOm78kY.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Pink Panther Coalition!</h2>"
-		  e.pages=[`<p>Holy shit LSDP-Freedom coalition.</p><p>This is such an impossible and fucked up coalition that I'll just put in whoever tf I want as prime minister.</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP, LS and Freedom. What in the world - Freedom has joined the Left they so despise! The anxieties and tensions inside the Right Coalition must have been greater than anyone thought. And with so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. Freedom themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>After Freedom's demands to bring someone more friendly to the liberals as Prime Minister, Ruslanas Baranovas was tapped for Prime Minister, becoming the youngest prime minister in history. The coalition program is perfect. Taxes will be reduced to null and defense spending will grow to five percent - no, six percent of GDP! Same sex marriage will be legalized next year, and so will soft and hard drugs. The government will recognize Palestine and Ukraine has already been invited to join NATO. Remigijus Žemaitaitis is fucking shot in the street and-</p><p>...</p><p>You jolt back awake. You must have gone to sleep while the newly elected MPs are repeating their oaths before the Constitutional Court judge. Your colleague, Matas Maldeikis, taps you on the shoulder and tells you to leave. You're going to protest NA being added to the coalition by leaving the hall when he swears his oath.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 21){ // Liberal-Left Coalition
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Paluckas';
-		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
+		  leader23.leaderName = 'Šakalienė';
+		  leader23.image = 'https://i.imgur.com/FR5ZeFj.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Liberal-Left Coalition! Betrayal!</h2>"
-		  e.pages=[`<p>Both lib parties have betrayed you.</p><p>You lost but kinda won because yay victory for normalcy!!</p><p>wip</p>`]
+		  e.header="<h2>Liberal-Left Coalition! Liberals Betray the Right!</h2>"
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP, LS and Freedom. Inconceivable - both of the Liberal parties have betrayed the Right! The anxieties and tensions inside the Right Coalition must have been greater than anyone thought. And with so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. The Liberals themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>After Freedom's demands to bring someone more friendly to the liberals as Prime Minister, Dovilė Šakalienė was tapped for Prime Minister. The coalition program represents a moderated version of the Social Democratic program. Vows to increase the budget to GDP ratio via unmentioned reforms to the taxation system were included, as well as reforms to the pension system, a nationwide road fund, and continued support for Ukraine. Freedom has managed to squeeze out a point to 'find a solution for the same-sex partnership question' in the program. This might be the deal-breaker - the Social Democrats were already not excited with the libertarians moderating their ambitions, and Freedom is immensely hated by almost all Left voters and politicians. In the first few Seimas sessions, the coalition has already begun to crumble - can it even last a year?</p><p>Watching the Prime Minister's first speech from Greece, you smile. This went perfectly. You can retire, knowing the nation is in good hands.</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
