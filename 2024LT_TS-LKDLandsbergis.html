@@ -24024,6 +24024,13 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           return construct(0);
       }
 	  // Minor party majority screens:
+	  if (aa[0].candidate == 78 && aa[0].electoral_votes >= 71) { // LVŽS
+          e.header = "<h2>On the streets of Vilnius...</h2>"
+          e.pages = [`<p>'This has to be a fucking joke,' Karbauskis says when the line moves one step closer to their destination. He and the last member of the Peasants still remaining by his side, Aurelijus Veryga, are waiting for their turn to apply for the humorous minor party victory screen in 2024 Lithuania. 'Minor party, they say. We were fucking kings, Aurelijus! We were one of the playable parties only four years ago!'</p><p>'Yes, Ramūnas, that's true,' Aurelijus answers, then caughs and hides his bag in discomfort.</p><p>'We even had the best gameplay of the playable parties, Christ. Landsbergis was just 'do the historical path or lose', Paluckas was just fucking pain - our path had the most dynamism, you know!'</p><p>'Yes, Ramūnas, I agree,' Aurelijus answers passively.</p><p>'We even had that sick dark cheat victory ending, and now we're supposed to- Aurelijus, what is that in your bag?'</p><p>'Oh, uh-'</p><p>'Is that a fucking application to join the Democrats?! What the hell? You too?!'</p>`]
+          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596165587009536/LRLS_pergale.jpg";
+          return construct(0);
+      }
+	  // Minor party majority screens:
 	  if (aa[0].candidate == 80 && aa[0].electoral_votes >= 71) { // LRLS
           e.header = "<h2>Your child asks: Why didn't you invest in Lithuania?</h2>"
           e.pages = [`<p>Incredible! As the results trickle in, it becomes clear that none of the three major parties will be the winner of the election. The Liberal Movement, deemed a spent force or outright dead since 2015, surpassed all expectations and won a majority of the seats! Nobody expected this upset. Viktorija Čmilytė-Nielsen will, of course, become the next Prime Minister - finishing the most successful chess play in her career.</p><p>What’s on the agenda now? Well, I hope you like doing business, because the whole country’s going to have to stop snoozing and start hustling. You’ll be lucky if income tax is only cut to a 15% flat rate - when getting to Top 7 in the worldwide Doing Business Index is on the line, there can be no holds barred. Maybe, once that is finished, they can also think about legal weed and same-sex marriage, too.</p>`]
@@ -24034,12 +24041,6 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           e.header = "<h2>Bestie - opposing gay marriage is cringe!</h2>"
           e.pages = [`<p>THE TRIBUNAL HAS FOUND THE FOLLOWING PERSONS AND ORGANIZATIONS GUILTY OF OPPOSING HUMAN RIGHTS AND SOUND ECONOMICS, WORKING WITH ENEMIES OF THE STATE IN RUSSIA, BELARUS AND CHINA, AND BEING CRINGE, RIZZLESS, NORMIE AND CURSED:</p><p>-The Social Democratic Party, the Union of Democrats 'For Lithuania', the Farmers and Greens Union, the Dawn of Nemunas, and all other populist parties listed in the attached addendum<br>-Ramūnas Karbauskis<br>-Remigijus Žemaitaitis<br>-Eduardas Vaitkus<br>-Agnė Širinskienė (scribbled <i>MAKE HER SUFFER</i>)<br>-Artūras Orlauskas<br>-Ignas Vėgėlė<br>-Rūta Janutienė<br>-Laurynas Kasčiūnas, Paulius Saudargas, Audronis Ažubalis<br>-All Agroliberals, Christian Democrats, Leadership of the Homeland Union - individual figures listed in the addendum</p><p>DEATH SENTENCES WILL BE CARRIED OUT IN LUKIŠKĖS SQUARE THIS SUNDAY.<br>Signed - Aušrinė Armonaitė, Chairwoman of the Revolutionary Liberation Committee of the Liberal Republic of Lithuania<br><br>(<i>P.S. Make sure to play Bad Reputation during the executions. -A.A.</i>)</p>`]
           e.image = "https://i.imgur.com/60RjKTy.png";
-          return construct(0);
-      }
-	  else if (aa[0].candidate == 13915 && aa[0].electoral_votes >= 71) { // Labour
-          e.header = "<h2>The King of Pickles Rises!</h2>"
-          e.pages = [`<p>Incredible! Rising from the dead, the Labour Party has not only regained their previous standing, but also won a majority of the seats in the election. Shock and horror rolls throughout the nation - no cordon sanitaire is going to stop them from bringing Viktor Uspaskich from exile and putting him as Prime Minister now. Perhaps the pickles they distribute to their voters in jars were just that good.</p><p>What is on their agenda? Well, nobody’s really certain - Labour certainly never expected to get this far themselves. Of course, any remaining investigations into their finances and corruption will cease, and don’t even think about a harsher stance towards Russia. And keep in mind that you have just elected a party led by a man who sells mineral water that supposedly protects you from COVID - and tasked him to handle the response to the second COVID wave. Yeah... that’s not good.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164295168020/DP_pergale.jpg";
           return construct(0);
       }
 	  else if (aa[0].candidate == 13838) { // LLRA
