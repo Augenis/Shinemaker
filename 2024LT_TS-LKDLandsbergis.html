@@ -23224,9 +23224,9 @@ function changeWeight(weights, sourceCandidateId, targetCandidateId, changeAmoun
 	candidateWeights.weights[targetCandidateId] = Math.max(0, candidateWeights.weights[targetCandidateId] );
 }
 
-function unlockAchievementSafe(achievementName) {
-    if (typeof unlockAchievement === "function") {
-        unlockAchievement(achievementName);
+function ctsAchievement(achievement){
+        if(campaignTrail_temp.CTS){
+        unlockAchievement(achievement);
     }
 }
 
@@ -24022,14 +24022,14 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
  
       let lazdynaiResult = campaignTrail_temp.final_state_results.find((x) => x.state == 13151);
       if(lazdynaiResult.result[0].candidate == 79) {
-      unlockAchievementSafe("Bard of the Left");
+      ctsAchievement("Bard of the Left");
       }
 	  let naujininkaiResult = campaignTrail_temp.final_state_results.find((x) => x.state == 13581);
       if(naujininkaiResult.result[0].candidate == 14377) {
-      unlockAchievementSafe("Guess Who's Back?");
+      ctsAchievement("Guess Who's Back?");
       }
 	  if(aa[0].candidate == 13915) {
-      unlockAchievementSafe("Weimar 1933");
+      ctsAchievement("Weimar 1933");
       }
       
       // ENDINGS
@@ -24122,7 +24122,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           e.pages = [`<p>They doubted you and your party. They said that the incumbents always lose in this country, and that the mass of Left voters will unite against you in the second round to kick you out of power. They know nothing. Nothing! Today, you celebrate your victory, as you are the first party leader since independence to lead their party to first place for two elections in a row. If anyone's had doubts about your leadership, they sure do not now - you were always right. You were always right.</p><p>The taste of victory is soured somewhat by the knowledge that forming another coalition will be a lot more difficult than before. Have your two liberal allies even managed to cross the 5% barrier? Even if both of them have, you may still be under the 71 seat threshold together. Beyond you three, any coalition building seems exceedingly difficult... Let's not let that dampen the mood, though. Tonight, the true Lithuania celebrates.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/vvLzFAr.png";
 		  if(e.player_answers.includes(14484)) {
-          unlockAchievementSafe("Back to the Past");
+          ctsAchievement("Back to the Past");
           }
           return construct(0);
       }
@@ -24151,7 +24151,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>A Second Right Coalition!</h2>"
 		  e.pages=[`<p>Holy shit you won again.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
 		  e.image = leader.image
-		  unlockAchievementSafe("Sweet Victory");
+		  ctsAchievement("Sweet Victory");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 2){ // 2020 coalition + DSVL
@@ -24159,8 +24159,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
 		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between TS-LKD, LS, Freedom and DSVL. Unbelievable! After deep rifts with each one of their potential coalition partners on the Left began to arise, the Democrats, who had at least theoretically considered working with the Conservatives for sweet political posts, began secret negotiations with the Right. A few days later, the negotiations were leaked and blew any possibility of a wide Left coalition to smithereens - ultimately leading us here.</p><p>The coalition program vows to expand budget collection by cutting down certain income tax exemptions and adjusting a few other taxes, increase defense funding to 4% of GDP and continue full support for Ukraine, and 'search for a solution to the question of same sex partnerships'. It is not a very happy marriage. Freedom, which left the last coalition disappointed with the failure of the Partnership Law, already promise to be even more annoying this term, and the Democrats tremble, possibly approaching a party split, as much of the voters and lesser leadership are dismayed with the betrayal.</p><p>But it doesn't matter now. You won.</p>`]
 		  e.image = leader.image
-		  unlockAchievementSafe("Sweet Victory");
-		  unlockAchievementSafe("Making Amends");
+		  ctsAchievement("Sweet Victory");
+		  ctsAchievement("Making Amends");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 3){ // 2020 coalition + DSVL + LŽP
@@ -24168,8 +24168,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
 		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between TS-LKD, LS, Freedom, DSVL and LŽP. Unbelievable! After deep rifts with each one of their potential coalition partners on the Left began to arise, the Democrats, who had at least theoretically considered working with the Conservatives for sweet political posts, began secret negotiations with the Right. A few days later, the negotiations were leaked and blew any possibility of a wide Left coalition to smithereens - ultimately leading us here.</p><p>The coalition program vows to expand budget collection by cutting down certain income tax exemptions and adjusting a few other taxes, increase defense funding to 4% of GDP and continue full support for Ukraine, and 'search for a solution to the question of same sex partnerships'. It is not a very happy marriage. Freedom, which left the last coalition disappointed with the failure of the Partnership Law, already promise to be even more annoying this term, and the Democrats tremble, possibly approaching a party split, as much of the voters and lesser leadership are dismayed with the betrayal.</p><p>But it doesn't matter now. You won.</p>`]
 		  e.image = leader.image
-		  unlockAchievementSafe("Sweet Victory");
-		  unlockAchievementSafe("Making Amends");
+		  ctsAchievement("Sweet Victory");
+		  ctsAchievement("Making Amends");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 4){ // Grand Coalition
@@ -24182,7 +24182,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
 		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
-		  unlockAchievementSafe("Sweet Victory");
+		  ctsAchievement("Sweet Victory");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24196,7 +24196,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
 		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with LS as a secondary partner. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
-		  unlockAchievementSafe("Sweet Victory");
+		  ctsAchievement("Sweet Victory");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24211,7 +24211,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
 		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with LS and Freedom as a secondary partners. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>And Freedom too, somehow? That's crazy, you've got to be a god of negotiation to have made this work. The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. After liberal demands, same sex partnerships have also been written into the program. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
-		  unlockAchievementSafe("Sweet Victory");
+		  ctsAchievement("Sweet Victory");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24226,8 +24226,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>A Grand Coalition!</h2>"
 		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with DSVL as a secondary partner. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
 		  e.image = leader.image
-		  unlockAchievementSafe("Sweet Victory");
-		  unlockAchievementSafe("Making Amends");
+		  ctsAchievement("Sweet Victory");
+		  ctsAchievement("Making Amends");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 8){ // LSDP-DSVL
@@ -24247,7 +24247,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
 		  e.pages=[`<p>After lengthy negotiations, which almost crumbled more than once before finally getting back together, a ${leader.leaderName} Cabinet has been formed between LSDP, DSVL and LS - which Western media has likened to the recently collapsed German Traffic Light coalition between social democrats, liberals and greens (which DSVL is on a technical level). It was not a happy marriage and has already been received extremely poorly within the Social Democratic ranks. LS and their libertarian outlook does not mesh well with the Prime Minister's progressive outlook at all, nor is the party popular among the LSDP grassroots.</p><p>The coalition program mentions reaching a higher budget-to-GDP ratio and budget redistribution to social services, but actual plans for raising taxes are quite moderate. Plans to reform the pension system have been moderated as well. The coalition vows to continue supporting Ukraine, although it is not as vehement towards China.</p><p>Watching the Prime Minister's first speech from Greece, you smile. It could have gone poorly, but you're sure Čmilytė's Liberals have got this - they'll ensure that the left is in control.</p>`]
-		  unlockAchievementSafe("Perfidy");
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24352,7 +24352,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Pink Panther Coalition!</h2>"
 		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP, LS and Freedom. What in the world - Freedom has joined the Left they so despise! The anxieties and tensions inside the Right Coalition must have been greater than anyone thought. And with so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. Freedom themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>After Freedom's demands to bring someone more friendly to the liberals as Prime Minister, Ruslanas Baranovas was tapped for Prime Minister, becoming the youngest prime minister in history. The coalition program is perfect. Taxes will be reduced to null and defense spending will grow to five percent - no, six percent of GDP! Same sex marriage will be legalized next year, and so will soft and hard drugs. The government will recognize Palestine and Ukraine has already been invited to join NATO. Remigijus Žemaitaitis is fucking shot in the street and-</p><p>...</p><p>You jolt back awake. You must have gone to sleep while the newly elected MPs are repeating their oaths before the Constitutional Court judge. Your colleague, Matas Maldeikis, taps you on the shoulder and tells you to leave. You're going to protest NA being added to the coalition by leaving the hall when he swears his oath.</p>`]
-		  unlockAchievementSafe("Perfidy");
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24363,7 +24363,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Liberal-Left Coalition! Liberals Betray the Right!</h2>"
 		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP, LS and Freedom. Inconceivable - both of the Liberal parties have betrayed the Right! The anxieties and tensions inside the Right Coalition must have been greater than anyone thought. And with so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. The Liberals themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>After Freedom's demands to bring someone more friendly to the liberals as Prime Minister, Dovilė Šakalienė was tapped for Prime Minister. The coalition program represents a moderated version of the Social Democratic program. Vows to increase the budget to GDP ratio via unmentioned reforms to the taxation system were included, as well as reforms to the pension system, a nationwide road fund, and continued support for Ukraine. Freedom has managed to squeeze out a point to 'find a solution for the same-sex partnership question' in the program. This might be the deal-breaker - the Social Democrats were already not excited with the libertarians moderating their ambitions, and Freedom is immensely hated by almost all Left voters and politicians. In the first few Seimas sessions, the coalition has already begun to crumble - can it even last a year?</p><p>Watching the Prime Minister's first speech from Greece, you smile. This went perfectly. You can retire, knowing the nation is in good hands.</p>`]
-		  unlockAchievementSafe("Perfidy");
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24380,7 +24380,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Snap Election!</h2>"
 		  e.pages=[`<p>Once the first session of the new Seimas came, a new coalition had yet to be formed, and the same impasse, with potential coalition partners changing one after the other, continued for at least two weeks. President Gitanas Nausėda was forced to step in and propose the formation of an interim cabinet headed by Frederikas Jansonas, one of his advisors and an independent official, but this proposal too didn't last.</p><p>Ultimately, with no stable government in the 30 days required for the parliament to approve a government program by someone, the President was forced to call a snap election in order to resolve the impasse. The exhausted, bitter, frustrated Lithuanian public shall be herded to the voting booths once again, told that they'll have a government without circuses this time and painfully shown the opposite.</p><p>Look forward to >20% of votes for NA!</p>`]
-		  unlockAchievementSafe("Weimar 1930");
+		  ctsAchievement("Weimar 1930");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24392,7 +24392,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>LSDP Majority!</h2>"
 		  e.pages=[`<p>It only took days for the Social Democrats to announce the makeup of the ${leader.leaderName} Cabinet - though a few ministries are still in question, depending on which wing of the party stakes a bigger claim for one prize or another, the first completely Social Democratic cabinet has been drafted. History is being made as we speak - never since 1992 has a party won a majority of the parliamentary seats, and such honor falls to the Left in both instances. The Prime Minister has opened negotiations with DSVL and independent deputies to build an even more invincible majority which won't be threatened by any parliamentary vetoes or individual defections.</p><p>The government program is a one-to-one replica of the Social Democratic election program, and is thus certainly ambitious. The first items on the agenda are a thorough taxation reform, implementing a progressive income tax system, and abolition of the second pillar of the pension system. In foreign affairs, they may attempt a reset of relations with China, but aid deliveries to Ukraine are expected to continue at the same pace. A few squabbles between competing wings within the party may take place, but there's no doubt that this government will last until 2028.</p><p>Watching the Prime Minister's first speech from Greece, you sigh, though you feel a bit of relief. At least it's not AS bad as you expected...</p>`]
 		  e.image = leader.image
-		  unlockAchievementSafe("Back to 1992");
+		  ctsAchievement("Back to 1992");
 		  return construct(0);
 		}
 		
