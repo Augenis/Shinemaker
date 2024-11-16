@@ -23502,7 +23502,7 @@ if(answer == 14489) {
     
       for (let i = 0; i < seats; i++) {
           for (let w = 0; w < votes.length; w++) {
-              if (perc_votes[w] < thresh) {
+			  if (perc_votes[w] < thresh) {
                   quotients[w] = 0
               } else {
                   quotients[w] = votes[w]/(allocations[w]+1)
@@ -24046,13 +24046,13 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 	  else if (aa[0].candidate == 13838) { // LLRA
           e.header = "<h2>Druga Żeligiada!</h2>"
           e.pages = [`<p>Niesamowite! Po podliczeniu głosów Najwyższa Komisja Wyborcza ogłosiła, że Akcja Wyborcza Polaków zdobyła większość mandatów! Jak to się mogło stać? Czyżbyśmy skrajnie nie doszacowali liczby naszych rodaków? Żaden rodowity Litwin by na nas nie zagłosował, więc ten wynik miałby jakiś sens tylko, gdyby jedna trzecia, bądź więcej, tego kraju była od początku Polakami – jak w starych dobrych czasach międzywojnia.</p><p>W takim razie pora na uruchomienie Planu X. Podczas gdy Litwini pozostają osłupieni wynikiem, robimy telefon do Prezydenta Dudy żeby przemieścił dywizję wojska na Przesmyk Suwalski. Ci „buntownicy”, przysięgając wyzwolenie rodaków z opresji, zrobią przemarsz na Wilno i po raz kolejny naprawią błędy przeszłości.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164693643275/LLRA_pergale.jpg";
+          e.image = "https://i.imgur.com/AVrKo2w.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14146 && aa[0].electoral_votes >= 71) { // NS
-          e.header = "<h2>The State Reclaimed.</h2>"
-          e.pages = [`<p>Incredible! After the results were tallied, it was announced that the National Alliance won a majority of the seats in the election! A party only founded last year winning a majority, and with an eurosceptic platform no less? Even for Lithuania, this result is extraordinarily unhinged. The Philosopher, Vytautas Radžvilas, will become the Prime Minister, and he will appoint the most intellectual - in a specific, philosophical kind of way - cabinet in history.</p><p>What is on their agenda? Who knows how far they will go. At this point, even abandoning the Euro, closing the borders to anyone trying to emigrate to the West, and a full ban on 'LGBT propaganda' could be on the table. The so-called liberal-bolshevists in the Freedom Party and Liberal Movement will not escape their torch, either. Or, probably more likely, they'll just copy whatever Poland's PiS is doing wholesale.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596319291494532/NS_pergale.png";
+          e.header = "<h2>A White Victory!</h2>"
+          e.pages = [`<p>Hello everyone, this is me BaltalietuviS with you again, and today I was elected to the Seimas. Yes, the rumors were correct. My real identity was Vytautas Sinica, leader of the National Alliance - did you really think that the funny haha pickle tasting youtuber with a crappy phone camera only coincidentally looked like him? It was so easy to fool you all.</p><p>Now, do you think I will stop my videos just because I've been elected to parliament? Not a chance. Now that my party has a majority of the seats, I am going to order them to stock the Seimas warehouse with all kinds of store brand potato chips and pickles so I have an infinite supply of material for my videos. Oh, and I'm also going to expel all the migrants. But you already knew that.</p>`]
+          e.image = "https://i.imgur.com/SekJzsq.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14069 && aa[0].electoral_votes >= 71) { // CP-T
@@ -24063,7 +24063,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       }
 	  else if (aa[0].candidate == 13992 && aa[0].electoral_votes >= 71) { // LRP
           e.header = "<h2>A Kingdom of Milfs!</h2>"
-          e.pages = [`<p>Expected. After rigging the elections in Širvintos, the Pinskai family machine easily rigged the elections nationwide - so, now, the Regions Party has received a majority of the seats in Parliament. Simple. Let's rig some more. Okay, the Constitution has been overwritten and the Republic of Lithuania has become a Kingdom of Lithuania. Queen Živilė I of the House of Pinskuvienė now holds absolute power.</p><p>Oh, and now that the whole country is dazzled by her impeccable beauty and cannot resist the Queen, let's just make rigging elections legal so we don't have to get bothered with the courts convicting us of vote rigging after every damn election. Gets really annoying after a while.</p>`]
+          e.pages = [`<p>Expected. After rigging the elections in Širvintos until they got the North Korea level percentages they wanted, the Pinskai family machine then easily rigged the elections nationwide - so, now, the Regions Party has received a majority of the seats in Parliament. Simple. Let's rig some more. Okay, the Constitution has been overwritten and the Republic of Lithuania has become a Kingdom of Lithuania. Queen Živilė I of the House of Pinskuvienė now holds absolute power.</p><p>Oh, and now that the whole country is dazzled by her impeccable beauty and cannot resist the Queen, let's just make rigging elections legal so we don't have to get bothered with the courts convicting us of vote rigging after every damn election. Gets really annoying after a while.</p>`]
           e.image = "https://i.imgur.com/oere6jb.png";
           return construct(0);
       }
@@ -24074,9 +24074,9 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           return construct(0);
       }
 	  else if (aa[0].candidate == 14300 && aa[0].electoral_votes >= 71) { // LŽP
-          e.header = "<h2>Nature doesn't have its candidates, but it has a Prime Minister!</h2>"
-          e.pages = [`<p>Incredible! According to reports from the Supreme Electoral Commission, the Greens Party - not to be confused with the Farmers and Greens, that is the ‘Peasants’, very different - surpassed all expectations, including their own! Now, they have a majority of the seats, and green activist Remigijus Lapinskas will be sworn in as the new Prime Minister.</p><p>Most political scientists agree that the LŽP could only achieve this victory because every single Peasant voter confused the two parties on the ballot and so voted for the wrong party. But then why didn’t Green voters switch to the Peasants? The world wonders. You will be able to ponder this question while watching the one-millionth wind turbine being erected over some farmer’s property.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318721065030/LZP_pergale.jpg";
+          e.header = "<h2>Luigi Wins the Lithuanian Election by Doing Nothing</h2>"
+          e.pages = [`<p>Wow. Every single party in the election screwed themselves over with either scandals, unpalatable stances, or getting convicted and imprisoned. The only party which didn't have their campaign collapse was the one which did nothing at all - the True Greens. So, only their voters came to vote and they ended up receiving a majority of the seats.</p><p>Nobody knows what they'll do in power, certainly not the LŽP themselves. Well, the first thing they should probably do is apply to join the European Greens Party. They've left their application on read for over a decade, but they can't do so now, can they?</p><p>...</p><p>...Habeck still won't pick up the phone, huh?</p>`]
+          e.image = "https://i.imgur.com/qH7nS2C.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14818 && aa[0].electoral_votes >= 71) { // LLP
