@@ -94,7 +94,7 @@ campaignTrail_temp.questions_json = [
         "pk": 345,
         "fields": {
             "priority": 2,
-            "description": "Congratulations! We Social Democrats are the first to publish our election program, and perhaps for the first time in Lithuanian political history, it has actually become a focus of media interest and political debate. Calling for much greater budget collection, with upwards of two billion EUR added per year through new or raised taxes, and just as much additional spending in various social services, it's been described as ambitious by some and hopelessly populistic by others. Which of your program's points do you intend to focus on the most? Options - SODRA reserve, pension reform, progressive tax, defense spending",
+            "description": "Congratulations! We Social Democrats are the first to publish our election program, and perhaps for the first time in Lithuanian political history, it has actually become a focus of media interest and political debate. Calling for much greater budget collection, with upwards of two billion EUR added per year through new or raised taxes, and just as much additional spending in various social services, it's been described as ambitious by some and hopelessly populistic by others. Which of your program's points do you intend to focus on the most? (Options - SODRA reserve, pension reform, progressive tax, defense spending)",
             "likelihood": 1
         }
     },
@@ -103,7 +103,7 @@ campaignTrail_temp.questions_json = [
         "pk": 349,
         "fields": {
             "priority": 2,
-            "description": "On the last week of the spring session of the Seimas, the Freedom Party has suddenly put forward the Partnership Law one more time. After a narrow successful vote in 2022, it now only needs to pass one more reading to become law - and Freedom either hopes to ram it through before the election or are using this law as leverage against Gabrielius Landsbergis. We Social Democrats have been a swing vote on the law, but the majority of the population and many of our members are against it. How should we act?",
+            "description": "On the last week of the spring session of the Seimas, the Freedom Party has suddenly put the Partnership Law forward one more time. After a narrow successful vote in 2022, it now only needs to pass one more reading to become law - and Freedom either hopes to ram it through before the election or are using this law as leverage against Gabrielius Landsbergis. We Social Democrats have been a swing vote on the law, but the majority of the population and many of our members are against it. How should we act?",
             "likelihood": 1
         }
     },
@@ -112,7 +112,7 @@ campaignTrail_temp.questions_json = [
         "pk": 346,
         "fields": {
             "priority": 2,
-            "description": "Another week, another scandal. In March of 2022, you and your wife Austėja purchased a villa in Greece for 255 thousand EUR - display of wealth notwithstanding, the parliamentary opposition has begun raising questions whether this was intended a safe refuge in case you need to abandon the country during a Russian invasion. How will you answer these allegations?",
+            "description": "Ever since the presidential election, where their leader performed surprisingly well, Žemaitaitis's clique has been steadily growing in the polls. There's little chance that they will overtake you or the TS-LKD, but their presence has thrown out old coalition predictions. The 'Right' and the media have begun pressuring you - will you join them in a cordon sanitaire against Žemaitaitis, refusing to endorse his party or include them into the coalition?",
             "likelihood": 1
         }
     },
@@ -130,7 +130,7 @@ campaignTrail_temp.questions_json = [
         "pk": 351,
         "fields": {
             "priority": 2,
-            "description": "After the 2021 Belarusian border crisis, our government expanded legal migration avenues to Lithuania and opened its borders to large numbers of Belarusian and Russian exiles. After the Russian invasion of Ukraine, thousands of Ukrainians settled in Lithuania as well. The number of foreign nationals has surpassed 200 thousand and the growing anxiety is difficult to ignore. Though few question the shelter for Ukrainian refugees, the Belarusian, Russian, Central Asian migrants are seen differently. How do you intend to address immigration?",
+            "description": "After the 2021 Belarusian border crisis, the Šimonytė government expanded legal migration avenues to Lithuania and opened its borders to large numbers of Belarusian and Russian exiles. After the Russian invasion of Ukraine, thousands of Ukrainians settled in Lithuania as well. The number of foreign nationals has surpassed 200 thousand and the growing anxiety is difficult to ignore. Though few question the shelter for Ukrainian refugees, the Belarusian, Russian, Central Asian migrants are seen differently. How do you intend to address immigration?",
             "likelihood": 1
         }
     },
@@ -139,7 +139,7 @@ campaignTrail_temp.questions_json = [
         "pk": 344,
         "fields": {
             "priority": 2,
-            "description": "Barbora has been managing the election campaign thus far, and they believe that by strategically investing in certain constituencies, we may greatly open up the electoral map - Kaunas, which has never seen a constituency won by the Social Democrats before, as well as Šiauliai and Panevėžys may be in play. This view isn't shared by everyone in the party, however - our branches in the West are highly worried about Žemaitaitis's clique and believe that his populist movement threatens several safe constituencies westwards. What strategy will you support?",
+            "description": "Barbora has been managing the campaign thus far, and they believe that by strategically investing in certain constituencies, we may greatly open up the electoral map - Kaunas, which has never seen a constituency won by the Social Democrats before, as well as Šiauliai and Panevėžys may be in play. This view isn't shared by everyone in the party, however - our branches in the west are highly worried about Žemaitaitis's clique and believe that his populist movement threatens several safe constituencies westwards. Which strategy will you support?",
             "likelihood": 1
         }
     },
@@ -24011,81 +24011,103 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
         adjustWeights(3);
       }
       
+      // State achievements
+ 
+      let lazdynaiResult = campaignTrail_temp.final_state_results.find((x) => x.state == 13151);
+      if(lazdynaiResult.result[0].candidate == 79) {
+      ctsAchievement("Bard of the Left");
+      }
+	  let naujininkaiResult = campaignTrail_temp.final_state_results.find((x) => x.state == 13581);
+      if(naujininkaiResult.result[0].candidate == 14377) {
+      ctsAchievement("Guess Who's Back?");
+      }
+	  if(aa[0].candidate == 13915) {
+      ctsAchievement("Weimar 1933");
+      }
+      
       // ENDINGS
 	  
 	  if (!negotiationsDone){
 		if (aa[0].candidate == 77 && aa[0].electoral_votes >= 119) { // TS-LKD hyper win
           changeTheme("dark")
 		  setMusic("")
-          e.header = "<h2>Target eliminated.</h2>"
-          e.pages = [`<p>Upon the strike of a bolt of lightning, the grotesque monstrosity fizzled into ash, and for the first time in half an hour, a silence set in Lukiškės Square. Gabrielius let out an easier breath.</p><p>It was rather foolish to think that their quest would end with the destruction of MG Baltic. A demonic race which has existed for millennia obviously had contingency plans within contingency plans, themselves within contingency plans.</p><p><em>Nor did Mockus bring all of his associates to battle eight years ago, either.</em> This one - a veteran of the velniai clan, perhaps, judging from his size and power - decided to take over the mind of the brash, confident CEO of Agrokoncernas. He had never seen such an ability before - taking over a politician through demonic possession, as opposed to the more common murder and shapeshifting.</p><p>Gabrielius holstered his gun, crackling with raw electric power, and walked away from the scene, hands in his pockets. Tomorrow, the media will report that Ramūnas Karbauskis was hospitalized, some conspiracies will crop up in the DELFI comment section, but most will read the news and move on, while a responsible centre-right government will take power like it should have back in 2016. The hunter pulled out his iPhone.</p><p>"Andrius, are you there? Have you tracked down <em>Cellophane</em>?"</p><iframe width="361" height="45" src="https://www.youtube-nocookie.com/embed/y06Ysf3i4UA?autoplay=1" title="Lilas ir Innomine - Kai tu žengi gūžiasi Vilnius" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" donotallowfullscreen></iframe>`]
-          e.image = "https://i.imgur.com/mEM7RIM.png";
+          e.header = "<h2>A new threat to the old order...</h2>"
+          e.pages = [`<p>With the flash of a bolt of lightning above Vilnius, a second man appeared next to the first on the roof of the Cathedral Bell Tower, looking down on the empty city square, shrouded in the darkness of the night. Andrius walked up to Gabrielius, his mood despondent - once his comrade in arms heard his footsteps, he turned around and asked:</p><p>"Have you figured it out?"</p><p>"Yes," Andrius answered after a moment's pause, unsure whether to reveal the whole truth. "It's... worse than we thought. I fear that the New SocDems have been aware of our existence for years. They've... kept silent for a long time, but now I am certain that their leader has transcended the limits of humanity - in a manner different from us."</p><p>"You mean... that old woman?"</p><p>"No. She has been a puppet the whole time. I am not certain if she is even alive or if she is a meat puppet created through some otherworldly means, her body didn't even have a pulse... No, I am speaking about Gintautas Paluckas. You remember him, don't you?"</p><p>Gabrielius turned his eyes to the distance - for a second, his thoughts flashed back to old memories. They knew each other. Paluckas was once a member of the Young Conservatives, after all, before turning to... dark places. The next time they met, it was in the 2020 election - where he seemed pathetic on the surface, sure, but it felt as if he was hiding something... "It doesn't matter. He will fall, just like the rest."</p><iframe width="361" height="45" src="https://www.youtube.com/embed/2ovliAYrhmg?si=WKhagzLA-J-4J2UZ" title="Anubi - Ozirio adventas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" donotallowfullscreen></iframe>`]
+          e.image = "https://i.imgur.com/CsPzfIp.png";
           return construct(0);
       }
 	  // Minor party majority screens:
+	  if (aa[0].candidate == 78 && aa[0].electoral_votes >= 71) { // LVŽS
+          e.header = "<h2>On the streets of Vilnius...</h2>"
+          e.pages = [`<p>'This has to be a fucking joke,' Karbauskis says when the line moves one step closer to their destination. He and the last member of the Peasants still remaining by his side, Aurelijus Veryga, are waiting for their turn to apply for the humorous minor party victory screen in 2024 Lithuania. 'Minor party, they say. We were fucking kings, Aurelijus! We were one of the playable parties only four years ago!'</p><p>'Yes, Ramūnas, that's true,' Aurelijus answers, then caughs and hides his bag in discomfort.</p><p>'We even had the best gameplay of the playable parties, Christ. Landsbergis was just 'do the historical path or lose', Paluckas was just fucking pain - our path had the most dynamism, you know!'</p><p>'Yes, Ramūnas, I know,' Aurelijus answers passively.</p><p>'We even had that sick dark cheat victory ending, and now we're supposed to- What is that in your bag?'</p><p>'Oh, uh-'</p><p>'Is that a fucking application to join the Democrats?! What the hell? You too?!'</p>`]
+          e.image = "https://i.imgur.com/mLBnijQ.png";
+          return construct(0);
+      }
 	  if (aa[0].candidate == 80 && aa[0].electoral_votes >= 71) { // LRLS
-          e.header = "<h2>Your child asks: Why didn't you invest in Lithuania?</h2>"
-          e.pages = [`<p>Incredible! As the results trickle in, it becomes clear that none of the three major parties will be the winner of the election. The Liberal Movement, deemed a spent force or outright dead since 2015, surpassed all expectations and won a majority of the seats! Nobody expected this upset. Viktorija Čmilytė-Nielsen will, of course, become the next Prime Minister - finishing the most successful chess play in her career.</p><p>What’s on the agenda now? Well, I hope you like doing business, because the whole country’s going to have to stop snoozing and start hustling. You’ll be lucky if income tax is only cut to a 15% flat rate - when getting to Top 7 in the worldwide Doing Business Index is on the line, there can be no holds barred. Maybe, once that is finished, they can also think about legal weed and same-sex marriage, too.</p>`]
-          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596165587009536/LRLS_pergale.jpg";
+          e.header = "<h2>Call Gabrielius. I want him know it was me.</h2>"
+          e.pages = [`<p>How fortuitous. With the Conservatives and Freedom wrecked by scandals and infighting, all Right voters flocked to the Liberal Movement, the party which has suffered no issues in government whatsoever. So many crises wrecked the government's reputation one after another. The world suffered the Covid pandemic exactly at the year when they came to power. Someone convinced Lukashenko to send those migrants at the border, and for some reason Putin snapped and invaded Ukraine. Someone sabotaged every single Partnership Law vote and someone tipped the media about Navickienė's husband's crypto scammer ties.</p><p>How coincidental.</p><p>The opposition has wrecked themselves, too, and bled so many votes to the Liberals that they now have a majority. Someone collapsed the Peasants from within, and stoked an internal collapse of the Social Democrats. Someone convinced Žemaitaitis to burn himself up with his insane antisemitic statements.</p><p>All while the Liberals suffered nothing. Aside for that annoying MG Baltic scandal, but even the greatest chessmasters make a few slip-ups sometimes...</p>`]
+          e.image = "https://i.imgur.com/DONHmq0.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 13761 && aa[0].electoral_votes >= 71) { // Freedom
-          e.header = "<h2>Bestie, let’s #yassify homophobes and antivaxxers together!</h2>"
-          e.pages = [`<p>Incredible! The Supreme Election Commission has announced that the Freedom Party won a majority of the seats in the election. How was this even possible? They didn’t even run candidates in many constituencies. Clearly, the desire for social liberalism was greater than anyone in the race had anticipated - or maybe half of the country accidentally voted for the wrong party, who knows.</p><p>What will be on the agenda of Prime Minister Aušrinė Armonaitė and her cabinet? Immediate legalization of same-sex marriage and recreational drugs is certainly going to be their first move. Full dual citizenship, too. Oh, and carbon neutrality, and flat taxes, and withdrawing recognition of China, too! There’s a lot of dreams to fulfill when you’ve been given infinite power. Make sure to follow Freedom’s Tiktok - it’ll probably become the government’s main platform for major announcements. </p>`]
-          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596165167583272/LP_pergale.jpg";
-          return construct(0);
-      }
-	  else if (aa[0].candidate == 13915 && aa[0].electoral_votes >= 71) { // Labour
-          e.header = "<h2>The King of Pickles Rises!</h2>"
-          e.pages = [`<p>Incredible! Rising from the dead, the Labour Party has not only regained their previous standing, but also won a majority of the seats in the election. Shock and horror rolls throughout the nation - no cordon sanitaire is going to stop them from bringing Viktor Uspaskich from exile and putting him as Prime Minister now. Perhaps the pickles they distribute to their voters in jars were just that good.</p><p>What is on their agenda? Well, nobody’s really certain - Labour certainly never expected to get this far themselves. Of course, any remaining investigations into their finances and corruption will cease, and don’t even think about a harsher stance towards Russia. And keep in mind that you have just elected a party led by a man who sells mineral water that supposedly protects you from COVID - and tasked him to handle the response to the second COVID wave. Yeah... that’s not good.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164295168020/DP_pergale.jpg";
+          e.header = "<h2>Bestie - opposing gay marriage is cringe!</h2>"
+          e.pages = [`<p>THE TRIBUNAL HAS FOUND THE FOLLOWING PERSONS AND ORGANIZATIONS GUILTY OF OPPOSING HUMAN RIGHTS AND SOUND ECONOMICS, WORKING WITH ENEMIES OF THE STATE IN RUSSIA, BELARUS AND CHINA, AND BEING CRINGE, RIZZLESS, NORMIE AND CURSED:</p><p>-The Social Democratic Party, the Union of Democrats 'For Lithuania', the Farmers and Greens Union, the Dawn of Nemunas, and all other populist parties listed in the attached addendum<br>-Ramūnas Karbauskis<br>-Remigijus Žemaitaitis<br>-Eduardas Vaitkus<br>-Agnė Širinskienė (scribbled <i>MAKE HER SUFFER</i>)<br>-Artūras Orlauskas<br>-Ignas Vėgėlė<br>-Rūta Janutienė<br>-Laurynas Kasčiūnas, Paulius Saudargas, Audronis Ažubalis<br>-All Agroliberals, Christian Democrats, Leadership of the Homeland Union - individual figures listed in the addendum</p><p>DEATH SENTENCES WILL BE CARRIED OUT IN LUKIŠKĖS SQUARE THIS SUNDAY.<br>Signed - Aušrinė Armonaitė, Chairwoman of the Revolutionary Liberation Committee of the Liberal Republic of Lithuania<br><br>(<i>P.S. Make sure to play Bad Reputation during the executions. -A.A.</i>)</p>`]
+          e.image = "https://i.imgur.com/60RjKTy.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 13838) { // LLRA
           e.header = "<h2>Druga Żeligiada!</h2>"
           e.pages = [`<p>Niesamowite! Po podliczeniu głosów Najwyższa Komisja Wyborcza ogłosiła, że Akcja Wyborcza Polaków zdobyła większość mandatów! Jak to się mogło stać? Czyżbyśmy skrajnie nie doszacowali liczby naszych rodaków? Żaden rodowity Litwin by na nas nie zagłosował, więc ten wynik miałby jakiś sens tylko, gdyby jedna trzecia, bądź więcej, tego kraju była od początku Polakami – jak w starych dobrych czasach międzywojnia.</p><p>W takim razie pora na uruchomienie Planu X. Podczas gdy Litwini pozostają osłupieni wynikiem, robimy telefon do Prezydenta Dudy żeby przemieścił dywizję wojska na Przesmyk Suwalski. Ci „buntownicy”, przysięgając wyzwolenie rodaków z opresji, zrobią przemarsz na Wilno i po raz kolejny naprawią błędy przeszłości.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596164693643275/LLRA_pergale.jpg";
+          e.image = "https://i.imgur.com/AVrKo2w.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14146 && aa[0].electoral_votes >= 71) { // NS
-          e.header = "<h2>The State Reclaimed.</h2>"
-          e.pages = [`<p>Incredible! After the results were tallied, it was announced that the National Alliance won a majority of the seats in the election! A party only founded last year winning a majority, and with an eurosceptic platform no less? Even for Lithuania, this result is extraordinarily unhinged. The Philosopher, Vytautas Radžvilas, will become the Prime Minister, and he will appoint the most intellectual - in a specific, philosophical kind of way - cabinet in history.</p><p>What is on their agenda? Who knows how far they will go. At this point, even abandoning the Euro, closing the borders to anyone trying to emigrate to the West, and a full ban on 'LGBT propaganda' could be on the table. The so-called liberal-bolshevists in the Freedom Party and Liberal Movement will not escape their torch, either. Or, probably more likely, they'll just copy whatever Poland's PiS is doing wholesale.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596319291494532/NS_pergale.png";
+          e.header = "<h2>A White Victory!</h2>"
+          e.pages = [`<p>Hello everyone, this is me BaltalietuviS with you again, and today I was elected to the Seimas. Yes, the rumors were correct. My real identity was Vytautas Sinica, leader of the National Alliance - did you really think that the funny haha pickle tasting youtuber with a crappy phone camera only coincidentally looked like him? It was so easy to fool you all.</p><p>Now, do you think I will stop my videos just because I've been elected to parliament? Not a chance. Now that my party has a majority of the seats, I am going to order them to stock the Seimas warehouse with all kinds of store brand potato chips and pickles so I have an infinite supply of material for my videos. Oh, and I'm also going to expel all the migrants. But you already knew that.</p>`]
+          e.image = "https://i.imgur.com/SekJzsq.png";
           return construct(0);
       }
-	  else if (aa[0].candidate == 14069 && aa[0].electoral_votes >= 71) { // CP-T
-          e.header = "<h2>Power to the People!</h2>"
-          e.pages = [`<p>Incredible! The Supreme Election Commission has announced that the Centre-Nationalists won a majority of the seats! Nobody expected this result and neither did they - as they immediately broke down into five different parties over which of their leaders should become the Prime Minister. Naglis Puteikis, technically commanding the largest of the splinters, will become the next Prime Minister, but... let's just say that he's not lasting long.</p><p>What will be on the agenda of their five-minute government? Not much, but it is possible that they will declare war on Norway to free all of the children which their child protection services have stolen from honest Lithuanian parents. Someone has to fight God's hardest battles.</p>`]
-          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596163909308426/CP-T_pergale.png";
+	  else if (aa[0].candidate == 14069 && aa[0].electoral_votes >= 71) { // Peace Coalition
+          e.header = "<h2>I'm back, bitch.</h2>"
+          e.pages = [`<p>You killed my party, you killed my body, but you never killed the idea. You couldn't stop me.</p><p>My spiritual COVID-19 healing water kept me alive in my hour of need. When I felt a cup of ice cream near my hand, I held on and I pulled myself out of hell. From there, I came preaching peace, but I waged a war. Do you think a million people actually voted for me? No, I voted a million times.</p><p>What I've always taught is... love, respect is something great, it is an emotional energy that has healing power. However, you should love sincerely, without expecting thanks. Otherwise, you will not receive this power. I love money and corruption sincerely. You, Conservative, love nothing sincerely.</p><p>I'm coming for you.</p>`]
+          e.image = "https://i.imgur.com/PYvWAPo.png";
           return construct(0);
       }
-	  else if (aa[0].candidate == 13992 && aa[0].electoral_votes >= 71) { // LSDDP
-          e.header = "<h2>Power to the Beavers!</h2>"
-          e.pages = [`<p>Incredible! After the votes were tallied, it became clear that the Social Democratic Labour Party, the ‘beavers’ - as some call all patriots who worked for Lithuania in government since the 1950s - won a majority of the seats! Nobody expected them to pull this off or even do better than the party they split off from, but they sure have been proven wrong.</p><p>Gediminas Kirkilas will form a Kirkilas II Cabinet, and his party has a lot to do. A statue to the great late Algirdas Mykolas Brazauskas will be raised in Vilnius, Kaišiadorys and by the Kaunas Reservoir, and the wages for all parliamentarians will be tripled. Let’s not forget, even more privatizations are in order - of course, we already know whose spouse’s company will win which contract. It’s just good governance.</p>`]
-          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166035820581/LSDDP_pergale.jpg";
+	  else if (aa[0].candidate == 13992 && aa[0].electoral_votes >= 71) { // LRP
+          e.header = "<h2>A Kingdom of Milfs!</h2>"
+          e.pages = [`<p>Expected. After rigging the elections in Širvintos until they got the North Korea level percentages they wanted, the Pinskai family machine then easily rigged the elections nationwide - so, now, the Regions Party has received a majority of the seats in Parliament. Simple. Let's rig some more. Okay, the Constitution has been overwritten and the Republic of Lithuania has become a Kingdom of Lithuania. Queen Živilė I of the House of Pinskuvienė now holds absolute power.</p><p>Oh, and now that the whole country is dazzled by her impeccable beauty and cannot resist the Queen, let's just make rigging elections legal so we don't have to get bothered with the courts convicting us of vote rigging after every damn election. Gets really annoying after a while.</p>`]
+          e.image = "https://i.imgur.com/oere6jb.png";
           return construct(0);
       }
-	  else if (aa[0].candidate == 14223 && aa[0].electoral_votes >= 71) { // LT
-          e.header = "<h2>Night of the Walking Dead Parties!</h2>"
-          e.pages = [`<p>Incredible! The news broadcast reports that Freedom and Justice won a majority of the seats in the election and will be forming the next government. Now, you would assume that one of the ‘Three Musketeers’ would be elevated to the office of Prime Minister - but you would be wrong.</p><p>Rolandas Paksas, the political zombie, is back. His impeachment will be overturned on the first day of the new Seimas and he will become the Prime Minister, through which he shall finally make his agenda reality. The Conservative deep state will be destroyed, the Euro will be abandoned, and Paksas will be provided with a fridge of hard drinks every day. His faith healer Lena Lolishvili will become the Minister of Health and will use her magic toilet paper to predict a bright future for the President of Hearts.</p>`]
-          e.image = "https://cdn.discordapp.com/attachments/559653590390800384/1151596166312628356/LT_pergale.jpg";
+	  else if (aa[0].candidate == 14223 && aa[0].electoral_votes >= 71) { // DSVL
+          e.header = "<h2>Congratulations! You have won the 2024 election!</h2>"
+          e.pages = [`<p>It was a difficult battle, but the Democrats prevailed against their opponents on the right and won a majority in the 2024 election! A blue wave has also rolled across the legislature, and this gives you free reign to implement your centre-left agenda in the following years. Your pragmatic approach, treading the needle on social questions and balancing between radicals on both sides, must have ensured you victory.</p><p>The next four years are not going to be easy, however. You must address Russian aggression, while at the same time handle a migration crisis on our southern border and maintain the economic growth of the previous administration. You must also decide whether to continue the aggressive anti-Chinese policy of the last government, or try to rebuild relations. If you succeed at your agenda, however, reelection seems guaranteed.</p>`]
+		  document.getElementById("header").src = "https://i.imgur.com/usngW09.png"
+		  document.body.background = "https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F2b40cbcd-7949-4c29-a42d-6e6fb924c7b9.jpg?source=next-article&fit=scale-down&quality=highest&width=700&dpr=1"
+          e.image = "https://i.imgur.com/wSU5dIg.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 14300 && aa[0].electoral_votes >= 71) { // LŽP
-          e.header = "<h2>Nature doesn't have its candidates, but it has a Prime Minister!</h2>"
-          e.pages = [`<p>Incredible! According to reports from the Supreme Electoral Commission, the Greens Party - not to be confused with the Farmers and Greens, that is the ‘Peasants’, very different - surpassed all expectations, including their own! Now, they have a majority of the seats, and green activist Remigijus Lapinskas will be sworn in as the new Prime Minister.</p><p>Most political scientists agree that the LŽP could only achieve this victory because every single Peasant voter confused the two parties on the ballot and so voted for the wrong party. But then why didn’t Green voters switch to the Peasants? The world wonders. You will be able to ponder this question while watching the one-millionth wind turbine being erected over some farmer’s property.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318721065030/LZP_pergale.jpg";
+          e.header = "<h2>Luigi Wins the Lithuanian Election by Doing Nothing</h2>"
+          e.pages = [`<p>Wow. Every single party in the election screwed themselves over with either scandals, unpalatable stances, or getting convicted and imprisoned. The only party which didn't have their campaign collapse was the one which did nothing at all - the True Greens. So, only their voters came to vote and they ended up receiving a majority of the seats.</p><p>Nobody knows what they'll do in power, certainly not the LŽP themselves. Well, the first thing they should probably do is apply to join the European Greens Party. They've left their application on read for over a decade, but they can't do so now, can they?</p><p>...</p><p>...Habeck still won't pick up the phone, huh?</p>`]
+          e.image = "https://i.imgur.com/qH7nS2C.png";
           return construct(0);
       }
-	  else if (aa[0].candidate == 14377) { // Minors
-          e.header = "<h2>Lithuania, 2172.</h2>"
-          e.pages = [`<p>It has been 152 years since the beginning of the great Lithuanian-Swedish Hyperwar. On one fateful day in 2020, Lithuanians declared that 'billions must die', and so they did. A parliament of kooks and nutters was elected, and the leader of this circus was Valdemaras Valkiūnas - former mayor of Biržai and far right businessman, once the only member of the Seimas to vote against Sweden's accession to NATO because they had yet to return the cannons they stole from the Biržai Castle during the Deluge.</p><p>And so, we went to war. Air pollution has made Vilnius inhospitable to life, but thousands of Lithuanians live here anyway. COVID-171 is ravaging Samogitia and turning people into brain-eating mutants. The National Stadium still hasn't been built.</p><p>At least it's better than under the Conservatives.</p>`]
-          e.image = "https://media.discordapp.net/attachments/559653590390800384/1151596318993682462/Minors_pergale.jpg";
+	  else if (aa[0].candidate == 14818 && aa[0].electoral_votes >= 71) { // LLP
+          e.header = "<h2>From the diaries of a partisan, Dainava forests, October 11th, 2028.</h2>"
+          e.pages = [`<p>It has been a year since the ruzzians crossed the border. News came from the front recently - NATO troops made a breakthrough near Warsaw, might move the front a couple kilometers our way now. Judging by their pace, maybe they'll reach us by the time we're fifty.</p><p>Since it's not looking like shit'll change for a while, they pretended to hold an election here today. People's Party got all of the votes, all of the seats, the ruzzkie account on Twitter says that this was the will of the real Lithuanian people or some shit. Didn't even wait for procedure and declared Vaitkus the new Prime Minister today, and with a treaty of eternal friendship with Putin to add. Fuck... I remember reposting those stupid ENOUGH IS ENOUGH memes on Discord. We all thought he was just a dumbass. Maybe he still is. But now we're the ones who feel stupid.</p>`]
+          e.image = "https://i.imgur.com/Op1qZkO.png";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 14377 && aa[0].electoral_votes >= 71) { // Minors
+          e.header = "<h2>In a city far, far away...</h2>"
+          e.pages = [`<p>The brain worms implanted in the minds of the country's citizens have worked, and they all voted in 141 independents into the Seimas. All but one will immediately resign, and this will mean that the entire parliament will be composed of one man - Artūras Zuokas. Soon, his battalions of BTR vehicles will roll through the entire country, crushing everything, especially illegally parked cars, while his army of clones of the Dalai Lama will install order, first in Lithuania, then across the entire globe.</p><p>The year 2024 shall be known as the birth of the New Vilnius Empire!</p>`]
+          e.image = "https://i.imgur.com/Kd5uneB.png";
           return construct(0);
       }
 		else if (aa[0].candidate == 77 && aa[0].electoral_votes >= 71) { // TS-LKD majority
           e.header = "<h2>An Unbelievable Victory!</h2>"
-          e.pages = [`<p>You got a majority. Either you got wtf lucky on low difficulties or you cheated.</p><p>wip.</p>`]
+          e.pages = [`<p>You've got to be dreaming. No, no, that can't have happened, that's impossible. But the screen still shows you the same - the Conservatives have not only maintained their positions since 2020, they have also won an unprecedented majority of the seats. That... okay, calm down. Joy has been rare to find in the past four years, but you have to stay calm. I know, it's unbelievable, it's the first time that a right-wing party has ever gotten a majority, it's...</p><p>Hell yeah, we won! The TS-LKD party headquarters immediately start playing Šimonytė's favorite Metallica tracks, and you, your ministers and your party vice-chairs sit down to think what to do next. No, of course we're not inviting the liberal parties this time. Fuck 'em. Straight up. Armonaitė and her weed-smoking kids have caused us more trouble than any opposition parties, and Čmilytė and her Liberals have been speaking behind your backs the whole time. Let them die in opposition, if they even managed to get into parliament. We're going to reform the taxation system, the education system, healthcare, social security exactly how we want. No compromises. Female conscription? Yes. 4% to defense? You got it. And, finally, another term as Minister of Foreign Affairs? Another term of carrying the torch of democracy and liberty towards the East, showing the way of truth to the entire Western world?</p><p>...Yes.</p>`]
           e.image = "https://i.imgur.com/KYCyTgw.png";
           return construct(0);
       }
@@ -24093,12 +24115,15 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           e.header = "<h2>The Second Mandate!</h2>"
           e.pages = [`<p>They doubted you and your party. They said that the incumbents always lose in this country, and that the mass of Left voters will unite against you in the second round to kick you out of power. They know nothing. Nothing! Today, you celebrate your victory, as you are the first party leader since independence to lead their party to first place for two elections in a row. If anyone's had doubts about your leadership, they sure do not now - you were always right. You were always right.</p><p>The taste of victory is soured somewhat by the knowledge that forming another coalition will be a lot more difficult than before. Have your two liberal allies even managed to cross the 5% barrier? Even if both of them have, you may still be under the 71 seat threshold together. Beyond you three, any coalition building seems exceedingly difficult... Let's not let that dampen the mood, though. Tonight, the true Lithuania celebrates.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/vvLzFAr.png";
+		  if(e.player_answers.includes(14484)) {
+          ctsAchievement("Back to the Past");
+          }
           return construct(0);
       }
 	  else if (aa[0].candidate !== 77 && quickstats[1] < 5) {
           e.header = "<h2>Could you imagine a world without TS-LKD?</h2>"
           e.pages = [`<p><i>October 28th, 2028, 23:45</i></p><p>With over 1400 precincts of 1851 counted, the results of the 2028 parliamentary election seem clear. The party which came first in the multi-member constituency vote in the first round two weeks ago, the Union of Christians and Nationalists (KNS), led by co-leaders Laurynas Kasčiūnas and Vytautas Sinica, will finish first with 45 seats of 141, not considering possible recounts.</p><p>The victory of KNS has already been congratulated by likeminded European leaders such as Marine Le Pen, Viktor Orban and Giorgia Meloni. Speaking to BNS reporters, Sinica, who is expected to be the party's Prime Minister candidate, stated that the party intends to negotiate with the Liberal-Conservative Party, led by Matas Maldeikis, which finished third, as well as other right-wing partners. The new government's first priorities will be tougher immigration standards, abolition of the Life Skills Programme and a stricter ban on LGBT propaganda in schools and the media, deportations of immigrants and revocation of refugee status, withdrawal from the Istanbul Convention...</p>`]
-          e.image = "https://i.imgur.com/5RSLvW3.png";
+          e.image = "https://i.imgur.com/Gs66Y5u.png";
           return construct(0);
       }
 	  else if (aa[0].candidate !== 77 && aa[1].candidate == 77) { // TS-LKD Loss (Second Place)
@@ -24120,20 +24145,25 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>A Second Right Coalition!</h2>"
 		  e.pages=[`<p>Holy shit you won again.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
 		  e.image = leader.image
+		  ctsAchievement("Sweet Victory");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 2){ // 2020 coalition + DSVL
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
-		  e.pages=[`<p>You formed a coalition with Skvernelis.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between TS-LKD, LS, Freedom and DSVL. Unbelievable! After deep rifts with each one of their potential coalition partners on the Left began to arise, the Democrats, who had at least theoretically considered working with the Conservatives for sweet political posts, began secret negotiations with the Right. A few days later, the negotiations were leaked and blew any possibility of a wide Left coalition to smithereens - ultimately leading us here.</p><p>The coalition program vows to expand budget collection by cutting down certain income tax exemptions and adjusting a few other taxes, increase defense funding to 4% of GDP and continue full support for Ukraine, and 'search for a solution to the question of same sex partnerships'. It is not a very happy marriage. Freedom, which left the last coalition disappointed with the failure of the Partnership Law, already promise to be even more annoying this term, and the Democrats tremble, possibly approaching a party split, as much of the voters and lesser leadership are dismayed with the betrayal.</p><p>But it doesn't matter now. You won.</p>`]
 		  e.image = leader.image
+		  ctsAchievement("Sweet Victory");
+		  ctsAchievement("Making Amends");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 3){ // 2020 coalition + DSVL + LŽP
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Right Bloc Victory: Democrats Betray the Left!</h2>"
-		  e.pages=[`<p>You formed a coalition with Skvernelis.</p><p>Congrats with cheating/winning on lowest possible difficulty.</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between TS-LKD, LS, Freedom, DSVL and LŽP. Unbelievable! After deep rifts with each one of their potential coalition partners on the Left began to arise, the Democrats, who had at least theoretically considered working with the Conservatives for sweet political posts, began secret negotiations with the Right. A few days later, the negotiations were leaked and blew any possibility of a wide Left coalition to smithereens - ultimately leading us here.</p><p>The coalition program vows to expand budget collection by cutting down certain income tax exemptions and adjusting a few other taxes, increase defense funding to 4% of GDP and continue full support for Ukraine, and 'search for a solution to the question of same sex partnerships'. It is not a very happy marriage. Freedom, which left the last coalition disappointed with the failure of the Partnership Law, already promise to be even more annoying this term, and the Democrats tremble, possibly approaching a party split, as much of the voters and lesser leadership are dismayed with the betrayal.</p><p>But it doesn't matter now. You won.</p>`]
 		  e.image = leader.image
+		  ctsAchievement("Sweet Victory");
+		  ctsAchievement("Making Amends");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 4){ // Grand Coalition
@@ -24145,7 +24175,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader24.image = 'https://i.imgur.com/xWkuulR.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
-		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Strugglng negotiations with the LSDP's other allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
+		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
+		  ctsAchievement("Sweet Victory");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24158,7 +24189,8 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader24.image = 'https://i.imgur.com/xWkuulR.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
-		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with LS as a secondary partner. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Strugglng negotiations with the LSDP's other allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
+		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with LS as a secondary partner. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
+		  ctsAchievement("Sweet Victory");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24167,8 +24199,13 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.leaderName = 'Žalimas';
 		  leader23.image = 'https://i.imgur.com/ksuYxq1.png';
 		  leader = findLeader(selectedCoalition);
+		  const leader24 = partyLeaders.find((leader) => leader.party === 79);
+		  leader24.leaderName = 'Žalimas';
+		  leader24.image = 'https://i.imgur.com/ksuYxq1.png';
+		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
-		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition. And somehow with Freedom - you got to have cheated bruh.</p><p>Dainius Žalimas is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
+		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with LS and Freedom as a secondary partners. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>And Freedom too, somehow? That's crazy, you've got to be a god of negotiation to have made this work. The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. After liberal demands, same sex partnerships have also been written into the program. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
+		  ctsAchievement("Sweet Victory");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24181,8 +24218,10 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader24.image = 'https://i.imgur.com/xWkuulR.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Grand Coalition!</h2>"
-		  e.pages=[`<p>Shock, horror, mass hysteria. You got a grand coalition.</p><p>Romas Lazutka is independent (?) PM. LSDP starts to disintegrate.</p><p>wip</p>`]
+		  e.pages=[`<p>After a very lengthy coalition process, a ${leader.leaderName} Cabinet has been formed with the support of a grand coalition between the TS-LKD and the LSDP, with DSVL as a secondary partner. This immediately shatters the Lithuanian political landscape - a grand coalition between the two greatest rivals of Lithuanian politics was already seen as unthinkable, but now, after months of the Social Democrats insisting that they would never form such a coalition, the decision leaves the nation in shock. Struggling negotiations with the LSDP's allies and their squabbling, and the Conservatives tactically conceding to an independent Prime Minister and accepting some of the Social Democratic program finally made it theoretically viable.</p><p>The coalition program vows to expand budget collection and remove certain income tax exemptions, strengthen national defense, continue full support for Ukraine and reform the pension system. However, it is unlikely that much of even this moderated program will get implemented - as the LSDP has already begun to disintegrate. Pundits project that this coalition is likely to lose its majority well before 2028 - or, more likely, one of its partners will quickly bolt for another partner, reminiscent of the short-lived New Politics Coalition from 2000 to 2001.</p><p>But it doesn't matter now. You won. You extended your time in power for one more year.</p>`]
 		  e.image = leader.image
+		  ctsAchievement("Sweet Victory");
+		  ctsAchievement("Making Amends");
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 8){ // LSDP-DSVL
@@ -24191,7 +24230,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Red-Blue Coalition!</h2>"
-		  e.pages=[`<p>After very quick negotiations, a ${leader.leaderName} Cabinet has been formed between LSDP and DSVL - a surprisingly swift cabinet formation after such a tumultuous election, after an equally surprising election result. Few anticipated before election day that these two parties, which mostly represent the same voter bloc, could collect enough seats for a majority. Saulius Skvernelis, chairman of DSVL, was nominated as Speaker of the Seimas, and they also acquired a few strategic ministries on economic affairs while leaving the rest to the victorious Social Democrats.</p><p>The coalition program is quite ambitious, vowing to reform the taxation system and establish progressive taxation, reform the pension accumulation system, and increase investment in healthcare while maintaining the current level of defense spending and aid for Ukraine. It is expected that some issues regarding the Democrats' lesser enthusiasm for higher taxes and the heterodox composition of their parliamentary group will appear in the future, but this seems to be a very stable coalition overall.</p><p>Watching the Prime Minister's first speech from Greece, you sigh, though you feel a bit of relief. At least it's not AS bad as you expected...</p>`]
+		  e.pages=[`<p>After very quick negotiations, a ${leader.leaderName} Cabinet has been formed between LSDP and DSVL - a surprisingly swift cabinet formation after such a tumultuous election, after an equally surprising election result. Few anticipated before election day that these two parties, which mostly represent the same voter bloc, could collect enough seats for a majority. Saulius Skvernelis, chairman of DSVL, was nominated as Speaker of the Seimas, and they also acquired a few strategic ministries on economic affairs while leaving the rest to the victorious Social Democrats.</p><p>The coalition program is quite ambitious, vowing to reform the taxation system and establish progressive taxation, reform the pension accumulation system, and increase investment in healthcare while maintaining the current level of defense spending and aid for Ukraine. Even more radical LSDP demands like mass municipal housing construction, a wealth tax and mandatory collective agreements have ended up on the agenda. It is expected that some issues regarding the Democrats' lesser enthusiasm for higher taxes and the heterodox composition of their parliamentary group will appear in the future, but this appears to be a very stable coalition overall.</p><p>Watching the Prime Minister's first speech from Greece, you sigh, though you feel a bit of relief. At least it's not AS bad as you expected...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24202,6 +24241,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Lithuanian Traffic Light Coalition!</h2>"
 		  e.pages=[`<p>After lengthy negotiations, which almost crumbled more than once before finally getting back together, a ${leader.leaderName} Cabinet has been formed between LSDP, DSVL and LS - which Western media has likened to the recently collapsed German Traffic Light coalition between social democrats, liberals and greens (which DSVL is on a technical level). It was not a happy marriage and has already been received extremely poorly within the Social Democratic ranks. LS and their libertarian outlook does not mesh well with the Prime Minister's progressive outlook at all, nor is the party popular among the LSDP grassroots.</p><p>The coalition program mentions reaching a higher budget-to-GDP ratio and budget redistribution to social services, but actual plans for raising taxes are quite moderate. Plans to reform the pension system have been moderated as well. The coalition vows to continue supporting Ukraine, although it is not as vehement towards China.</p><p>Watching the Prime Minister's first speech from Greece, you smile. It could have gone poorly, but you're sure Čmilytė's Liberals have got this - they'll ensure that the left is in control.</p>`]
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24251,7 +24291,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Beefsteak Coalition! A Victory for Social Fascism!</h2>"
-		  e.pages=[`<p>LSDP formed a coalition with NA.</p><p>bad ending.</p><p>wip</p>`]
+		  e.pages=[`<p>After week-long negotiations, a ${leader.leaderName} Cabinet has been announced between LSDP and NA-wait, <i>what?</i> Indeed, despite being pressured by the Right to form a cordon sanitaire against Žemaitaitis, the Social Democrats have burned that firewall down and extended a hand to his radical populist movement, ignoring his ongoing criminal case for inciting ethnic hatred and antisemitic commentary.</p><p>The coalition agreement has ambitious promises of redistribution via a system of higher progressive taxation, and higher investment into education, healthcare and national defense, while also promising reforms to the pension accumulation system. A point on combating ethnic hatred and antisemitism has been added to counter criticism  - though it has helped little. The collective mind of the country has snapped. Protests are being organized by nongovernmental organizations and the Right bloc parties to protest the coalition, a handful of liberal deputies even prance around claims that 'rebellion against a tyrannical government is a constitutional right'. The first criticisms are flying in from our international partners as well.</p><p>Watching the Prime Minister's first speech from Greece, you grin and get Žygimantas Pavilionis on the phone. He knows a lot of German Social Democrats - get all of them to denounce the LSDP at once...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24261,7 +24301,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
-		  e.pages=[`<p>LSDP, NA and LVŽS formed a coalition. Alytus mayor Nerijus Cesiulis was the only one suicidal and desperate enough to lead this government.</p><p>bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
+		  e.pages=[`<p>After week-long negotiations, a ${leader.leaderName} Cabinet has been announced between LSDP, LVŽS and NA-wait, <i>what?</i> Indeed, despite being pressured by the Right to form a cordon sanitaire against Žemaitaitis, the Social Democrats have burned that firewall down and extended a hand to his radical populist movement, ignoring his ongoing criminal case for inciting ethnic hatred and antisemitic commentary. Not only them, but Peasants as well? The two worst parties in parliament? To the Right, this is maddening, and to many Social Democrats, this is difficult to swallow.</p><p>The coalition agreement has ambitious promises of redistribution via a system of higher progressive taxation, and higher investment into education, healthcare and national defense, while also promising reforms to the pension accumulation system. A point on combating ethnic hatred and antisemitism has been added to counter criticism  - though it has helped little. The collective mind of the country has snapped. Protests are being organized by nongovernmental organizations and the Right bloc parties to protest the coalition, a handful of liberal deputies even prance around claims that 'rebellion against a tyrannical government is a constitutional right'. The first criticisms are flying in from our international partners as well.</p><p>Watching the Prime Minister's first speech from Greece, you grin and get Žygimantas Pavilionis on the phone. He knows a lot of German Social Democrats - get all of them to denounce the LSDP at once...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24271,7 +24311,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Return to 2012! LSDP and NA Form a Coalition!</h2>"
-		  e.pages=[`<p>LSDP, NA and DSVL formed a coalition. Holy shit, Butkevičius is back as PM. This will be an achievement when I implement them.</p><p>bad ending. but it'll collapse in 2025.</p><p>wip</p>`]
+		  e.pages=[`<p>After week-long negotiations, a ${leader.leaderName} Cabinet has been announced between LSDP, DSVL and NA-wait, <i>what?</i> Indeed, despite being pressured by the Right to form a cordon sanitaire against Žemaitaitis, the Social Democrats have burned that firewall down and extended a hand to his radical populist movement, ignoring his ongoing criminal case for inciting ethnic hatred and antisemitic commentary. Even the Democrats have signed up - although they demanded a point to resign one's parliamentary immunity if the prosecutors demand it, which is likely to happen soon.</p><p>The coalition agreement has ambitious promises of redistribution via a system of higher progressive taxation, and higher investment into education, healthcare and national defense, while also promising reforms to the pension accumulation system. A point on combating ethnic hatred and antisemitism has been added to counter criticism  - though it has helped little. The collective mind of the country has snapped. Protests are being organized by nongovernmental organizations and the Right bloc parties to protest the coalition, a handful of liberal deputies even prance around claims that 'rebellion against a tyrannical government is a constitutional right'. Criticisms are coming in from our international partners too...</p><p>Watching the Prime Minister's first speech from Greece, you grin and get Žygimantas Pavilionis on the phone. He knows a lot of German Social Democrats - get all of them to denounce the LSDP at once...</p>`]
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24291,11 +24331,12 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		}
 		if (negotiationsDone && selectedCoalition.id === 19){ // Liberal-Left Coalition
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Šakalienė';
-		  leader23.image = 'https://i.imgur.com/FR5ZeFj.png';
+		  leader23.leaderName = 'Paluckas';
+		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Red Fanta Coalition! LSDP and Liberals Together</h2>"
-		  e.pages=[`<p>Holy shit LSDP-LS coalition.</p><p>You lost but kinda won because yay victory for normalcy!!</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP and LS. Surprising! With so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. The personality conflicts and various rifts among the Left must have been very severe. The Liberals themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>The coalition program represents a moderated version of the Social Democratic program. Vows to increase the budget to GDP ratio via unmentioned reforms to the taxation system were included, as well as reforms to the pension system, a nationwide road fund, and continued support for Ukraine. Needless to say, this is not particularly exciting to the Social Democrats, and the libertarian MPs in the Liberal parliamentary group had to swallow a lot as well. Some question whether this coalition will even last until 2028 or if one of the two partners will quit in search of greener pastures.</p><p>Watching the Prime Minister's first speech from Greece, you smile. This went perfectly. You can retire, knowing the nation is in good hands.</p>`]
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24305,17 +24346,19 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader23.image = 'https://i.imgur.com/FOm78kY.png';
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>Pink Panther Coalition!</h2>"
-		  e.pages=[`<p>Holy shit LSDP-Freedom coalition.</p><p>This is such an impossible and fucked up coalition that I'll just put in whoever tf I want as prime minister.</p><p>wip</p>`]
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP, LS and Freedom. What in the world - Freedom has joined the Left they so despise! The anxieties and tensions inside the Right Coalition must have been greater than anyone thought. And with so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. Freedom themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>After Freedom's demands to bring someone more friendly to the liberals as Prime Minister, Ruslanas Baranovas was tapped for Prime Minister, becoming the youngest prime minister in history. The coalition program is perfect. Taxes will be reduced to null and defense spending will grow to five percent - no, six percent of GDP! Same sex marriage will be legalized next year, and so will soft and hard drugs. The government will recognize Palestine and Ukraine has already been invited to join NATO. Remigijus Žemaitaitis is fucking shot in the street and-</p><p>...</p><p>You jolt back awake. You must have gone to sleep while the newly elected MPs are repeating their oaths before the Constitutional Court judge. Your colleague, Matas Maldeikis, taps you on the shoulder and tells you to leave. You're going to protest NA being added to the coalition by leaving the hall when he swears his oath.</p>`]
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
 		if (negotiationsDone && selectedCoalition.id === 21){ // Liberal-Left Coalition
 		  const leader23 = partyLeaders.find((leader) => leader.party === 79);
-		  leader23.leaderName = 'Paluckas';
-		  leader23.image = 'https://i.imgur.com/YZoUOZV.png';
+		  leader23.leaderName = 'Šakalienė';
+		  leader23.image = 'https://i.imgur.com/FR5ZeFj.png';
 		  leader = findLeader(selectedCoalition);
-		  e.header="<h2>Liberal-Left Coalition! Betrayal!</h2>"
-		  e.pages=[`<p>Both lib parties have betrayed you.</p><p>You lost but kinda won because yay victory for normalcy!!</p><p>wip</p>`]
+		  e.header="<h2>Liberal-Left Coalition! Liberals Betray the Right!</h2>"
+		  e.pages=[`<p>After lengthy negotiations, a a ${leader.leaderName} Cabinet has been formed between the LSDP, LS and Freedom. Inconceivable - both of the Liberal parties have betrayed the Right! The anxieties and tensions inside the Right Coalition must have been greater than anyone thought. And with so many potential partners among the 'Left', few anticipated the Social Democrats to go to the completely opposite direction and select someone from the despised previous government. The Liberals themselves were not particularly initially enthusiastic to enter a Left government, but a lot of unexpected things can be done for the sake of power.</p><p>After Freedom's demands to bring someone more friendly to the liberals as Prime Minister, Dovilė Šakalienė was tapped for Prime Minister. The coalition program represents a moderated version of the Social Democratic program. Vows to increase the budget to GDP ratio via unmentioned reforms to the taxation system were included, as well as reforms to the pension system, a nationwide road fund, and continued support for Ukraine. Freedom has managed to squeeze out a point to 'find a solution for the same-sex partnership question' in the program. This might be the deal-breaker - the Social Democrats were already not excited with the libertarians moderating their ambitions, and Freedom is immensely hated by almost all Left voters and politicians. In the first few Seimas sessions, the coalition has already begun to crumble - can it even last a year?</p><p>Watching the Prime Minister's first speech from Greece, you smile. This went perfectly. You can retire, knowing the nation is in good hands.</p>`]
+		  ctsAchievement("Perfidy");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24332,6 +24375,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  leader = findLeader(selectedCoalition);
 		  e.header="<h2>A Snap Election!</h2>"
 		  e.pages=[`<p>Once the first session of the new Seimas came, a new coalition had yet to be formed, and the same impasse, with potential coalition partners changing one after the other, continued for at least two weeks. President Gitanas Nausėda was forced to step in and propose the formation of an interim cabinet headed by Frederikas Jansonas, one of his advisors and an independent official, but this proposal too didn't last.</p><p>Ultimately, with no stable government in the 30 days required for the parliament to approve a government program by someone, the President was forced to call a snap election in order to resolve the impasse. The exhausted, bitter, frustrated Lithuanian public shall be herded to the voting booths once again, told that they'll have a government without circuses this time and painfully shown the opposite.</p><p>Look forward to >20% of votes for NA!</p>`]
+		  ctsAchievement("Weimar 1930");
 		  e.image = leader.image
 		  return construct(0);
 		}
@@ -24343,6 +24387,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
 		  e.header="<h2>LSDP Majority!</h2>"
 		  e.pages=[`<p>It only took days for the Social Democrats to announce the makeup of the ${leader.leaderName} Cabinet - though a few ministries are still in question, depending on which wing of the party stakes a bigger claim for one prize or another, the first completely Social Democratic cabinet has been drafted. History is being made as we speak - never since 1992 has a party won a majority of the parliamentary seats, and such honor falls to the Left in both instances. The Prime Minister has opened negotiations with DSVL and independent deputies to build an even more invincible majority which won't be threatened by any parliamentary vetoes or individual defections.</p><p>The government program is a one-to-one replica of the Social Democratic election program, and is thus certainly ambitious. The first items on the agenda are a thorough taxation reform, implementing a progressive income tax system, and abolition of the second pillar of the pension system. In foreign affairs, they may attempt a reset of relations with China, but aid deliveries to Ukraine are expected to continue at the same pace. A few squabbles between competing wings within the party may take place, but there's no doubt that this government will last until 2028.</p><p>Watching the Prime Minister's first speech from Greece, you sigh, though you feel a bit of relief. At least it's not AS bad as you expected...</p>`]
 		  e.image = leader.image
+		  ctsAchievement("Back to 1992");
 		  return construct(0);
 		}
 		
