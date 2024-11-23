@@ -54,30 +54,13 @@ campaignTrail_temp.questions_json = [
             "likelihood": 1
         }
     },
-    {
-        "model": "campaign_trail.question",
-        "pk": 393,
-        "fields": {
-            "priority": 1,
-            "description": "[Navickienė scandal maybe, laughing at the conservatives]",
-            "likelihood": 1
-        }
-    },
-    {
+    
+	{
         "model": "campaign_trail.question",
         "pk": 369,
         "fields": {
             "priority": 1,
             "description": "Mindaugas Sinkevičius, once one of the party's rising stars, has been found guilty of embezzlement and the court has deprived him of the right to hold office for three years. However, this won't do to the Jonava political machine - they demand you to appeal the case so the punishment is suspended, and with Sinkevičius's regained right to run for election, put him on the electoral list. In exchange, they'll gather the votes needed to elect him and thus obtain parliamentary immunity. How will you address their demands?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
-        "pk": 343,
-        "fields": {
-            "priority": 2,
-            "description": "The European Parliament election has passed - and congratulations, you have been reelected as one of LSDP's two parliamentarians! However, this further compounds one of your biggest issues - the nation is still uncertain whether you seriously intend to lead the Social Democrats during the parliamentary election or whether you will propose someone else for Prime Minister. The Right's line of attack against you is that you intend to 'retire to the European Parliament' and run away from any responsibility. How will you answer these claims?",
             "likelihood": 1
         }
     },
@@ -927,6 +910,54 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 355,
             "description": "Let's avoid this question as much as we can - not only is it not a particularly relevant topic, it is also a little controversial among our members."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15466,
+        "fields": {
+            "question": 4025,
+            "description": "We are going to focus on the Conservatives, like we've always had. We will attack their government's issues in procuring materiel for the army and botching our relations with China, cutting us off from their economy."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15467,
+        "fields": {
+            "question": 4025,
+            "description": "I will emphasize above all that we Social Democrats are fully committed to supporting Ukraine. I will also use my presidential powers to advance an economically progressive agenda - I will veto privatization plans and propose necessary legislation for the elderly and working class in Parliament."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15468,
+        "fields": {
+            "question": 4025,
+            "description": "Now that I am running for President, I need to criticize Gitanas Nausėda to draw our votes back to me. We will point out his lack of a firm agenda and state that I, as president, will seek a constructive relationship with any government, rather than conflict with them."
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 15469,
+        "fields": {
+            "question": 4025,
+            "description": "Vėgėlė, Žemaitaitis, Eduardas Vaitkus concern me. To bring their votes to me, I will avoid mentioning Russia and Ukraine and declare that I would send the Partnership Law back to the parliament, should it be presented before me as President."
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 15477,
+        "fields": {
+            "question": 4026,
+            "description": "Presidential answer 2.1."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15478,
+        "fields": {
+            "question": 4026,
+            "description": "Presidential answer 2.2."
         }
     }
 ]
@@ -23208,6 +23239,45 @@ function changeWeight(weights, sourceCandidateId, targetCandidateId, changeAmoun
 	candidateWeights.weights[targetCandidateId] = Math.max(0, candidateWeights.weights[targetCandidateId] );
 }
 
+questionSheath = [
+  {
+    "model": "campaign_trail.question",
+    "pk": 4025,
+    "fields": {
+      "priority": 1,
+      "description": "After easily acquiring the required twenty thousand signatures, you are officially running for President. In the polls, you gather about ten percent of the vote, running neck-and-neck with Ignas Vėgėlė - getting to the second round is unlikely, but theoretically possible. The presidential campaign is very different from the parliamentary one - foreign policy and national defense is much more relevant, whereas bread-and-butter social questions less so. What will be your strategy?",
+      "likelihood": 1
+    }
+  },
+  {
+    "model": "campaign_trail.question",
+    "pk": 4026,
+    "fields": {
+      "priority": 1,
+      "description": "[Presidential campaign 2]",
+      "likelihood": 1
+    }
+  },
+  {
+        "model": "campaign_trail.question",
+        "pk": 393,
+        "fields": {
+            "priority": 1,
+            "description": "[Navickienė scandal maybe, laughing at the conservatives]",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 343,
+        "fields": {
+            "priority": 2,
+            "description": "The European Parliament election has passed - and congratulations, you have been reelected as one of LSDP's two parliamentarians! However, this further compounds one of your biggest issues - the nation is still uncertain whether you seriously intend to lead the Social Democrats during the parliamentary election or whether you will propose someone else for Prime Minister. The Right's line of attack against you is that you intend to 'retire to the European Parliament' and run away from any responsibility. How will you answer these claims?",
+            "likelihood": 1
+        }
+    },
+]
+
 e.cyoa = true;
 
 getQuestionFromPk = function (pk) {
@@ -23217,6 +23287,9 @@ return false;
 }
 return questionSheath[index];
 };
+
+e.presidentswitched = false;
+ranforpres = false;
 
 cyoAdventure = function (a) {
 answer = e.player_answers[e.player_answers.length - 1]; // get current answer selection
@@ -23229,6 +23302,23 @@ answer = e.player_answers[e.player_answers.length - 1]; // get current answer se
 */
 // weights is weights, source candidate is the "outer" one, target candidate the "inner" one and changeAmount is added to it
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
+
+if(answer == 3393) {
+	ranforpres = true;
+	e.questions_json.splice(1, 0 , getQuestionFromPk(393))
+	e.questions_json.splice(2, 0 , getQuestionFromPk(343))
+	e.global_parameter_json[0].fields.question_count = 25
+	return;
+}
+if(answer == 3394) {
+	e.questions_json.splice(1, 0 , getQuestionFromPk(4025))
+	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
+	e.global_parameter_json[0].fields.question_count = 25
+	document.getElementById("header").src = "https://i.imgur.com/uQwck46.png"
+	return;
+}
+
+
 if(answer == 14589) {
   // Proposing a grand coalition makes people less likely to vote LSDP.
   changeWeight(weights, 78, 79, -0.2);
