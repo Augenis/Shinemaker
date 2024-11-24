@@ -23254,7 +23254,7 @@ questionSheath = [
     "pk": 4026,
     "fields": {
       "priority": 1,
-      "description": "[Presidential campaign 2]",
+      "description": "In the presidential debate, Ingrida Šimonytė confronts you about your party's previous chairman and your ally, Gintautas Paluckas. In February 2022, days before the Russian invasion of Ukraine, he openly stated that war was unlikely to happen and that the Conservatives are irrationally stoking fears of war. Since then, the Conservatives have pointed to this in order to accuse Paluckas of being unreliable or possibly even a vatnik and a traitor. How do you answer?",
       "likelihood": 1
     }
   },
@@ -23308,6 +23308,9 @@ if(answer == 3393) {
 	e.questions_json.splice(1, 0 , getQuestionFromPk(393))
 	e.questions_json.splice(2, 0 , getQuestionFromPk(343))
 	e.global_parameter_json[0].fields.question_count = 25
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	applyTooltipsToObject(campaignTrail_temp.answers_json);
+	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
 	return;
 }
 if(answer == 3394) {
@@ -23315,6 +23318,9 @@ if(answer == 3394) {
 	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
 	e.global_parameter_json[0].fields.question_count = 25
 	document.getElementById("header").src = "https://i.imgur.com/uQwck46.png"
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	applyTooltipsToObject(campaignTrail_temp.answers_json);
+	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
 	return;
 }
 
