@@ -349,7 +349,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14467,
         "fields": {
             "question": 369,
-            "description": "This is ridiculous. Freedom cannot survive without us, and the President must listen to the government and the Parliament. Keep pressing both to accept me as Lithuania's Commissioner candidate, and they will yield."
+            "description": "Sounds like a plan to me. I'll need Jonava's votes if I want to guarantee a Social Democratic majority. We will put Mindaugas Sinkevičius on the 141st number on our list - that way, your machine is even more motivated to collect the necessary preference votes for him to enter parliament."
         }
     },
     {
@@ -357,7 +357,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14468,
         "fields": {
             "question": 369,
-            "description": "Accept Freedom's ultimatum. It's not going to pass, but we will send the Partnership Law to parliament for its final reading, if they back us."
+            "description": "Sounds like a plan to me. I'll need Jonava's votes if I want to guarantee a Social Democratic majority. We will allow Mindaugas Sinkevičius to run as the Social Democratic candidate in the Jonava constituency - he will certainly win."
         }
     },
     {
@@ -365,7 +365,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14469,
         "fields": {
             "question": 369,
-            "description": "Negotiate with the President. I'm willing to sacrifice a little - a few of our ministers whom he dislikes the most - if he doesn't block my nomination."
+            "description": "I'm sorry, but if I am running as the breath of fresh air to the Conservatives' corruption, I'd rather not ruin that image by openly working with a soon-to-be convict. You're on your own, Mindaugas."
         }
     },
     {
@@ -589,7 +589,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14522,
         "fields": {
             "question": 350,
-            "description": "Who exactly is switching to the NS? Some terminally online teenagers, brainwashed by American culture wars? Their threat to our electorate is overblown. We do not even have to address them."
+            "description": "We make use of my touch with the people before election day, then someone more qualified takes over to govern the country. A brilliant plan. I'm with you."
         }
     },
     {
@@ -597,7 +597,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14523,
         "fields": {
             "question": 350,
-            "description": "What keeps us in touch with the National Alliance, and separates them from the populists, is our shared uncompromising stance against Russia. We need to focus on this - a vote for NS will be a vote wasted when the fate of the nation is on the line."
+            "description": "Wouldn't this mean I will lie to the people about my intentions? I cannot do this. I'm afraid of what's to come, but I will take all the responsibility - of course, with you and your faction's support."
         }
     },
     {
@@ -605,15 +605,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14524,
         "fields": {
             "question": 350,
-            "description": "NS's Euroscepticism and reactionary views make them a potential Russian fifth column. Eduardas Vaitkus was once a member of that party, after all. We need to hammer this message to break Radžvilas's little troupe."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 14525,
-        "fields": {
-            "question": 350,
-            "description": "We can adjust our rhetoric a little to accommodate the potential losses to NS. They got involved into a scuffle over the plaque of Kazys Škirpa recently - perhaps Valdas Benkunskas can concede and hang the plaque they want."
+            "description": "I won't handle myself well in the Prime Minister office. But I would rather not run a campaign lying to the people that I will. Paluckas, take the spot. I'll declare I am aiming for Speaker of the Seimas instead."
         }
     },
     {
@@ -23321,6 +23313,21 @@ if(answer == 3394) {
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	applyTooltipsToObject(campaignTrail_temp.answers_json);
 	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
+	return;
+}
+if(answer == 15477) {
+	// Restore the original banner
+	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
+	return;
+}
+if(answer == 15478) {
+	// Restore the original banner
+	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
+	return;
+}
+if(answer == 15479) {
+	// Restore the original banner
+	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
 	return;
 }
 
