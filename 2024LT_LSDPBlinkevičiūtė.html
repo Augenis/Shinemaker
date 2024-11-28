@@ -129,15 +129,6 @@ campaignTrail_temp.questions_json = [
     },
     {
         "model": "campaign_trail.question",
-        "pk": 350,
-        "fields": {
-            "priority": 2,
-            "description": "You've been running the news mill against the Conservatives for a while now, ripping them a new one on anything and everything. It then dawns on you... you'll be eaten alive if you actually succeed them. You're at ease loudly blasting your opponents on the stage, not actually governing. Just in time, the New Guard offer you a proposal. Openly, you will continue claiming you'll be the party's Prime Minister candidate, to keep the votes going, but slowly, Gintautas Paluckas will prepare for the role, while you will step away from the position after the election because of, say, health troubles. What say you?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
         "pk": 362,
         "fields": {
             "priority": 3,
@@ -589,7 +580,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14522,
         "fields": {
             "question": 350,
-            "description": "We make use of my touch with the people before election day, then someone more qualified takes over to govern the country. A brilliant plan. I'm with you."
+            "description": "We make use of my touch with the people before election day, then someone more qualified takes over to govern the country. Quite a brilliant plan. I'm with you."
         }
     },
     {
@@ -950,6 +941,22 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 4026,
             "description": "My dear Ingrida, putting Ukraine aside, was he incorrect? Even today, your party is stoking fears of war to silence their opponents. Factually, Russia is unlikely to invade us under the NATO umbrella - yet your party has abused this threat to beat everyone into supporting universal conscription and draconic immigration restrictions."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15480,
+        "fields": {
+            "question": 4027,
+            "description": "No. No. This party won't last long without me at the helm. I have to do this. Phone Tadas Vinokur and ask if he can cancel a few irrelevant events, maybe that'll help me hold on."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15481,
+        "fields": {
+            "question": 4027,
+            "description": "Phone Gintautas Paluckas. I want to make a deal with his faction. I'll allow him to lead our party's electoral list and be our candidate for Prime Minister. I'll be able to appear with him here and there, but I'll step away from the race for now."
         }
     }
 ]
@@ -23268,6 +23275,24 @@ questionSheath = [
             "likelihood": 1
         }
     },
+	{
+        "model": "campaign_trail.question",
+        "pk": 350,
+        "fields": {
+            "priority": 2,
+            "description": "You've been running the news mill against the Conservatives for a while now, ripping them a new one on anything and everything. It then dawns on you... you'll be eaten alive if you actually succeed them. You're at ease loudly blasting your opponents on the stage, not actually governing. Just in time, the New Guard offer you a proposal. Openly, you will continue claiming you'll be the party's Prime Minister candidate, to keep the votes going, but slowly, Gintautas Paluckas will prepare for the role, while you will step away from the position after the election because of, say, health troubles. What say you?",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": 4027,
+        "fields": {
+            "priority": 2,
+            "description": "It is another one of those evenings, after a long day ripping the Conservatives a new one in the media. The quixotic presidential run forced you to define yourself on several uncomfortable questions and burned a lot of your popularity, you can feel yourself struggling, the surprising decision to run and the subsequent defeat sharpened the tensions between the New Guard and the Regionalists, and- oh, God, your body is barely holding on. Your health hasn't been the best in a while, but now it's actually crumbling. You won't last for long if you keep this up. What do you do?",
+            "likelihood": 1
+        }
+    },
 ]
 
 e.cyoa = true;
@@ -23296,7 +23321,6 @@ answer = e.player_answers[e.player_answers.length - 1]; // get current answer se
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
 
 if(answer == 3393) {
-	ranforpres = true;
 	e.questions_json.splice(1, 0 , getQuestionFromPk(393))
 	e.questions_json.splice(2, 0 , getQuestionFromPk(343))
 	e.global_parameter_json[0].fields.question_count = 25
@@ -23308,6 +23332,7 @@ if(answer == 3393) {
 if(answer == 3394) {
 	e.questions_json.splice(1, 0 , getQuestionFromPk(4025))
 	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
+	ranforpres = true;
 	e.global_parameter_json[0].fields.question_count = 25
 	document.getElementById("header").src = "https://i.imgur.com/uQwck46.png"
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
@@ -23328,6 +23353,54 @@ if(answer == 15478) {
 if(answer == 15479) {
 	// Restore the original banner
 	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
+	return;
+}
+if(answer == 14516 && ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14517 && ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14518 && ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14519 && ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14516 && !ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14517 && !ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14518 && !ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14519 && !ranforpres) {
+	// Ran for president branching
+	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
 
@@ -23896,8 +23969,8 @@ if(answer == 14489) {
 	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 4.0, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
 	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, DSVL', weight: 6.0, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
 	
-	{ id: 17, name: 'Anti-System Coalition: NA, LRP, Peace Coalition, LLRA-KŠS, LLP, Independents', weight: 10.0, parties: [13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [18] },
-	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS, LRP, Peace Coalition, LLRA-KŠS, LLP, Independents', weight: 6.0, parties: [78, 13838, 13915, 13992, 14069, 14377, 14818], impossibleCoalitions: [] },
+	{ id: 17, name: 'Anti-System Coalition: NA + minor anti-systemic parties', weight: 10.0, parties: [13838, 13915, 13992, 14069, 14146, 14377, 14818], impossibleCoalitions: [18] },
+	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS + minor anti-systemic parties', weight: 6.0, parties: [78, 13838, 13915, 13992, 14069, 14146, 14377, 14818], impossibleCoalitions: [] },
 	
 	{ id: 19, name: 'Red Fanta Coalition: LSDP, LS', weight: 3.0, parties: [79, 80], impossibleCoalitions: [9, 10, 21] },
 	{ id: 20, name: 'Pink Panther Coalition: LSDP, Freedom', weight: 0.5, parties: [79, 13761], impossibleCoalitions: [21] },
