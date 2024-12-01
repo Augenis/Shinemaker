@@ -183,15 +183,6 @@ campaignTrail_temp.questions_json = [
     },
     {
         "model": "campaign_trail.question",
-        "pk": 355,
-        "fields": {
-            "priority": 3,
-            "description": "What is your position towards the European Green Deal?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
         "pk": 387,
         "fields": {
             "priority": 3,
@@ -844,7 +835,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14604,
         "fields": {
             "question": 355,
-            "description": "The Green Deal is crucial for Lithuania to become independent of Russian energy - we wholeheartedly support it and will pursue the transition to renewable energy during our second term as ambitiously as during the first."
+            "description": "After such an unexpected interruption, I need to focus on party unity. I will make clear that we Social Democrats are one family which must stick together to achieve a left-wing government. I will retain our current platform, though I will emphasize its more economically progressive points."
         }
     },
     {
@@ -852,7 +843,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14605,
         "fields": {
             "question": 355,
-            "description": "Though we support the basic principles of the Green Deal, its radical agenda threatens the livelihoods of farmers and their communities throughout Europe, Lithuania included. We have already seen farmer protests because of cancelled fossil fuel subsidies - we have heard them and will approach the Green Deal with a more sceptical eye next term."
+            "description": "Why not put some focus on my nationality? I will make one of my first speeches in Polish, aimed towards our community, to confirm that I fight for their interests, and I will emphasize the integration of our ethnic minorities into our country and political life."
         }
     },
     {
@@ -860,7 +851,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14606,
         "fields": {
             "question": 355,
-            "description": "We fully support the Green Deal and have actively pursued a transition to renewable energy during our term - it is one of our greatest accomplishments. We will keep subsidies to fossil fuels abolished, expand subsidies for electric cars and solar panels, and more actively promote the circular economy."
+            "description": "I may be a man of the new generation, but that doesn't mean I have any more sympathy towards the Conservatives. I will continue our pressure on the failures and scandals of the government - just with a more measured and professional tone."
         }
     },
     {
@@ -868,7 +859,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14607,
         "fields": {
             "question": 355,
-            "description": "Let's avoid this question as much as we can - not only is it not a particularly relevant topic, it is also a little controversial among our members."
+            "description": "I am going to continue the renewal started by Gintautas Paluckas. I will promote our younger candidates, speak out in favor of same-sex partnerships and firmly rebuke a coalition with the anti-democratic and antisemitic forces in NA."
         }
     },
     {
@@ -23277,6 +23268,15 @@ questionSheath = [
             "likelihood": 1
         }
     },
+	{
+        "model": "campaign_trail.question",
+        "pk": 355,
+        "fields": {
+            "priority": 3,
+            "description": "'The LSDP conference has elected Robert Duchniewicz as the new leader of their electoral list' say the news headlines. From mere councillor, to Mayor and now possibly Prime Minister, in only two years - an incredible jump, but made possible by your allies in the New Guard and enthusiastic party grassroots who hope you achieve the same miraculous victory you achieved in 2023. If elected, you would be Lithuania's first Polish Prime Minister, as well as its youngest. How shall you introduce yourself to the nation?",
+            "likelihood": 1
+        }
+    },
 ]
 
 e.cyoa = true;
@@ -23384,6 +23384,18 @@ if(answer == 14518 && !ranforpres) {
 if(answer == 14519 && !ranforpres) {
 	// Ran for president branching
 	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 15480 && e.player_answers.includes(14516) && e.player_answers.includes(14509) && e.player_answers.includes(14501) && e.player_answers.includes(14469) && (e.player_answers.includes(14484) || e.player_answers.includes(14480))) {
+	// Duchniewicz - needs Barbora, support Dovilė, go against Jonava, oppose Žemaitaitis coalition, do not go against partnerships
+	e.questions_json.splice(12, 0 , getQuestionFromPk(355))
+	e.global_parameter_json[0].fields.question_count = 25
+	const leader105 = partyLeaders.find((leader) => leader.party === 79);
+	leader105.leaderName = 'Duchniewicz';
+	leader105.image = 'https://i.imgur.com/3ugJuQ1.png';
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/3ugJuQ1.png';
+	campaignTrail_temp.running_mate_last_name = 'Duchniewicz';
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
