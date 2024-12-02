@@ -843,7 +843,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14605,
         "fields": {
             "question": 355,
-            "description": "Why not put some focus on my nationality? I will make one of my first speeches in Polish, aimed towards our community, to confirm that I fight for their interests, and I will emphasize the integration of our ethnic minorities into our country and political life."
+            "description": "Why not put some focus on my ethnicity? I will make one of my first speeches in Polish, aimed towards our community, to confirm that I fight for their interests, and I will emphasize the integration of our ethnic minorities into our country and political life."
         }
     },
     {
@@ -932,6 +932,38 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 4027,
             "description": "Phone Gintautas Paluckas. I want to make a deal with his faction. I'll allow him to lead our party's electoral list and be our candidate for Prime Minister. I'll be able to appear with him here and there, but I'll step away from the race for now."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15482,
+        "fields": {
+            "question": 4028,
+            "description": "I'm actually a young politician, you know. I'm not a crusty old beaver. I will try to keep the progressives on Barbora around and not cross them too much, while remaining active on social media to promote myself as a next generation Social Democrat."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15483,
+        "fields": {
+            "question": 4028,
+            "description": "I am an 'old' social democrat - not in age, but in worldview. I care about the poor and the working class, not the Caffeine-sitting liberals of Vilnius and all the nonsense in that Partnership Law. Under my leadership, the Social Democrats will sweep the nation and bring a true left-wing government!"
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15484,
+        "fields": {
+            "question": 4028,
+            "description": "I was a servant of the people of Alytus, and now of the nation. The elite tried to take me down, but they failed, time and time again - and, believe me, I'm not going to stop until I bring this country back to the People. Let's fire up Vilija's shit-flinging machine against the Conservatives again."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15485,
+        "fields": {
+            "question": 4028,
+            "description": "I am a man of results. You think it's for no reason that Alytus reelected me with such massive support? It's because I know how to work with business, how to fix the roads, how to attract investments, how to work across the aisle. The idiots in Vilnius do not. I'm going to show them how."
         }
     }
 ]
@@ -23277,6 +23309,15 @@ questionSheath = [
             "likelihood": 1
         }
     },
+	{
+        "model": "campaign_trail.question",
+        "pk": 4028,
+        "fields": {
+            "priority": 3,
+            "description": "'The LSDP conference has elected Nerijus Cesiulis as the new leader of their electoral list' say the news headlines. With support from the old guards in parliament and party leadership, regional branches and the Jonava political machine, you've finally claimeed the throne. The nation sees you as a corrupt, somewhat scandalous, populistic, yet highly popular Mayor of Alytus, the type who 'steals, but does his job' - not so much as a national politician, though. How shall you introduce yourself to the nation?",
+            "likelihood": 1
+        }
+    },
 ]
 
 e.cyoa = true;
@@ -23351,18 +23392,6 @@ if(answer == 14517 && ranforpres) {
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
-if(answer == 14518 && ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14519 && ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
 if(answer == 14516 && !ranforpres) {
 	// Ran for president branching
 	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
@@ -23370,18 +23399,6 @@ if(answer == 14516 && !ranforpres) {
 	return;
 }
 if(answer == 14517 && !ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14518 && !ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14519 && !ranforpres) {
 	// Ran for president branching
 	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
@@ -23396,6 +23413,18 @@ if(answer == 15480 && e.player_answers.includes(14516) && e.player_answers.inclu
 	leader105.image = 'https://i.imgur.com/3ugJuQ1.png';
 	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/3ugJuQ1.png';
 	campaignTrail_temp.running_mate_last_name = 'Duchniewicz';
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 15480 && e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14468) && e.player_answers.includes(14481)) {
+	// Cesiulis - oppose Barbora, give Sinkevičius a constituency, support Žemaitaitis coalition, go against partnerships
+	e.questions_json.splice(12, 0 , getQuestionFromPk(4028))
+	e.global_parameter_json[0].fields.question_count = 25
+	const leader105 = partyLeaders.find((leader) => leader.party === 79);
+	leader105.leaderName = 'Cesiulis';
+	leader105.image = 'https://i.imgur.com/kmOKPWe.png';
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/kmOKPWe.png';
+	campaignTrail_temp.running_mate_last_name = 'Cesiulis';
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
