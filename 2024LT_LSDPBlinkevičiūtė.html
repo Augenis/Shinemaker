@@ -23473,6 +23473,18 @@ if(answer == 15480 && !(e.player_answers.includes(14517) && e.player_answers.inc
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
+if(answer == 15481) {
+	// Give up to Paluckas
+	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
+	e.global_parameter_json[0].fields.question_count = 25
+	const leader105 = partyLeaders.find((leader) => leader.party === 79);
+	leader105.leaderName = 'Paluckas';
+	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
+	campaignTrail_temp.running_mate_last_name = 'Paluckas';
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
 
 
 if(answer == 14589) {
