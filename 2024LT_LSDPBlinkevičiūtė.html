@@ -939,7 +939,7 @@ campaignTrail_temp.answers_json = [
         "pk": 15482,
         "fields": {
             "question": 4028,
-            "description": "I'm actually a young politician, you know. I'm not a crusty old beaver. I will try to keep the progressives on Barbora around and not cross them too much, while remaining active on social media to promote myself as a next generation Social Democrat."
+            "description": "I'm actually a young politician, you know. I'm not a crusty old beaver. I will try to keep the progressives in Barbora around and not cross them too much, while remaining active on social media to promote myself as a next generation Social Democrat."
         }
     },
     {
@@ -964,6 +964,30 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 4028,
             "description": "I am a man of results. You think it's for no reason that Alytus reelected me with such massive support? It's because I know how to work with business, how to fix the roads, how to attract investments, how to work across the aisle. The idiots in Vilnius do not. I'm going to show them how."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15486,
+        "fields": {
+            "question": 4029,
+            "description": "I may be a bit more pragmatic these days, but I still consider myself a progressive. My government will be a genuine social democratic government, following after our partners in Sweden, Germany and the United Kingdom."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15487,
+        "fields": {
+            "question": 4029,
+            "description": "This is the right time to counter some Right bloc concerns about me as a candidate. As Prime Minister, I will be a firm supporter of Ukraine and of national defense, and we will balance our struggle for social reforms with adequate investment into our military capabilities."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 15488,
+        "fields": {
+            "question": 4029,
+            "description": "I will emphasize my experience. I was a little bit green in 2020, but now I am running with four years in the Seimas on my belt - and, according to official data, I was one of the parliament's most active deputies. I am prepared to take Ingrida Šimonytė's position!"
         }
     }
 ]
@@ -23318,6 +23342,15 @@ questionSheath = [
             "likelihood": 1
         }
     },
+	{
+        "model": "campaign_trail.question",
+        "pk": 4029,
+        "fields": {
+            "priority": 3,
+            "description": "'The LSDP conference has elected Gintautas Paluckas as the new leader of their electoral list' say the news headlines. You've received a second chance. It hasn't been that long since you were forced out of leadership in 2021, but you never gave up and fostered a strong enough New Guard faction that they, alongside wide support throughout the party membership, carried you back into a leading role. The nation already knows you well, but would you like to strike a new tone for your second campaign?",
+            "likelihood": 1
+        }
+    },
 ]
 
 e.cyoa = true;
@@ -23425,6 +23458,18 @@ if(answer == 15480 && e.player_answers.includes(14517) && e.player_answers.inclu
 	leader105.image = 'https://i.imgur.com/kmOKPWe.png';
 	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/kmOKPWe.png';
 	campaignTrail_temp.running_mate_last_name = 'Cesiulis';
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 15480 && !(e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14468) && e.player_answers.includes(14481)) && !(e.player_answers.includes(14516) && e.player_answers.includes(14509) && e.player_answers.includes(14501) && e.player_answers.includes(14469) && (e.player_answers.includes(14484) || e.player_answers.includes(14480)))) {
+	// Paluckas - if you qualify for neither path. Maybe I should have done this in a less stupid way
+	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
+	e.global_parameter_json[0].fields.question_count = 25
+	const leader105 = partyLeaders.find((leader) => leader.party === 79);
+	leader105.leaderName = 'Paluckas';
+	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
+	campaignTrail_temp.running_mate_last_name = 'Paluckas';
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
