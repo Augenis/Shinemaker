@@ -129,15 +129,6 @@ campaignTrail_temp.questions_json = [
     },
     {
         "model": "campaign_trail.question",
-        "pk": 362,
-        "fields": {
-            "priority": 3,
-            "description": "Since the greatly criticized opening of the Taiwanese Representative Office in 2021, China-Lithuania relations have been at an all time low. Trade has shrunk to nearly nonexistent levels, but this hardline position has earned some support among our allies in the United States. Should the Social Democrats form the next government, they will have to make a decision on the future of China-Lithuania relations as well - where do you stand?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
         "pk": 353,
         "fields": {
             "priority": 3,
@@ -579,7 +570,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14528,
         "fields": {
             "question": 362,
-            "description": "We remain firm in our commitment to the current policy towards Taiwan and China. By diplomatic precedent, it is China who should initiate restoring relations - and if they wish to do so, we will consider their request."
+            "description": "My dear people, the crisis affected those worst off - the retired, the impoverished, the young - more than anyone else, and their suffering is what I sought to relieve. My actions were not criminal, nor were they financially irresponsible - they were socially sound."
         }
     },
     {
@@ -587,7 +578,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14529,
         "fields": {
             "question": 362,
-            "description": "Alongside Russia, China is a part of the 'axis of dictatorships' which disrupts the rules-based global order, and China also supports Russia's war against Ukraine. Suggesting any peaceful relations with the current Chinese government is akin to treason."
+            "description": "Nobody cares about those old scandals anymore. But if the Conservatives want to talk fiscal responsibility, let's talk - Ingrida Šimonytė has driven us to bankruptcy, my dears, our deficit is now at an unprecedented level, nearly violating European fiscal criteria!"
         }
     },
     {
@@ -595,7 +586,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14530,
         "fields": {
             "question": 362,
-            "description": "We will support the democratic government of Taiwan to the best of our ability. However, we must emphasize that we still support the One China Policy, and we will be willing to reopen diplomatic talks with China after the election."
+            "description": "Should I even give these idiotic claims air? Absolutely not."
         }
     },
     {
@@ -23351,6 +23342,15 @@ questionSheath = [
             "likelihood": 1
         }
     },
+	{
+        "model": "campaign_trail.question",
+        "pk": 362,
+        "fields": {
+            "priority": 3,
+            "description": "After that short interruption, you return to the campaign trail. One criticism commonly employed towards you by the Right involves your last time in the government, as Minister of Social Affairs in 2008. Ahead of the election, you and Prime Minister Gediminas Kirkilas insisted to raise retirement pensions and establish free school meals, making a significant dent in the reserve and leaving the country less prepared for the Great Recession. A Peasant-led parliamentary commission in 2019 found you complicit in the economic downfall. How will you answer these claims?",
+            "likelihood": 1
+        }
+    },
 ]
 
 e.cyoa = true;
@@ -23365,6 +23365,7 @@ return questionSheath[index];
 
 e.presidentswitched = false;
 ranforpres = false;
+lying = false;
 
 cyoAdventure = function (a) {
 answer = e.player_answers[e.player_answers.length - 1]; // get current answer selection
@@ -23482,6 +23483,33 @@ if(answer == 15481) {
 	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
 	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
 	campaignTrail_temp.running_mate_last_name = 'Paluckas';
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14524) {
+	// Give up to Paluckas
+	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
+	e.global_parameter_json[0].fields.question_count = 25
+	const leader105 = partyLeaders.find((leader) => leader.party === 79);
+	leader105.leaderName = 'Paluckas';
+	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
+	campaignTrail_temp.running_mate_last_name = 'Paluckas';
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	return;
+}
+if(answer == 14522) {
+	// Stay in charge
+	e.questions_json.splice(12, 0 , getQuestionFromPk(362))
+	e.global_parameter_json[0].fields.question_count = 25
+	applyTooltipsToObject(campaignTrail_temp.questions_json);
+	lying = true;
+	return;
+}
+if(answer == 14523) {
+	// Stay in charge
+	e.questions_json.splice(12, 0 , getQuestionFromPk(362))
+	e.global_parameter_json[0].fields.question_count = 25
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
