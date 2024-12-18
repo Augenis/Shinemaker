@@ -1,12 +1,12 @@
 e = campaignTrail_temp;
-campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/OuoTB5T.png';
-document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#DC343B"
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#e2555b"
+campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/CrlqiIJ.png';
+document.getElementById("header").src = "https://i.imgur.com/wEcu6z9.png"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#457591"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#63A8D0"
 $("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window;
 $(".footer a").css({"color":"#200000"});
 document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
-$(".container")[0].style.backgroundColor = "#f0a9ac"
+$(".container")[0].style.backgroundColor = "#d0e4f0"
 const partyLeaders = [
     { party: 77, leaderName: 'Šimonytė II', image: 'https://i.imgur.com/vmNvG7x.jpg' },
     { party: 78, leaderName: 'Veryga', image: 'https://i.imgur.com/eMlJF4x.jpg' },
@@ -21,7 +21,7 @@ const partyLeaders = [
     { party: 14223, leaderName: 'Skvernelis II', image: 'https://cdn.discordapp.com/attachments/1085931527537434785/1098907516429152256/image.png' },
     { party: 14300, leaderName: 'Budraitė', image: 'https://cdn.discordapp.com/attachments/1085931527537434785/1098907667658977432/image.png' },
 	{ party: 14818, leaderName: 'Vaitkus', image: 'https://cdn.discordapp.com/attachments/1085931527537434785/1098907667658977432/image.png' },
-    { party: 14377, leaderName: 'Valkiūnas', image: 'https://cdn.discordapp.com/attachments/1085931527537434785/1098907868176072704/image.png' },
+    { party: 14377, leaderName: 'Zuokas', image: 'https://cdn.discordapp.com/attachments/1085931527537434785/1098907868176072704/image.png' },
   ];
 // Party weights for supporting another in the second round.
 const weights = [
@@ -50,17 +50,34 @@ campaignTrail_temp.questions_json = [
         "pk": 366,
         "fields": {
             "priority": 0,
-            "description": "It is the beginning of 2024 - you and your party soar at the top of approval ratings and the media already projects you as the formateurs of the next government. But before the sweet victory against Šimonytė, Landsbergis and their clan, the presidential election begins. Gitanas Nausėda has announced his reelection bid and is almost guaranteed to win - and he's been friendly to the Social Democrats thus far. Still, there's yearning within the party and amongst the public for a Social Democratic candidate for President. What shall be your decision? Will you run for President, or will you endorse Nausėda?",
+            "description": "It is the night of May 26, 2024. Your candidate in the presidential election, Prime Minister Ingrida Šimonytė, is competing against the incumbent, Gitanas Nausėda, in the second round, and the result... is staggering. Nausėda enters his second term with the greatest share of the vote in Lithuanian history. Is there any conclusion we can draw from this defeat? What shall our strategy be during the final stretch?",
             "likelihood": 1
         }
     },
-    
-	{
+    {
+        "model": "campaign_trail.question",
+        "pk": 393,
+        "fields": {
+            "priority": 1,
+            "description": "Another week, another scandal. Minister of Social Security, Monika Navickienė, has reportedly been involved in a scandal of conflict of interest. Her husband is a former head of fintech company Foxpay, which won government contracts during the government's term, even though authorities vetting strategic deals concluded that the company might compromise national security. Foxpay is connected with known financial criminal Vilhelmas Germanas, who even provided Navickienė with private jet flights to Dubai. How should we respond to this scandal?",
+            "likelihood": 1
+        }
+    },
+    {
         "model": "campaign_trail.question",
         "pk": 369,
         "fields": {
             "priority": 1,
-            "description": "Mindaugas Sinkevičius, once one of the party's rising stars, has been found guilty of embezzlement and the court has deprived him of the right to hold office for three years. However, this won't do to the Jonava political machine - they demand you to appeal the case so the punishment is suspended, and with Sinkevičius's regained right to run for election, put him on the electoral list. In exchange, they'll gather the votes needed to elect him and thus obtain parliamentary immunity. How will you address their demands?",
+            "description": "After the European Parliament election, all European governments must delegate a candidate for the European Commission. You would love to take this position yourself - an opportunity to guide European foreign policy or defense procurement wets your appetite. Yet, any Commissioner candidate must be approved by the President and the Seimas - your deep, bitter rift with the President is well known, and your partners in the Freedom Party give you an ultimatum: pass the Partnership Law, or they will vote against. How will you overcome these hurdles to your nomination?",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 343,
+        "fields": {
+            "priority": 2,
+            "description": "The last of this year's three exhausting elections approaches. What shall your message during this election be?",
             "likelihood": 1
         }
     },
@@ -69,16 +86,7 @@ campaignTrail_temp.questions_json = [
         "pk": 348,
         "fields": {
             "priority": 2,
-            "description": "The last of this year's three elections approaches - and though enthusiasm within your party is dampened a tiny bit by the second place finish in the European Parliament election, it is still the highest it has ever been in a decade. Perhaps a Social Democratic government is on the horizon? Before these dreams can be fulfilled, we have to defeat the Conservatives one last time. What shall your message during this election be?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 345,
-        "fields": {
-            "priority": 2,
-            "description": "Congratulations! We Social Democrats are the first to publish our election program, and perhaps for the first time in Lithuanian political history, it has actually become a focus of media interest and political debate. Calling for much greater budget collection, with upwards of two billion EUR added per year through new or raised taxes, and just as much additional spending in various social services, it's been described as ambitious by some and hopelessly populistic by others. Which of your program's points do you intend to focus on the most?",
+            "description": "One of your government's noteworthy accomplishments was a rapid rise in defense spending after Russia's invasion of Ukraine in 2022 - it has now reached 3 percent of GDP. Budget collection has not caught up to this increase, however, especially if we intend to keep raising it. What is the Conservative plan to finance defense spending?",
             "likelihood": 1
         }
     },
@@ -87,7 +95,16 @@ campaignTrail_temp.questions_json = [
         "pk": 349,
         "fields": {
             "priority": 2,
-            "description": "On the last week of the spring session of the Seimas, the Freedom Party has suddenly put the Partnership Law forward one more time. After a narrow successful vote in 2022, it now only needs to pass one more reading to become law - and Freedom either hopes to ram it through before the election or are using this law as leverage against Gabrielius Landsbergis. We Social Democrats have been a swing vote on the law, but the majority of the population and many of our members are against it. How should we act?",
+            "description": "Much like in 2020, LGBT rights are a sharp and bitter topic during the election campaign. The Freedom Party intends to focus on 'finishing the job' this election and are sending arrows right at the Social Democratic camp - the 'Right' electoral bloc primarily blames conservative LSDP parliamentarians for refusing to support the Partnership Law. Your party is hardly united on this question either - the Christian Democrats are as firm against the law as ever. What will your message be on this front?",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 345,
+        "fields": {
+            "priority": 2,
+            "description": "Ahead of the election, a public initiative financed and supported by many of Lithuania's pro-Ukraine organizations, businesses and corporations to promote increasing defense spending to 4% of GDP has taken off, and has gathered over 50 thousand signatures by the end of summer. Will you embrace their campaign and call for 4% of GDP for defense?",
             "likelihood": 1
         }
     },
@@ -96,7 +113,7 @@ campaignTrail_temp.questions_json = [
         "pk": 346,
         "fields": {
             "priority": 2,
-            "description": "Ever since the presidential election, where their leader performed surprisingly well, Žemaitaitis's clique has been steadily growing in the polls. There's little chance that they will overtake you or the TS-LKD, but their presence has thrown out old coalition predictions. The 'Right' have begun pressuring you - will you join them in a cordon sanitaire against Žemaitaitis, refusing to endorse his party or include them into the coalition?",
+            "description": "Another week, another scandal. In March of 2022, you and your wife Austėja purchased a villa in Greece for 255 thousand EUR - display of wealth notwithstanding, the parliamentary opposition has begun raising questions whether this was intended a safe refuge in case you need to abandon the country during a Russian invasion. How will you answer these allegations?",
             "likelihood": 1
         }
     },
@@ -105,7 +122,7 @@ campaignTrail_temp.questions_json = [
         "pk": 347,
         "fields": {
             "priority": 2,
-            "description": "Since the beginning of The War, the Conservative government has been aggressively pushing for stronger national defense and an aggressive anti-Russian foreign policy. Defense spending has been raised to 3 percent of GDP and several defense projects have been initiated, from a national division to universal conscription. Your party has followed the national consensus thus far, even being one of the first to propose solidarity contributions to pay for the defense spending. As the campaign begins, how will you define your defense policy?",
+            "description": "The 'Left' bloc is more divided than ever - though your traditional Social Democratic opponents have returned back to their old strength, the new upstarts Peasants still have some fire in them. Besides them, you have Žemaitaitis's clique and then the Democrats. All of them are out for blood - your blood. This does mean, however, that you can pick and choose your battles. How will you confront your rogues' gallery this election?",
             "likelihood": 1
         }
     },
@@ -114,7 +131,7 @@ campaignTrail_temp.questions_json = [
         "pk": 351,
         "fields": {
             "priority": 2,
-            "description": "After the 2021 Belarusian border crisis, the Šimonytė government expanded legal migration avenues to Lithuania and opened its borders to large numbers of Belarusian and Russian exiles. After the Russian invasion of Ukraine, thousands of Ukrainians settled in Lithuania as well. The number of foreign nationals has surpassed 200 thousand and the growing anxiety is difficult to ignore. Though few question the shelter for Ukrainian refugees, the Belarusian, Russian, Central Asian migrants are seen differently. How do you intend to address immigration?",
+            "description": "After the 2021 Belarusian border crisis, our government expanded legal migration avenues to Lithuania and opened its borders to large numbers of Belarusian and Russian exiles. After the Russian invasion of Ukraine, thousands of Ukrainians settled in Lithuania as well. The number of foreign nationals has surpassed 200 thousand and the growing anxiety is difficult to ignore. Though few question the shelter for Ukrainian refugees, the Belarusian, Russian, Central Asian migrants are seen differently. How do you intend to address immigration?",
             "likelihood": 1
         }
     },
@@ -123,7 +140,25 @@ campaignTrail_temp.questions_json = [
         "pk": 344,
         "fields": {
             "priority": 2,
-            "description": "Barbora has been managing the campaign thus far, and they believe that by strategically investing in certain constituencies, we may greatly open up the electoral map - Kaunas, which has never seen a constituency won by the Social Democrats before, as well as Šiauliai and Panevėžys may be in play. This view isn't shared by everyone in the party, however - our branches in the west are highly worried about Žemaitaitis's clique and believe that his populist movement threatens several safe constituencies westwards. Which strategy will you support?",
+            "description": "Though lacking the popular support, you're not found wanting in financial resources - the Conservatives have historically been the most well funded of the Lithuanian parties. Plenty of JKL volunteers can also be called up to canvass for your candidates in target races. Which constituencies do you plan to strategically invest into?",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 350,
+        "fields": {
+            "priority": 2,
+            "description": "Even the invincible Conservative loyalist electorate is not immune to propaganda. Concern is growing about the National Alliance after their good performance in the Vilnius local elections in 2023. It is becoming a home for disgruntled right-wing Conservative voters, particularly those dissatisfied with your modestly liberal positions on LGBT rights and immigration. What will your message be towards these demographics, if any?",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 362,
+        "fields": {
+            "priority": 3,
+            "description": "Since the opening of the Taiwanese Representative Office in 2021, China-Lithuania relations have been at an all time low. Though your foreign policy towards Russia has become the national consensus, your hardline anti-Chinese policy - fighting Chinese economic coercion, pursuing economic relations with Taiwan, and increasingly investing in Indo-Pacific diplomacy - has been a lot more controversial. Most of the 'Left', even the Social Democrats, are running on rebuilding relations with China. What is your position?",
             "likelihood": 1
         }
     },
@@ -132,7 +167,7 @@ campaignTrail_temp.questions_json = [
         "pk": 353,
         "fields": {
             "priority": 3,
-            "description": "From the start of September onwards, a series of debates will be held between delegates of all political parties on several platforms, as well as an enormous number of single-member constituency debates. You are expected to lead the Social Democratic team in the main debates. What will your strategy in these debates be?",
+            "description": "From the start of September onwards, a series of debates will be held between delegates of all political parties on several platforms, as well as an enormous number of single-member constituency debates. Your Prime Minister, Ingrida Šimonytė, is expected to lead the Conservative team in the main debates. What will your strategy in these debates be?",
             "likelihood": 1
         }
     },
@@ -141,7 +176,7 @@ campaignTrail_temp.questions_json = [
         "pk": 388,
         "fields": {
             "priority": 3,
-            "description": "The Šimonytė Cabinet continued its reforms to the pension accumulation system - a hollowing out of SoDra by making it mandatory for all citizens to participate in a private pension fund and denying the ability to withdraw their funds, while the Right toys with the idea of further eroding the state social security system. Even the Constitutional Court had to step in. Pension levels, compared to percentage of average wage, remain well behind the rest of Europe. The private fund Pillar II has layered even more taxes on the people for minimal gains. What is the Social Democratic solution?",
+            "description": "In power, you continued the previous cabinet's reforms to the pension accumulation system - which shifted some of the burden to private pension funds. The opposition, however, criticizes your decision to make participation in the private fund Pillar II mandatory and denying the option to withdraw one's funds from their private fund - to the point where even the Constitutional Court had to step in and rule that this is a violation of the constitutional rights to property. How will you propose to amend Pension Law to account for this?",
             "likelihood": 1
         }
     },
@@ -150,7 +185,7 @@ campaignTrail_temp.questions_json = [
         "pk": 374,
         "fields": {
             "priority": 3,
-            "description": "Progressive taxation has been one of your party's campaign promises for some time now, and is treated both by the Right and much of the business elite with contempt. Personal income taxes were outright flat not that long ago, and even today, taking social security payment caps and different rates for corporate income and other income into account, the tax system is de-facto regressive, i.e. the poor pay a higher percentage than the rich. This is perfectly fine for people like Andrius Romanovskis and the Free Market Institute. What is the Social Democratic answer?",
+            "description": "After Russia's invasion of Ukraine, you pushed for universal conscription - and, this June, you finally got it, albeit in a moderated form. Are you satisfied with your achievement - or is there something that doesn't satisfy you and you'd like to emphasize?",
             "likelihood": 1
         }
     },
@@ -159,7 +194,7 @@ campaignTrail_temp.questions_json = [
         "pk": 360,
         "fields": {
             "priority": 3,
-            "description": "A recent poll by the pollster <i>Spinter tyrimai</i> claims that, after removing undecideds, Žemaitaitis's clique will gather up to 17% of the vote and become the second best performing party in the election, behind only the Social Democrats. Seeing this, the Conservatives have begun campaigning with a new line - explicitly stating that they wish to form a grand coalition with you, a large bloc of pro-European forces to combat this real or supposed growth of the extremist vatnik populists. How will you answer this campaign?",
+            "description": "A recent poll by the pollster <i>Spinter tyrimai</i> claims that, after removing undecideds, Žemaitaitis's clique will gather up to 17% of the vote and become the second best performing party in the election, behind only the Social Democrats. It appears inevitable that in some form and number, NA will enter the Seimas, perhaps even becoming one of its largest parties. In spite of the bad blood between you and the Social Democrats, will you support a grand coalition against these far-right extremists?",
             "likelihood": 1
         }
     },
@@ -168,7 +203,16 @@ campaignTrail_temp.questions_json = [
         "pk": 372,
         "fields": {
             "priority": 3,
-            "description": "Two Conservative ministers of education have fallen thus far, and the ministry is even described as cursed. Despite shallow attempts to point at higher education investment numbers, the government's reforms have floundered. New, 'modernized' study programs have been adopted, but lack the textbooks to be taught. The chronic lack of teachers has grown greater, and the Conservatives answer by shuttering the rural school network and pointing parents to growing private schools. Attempts to involve the teaching community in reform planning have been meager. And what's happened to the vow on prestige... How will the Social Democrats handle the education system?",
+            "description": "Education reform was one of the key issues you were running on in 2020 - and today, it is your Achilles' heel. Reforms to the education system have been widely panned and have caused the resignation of two education ministers thus far. The media mocks your vow on prestige. New, modernized study programs have been adopted, but lack the textbooks to be taught. The chronic lack of teachers has grown greater, and your decision to respond by closing small rural schools has gathered scorn. Furthermore, much of the opposition are frustrated with your Life Skills Programme. What is your platform on education?",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 355,
+        "fields": {
+            "priority": 3,
+            "description": "What is your position towards the European Green Deal?",
             "likelihood": 1
         }
     },
@@ -177,7 +221,7 @@ campaignTrail_temp.questions_json = [
         "pk": 387,
         "fields": {
             "priority": 3,
-            "description": "Following new European regulations, Minister of Energy Dainius Kreivys began a mass liberalization of the energy sector, phasing out the public electricity supplier and requiring all citizens to sign up for competing private suppliers. A hastily created and almost unregulated market of electricity providers turned into an orgy of scams, bankrupcies, and corruption scandals - until a near-monopoly run by Ignitis settled on the ashes. Yet, the Conservatives emphasize that liberalization of the energy sector was not only a success, but must be deepened. How will the Social Democrats answer?",
+            "description": "Another week, another scandal. In a popular podcast with a National Alliance politician, journalist and TV personality Algis Ramanauskas received the attention of human rights watches after a rambling screed where he proposed hunting down and shooting all citizens who listen to Russian music and watch Russian media, then kidnapping and reeducating their children. The Social Democrats have brought this incitement of ethnic violence to court and even Remigijus Žemaitaitis has denounced him as a 'psycho'. Ramanauskas is a member of your party, his shows and podcast are popular among your voters and your party's politicians are often invited to his show. How will you address this scandal?",
             "likelihood": 1
         }
     },
@@ -186,7 +230,7 @@ campaignTrail_temp.questions_json = [
         "pk": 357,
         "fields": {
             "priority": 3,
-            "description": "Since the opening of the Taiwanese Representative Office in 2021, China-Lithuania relations have been at an all time low - another blunder by Foreign Minister Gabrielius Landsbergis and the Conservatives. The world's largest market is now closed to us, our embassy in Beijing has been furloughed, while our meager attempts to stand up to the Chinese giant have become a point of ridicule - even if the Conservatives claim that our fame in the Western world has risen. Should the Social Democrats win the election, will they seek to restore normal diplomatic relations with China?",
+            "description": "In general, do you believe it is possible for Ukraine to win? Should you win the election, and Russia's war in Ukraine continues, what will your policy towards the War be? Will you support any peace agreement?",
             "likelihood": 1
         }
     },
@@ -195,7 +239,7 @@ campaignTrail_temp.questions_json = [
         "pk": 364,
         "fields": {
             "priority": 3,
-            "description": "The election is in a matter of days. Polls stopped being held in September and so the entire political spectrum is playing blind. There are signs that Žemaitaitis's clique is on the verge of breakthrough, others claim that their polling is only hot air. Same polls claim that you are well ahead your Conservative rivals, yet the European Parliament election has taught you that turnout often matters more than mere polling numbers. With this uncertainty in the air, what final moves will you make?",
+            "description": "Spending all your time as the Minister of Foreign Affairs, you have so far dedicated no time to the electoral campaign - you've been entirely absent from the trail and your Prime Minister has been representing your party in all debates. Perhaps that's for the best. Still, with only a few days left before the polls open, do you wish to make one visit to your constituency, Centras-Žaliakalnis?",
             "likelihood": 1
         }
     },
@@ -234,7 +278,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3393,
         "fields": {
             "question": 366,
-            "description": "My dear people, as a respectable party which sees that the country needs a working relationship between the President and the next government, and seeing the great and understandable support which he has gotten from The People, we have decided to endorse Gitanas Nausėda for President and will campaign for him."
+            "description": "We would like to \"congratulate\" the Social Democrats. With their ceaseless kowtowing, they have helped reelect a homophobic, weathervane president for a second term. We must hammer on their duplicitous nature."
         }
     },
     {
@@ -242,7 +286,23 @@ campaignTrail_temp.answers_json = [
         "pk": 3394,
         "fields": {
             "question": 366,
-            "description": "My dear people, we have heard your wide and heartwarming support for the Social Democrats, and advised by a truly professional team which, much like myself, wishes to respond to the desires of The People, I have decided that I will run for President in this year's presidential election."
+            "description": "Nausėda's victory was inevitable. Instead, we will draw attention to Eduardas Vaitkus, who got over 7 percent of the vote in the first round. His success shows the growth of a pro-Russian fifth column in our nation."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 3395,
+        "fields": {
+            "question": 366,
+            "description": "We must spin this result as a victory. We maintained our positions and prevented one of the anti-systemic populists from advancing to the second round. We need to maintain the faith of our voter base until October."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 3396,
+        "fields": {
+            "question": 366,
+            "description": "This result shows that we need to hold back on our conflict with Nausėda from now on - all this squabbling over ministers and vetoes is only driving up votes for the Social Democrats. It may hurt our pride, but we mustn't lose this election."
         }
     },
     {
@@ -250,7 +310,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3474,
         "fields": {
             "question": 387,
-            "description": "We will allow Lithuanian citizens to stay with their public electricity supplier. We are going to significantly curtail the activities of private suppliers, take control of all of Ignitis's shares and turn it into a provider of a public good, rather than a profit-seeking monopolist."
+            "description": "While Ramanauskas could have certainly used different words and we denounce the call to violence, his ideas are ultimately sound. Russian culture is a blight to our society and is a gateway towards vatnik ideology. It must be eradicated from our nation somehow."
         }
     },
     {
@@ -258,7 +318,23 @@ campaignTrail_temp.answers_json = [
         "pk": 3475,
         "fields": {
             "question": 387,
-            "description": "We are going to do a thorough audit of Ignitis and establish strict regulations on the energy sector. We are going to compensate individuals who fell for scam companies and lost access to electricity. Under our stewardship, the liberalization of the sector will be achieved competently and we will drive prices down."
+            "description": "Ramanauskas is not in any official position in the party and expressed his views in a podcast with an opposition polician we're unaffiliated with. This is not our scandal. This is his scandal. Ignore it."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 3476,
+        "fields": {
+            "question": 387,
+            "description": "Our opposition to Russian imperialism must not extend to hatred towards the Russian community in Lithuania. We will openly denounce Ramanauskas's rhetoric and consider removing him from the party."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 3477,
+        "fields": {
+            "question": 387,
+            "description": "Žemaitaitis is calling him a psycho? You mean, the man planning to be Lithuania's Adolf Hitler? Attack him for his duplicitous nature."
         }
     },
     {
@@ -266,7 +342,7 @@ campaignTrail_temp.answers_json = [
         "pk": 3481,
         "fields": {
             "question": 389,
-            "description": "I will vote early in Vilnius, and speak about the necessity to change the incompetent Conservative Seimas with a left-wing cabinet which works!"
+            "description": "I will vote early in Vilnius, next to the Ministry of Foreign Affairs. I will avoid the attention of the media - just cast my vote and move on."
         }
     },
     {
@@ -274,7 +350,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14459,
         "fields": {
             "question": 393,
-            "description": "Another example of Conservative incompetence and corruption - let's connect this scandal to other scandalous or poorly performing ministers, like Kęstutis Navickas and Arūnas Dulkys, and demand a cabinet reset."
+            "description": "Deflect, deflect. The opposition is raising a fuss right before the verdict on Mindaugas Sinkevičius - is it a surprise that they're bringing up these minor scandals ahead of his conviction?"
         }
     },
     {
@@ -282,7 +358,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14460,
         "fields": {
             "question": 393,
-            "description": "Frankly, I feel a little sad for Monika. She has to defend herself when even her husband and party abandoned her. But we're not letting this scandal go. Let the President hammer Navickienė, we will focus on the incompetent corrupt Conservative party in general."
+            "description": "We cannot concede to the opposition. Hold out as long as we can. Stall opposition attacks, ignore baseless criticism. We are besieged by the populists and we cannot yield an inch!"
         }
     },
     {
@@ -290,7 +366,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14463,
         "fields": {
             "question": 393,
-            "description": "Yes!! Let's tear her a new one. Let's lead the charge in analyzing every detail of this scandal - all of Navickienę's connections, failures and her husband's corrupt deals. Let's set up a parliamentary commission to investigate, perhaps alongside Agnė Širinskienė."
+            "description": "Navickienė is a capable speaker and liked by the public. Allow her to sincerely and openly explain that there has been no conflict of interest and her connections are overblown - this should shut down any critics."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14465,
+        "fields": {
+            "question": 393,
+            "description": "Damn this, why'd it have to be her... Toss her to the wolves. Order her to resign, and quickly. Radvilė Morkūnaitė can replace her."
         }
     },
     {
@@ -298,7 +382,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14467,
         "fields": {
             "question": 369,
-            "description": "Sounds like a plan to me. I'll need Jonava's votes if I want to guarantee a Social Democratic majority. We will put Mindaugas Sinkevičius as the 141st candidate on our list - that way, your machine is even more motivated to collect the necessary preference votes for him to enter parliament."
+            "description": "This is ridiculous. Freedom cannot survive without us, and the President must listen to the government and the Parliament. Keep pressing both to accept me as Lithuania's Commissioner candidate, and they will yield."
         }
     },
     {
@@ -306,7 +390,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14468,
         "fields": {
             "question": 369,
-            "description": "Sounds like a plan to me. I'll need Jonava's votes if I want to guarantee a Social Democratic majority. We will allow Mindaugas Sinkevičius to run as the Social Democratic candidate in the Jonava constituency - he will certainly win."
+            "description": "Accept Freedom's ultimatum. It's not going to pass, but we will send the Partnership Law to parliament for its final reading, if they back us."
         }
     },
     {
@@ -314,7 +398,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14469,
         "fields": {
             "question": 369,
-            "description": "I'm sorry, but if I am running as the breath of fresh air to the Conservatives' corruption, I'd rather not ruin that image by openly working with a soon-to-be convict. You're on your own, Mindaugas."
+            "description": "Negotiate with the President. I'm willing to sacrifice a little - a few of our ministers whom he dislikes the most - if he doesn't block my nomination."
         }
     },
     {
@@ -322,7 +406,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14471,
         "fields": {
             "question": 343,
-            "description": "My dear journalists, I love you for your work and your attentiveness. As you are well aware, the Social Democrats are a large party - the largest in the nation, in fact - with many capable and talented politicians who have the talent to assume the highest post in the country. We will choose the one most capable if we win the election and form a government."
+            "description": "Russia, Russia, Russia. Only the Conservatives can keep you safe from Putin's bloodthirsty psychotic regime. Our election slogan shall be 'Defend and Grow' - we will defend the country and grow its economy with responsible, strategic reforms."
         }
     },
     {
@@ -330,7 +414,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14472,
         "fields": {
             "question": 343,
-            "description": "My dear journalists, there is a reason why the People have entrusted us with such great support in recent times. It is because they believe that I will offer them social security and a fairer, more respectful government, and I shall deliver. I promise that I will form the next government together with the President."
+            "description": "We have always been a pillar of respectability and professionalism, surrounded by an ocean of corrupt, ignorant populism. Our slogan shall be 'Choose the Capable!' - the voters will recognize that only we can be trusted in these difficult times."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14476,
+        "fields": {
+            "question": 343,
+            "description": "With the growth of Žemaitaitis's clique, and the Social Democrats refusing to condemn them, only we carry the torch of European values now. Our slogan will be 'Safe Lithuania in Strong Europe' - national security and commitment to the European project, not eurosceptic populism."
         }
     },
     {
@@ -338,7 +430,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14480,
         "fields": {
             "question": 349,
-            "description": "Dear, dear... I support gay rights, I really do, but I cannot participate in what is clearly Freedom's power game against Gabrielius Landsbergis. We will participate in a walkout of the opposition to break parliamentary quorum and so stop the law."
+            "description": "Much like in 2020, we will not make any official position on the debate. We cannot allow it to divide us. Let Freedom be our attack dogs against the Social Democrats on the question and it'll work out."
         }
     },
     {
@@ -346,7 +438,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14481,
         "fields": {
             "question": 349,
-            "description": "What a bother. The People are against this law, we cannot support it. Let us vote against and kill it alongside the rest of the opposition and the Christian Democrats."
+            "description": "A majority of our parliamentary group voted for all instances of the Partnership Law - and we have an opportunity to steal ample Freedom and Liberal Movement votes if we liberalize a little. Let's add partnerships to our official program."
         }
     },
     {
@@ -354,7 +446,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14484,
         "fields": {
             "question": 349,
-            "description": "I'd rather this law not become a part of the election campaign, but there is nothing we can do now. We will attend the session and vote the same way we always have. Those of us who vote yes - vote yes. Those of us who vote no - vote no."
+            "description": "Not this damn question again... It has cost us more votes than anything else. Perhaps, to recover, we must throw our liberal allies to the wolves - let us abandon any claims to supporting same sex partnerships and instruct our most vocal liberal members to keep their mouth shut."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14486,
+        "fields": {
+            "question": 349,
+            "description": "We support same-sex partnerships as a stepping stone towards our goal - gender-neutral marriage."
         }
     },
     {
@@ -362,7 +462,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14488,
         "fields": {
             "question": 348,
-            "description": "We are here to replace the incompetent, scandal-ridden, corrupt, arrogant Conservative government with a left-wing government which will govern the country without circuses and book burnings. 'A Country That Works' - this shall be our slogan."
+            "description": "We propose financing higher defense spending with an increase in value added taxation, which will ensure that all of us contribute to national defense. In addition, we intend to cut unnecessary VAT and income tax exemptions."
         }
     },
     {
@@ -370,7 +470,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14489,
         "fields": {
             "question": 348,
-            "description": "Let's try a message from the past - we are a party of the common man, the retiree and worker, those who were left behind by unchecked capitalism and the imported liberalism of the Capital. 'The Working Man - First!' That shall be our message."
+            "description": "We propose a modest increase in corporate tax to finance national defense. We will also seek to make solidarity contributions permanent or at least extend their length."
         }
     },
     {
@@ -378,7 +478,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14490,
         "fields": {
             "question": 348,
-            "description": "We are going to run on a platform of justice and equality. Our main target is the growing, uncontrollable inequality of wealth, income, between men and women, and of human rights. 'An Equal and Just Lithuania' - we shall carry this message."
+            "description": "We intend to have a healthy debate on new taxes after the election. As this is a national emergency, we can accept financing national defense with debt for the time being."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14491,
+        "fields": {
+            "question": 348,
+            "description": "This is a false dilemma. Our reasonable, innovation-seeking economic policies, managed by our capable hands, have ensured steady GDP growth and will continue to ensure it - with a growing economy, collected taxes will grow as well."
         }
     },
     {
@@ -386,7 +494,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14494,
         "fields": {
             "question": 345,
-            "description": "We Social Democrats shall finally reform our broken taxation system! No longer will the common man pay the same share as the wealthy entrepreneur! Your taxes WILL drop, and a progressive income tax and new wealth taxes will allow us to finance stronger public services!"
+            "description": "Absolutely. This patriotic campaign is very welcome and their ambition is exactly what we need in our campaign."
         }
     },
     {
@@ -394,23 +502,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14495,
         "fields": {
             "question": 345,
-            "description": "We Social Democrats will give your money back to your hands! We will reform the broken pension accumulation system, which forces you to give up your hard-earned money to private pension funds without means to withdraw them - and instead strengthen the state pension system!"
-        }
-    },
-	{
-        "model": "campaign_trail.answer",
-        "pk": 14496,
-        "fields": {
-            "question": 345,
-            "description": "We Social Democrats will increase your pensions! We will use the SoDra reserve to address the impact of inflation on our vulnerable elderly and impoverished, and we will ensure that the employers pay their share to the social security reserve, not just the employees!"
-        }
-    },
-	{
-        "model": "campaign_trail.answer",
-        "pk": 14497,
-        "fields": {
-            "question": 345,
-            "description": "We Social Democrats will protect the country from Russian aggression! We will increase defense spending to 3.5% of GDP and address the lack of shelters, insufficient preparation for universal conscription and insufficient military reform - and finance this with socially progressive taxation!"
+            "description": "While this campaign is very welcome, their proposal does not seem financially sound. We would rather focus on more reasonable improvements to national defense."
         }
     },
     {
@@ -418,7 +510,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14500,
         "fields": {
             "question": 346,
-            "description": "My dear people, the problem of Žemaitaitis - created by the Conservatives themselves, I may add - hides a devious project. It is to force a so-called 'grand coalition' and so prevent a true left-wing government. I will state this firmly - I have my concerns about Žemaitaitis, but I wish to see a left-wing government, no matter what."
+            "description": "I'm tired of this. These people. Let me at them. I will hold a question-answer session in the Seimas where I will shoot down each and every one of their idiotic claims. Agnė Širinskienė wants to fight me? I'll bite back."
         }
     },
     {
@@ -426,7 +518,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14501,
         "fields": {
             "question": 346,
-            "description": "We Social Democrats have been the party most firmly opposed to discrimination and antisemitism in all its forms - not like the Conservatives, I should add. This I believe in, my dear people, and I can be clear with you - I find it highly improbable that me and Žemaitaitis could ever find common ground."
+            "description": "Deflect this attack back. Gintautas Paluckas is even wealthier than me and he owns a plantation in Brazil, no? And he's supposed to be a progressive bleeding-heart. Ironic."
         }
     },
     {
@@ -434,7 +526,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14504,
         "fields": {
             "question": 346,
-            "description": "My dear people, we Social Democrats have always been a party of the people, not of the elite. In Žemaitaitis's rhetoric, I find a lot of concerning statements, but also a very strong desire to work for the people, and as long as he withdraws those concerning statements, I believe we can cooperate for the people's sake."
+            "description": "This is an artificial scandal, inflated by the media for clicks and to keep up the siege on us. We'll offer some explanations, but for the most part simply play down its significance. The house was legally bought and I have no intention of fleeing the country."
         }
     },
     {
@@ -442,7 +534,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14506,
         "fields": {
             "question": 347,
-            "description": "We Social Democrats are firmly and strongly committed to Lithuania's defense and support for Ukraine. In government, we will raise defense spending to 3.5% of GDP, and we will support universal conscription and the national division."
+            "description": "Put the spotlight on Žemaitaitis - have you heard of his toxic rhetoric towards Israel and the Jews? He is a second Adolf Hitler in the making. We must defend our liberal democracy from this far-right insurgent."
         }
     },
     {
@@ -450,7 +542,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14507,
         "fields": {
             "question": 347,
-            "description": "We firmly support Ukraine and her fight against the Russian evil, but, my dear people, has our defense spending not gone too far? We already spend well past the NATO requirement and more than all but a few of our allies - let us use what we're already spending efficiently."
+            "description": "Aim to turn this election into a race between us and the Social Democrats. They are running on a platform of careless spending - just like in the past. Tally up the insane costs of their platform and post it - the common-sense voters will recognize that our experienced hand is preferable."
         }
     },
     {
@@ -458,7 +550,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14508,
         "fields": {
             "question": 347,
-            "description": "We stand by Ukraine wholeheartedly, but let's take a look at the Conservatives. A big deal made of improving defense, yet their next budget gives less to defense than last year! Why? Because of yet another failure - this time to raise necessary taxes for said spending. We can't let them stay in power."
+            "description": "The Marchists have consolidated under the Peasants' wing. Always remind the nation of that. Frighten the liberal voters with horror stories that if it isn't us - it's them, and if they win, they can kiss LGBT rights, Ukraine and Europe goodbye."
         }
     },
     {
@@ -466,7 +558,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14509,
         "fields": {
             "question": 347,
-            "description": "Oh, dear... I am not equipped to answer these questions. Let us allow our national security expert, Dovilė Šakalienė, to formulate our position in my stead. She should present something acceptable to the majority and the media alike."
+            "description": "We are above these mud-slinging messages. Leave this debauchery to the populists of the 'Left'. We will focus on our message of stronger national defense and common-sense economic reform. The voters will flock to it naturally."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14510,
+        "fields": {
+            "question": 351,
+            "description": "We must recognize our mistake - our openness to Russian-speaking immigration has created an unwanted process of 'Russification' in the country. Russian language becomes increasingly commonplace in the capital. We must greatly toughen immigration restrictions."
         }
     },
     {
@@ -474,7 +574,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14511,
         "fields": {
             "question": 351,
-            "description": "My people, here you witness another of the Conservatives' failures. But you can know that when power is restored to the People, we will tackle the impact of this failure with determination - we will strengthen immigration restrictions and combat the massive waves of illegal immigration!"
+            "description": "We will - and already do - stand for restricted immigration. In fact, our Interior Ministry has already toughened vetting of new work migrants and has denied large numbers of applications on national security concerns. We will keep immigration safe, legal and rare."
         }
     },
     {
@@ -482,7 +582,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14514,
         "fields": {
             "question": 351,
-            "description": "My people, the real issue is how our companies and government are abusing the situation! Relaxing work regulations, the Conservatives allowed businesses to import thousands of immigrant workers and hollow out our labor laws. Know this - we will put an end to this exploitation."
+            "description": "The greater issue is not immigration, but the immigrants refusing to integrate and learn the Lithuanian language. This may need heavy-handed measures to solve. We propose a requirement to learn and speak Lithuanian for all service workers."
         }
     },
     {
@@ -490,7 +590,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14515,
         "fields": {
             "question": 351,
-            "description": "There's a reason why we have lost so much of our population to emigration, my people - the unchecked past economic disasters have driven so many of them away. We Social Democrats promise - we will formulate a strategy to promote return of emigrants and focus on the integration of our immigrant community."
+            "description": "We need to ultimately accept that immigration is necessary to make up for massive numbers of our population lost to emigration. Of course, we need stronger vetting of potential security threats and promote return of our emigrants first, but without immigrants, our economy may enter a labor crisis."
         }
     },
     {
@@ -498,7 +598,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14516,
         "fields": {
             "question": 344,
-            "description": "Barbora is right. The Conservatives are weak and the Peasants have abandoned their urban constituencies - we have a once in a lifetime opportunity to make inroads into the cities and we shouldn't waste it. "
+            "description": "Kaunas is supposed to be a Conservative fortress, yet the Peasants won much of it in 2016, and the Social Democrats overperformed there in the EP election. We need to keep it afloat."
         }
     },
     {
@@ -506,7 +606,23 @@ campaignTrail_temp.answers_json = [
         "pk": 14517,
         "fields": {
             "question": 344,
-            "description": "If we give up the west to Žemaitaitis now, we may not dislodge him or his party from there again. And if we seek a Social Democratic majority, then I'd rather trust the elderly, lower class electorates of rural municipalities over the hostile cities."
+            "description": "Šiauliai and Panevėžys are competitive this election - we performed quite well in both during the EP election, and the latter used to be loyal to us. We could turn them to our side."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14518,
+        "fields": {
+            "question": 344,
+            "description": "We've always underperformed in single-member constituencies, so this'll be a waste of resources. Let us instead focus on TV and internet ads to increase our reach nationwide."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14519,
+        "fields": {
+            "question": 344,
+            "description": "They say we are an urban party, but it's not true - we won several rural constituencies in 2020. Utena and Palanga could still turn out for us, as long as we deploy enough resources there."
         }
     },
     {
@@ -514,7 +630,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14522,
         "fields": {
             "question": 350,
-            "description": "We make use of my touch with the people before election day, then someone more qualified takes over to govern the country. Quite a brilliant plan. I'm with you."
+            "description": "Who exactly is switching to the NS? Some terminally online teenagers, brainwashed by American culture wars? Their threat to our electorate is overblown. We do not even have to address them."
         }
     },
     {
@@ -522,7 +638,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14523,
         "fields": {
             "question": 350,
-            "description": "Won't this mean I will have to lie to the people about my intentions? I cannot do this. I'm afraid of what's to come, but I will take all the responsibility - of course, with you and your faction's support."
+            "description": "What keeps us in touch with the National Alliance, and separates them from the populists, is our shared uncompromising stance against Russia. We need to focus on this - a vote for NS will be a vote wasted when the fate of the nation is on the line."
         }
     },
     {
@@ -530,7 +646,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14524,
         "fields": {
             "question": 350,
-            "description": "I won't handle myself well in the Prime Minister office. But I would rather not run a campaign lying to the people, either. Paluckas, take the spot. I'll declare I am aiming for Speaker of the Seimas instead."
+            "description": "NS's Euroscepticism and reactionary views make them a potential Russian fifth column. Eduardas Vaitkus was once a member of that party, after all. We need to hammer this message to break Radžvilas's little troupe."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 14525,
+        "fields": {
+            "question": 350,
+            "description": "We can adjust our rhetoric a little to accommodate the potential losses to NS. They got involved into a scuffle over the plaque of Kazys Škirpa recently - perhaps Valdas Benkunskas can concede and hang the plaque they want."
         }
     },
     {
@@ -538,7 +662,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14528,
         "fields": {
             "question": 362,
-            "description": "My dear people, the crisis affected those worst off - the retired, the impoverished, the young - more than anyone else, and their suffering is what I sought to relieve. My actions were not criminal, nor were they financially irresponsible - they were socially sound."
+            "description": "We remain firm in our commitment to the current policy towards Taiwan and China. By diplomatic precedent, it is China who should initiate restoring relations - and if they wish to do so, we will consider their request."
         }
     },
     {
@@ -546,7 +670,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14529,
         "fields": {
             "question": 362,
-            "description": "Nobody cares about those old scandals anymore. But if the Conservatives want to talk fiscal responsibility, let's talk - Ingrida Šimonytė has driven us to bankruptcy, my dears, our deficit is now at an unprecedented level, nearly violating European fiscal criteria!"
+            "description": "Alongside Russia, China is a part of the 'axis of dictatorships' which disrupts the rules-based global order, and China also supports Russia's war against Ukraine. Suggesting any peaceful relations with the current Chinese government is akin to treason."
         }
     },
     {
@@ -554,7 +678,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14530,
         "fields": {
             "question": 362,
-            "description": "Should I even give these idiotic claims air? Absolutely not."
+            "description": "We will support the democratic government of Taiwan to the best of our ability. However, we must emphasize that we still support the One China Policy, and we will be willing to reopen diplomatic talks with China after the election."
         }
     },
     {
@@ -562,7 +686,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14534,
         "fields": {
             "question": 353,
-            "description": "Let's show off our spine. We will firmly refuse a grand coalition with the Conservatives and attack Šimonytė for her government's numerous failures and recent scandals. We will ignore the populists at our side unless it's absolutely necessary and instead show ourselves ready to replace the Right with a solid Left government."
+            "description": "This is our opportunity to utterly deflate the Social Democrats. Hammer them hard, point out the infeasible populism of their program, denounce them as political chameleons plotting to form a coalition with Putin's stooge - Remigijus Žemaitaitis."
         }
     },
     {
@@ -570,7 +694,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14535,
         "fields": {
             "question": 353,
-            "description": "The growth of Žemaitaitis's clique is concerning. I will pivot to a populist direction to steal some of their thunder. I will emphasize that we will not support the Partnership Law if the people do not support it, and target the Conservatives and Liberals while agreeing with Žemaitaitis."
+            "description": "With every party under the sun aiming to insult us for points with the audience, we should remain calm and respectable. Crack a few jokes, break down their arguments, smile at their rambles."
         }
     },
     {
@@ -578,7 +702,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14536,
         "fields": {
             "question": 353,
-            "description": "Now that the campaign is entering its later stages, I must appear more professional to show that I'm ready for the highest office. I will keep my answers focused on clear left-wing solutions and ignore baiting from both sides of the spectrum."
+            "description": "Frankly, I do not understand what we'll gain from these debates. Are we supposed to look forward to listening to unsubstantiated, low-brow nonsense from Blinkevičiūtė, Veryga or Žemaitaitis? Let us avoid as many debates as we can."
         }
     },
     {
@@ -586,7 +710,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14540,
         "fields": {
             "question": 353,
-            "description": "Let me focus on the Peasants and Žemaitaitis - their rhetoric is honestly terrifying. One has become a haven of homophobia, the other seems intent to revive interwar fascist antisemitism. I will sharply criticize them both and affirm that the Social Democrats will not form a coalition with them."
+            "description": "For too long have the pro-Russian populists been allowed to roam the political landscape, never once confronted by sound logic and clear arguments. We're putting an end to this. Focus our energy on breaking down Vaitkus, Žemaitaitis, Veryga, and all their nonsense. Attack them as threats to the nation and as soon-to-be Quislings."
         }
     },
     {
@@ -594,7 +718,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14543,
         "fields": {
             "question": 388,
-            "description": "The II Pillar is the scam of the century. It is a significant tax on one's income with minimal gains for your pension later on. We will allow citizens to withdraw up to 25 percent of their private savings without specified reason, and make saving in private funds no longer mandatory."
+            "description": "You mean, we should allow these baboons to withdraw their retirement spendings and squander them irresponsibly? Perhaps we can allow withdrawing in case of life-threatening emergencies, but no further."
         }
     },
     {
@@ -602,7 +726,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14544,
         "fields": {
             "question": 388,
-            "description": "We are going to focus on rebuilding the hollowed-out state social security system. Currently, only employees pay SoDra dues - we will require employers to share half the burden, much like in Scandinavia, and we will also spend some of its growing reserve to raise pensions for current retirees."
+            "description": "Some adjustments may be necessary. The II Pillar doesn't have to be mandatory, only expected - allow citizens to refuse being assigned a pension fund, if they explicitly desire. They may also withdraw their spendings in case of emergencies."
         }
     },
     {
@@ -610,7 +734,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14545,
         "fields": {
             "question": 388,
-            "description": "We are going to pursue a measured reform to the social security system. Allow people to withdraw their II Pillar savings in case of emergencies or medical needs, shift some of the burden to the employers, but keep the system mostly intact."
+            "description": "We have to concede to the arguments of the President here. Our citizens should not feel like they are 'locked' in a pension fund and forced to pay higher taxes for no discernible reason. We should allow them to withdraw their savings, with some limits."
         }
     },
     {
@@ -618,7 +742,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14549,
         "fields": {
             "question": 388,
-            "description": "The II Pillar is the scam of the century. It shall be abolished. People may still save in private funds, of course, but our focus is and always will be the state social security system - which we will greatly invest into and steadily grow its pension rates."
+            "description": "Frankly, the real issue is the state retirement fund system, not the private pension funds. This is radical, but perhaps it's what the country needs - to abolish SoDra and shift the pension system to private funds completely."
         }
     },
     {
@@ -626,7 +750,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14551,
         "fields": {
             "question": 357,
-            "description": "Of course! In spite of our competition, the European Union will have to deal with China on everything from tariffs to the environment, and we shouldn't be a black sheep which can't even have an ambassador present in Beijing. We won't kowtow, but we will try to negotiate on restoration of relations."
+            "description": "Our message is and will be 'Whatever Victory Takes'. We, and all of NATO, should support Ukraine with whatever it takes for them to achieve victory. Ukraine <i>can</i> win, as long as the West supports it enough - and currently, it does not, at all."
         }
     },
     {
@@ -634,7 +758,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14552,
         "fields": {
             "question": 357,
-            "description": "For sure. China is the world's largest market, and our companies have now been completely shut out from exporting their production there. If needed, we will even close the Representative Office, but what matters is that we cut a good enough deal to fully restore relations with them."
+            "description": "Ukraine will be in NATO, or it will not exist at all. That will be our goal during our next term - we will do whatever it takes for Ukraine to become a member of NATO."
         }
     },
     {
@@ -642,7 +766,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14553,
         "fields": {
             "question": 357,
-            "description": "Maybe. Even the Conservatives tried to pivot on China later in their term. However, China is still a geopolitical rival of Europe and we will not play nice with them, while at the same time we'll maintain our relationship with Taiwan and cooperate with the Americans first."
+            "description": "Any peace agreement, victorious or... not so much, must be Ukraine's choice, not the decision of Russia, us, or the next US President. Ideally, a peace agreement will see Russia leave behind Ukraine's pre-2014 borders, but we will support Ukraine whatever they do."
         }
     },
     {
@@ -650,7 +774,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14556,
         "fields": {
             "question": 364,
-            "description": "Let's blow everything we can in these last few days. We'll mobilize our ground campaign to be more active, publish several campaign videos and get more ad time on the major television networks. We don't have a lot of resources, but we should use what we've got."
+            "description": "I don't see why not. I'll canvass on the street together with my team and local Conservative candidates. We'll get some good video footage."
         }
     },
     {
@@ -658,31 +782,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14557,
         "fields": {
             "question": 364,
-            "description": "Žemaitaitis has been mobilizing the rural vote with his village tours - let's spend the remaining time replicating his success. I shall tour the countryside and promote the Social Democratic campaign with my own personal touch."
+            "description": "There's a reason why I'm not rushing to participate on the campaign trail. I have conferences to participate in and Russian aggression to confront."
         }
     },
     {
         "model": "campaign_trail.answer",
-        "pk": 14558,
-        "fields": {
-            "question": 364,
-            "description": "We will once again refute the rumors that we intend to form a grand coalition. These accusations are our biggest vote killer - we must nip them in the bud. After the election, the People will see a strong, left-wing majority, not a conspiracy of the establishment!"
-        }
-    },
-	{
-        "model": "campaign_trail.answer",
-        "pk": 14559,
-        "fields": {
-            "question": 364,
-            "description": "We are on the track to win, and we don't need to panic on the very last day and thus ruin a good thing. Keep hammering on the most popular points of our program - pension reform, reforms to the energy sector, greater investment in education - and they will come to the polls."
-        }
-    },
-	{
-        "model": "campaign_trail.answer",
         "pk": 14562,
         "fields": {
             "question": 384,
-            "description": "We will endorse every party which stands against the Conservatives. We NEED to vote them out of power. NA, LVŽS, the Poles - we will endorse their candidates wherever they compete against them."
+            "description": "We will endorse every party which stands against the anti-democratic, pro-Russian populist extremists. Our voters will vote for anyone against NA, LVŽS and Eduardas Vaitkus."
         }
     },
     {
@@ -690,7 +798,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14563,
         "fields": {
             "question": 384,
-            "description": "Let's form a full partnership with the Democrats. We will support each other's candidates and ensure that a strong left-wing core can lead the next government."
+            "description": "Our partners, the Liberal Movement and Freedom Party, need to be represented in the next Seimas if we wish to form a responsible government yet again."
         }
     },
     {
@@ -698,7 +806,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14564,
         "fields": {
             "question": 384,
-            "description": "We must ensure that as many pro-Western, pro-European parliamentarians enter the next government. We will endorse the Democrats and the three Right bloc parties, wherever we're not running against them."
+            "description": "We've lost this election. In the name of a swift transition from one pro-Western government to the next, we will endorse the Social Democrats in every race where we aren't competing against them."
         }
     },
     {
@@ -714,7 +822,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14570,
         "fields": {
             "question": 381,
-            "description": "Let's see if the Democrats endorse us - we centre-left parties must stick together."
+            "description": "Our Liberal allies will surely provide us a little bit more support in the second rounds, as long as we ask."
         }
     },
     {
@@ -722,7 +830,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14571,
         "fields": {
             "question": 381,
-            "description": "Let's send the Conservatives some hints that they must endorse us to prevent a large populist bloc in the next parliament. Those suckers will fall for it."
+            "description": "We and the Social Democrats share Western values and a Western outlook. Let's see if they can support us to prevent the pro-Russian populists from getting in power."
         }
     },
     {
@@ -730,7 +838,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14572,
         "fields": {
             "question": 381,
-            "description": "Let's form a unity bloc against the Conservatives. We will send out feelers to every Left bloc party, including NA and LVŽS, and see if they can endorse us in certain races."
+            "description": "Let's reach out to the Democrats. They claim to be a constructive opposition - perhaps their candidates can endorse us in select races."
         }
     },
     {
@@ -746,7 +854,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14583,
         "fields": {
             "question": 374,
-            "description": "We are going to have a calm and measured debate on taxation reform after the election - and we will listen to everyone, business and labour alike, to help make our decision. However, some kind of reform must happen."
+            "description": "Better than nothing, but it could be better. We opposed Freedom's service deferral proposal for a reason - all men should enter the army after graduating from school, regardless of whether they enrolled in college or not."
         }
     },
     {
@@ -754,7 +862,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14584,
         "fields": {
             "question": 374,
-            "description": "This year's budget surpasses revenues by 28 percent - without taxation reform, we are heading towards bankruptcy. Even the Right must agree that some kind of reform must happen - and it's better that this reform places the burden onto the higher earning population, rather than the lower earning one."
+            "description": "No, we are satisfied with the compromise. Now, our focus should be on implementing the system as soon as possible. We will massively invest in military infrastructure and prepare the armed forces for a large wave of conscripts by 2027."
         }
     },
     {
@@ -762,7 +870,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14585,
         "fields": {
             "question": 374,
-            "description": "We will completely retool the income tax system. A progressive system with brackets from 0 to 40 percent, as opposed to 20 to 32 percent, and it will be applied to all income, not merely income from employment. Taxes for the lower earners will drop and the wealthy will take a higher burden."
+            "description": "Better than nothing, but it could be better. National defense must be truly universal - women should be conscripted as well, just like in Israel."
         }
     },
     {
@@ -770,7 +878,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14589,
         "fields": {
             "question": 360,
-            "description": "I shall go on the news and give a simple answer - no. We will never form a coalition with the Conservatives, and Gabrielius Landsbergis should cease his constant political harassment."
+            "description": "For the sake of the country and its Western outlook, it may be necessary. We will begin making public overtures to the Social Democrats - and we hope they will answer in kind."
         }
     },
     {
@@ -778,7 +886,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14590,
         "fields": {
             "question": 360,
-            "description": "Look, this is only one poll, done by a company with frankly suspect methodology. Let's not spread undue panic before the polls close. Whatever happens after the election - we'll find a solution which ensures a continued pro-Western and pro-Ukraine course."
+            "description": "No, Žemaitaitis's clique and the Social Democrats are two sides of the same populistic coin. We will not debase ourselves with a coalition with Blinkevičiūtė - our base may rebel if we act friendly with these heirs of the Communists."
         }
     },
     {
@@ -786,7 +894,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14597,
         "fields": {
             "question": 372,
-            "description": "Every four years, a new government begins new reforms which only bring new chaos to the struggling education system. We will offer something actually new - stability and continuity. We will audit the existing reforms, adjust, and implement them competently, effectively and fully."
+            "description": "The lack of textbooks is no issue - perhaps the teachers should simply learn to improvise and be more creative. The closing of rural schools, which sometimes have only a few students each, was necessary. Our reforms are on the right track, and these 'failures' are merely overexaggerated hiccups."
         }
     },
     {
@@ -794,7 +902,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14598,
         "fields": {
             "question": 372,
-            "description": "Our first priority will be to fight the privatization of the education system. Private schools should not receive the same funding as state schools - we will pull this funding and use it to invest in higher teacher salaries, better training, and actual incentives for young people to become teachers."
+            "description": "We have to fight this negative perception of our accomplishments somehow. Investment into education has risen by 53 percent, the wages of teachers have almost doubled. During our next term, we will continue this trend and ensure that a teacher's wage reaches 130 percent of national average."
         }
     },
     {
@@ -802,7 +910,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14599,
         "fields": {
             "question": 372,
-            "description": "Again, the party of the Capital throws rural regions under the bus. We will do everything we can to save rural schools, and cancel the overly strict enrollment requirements for schools to stay extant. We will renew the school bus program and invest further in teachers."
+            "description": "We recognize the exhaustion of the teaching community and we will slow down our reforms and avoid any further changes for the time being. We will also involve representatives of the teaching community in the reform process from here on out."
         }
     },
     {
@@ -810,7 +918,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14604,
         "fields": {
             "question": 355,
-            "description": "Our country today has many problems, and as mayor, I've been a problem-solver. I will work with both the left and the right to find solutions to the numerous problems which we face today."
+            "description": "The Green Deal is crucial for Lithuania to become independent of Russian energy - we wholeheartedly support it and will pursue the transition to renewable energy during our second term as ambitiously as during the first."
         }
     },
     {
@@ -818,7 +926,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14605,
         "fields": {
             "question": 355,
-            "description": "Why not put some focus on my ethnicity? I will make one of my first speeches in Polish, aimed towards our community, to confirm that I fight for their interests, and I will emphasize the integration of our ethnic minorities into our country and political life."
+            "description": "Though we support the basic principles of the Green Deal, its radical agenda threatens the livelihoods of farmers and their communities throughout Europe, Lithuania included. We have already seen farmer protests because of cancelled fossil fuel subsidies - we have heard them and will approach the Green Deal with a more sceptical eye next term."
         }
     },
     {
@@ -826,7 +934,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14606,
         "fields": {
             "question": 355,
-            "description": "I may be a man of the new generation, but that doesn't mean I have any more sympathy towards the Conservatives. I will continue our pressure on the failures and scandals of the government - just with a more measured and professional tone."
+            "description": "We fully support the Green Deal and have actively pursued a transition to renewable energy during our term - it is one of our greatest accomplishments. We will keep subsidies to fossil fuels abolished, expand subsidies for electric cars and solar panels, and more actively promote the circular economy."
         }
     },
     {
@@ -834,135 +942,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14607,
         "fields": {
             "question": 355,
-            "description": "I am going to continue the renewal started by Gintautas Paluckas. I will promote our younger candidates, speak out in favor of same-sex partnerships and firmly rebuke a coalition with the anti-democratic and antisemitic forces in NA."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15466,
-        "fields": {
-            "question": 4025,
-            "description": "We are going to focus on the Conservatives, like we've always had. We will attack their government's issues in procuring materiel for the army and botching our relations with China, cutting us off from their economy."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15467,
-        "fields": {
-            "question": 4025,
-            "description": "I will emphasize above all that we Social Democrats are fully committed to supporting Ukraine. I will also use my presidential powers to advance an economically progressive agenda - I will veto privatization plans and propose necessary legislation for the elderly and working class in Parliament."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15468,
-        "fields": {
-            "question": 4025,
-            "description": "Now that I am running for President, I need to criticize Gitanas Nausėda to draw our votes back to me. We will point out his lack of a firm agenda and state that I, as president, will seek a constructive relationship with any government, rather than conflict with them."
-        }
-    },
-	{
-        "model": "campaign_trail.answer",
-        "pk": 15469,
-        "fields": {
-            "question": 4025,
-            "description": "Vėgėlė, Žemaitaitis, Eduardas Vaitkus concern me. To bring their votes to me, I will avoid mentioning Russia and Ukraine and declare that I would send the Partnership Law back to the parliament, should it be presented before me as President."
-        }
-    },
-	{
-        "model": "campaign_trail.answer",
-        "pk": 15477,
-        "fields": {
-            "question": 4026,
-            "description": "My dear people, do not allow the Conservatives to rewrite history! Most people did not expect Putin to do something so illogical and deplorable at the time, and Paluckas has both disavowed his previous positions and has been a firm supporter of Ukraine since!"
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15478,
-        "fields": {
-            "question": 4026,
-            "description": "I am aware of that article. Dear Ingrida, I would like to remind you that you are running against me, not Paluckas. Neither you nor I agree with every single one of your party's members, so it's improper to attack me over something he has said."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15479,
-        "fields": {
-            "question": 4026,
-            "description": "My dear Ingrida, putting Ukraine aside, was he incorrect? Even today, your party is stoking fears of war to silence their opponents. Factually, Russia is unlikely to invade us under the NATO umbrella - yet your party has abused this threat to beat everyone into supporting universal conscription and draconic immigration restrictions."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15480,
-        "fields": {
-            "question": 4027,
-            "description": "No. No. This party won't last long without me at the helm. I have to do this. Phone Tadas Vinokur and ask if he can cancel a few irrelevant events, maybe that'll help me hold on."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15481,
-        "fields": {
-            "question": 4027,
-            "description": "Phone Gintautas Paluckas. I want to make a deal with his faction. I'll allow him to lead our party's electoral list and be our candidate for Prime Minister. I'll be able to appear with him here and there, but I'll step away from the race for now."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15482,
-        "fields": {
-            "question": 4028,
-            "description": "I'm actually a young politician, you know. I'm not a crusty old beaver. I will try to keep the progressives in Barbora around and not cross them too much, while remaining active on social media to promote myself as a next generation Social Democrat."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15483,
-        "fields": {
-            "question": 4028,
-            "description": "I am an 'old' social democrat - not in age, but in worldview. I care about the poor and the working class, not the Caffeine-sitting liberals of Vilnius and all the nonsense in that Partnership Law. Under my leadership, the Social Democrats will sweep the nation and bring a true left-wing government!"
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15484,
-        "fields": {
-            "question": 4028,
-            "description": "I was a servant of the people of Alytus, and now of the nation. The elite tried to take me down, but they failed, time and time again - and, believe me, I'm not going to stop until I bring this country back to the People. Let's fire up Vilija's shit-flinging machine against the Conservatives again."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15485,
-        "fields": {
-            "question": 4028,
-            "description": "I am a man of results. You think it's for no reason that Alytus reelected me with such massive support? It's because I know how to work with business, how to fix the roads, how to attract investments, how to work across the aisle. The idiots in Vilnius do not. I'm going to show them how."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15486,
-        "fields": {
-            "question": 4029,
-            "description": "I may be a bit more pragmatic these days, but I still consider myself a progressive. My government will be a genuine social democratic government, following after our partners in Sweden, Germany and the United Kingdom."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15487,
-        "fields": {
-            "question": 4029,
-            "description": "This is the right time to counter some Right bloc concerns about me as a candidate. As Prime Minister, I will be a firm supporter of Ukraine and of national defense, and we will balance our struggle for social reforms with adequate investment into our military capabilities."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 15488,
-        "fields": {
-            "question": 4029,
-            "description": "I will emphasize my experience. I was a little bit green in 2020, but now I am running with four years in the Seimas on my belt - and, according to official data, I was one of the parliament's most active deputies. I am prepared to take Ingrida Šimonytė's position!"
+            "description": "Let's avoid this question as much as we can - not only is it not a particularly relevant topic, it is also a little controversial among our members."
         }
     }
 ]
@@ -15233,9 +15213,29 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 1016,
         "fields": {
             "answer": 3394,
-            "candidate": 79,
-            "affected_candidate": 14223,
-            "global_multiplier": -0.08
+            "candidate": 77,
+            "affected_candidate": 14818,
+            "global_multiplier": 0.05
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 1017,
+        "fields": {
+            "answer": 3395,
+            "candidate": 77,
+            "affected_candidate": 79,
+            "global_multiplier": 0.03
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 1019,
+        "fields": {
+            "answer": 3396,
+            "candidate": 77,
+            "affected_candidate": 79,
+            "global_multiplier": 0.025
         }
     },
     {
@@ -16873,7 +16873,7 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 12240,
         "fields": {
             "answer": 3393,
-            "candidate": 79,
+            "candidate": 77,
             "affected_candidate": 79,
             "global_multiplier": 0.05
         }
@@ -16903,9 +16903,9 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 14454,
         "fields": {
             "answer": 3393,
-            "candidate": 79,
-            "affected_candidate": 13915,
-            "global_multiplier": 0.07
+            "candidate": 77,
+            "affected_candidate": 14223,
+            "global_multiplier": -0.04
         }
     },
     {
@@ -16913,9 +16913,9 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 14455,
         "fields": {
             "answer": 3393,
-            "candidate": 79,
+            "candidate": 77,
             "affected_candidate": 78,
-            "global_multiplier": -0.03
+            "global_multiplier": -0.02
         }
     },
     {
@@ -16923,9 +16923,9 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 14456,
         "fields": {
             "answer": 3394,
-            "candidate": 79,
-            "affected_candidate": 13915,
-            "global_multiplier": 0.04
+            "candidate": 77,
+            "affected_candidate": 14069,
+            "global_multiplier": -0.05
         }
     },
     {
@@ -17444,7 +17444,7 @@ campaignTrail_temp.answer_score_global_json = [
         "fields": {
             "answer": 14518,
             "candidate": 77,
-            "affected_candidate": 71,
+            "affected_candidate": 77,
             "global_multiplier": 0.02
         }
     },
@@ -18063,9 +18063,9 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 14897,
         "fields": {
             "answer": 3394,
-            "candidate": 79,
-            "affected_candidate": 78,
-            "global_multiplier": -0.07
+            "candidate": 77,
+            "affected_candidate": 79,
+            "global_multiplier": 0.03
         }
     },
     {
@@ -19187,26 +19187,6 @@ campaignTrail_temp.answer_score_global_json = [
             "affected_candidate": 78,
             "global_multiplier": -0.03
         }
-    },
-    {
-        "model": "campaign_trail.answer_score_global",
-        "pk": 15050,
-        "fields": {
-            "answer": 3393,
-            "candidate": 79,
-            "affected_candidate": 13992,
-            "global_multiplier": -0.03
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_global",
-        "pk": 15051,
-        "fields": {
-            "answer": 3394,
-            "candidate": 79,
-            "affected_candidate": 13992,
-            "global_multiplier": -0.05
-        }
     }
 ]
 
@@ -19266,9 +19246,29 @@ campaignTrail_temp.answer_score_issue_json = [
         "pk": 811,
         "fields": {
             "answer": 3393,
-            "issue": 30,
-            "issue_score": -0.3,
+            "issue": 28,
+            "issue_score": 0.6,
             "issue_importance": 2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 816,
+        "fields": {
+            "answer": 3394,
+            "issue": 27,
+            "issue_score": 0.6,
+            "issue_importance": 3
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 821,
+        "fields": {
+            "answer": 3395,
+            "issue": 30,
+            "issue_score": 0.5,
+            "issue_importance": 3
         }
     },
     {
@@ -21324,8 +21324,8 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 771,
         "fields": {
             "answer": 3393,
-            "candidate": 79,
-            "answer_feedback": "Algirdas Sysas, that old man, rails against your decision in the press. The Right attacks you for supporting a \"homophobe\". But you've got a strategy. And you know this alliance will draw the People to you."
+            "candidate": 77,
+            "answer_feedback": "The majority of the nation wishes to vote you out. By making it clear that the Social Democrats are your enemy, you will push this silent majority to Blinkevičiūtė's fold."
         }
     },
     {
@@ -21333,8 +21333,26 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 772,
         "fields": {
             "answer": 3394,
-            "candidate": 79,
-            "answer_feedback": "You didn't want to do this, but the party has forced your hand. You're worried this'll erode your illusion of an infallible critic of the Right by forcing you to define yourself to the public. But now all you can do is put on a good show - the Presidentials await."
+            "candidate": 77,
+            "answer_feedback": "Vaitkus and the rest of the vatnik electorate certainly frighten and concern your voter base. They'll band around you if only to keep them away from office."
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 773,
+        "fields": {
+            "answer": 3395,
+            "candidate": 77,
+            "answer_feedback": "This is reminiscent of the Peasants once claiming they 'won every election', no matter how much of a loss it actually was. Still, you knew you'd lose the presidentials anyway, so perhaps you have a point."
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 774,
+        "fields": {
+            "answer": 3396,
+            "candidate": 77,
+            "answer_feedback": "Nice try, but it's too late - he's already been elected with record-breaking margins, and you've spent four years squabbling with him. And do you <i>really</i> intend to show weakness to him?"
         }
     },
     {
@@ -23188,7 +23206,6 @@ campaignTrail_temp.jet_data = [{
 }
 ]
 
-
 e.primary=true // toggles primary mode on
 e.primary_code = [
   {
@@ -23207,98 +23224,11 @@ function changeWeight(weights, sourceCandidateId, targetCandidateId, changeAmoun
 	candidateWeights.weights[targetCandidateId] = Math.max(0, candidateWeights.weights[targetCandidateId] );
 }
 
-questionSheath = [
-  {
-    "model": "campaign_trail.question",
-    "pk": 4025,
-    "fields": {
-      "priority": 1,
-      "description": "After easily acquiring the required twenty thousand signatures, you are officially running for President. In the polls, you gather about ten percent of the vote, running neck-and-neck with Ignas Vėgėlė - getting to the second round is unlikely, but theoretically possible. The presidential campaign is very different from the parliamentary one - foreign policy and national defense is much more relevant, whereas bread-and-butter social questions less so. What will be your strategy?",
-      "likelihood": 1
+function ctsAchievement(achievement){
+        if(campaignTrail_temp.CTS){
+        unlockAchievement(achievement);
     }
-  },
-  {
-    "model": "campaign_trail.question",
-    "pk": 4026,
-    "fields": {
-      "priority": 1,
-      "description": "In the presidential debate, Ingrida Šimonytė confronts you about your party's previous chairman and your ally, Gintautas Paluckas. In February 2022, days before the Russian invasion of Ukraine, he openly stated that war was unlikely to happen and that the Conservatives are irrationally stoking fear to promote their agenda. Since then, the Conservatives have pointed to this in order to accuse Paluckas of being unreliable or possibly even a vatnik and a traitor. How do you answer?",
-      "likelihood": 1
-    }
-  },
-  {
-        "model": "campaign_trail.question",
-        "pk": 393,
-        "fields": {
-            "priority": 1,
-            "description": "While Ingrida Šimonytė is chipping her teeth against Nausėda in the presidential election, the Conservatives have given you a treasure trove of scandals to hit on. Minister of Social Security, Monika Navickienė, has reportedly been involved in a scandal of conflict of interest. Her husband is a former head of fintech company Foxpay, which won government contracts during the government's term, even though authorities vetting strategic deals concluded that the company might compromise national security. Foxpay is connected with known financial criminal Vilhelmas Germanas, who even provided Navickienė with private jet flights to Dubai. How shall we react to this scandal?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
-        "pk": 343,
-        "fields": {
-            "priority": 2,
-            "description": "The European Parliament election has passed - and congratulations, you have been reelected as one of LSDP's two parliamentarians! However, this further compounds one of your biggest issues - the nation is still uncertain whether you seriously intend to lead the Social Democrats during the parliamentary election or whether you will propose someone else for Prime Minister. The Right's line of attack against you is that you intend to 'retire to the European Parliament' and run away from any responsibility. How will you answer these claims?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 350,
-        "fields": {
-            "priority": 2,
-            "description": "You've been running the news mill against the Conservatives for a while now, ripping them a new one on anything and everything. It then dawns on you... you'll be eaten alive if you actually succeed them. You're at ease loudly blasting your opponents on the stage, not actually governing. Just in time, the New Guard offer you a proposal. Openly, you will continue claiming you'll be the party's Prime Minister candidate, to keep the votes going, but slowly, Gintautas Paluckas will prepare for the role, while you will step away from the position after the election because of, say, health troubles. What say you?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 4027,
-        "fields": {
-            "priority": 2,
-            "description": "It is another one of those evenings, after a long day ripping the Conservatives a new one in the media. The quixotic presidential run forced you to define yourself on several uncomfortable questions and burned a lot of your popularity, you can feel yourself struggling, the surprising decision to run and the subsequent defeat sharpened the tensions between the New Guard and the Regionalists, and- oh, God, your body is barely holding on. Your health hasn't been the best in a while, but now it's actually crumbling. You won't last for long if you keep this up. What do you do?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 355,
-        "fields": {
-            "priority": 3,
-            "description": "'The LSDP conference has elected Robert Duchniewicz as the new leader of their electoral list' say the news headlines. From mere councillor, to Mayor and now possibly Prime Minister, in only two years - an incredible jump, but made possible by your allies in the New Guard and enthusiastic party grassroots who hope you achieve the same miraculous victory you achieved in 2023. If elected, you would be Lithuania's first Polish Prime Minister, as well as its youngest. How shall you introduce yourself to the nation?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 4028,
-        "fields": {
-            "priority": 3,
-            "description": "'The LSDP conference has elected Nerijus Cesiulis as the new leader of their electoral list' say the news headlines. With support from the old guards in parliament and party leadership, regional branches and the Jonava political machine, you've finally claimeed the throne. The nation sees you as a corrupt, somewhat scandalous, populistic, yet highly popular Mayor of Alytus, the type who 'steals, but does his job' - not so much as a national politician, though. How shall you introduce yourself to the nation?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 4029,
-        "fields": {
-            "priority": 3,
-            "description": "'The LSDP conference has elected Gintautas Paluckas as the new leader of their electoral list' say the news headlines. You've received a second chance. It hasn't been that long since you were forced out of leadership in 2021, but you never gave up and fostered a strong enough New Guard faction that they, alongside wide support throughout the party membership, carried you back into a leading role. The nation already knows you well, but would you like to strike a new tone for your second campaign?",
-            "likelihood": 1
-        }
-    },
-	{
-        "model": "campaign_trail.question",
-        "pk": 362,
-        "fields": {
-            "priority": 3,
-            "description": "After that short interruption, you return to the campaign trail. One criticism commonly employed towards you by the Right involves your last time in the government, as Minister of Social Affairs in 2008. Ahead of the election, you and Prime Minister Gediminas Kirkilas insisted to raise retirement pensions and establish free school meals, making a significant dent in the reserve and leaving the country less prepared for the Great Recession. A Peasant-led parliamentary commission in 2019 found you complicit in the economic downfall. How will you answer these claims?",
-            "likelihood": 1
-        }
-    },
-]
+}
 
 e.cyoa = true;
 
@@ -23309,10 +23239,6 @@ return false;
 }
 return questionSheath[index];
 };
-
-e.presidentswitched = false;
-ranforpres = false;
-lying = false;
 
 cyoAdventure = function (a) {
 answer = e.player_answers[e.player_answers.length - 1]; // get current answer selection
@@ -23325,143 +23251,6 @@ answer = e.player_answers[e.player_answers.length - 1]; // get current answer se
 */
 // weights is weights, source candidate is the "outer" one, target candidate the "inner" one and changeAmount is added to it
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
-
-if(answer == 3393) {
-	e.questions_json.splice(1, 0 , getQuestionFromPk(393))
-	e.questions_json.splice(2, 0 , getQuestionFromPk(343))
-	e.global_parameter_json[0].fields.question_count = 25
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	applyTooltipsToObject(campaignTrail_temp.answers_json);
-	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
-	return;
-}
-if(answer == 3394) {
-	e.questions_json.splice(1, 0 , getQuestionFromPk(4025))
-	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
-	ranforpres = true;
-	e.global_parameter_json[0].fields.question_count = 25
-	document.getElementById("header").src = "https://i.imgur.com/uQwck46.png"
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	applyTooltipsToObject(campaignTrail_temp.answers_json);
-	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
-	return;
-}
-if(answer == 15477) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 15478) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 15479) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 14516 && ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14517 && ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14516 && !ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14517 && !ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 15480 && e.player_answers.includes(14516) && e.player_answers.includes(14509) && e.player_answers.includes(14501) && e.player_answers.includes(14469) && (e.player_answers.includes(14484) || e.player_answers.includes(14480))) {
-	// Duchniewicz - needs Barbora, support Dovilė, go against Jonava, oppose Žemaitaitis coalition, do not go against partnerships
-	e.questions_json.splice(12, 0 , getQuestionFromPk(355))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Duchniewicz';
-	leader105.image = 'https://i.imgur.com/3ugJuQ1.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/3ugJuQ1.png';
-	campaignTrail_temp.running_mate_last_name = 'Duchniewicz';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 15480 && e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14468) && e.player_answers.includes(14481)) {
-	// Cesiulis - oppose Barbora, give Sinkevičius a constituency, support Žemaitaitis coalition, go against partnerships
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4028))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Cesiulis';
-	leader105.image = 'https://i.imgur.com/kmOKPWe.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/kmOKPWe.png';
-	campaignTrail_temp.running_mate_last_name = 'Cesiulis';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 15480 && !(e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14468) && e.player_answers.includes(14481)) && !(e.player_answers.includes(14516) && e.player_answers.includes(14509) && e.player_answers.includes(14501) && e.player_answers.includes(14469) && (e.player_answers.includes(14484) || e.player_answers.includes(14480)))) {
-	// Paluckas - if you qualify for neither path. Maybe I should have done this in a less stupid way
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_last_name = 'Paluckas';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 15481) {
-	// Give up to Paluckas
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_last_name = 'Paluckas';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14524) {
-	// Give up to Paluckas
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_last_name = 'Paluckas';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14522) {
-	// Stay in charge
-	e.questions_json.splice(12, 0 , getQuestionFromPk(362))
-	e.global_parameter_json[0].fields.question_count = 25
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	lying = true;
-	return;
-}
-if(answer == 14523) {
-	// Stay in charge
-	e.questions_json.splice(12, 0 , getQuestionFromPk(362))
-	e.global_parameter_json[0].fields.question_count = 25
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-
-
 if(answer == 14589) {
   // Proposing a grand coalition makes people less likely to vote LSDP.
   changeWeight(weights, 78, 79, -0.2);
@@ -23519,47 +23308,30 @@ if(answer == 3474) {
 if(answer == 14468) {
   // Liberals will be less likely to vote LSDP now.
   changeWeight(weights, 80, 78, -0.1);
-  changeWeight(weights, 13761, 78, 0.1);
+  changeWeight(weights, 13761, 78, -0.1);
   return;
 }
 if(answer == 14563) {
-  // Endorsing the Democrats
-  changeWeight(weights, 79, 14223, 0.3);
+  // Endorsing the liberals.
+  changeWeight(weights, 77, 80, 0.3);
+  changeWeight(weights, 77, 13761, 0.3);
   return;
 }
 if(answer == 14564) {
-  // Endorsing the Right + Democrats.
-  changeWeight(weights, 79, 77, 0.15);
-  changeWeight(weights, 79, 80, 0.15);
-  changeWeight(weights, 79, 13761, 0.15);
-  changeWeight(weights, 79, 14223, 0.25);
-  changeWeight(weights, 78, 79, -0.15);
-  changeWeight(weights, 13915, 79, -0.15);
+  // Endorsing the social democrats.
+  changeWeight(weights, 77, 79, 0.25);
   return;
 }
 if(answer == 14562) {
-  // Voting against the Conservatives.
-  changeWeight(weights, 79, 77, -0.2);
+  // Voting against the populists.
+  changeWeight(weights, 77, 13915, -0.2);
+  changeWeight(weights, 77, 78, -0.2);
   return;
 }
 if(answer == 14570) {
-  // Endorsed by the Democrats.
-  changeWeight(weights, 14223, 79, 0.3);
-  return;
-}
-if(answer == 14571) {
-  // Endorsed by the Conservatives.
-  changeWeight(weights, 77, 79, 0.2);
-  return;
-}
-if(answer == 14572) {
-  // Endorsed by some of the Left.
-  changeWeight(weights, 14223, 79, 0.2);
-  changeWeight(weights, 78, 79, 0.15);
-  changeWeight(weights, 13915, 79, 0.15);
-  changeWeight(weights, 77, 79, -0.15);
-  changeWeight(weights, 80, 79, -0.15);
-  changeWeight(weights, 13761, 79, -0.15);
+  // Endorsed by the liberals.
+  changeWeight(weights, 80, 77, 0.15);
+  changeWeight(weights, 13761, 77, 0.15);
   return;
 }
 if(answer == 14507) {
@@ -23736,7 +23508,7 @@ if(answer == 14489) {
     
       for (let i = 0; i < seats; i++) {
           for (let w = 0; w < votes.length; w++) {
-              if (perc_votes[w] < thresh) {
+			  if (perc_votes[w] < thresh) {
                   quotients[w] = 0
               } else {
                   quotients[w] = votes[w]/(allocations[w]+1)
@@ -23880,7 +23652,7 @@ if(answer == 14489) {
               // Create a cell for the checkbox and add it to the row
               const checkboxCell = document.createElement("td");
               checkboxCell.style.width = "33%";
-              const player_pk = 79;
+              const player_pk = 77;
               const hasPlayerParty = coalition.parties.includes(player_pk);
     
                 // If the coalition contains the player's party, create a checkbox that can be checked/unchecked
@@ -24036,12 +23808,12 @@ if(answer == 14489) {
 	{ id: 10, name: 'Pseudo-Minority Government: LSDP, DSVL, LLRA-KŠS, Independents', weight: 5.0, parties: [79, 13838, 14223, 14377], impossibleCoalitions: [13] },
 	
 	{ id: 11, name: 'New 2016 Coalition: LSDP, LVŽS', weight: 5.0, parties: [78, 79], impossibleCoalitions: [12, 13, 15] },
-	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 5.0, parties: [78, 79, 14223], impossibleCoalitions: [13] },
+	{ id: 12, name: 'New 2016 Coalition: LSDP, LVŽS, DSVL', weight: 4.0, parties: [78, 79, 14223], impossibleCoalitions: [13] },
 	{ id: 13, name: 'New 2016: LSDP, LVŽS, DSVL, LRP, LLRA-KŠS, Independents', weight: 2.0, parties: [78, 79, 13838, 13992, 14223, 14377], impossibleCoalitions: [] },
 	
 	{ id: 14, name: 'Red-Brown Coalition: LSDP, NA', weight: 6.0, parties: [79, 13915], impossibleCoalitions: [15] },
 	{ id: 15, name: 'New 2012 Coalition: LSDP, NA, LRP, LLRA-KŠS, LVŽS', weight: 4.0, parties: [78, 79, 13838, 13915, 13992], impossibleCoalitions: [] },
-	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, DSVL', weight: 6.0, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
+	{ id: 16, name: 'New 2012 Coalition: LSDP, NA, DSVL', weight: 4.0, parties: [79, 13838, 13915, 13992, 14223], impossibleCoalitions: [] },
 	
 	{ id: 17, name: 'Anti-System Coalition: NA + minor anti-systemic parties', weight: 10.0, parties: [13838, 13915, 13992, 14069, 14146, 14377, 14818], impossibleCoalitions: [18] },
 	{ id: 18, name: 'Anti-System Coalition: NA, LVŽS + minor anti-systemic parties', weight: 6.0, parties: [78, 13838, 13915, 13992, 14069, 14146, 14377, 14818], impossibleCoalitions: [] },
@@ -24243,10 +24015,10 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
         possibleCoalitions = coalitionTalks(e.final_overall_results);
     
         //all coalitions with the winning party have their weight multiplied by this value
-        adjustWeights(3);
+        adjustWeights(2);
       }
-      
-      // State achievements
+	  
+	  // State achievements
  
       let lazdynaiResult = campaignTrail_temp.final_state_results.find((x) => x.state == 13151);
       if(lazdynaiResult.result[0].candidate == 79) {
@@ -24263,7 +24035,7 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       // ENDINGS
 	  
 	  if (!negotiationsDone){
-		if (aa[0].candidate == 79 && aa[0].electoral_votes >= 119) { // TS-LKD hyper win
+		if (aa[0].candidate == 77 && aa[0].electoral_votes >= 119) { // TS-LKD hyper win
           changeTheme("dark")
 		  setMusic("")
           e.header = "<h2>A new threat to the old order...</h2>"
@@ -24340,13 +24112,13 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           e.image = "https://i.imgur.com/Kd5uneB.png";
           return construct(0);
       }
-		else if (aa[0].candidate == 79 && aa[0].electoral_votes >= 71) { // TS-LKD majority
+		else if (aa[0].candidate == 77 && aa[0].electoral_votes >= 71) { // TS-LKD majority
           e.header = "<h2>An Unbelievable Victory!</h2>"
           e.pages = [`<p>You've got to be dreaming. No, no, that can't have happened, that's impossible. But the screen still shows you the same - the Conservatives have not only maintained their positions since 2020, they have also won an unprecedented majority of the seats. That... okay, calm down. Joy has been rare to find in the past four years, but you have to stay calm. I know, it's unbelievable, it's the first time that a right-wing party has ever gotten a majority, it's...</p><p>Hell yeah, we won! The TS-LKD party headquarters immediately start playing Šimonytė's favorite Metallica tracks, and you, your ministers and your party vice-chairs sit down to think what to do next. No, of course we're not inviting the liberal parties this time. Fuck 'em. Straight up. Armonaitė and her weed-smoking kids have caused us more trouble than any opposition parties, and Čmilytė and her Liberals have been speaking behind your backs the whole time. Let them die in opposition, if they even managed to get into parliament. We're going to reform the taxation system, the education system, healthcare, social security exactly how we want. No compromises. Female conscription? Yes. 4% to defense? You got it. And, finally, another term as Minister of Foreign Affairs? Another term of carrying the torch of democracy and liberty towards the East, showing the way of truth to the entire Western world?</p><p>...Yes.</p>`]
           e.image = "https://i.imgur.com/KYCyTgw.png";
           return construct(0);
       }
-	  else if (aa[0].candidate == 79) { // TS-LKD Plurality
+	  else if (aa[0].candidate == 77) { // TS-LKD Plurality
           e.header = "<h2>The Second Mandate!</h2>"
           e.pages = [`<p>They doubted you and your party. They said that the incumbents always lose in this country, and that the mass of Left voters will unite against you in the second round to kick you out of power. They know nothing. Nothing! Today, you celebrate your victory, as you are the first party leader since independence to lead their party to first place for two elections in a row. If anyone's had doubts about your leadership, they sure do not now - you were always right. You were always right.</p><p>The taste of victory is soured somewhat by the knowledge that forming another coalition will be a lot more difficult than before. Have your two liberal allies even managed to cross the 5% barrier? Even if both of them have, you may still be under the 71 seat threshold together. Beyond you three, any coalition building seems exceedingly difficult... Let's not let that dampen the mood, though. Tonight, the true Lithuania celebrates.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/vvLzFAr.png";
@@ -24355,19 +24127,19 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
           }
           return construct(0);
       }
-	  else if (aa[0].candidate !== 79 && quickstats[1] < 5) {
+	  else if (aa[0].candidate !== 77 && quickstats[1] < 5) {
           e.header = "<h2>Could you imagine a world without TS-LKD?</h2>"
           e.pages = [`<p><i>October 28th, 2028, 23:45</i></p><p>With over 1400 precincts of 1851 counted, the results of the 2028 parliamentary election seem clear. The party which came first in the multi-member constituency vote in the first round two weeks ago, the Union of Christians and Nationalists (KNS), led by co-leaders Laurynas Kasčiūnas and Vytautas Sinica, will finish first with 45 seats of 141, not considering possible recounts.</p><p>The victory of KNS has already been congratulated by likeminded European leaders such as Marine Le Pen, Viktor Orban and Giorgia Meloni. Speaking to BNS reporters, Sinica, who is expected to be the party's Prime Minister candidate, stated that the party intends to negotiate with the Liberal-Conservative Party, led by Matas Maldeikis, which finished third, as well as other right-wing partners. The new government's first priorities will be tougher immigration standards, abolition of the Life Skills Programme and a stricter ban on LGBT propaganda in schools and the media, deportations of immigrants and revocation of refugee status, withdrawal from the Istanbul Convention...</p>`]
           e.image = "https://i.imgur.com/Gs66Y5u.png";
           return construct(0);
       }
-	  else if (aa[0].candidate !== 79 && aa[1].candidate == 77) { // TS-LKD Loss (Second Place)
+	  else if (aa[0].candidate !== 77 && aa[1].candidate == 77) { // TS-LKD Loss (Second Place)
           e.header = "<h2>The Runner-Up.</h2>"
           e.pages = [`<p>It's not all over, you hear your party members say. It was inevitable, they add. Your party has bled a lot of seats - but the pendulum always swings against the party in power, so, really, this election result doesn't mean anything. We did not make any mistakes. We did everything right. In four years, the voters will be begging for us to return to power - after the fiscal reserve is squandered, after the socdems pull support for Ukraine and kowtow to China...</p><p>Then why do you feel so empty?</p><p>Even before the election results, the media was theorizing about your potential successor. Will it be Kasčiūnas, who will turn the party to the right, or will it be Šimonytė, your prime minister, who will retain the same moderate course? They won't get to theorize for long. On the day after the second round, you announce your resignation as everything. As member of the next Seimas, as chairman of the Party. Your colleagues are certain that once the Social Democrats realize the kind of nonsense basket they're thinking of working with, they will see sense and form a grand coalition that keeps you in power. You won't be here to see it.</p><p>You much preferred the world beyond this backwards place.</p>`,  `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the second largest party, you may attempt to form a coalition if the winning party is unable to cobble together a working majority.</p></div>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
           return construct(0);
       }
-	  else if (aa[0].candidate !== 79) { // TS-LKD Loss (Third Place or Lower)
+	  else if (aa[0].candidate !== 77) { // TS-LKD Loss (Third Place or Lower)
           e.header = "<h2>Defeated.</h2>"
           e.pages = [`<p>Four years.</p><p>For four years, your party has provided this country with sound, responsible governance. Defended this country against Russian aggression when anyone else at the helm would have surely invited Putin's goons to Vilnius streets by now. Broke through the economic malaise with free market reforms, provided prosperity and welfare for all. And how does this ungrateful crowd of deplorables thank you for your labour? They turn to the populists, to the Putinists, to that old hag sitting jolly in the European Parliament.</p><p>Even before the election results, the media was theorizing about your potential successor. Will it be Kasčiūnas, who will turn the party to the right, or will it be Šimonytė, your prime minister, who will retain the same moderate course? They won't get to theorize for long. On the day after the second round, you announce your resignation as everything. As member of the next Seimas, as chairman of the Party. Your colleagues claim it's still salvageable - perhaps the Social Democrats will invite us to a grand coalition? You won't be here to see it.</p><p>You much preferred the world beyond this backwards place.</p>`]
           e.image = "https://i.imgur.com/5RSLvW3.png";
@@ -24693,8 +24465,8 @@ applyTooltipsToObject(campaignTrail_temp.questions_json);
 applyTooltipsToObject(campaignTrail_temp.answers_json);
 applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
 
-campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/E5GTkEf.png';
-campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/b05WCyn.png';
-campaignTrail_temp.candidate_last_name = 'LSDP';
-campaignTrail_temp.running_mate_last_name = 'Blinkevičiūtė';
-campaignTrail_temp.running_mate_state_id = '13571';
+campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/70jKvNm.jpg';
+campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/q7lKDcq.png';
+campaignTrail_temp.candidate_last_name = 'TS-LKD';
+campaignTrail_temp.running_mate_last_name = 'Landsbergis';
+campaignTrail_temp.running_mate_state_id = '13261';
