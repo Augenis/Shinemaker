@@ -17170,9 +17170,9 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 14669,
         "fields": {
             "answer": 14494,
-            "candidate": 77,
-            "affected_candidate": 77,
-            "global_multiplier": 0.015
+            "candidate": 79,
+            "affected_candidate": 79,
+            "global_multiplier": 0.02
         }
     },
     {
@@ -17180,19 +17180,9 @@ campaignTrail_temp.answer_score_global_json = [
         "pk": 14671,
         "fields": {
             "answer": 14495,
-            "candidate": 77,
-            "affected_candidate": 80,
+            "candidate": 79,
+            "affected_candidate": 79,
             "global_multiplier": 0.02
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_global",
-        "pk": 14672,
-        "fields": {
-            "answer": 14495,
-            "candidate": 77,
-            "affected_candidate": 13761,
-            "global_multiplier": 0.03
         }
     },
     {
@@ -19234,6 +19224,36 @@ campaignTrail_temp.answer_score_global_json = [
             "affected_candidate": 14223,
             "global_multiplier": 0.07
         }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15078,
+        "fields": {
+            "answer": 14496,
+            "candidate": 79,
+            "affected_candidate": 79,
+            "global_multiplier": 0.03
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15082,
+        "fields": {
+            "answer": 14497,
+            "candidate": 79,
+            "affected_candidate": 77,
+            "global_multiplier": -0.015
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 15083,
+        "fields": {
+            "answer": 14497,
+            "candidate": 79,
+            "affected_candidate": 80,
+            "global_multiplier": -0.02
+        }
     }
 ]
 
@@ -20310,16 +20330,6 @@ campaignTrail_temp.answer_score_issue_json = [
     },
     {
         "model": "campaign_trail.answer_score_issue",
-        "pk": 14668,
-        "fields": {
-            "answer": 14494,
-            "issue": 27,
-            "issue_score": 0.7,
-            "issue_importance": 3
-        }
-    },
-    {
-        "model": "campaign_trail.answer_score_issue",
         "pk": 14676,
         "fields": {
             "answer": 14498,
@@ -20566,6 +20576,26 @@ campaignTrail_temp.answer_score_issue_json = [
             "issue": 28,
             "issue_score": 0.4,
             "issue_importance": 2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15080,
+        "fields": {
+            "answer": 14496,
+            "issue": 30,
+            "issue_score": -0.5,
+            "issue_importance": 2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_issue",
+        "pk": 15084,
+        "fields": {
+            "answer": 14497,
+            "issue": "27",
+            "issue_score": 0.5,
+            "issue_importance": 1
         }
     }
 ]
@@ -22574,8 +22604,8 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 14496,
         "fields": {
             "answer": 14494,
-            "candidate": 77,
-            "answer_feedback": "Though the goals of this campaign do not seem to be financially sound, they are highly popular with your voters and are a natural fit to your campaign."
+            "candidate": 79,
+            "answer_feedback": "YOU TELL 'EM, VILIJA!!\nProgressive taxation has been one of our campaign promises for years, and now is a more important time than ever to finally fix our broken taxation system!\n"
         }
     },
     {
@@ -22583,8 +22613,8 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 14497,
         "fields": {
             "answer": 14495,
-            "candidate": 77,
-            "answer_feedback": "The two Liberal parties embrace this campaign in your stead. This will give them a small bump amongst urban voters."
+            "candidate": 79,
+            "answer_feedback": "YOU TELL 'EM, VILIJA!!\nThis topic is a little controversial, but the simple promise of getting more money back to people will overcome the loud complaints of economists and Rightists."
         }
     },
     {
@@ -23126,6 +23156,24 @@ campaignTrail_temp.answer_feedback_json = [
             "candidate": 77,
             "answer_feedback": "Benkunskas is extremely uncomfortable with your request, and a flood of liberal and Social Democrat protest in the media means that ultimately, it's hard to tell whether you gained more votes than you lost."
         }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 15077,
+        "fields": {
+            "answer": 14496,
+            "candidate": 79,
+            "answer_feedback": "YOU TELL 'EM, VILIJA!!\nThe pensioners, the retired, they have been pushed around by the heartless Conservatives for years - and they will turn out for you in droves, as long as you keep promising better times!"
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 15081,
+        "fields": {
+            "answer": 14497,
+            "candidate": 79,
+            "answer_feedback": "YOU TELL 'EM, VILIJA!!\nThis campaign point isn't as important for your electorate, but it will keep the Right less worried about our campaign. Let them focus on the real threats to the nation, not us."
+        }
     }
 ]
 
@@ -23539,7 +23587,7 @@ if(answer == 14484) {
   return;
 }
 if(answer == 14481) {
-  // Abandoning Partnerships
+  // Abandoning Partnerships.
   changeWeight(weights, 13761, 79, -0.2);
   changeWeight(weights, 80, 79, -0.2);
   changeWeight(weights, 77, 79, -0.15);
