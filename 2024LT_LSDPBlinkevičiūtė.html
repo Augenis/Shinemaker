@@ -15544,6 +15544,16 @@ campaignTrail_temp.answer_score_global_json = [
     },
 	{
         "model": "campaign_trail.answer_score_global",
+        "pk": 1805,
+        "fields": {
+            "answer": 14605,
+            "candidate": 79,
+            "affected_candidate": 78,
+            "global_multiplier": 0.1
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
         "pk": 806,
         "fields": {
             "answer": 14604,
@@ -15624,6 +15634,16 @@ campaignTrail_temp.answer_score_global_json = [
     },
 	{
         "model": "campaign_trail.answer_score_global",
+        "pk": 1813,
+        "fields": {
+            "answer": 14606,
+            "candidate": 79,
+            "affected_candidate": 78,
+            "global_multiplier": 0.1
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
         "pk": 814,
         "fields": {
             "answer": 14606,
@@ -15646,7 +15666,7 @@ campaignTrail_temp.answer_score_global_json = [
         "model": "campaign_trail.answer_score_global",
         "pk": 816,
         "fields": {
-            "answer": 14606,
+            "answer": 14607,
             "candidate": 79,
             "affected_candidate": 80,
             "global_multiplier": -0.05
@@ -15656,7 +15676,7 @@ campaignTrail_temp.answer_score_global_json = [
         "model": "campaign_trail.answer_score_global",
         "pk": 817,
         "fields": {
-            "answer": 14606,
+            "answer": 14607,
             "candidate": 79,
             "affected_candidate": 77,
             "global_multiplier": -0.02
@@ -15666,7 +15686,7 @@ campaignTrail_temp.answer_score_global_json = [
         "model": "campaign_trail.answer_score_global",
         "pk": 818,
         "fields": {
-            "answer": 14606,
+            "answer": 14607,
             "candidate": 79,
             "affected_candidate": 13761,
             "global_multiplier": -0.15
@@ -15676,7 +15696,7 @@ campaignTrail_temp.answer_score_global_json = [
         "model": "campaign_trail.answer_score_global",
         "pk": 819,
         "fields": {
-            "answer": 14606,
+            "answer": 14607,
             "candidate": 79,
             "affected_candidate": 14300,
             "global_multiplier": -0.5
@@ -15686,7 +15706,7 @@ campaignTrail_temp.answer_score_global_json = [
         "model": "campaign_trail.answer_score_global",
         "pk": 820,
         "fields": {
-            "answer": 14606,
+            "answer": 14607,
             "candidate": 79,
             "affected_candidate": 14223,
             "global_multiplier": 0.04
@@ -15696,10 +15716,20 @@ campaignTrail_temp.answer_score_global_json = [
         "model": "campaign_trail.answer_score_global",
         "pk": 821,
         "fields": {
-            "answer": 14606,
+            "answer": 14607,
             "candidate": 79,
             "affected_candidate": 13838,
             "global_multiplier": -0.2
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": 822,
+        "fields": {
+            "answer": 14607,
+            "candidate": 79,
+            "affected_candidate": 78,
+            "global_multiplier": 0.15
         }
     },
 	{
@@ -18490,6 +18520,16 @@ campaignTrail_temp.answer_score_global_json = [
             "candidate": 79,
             "affected_candidate": 14223,
             "global_multiplier": 0.05
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": 24782,
+        "fields": {
+            "answer": 14604,
+            "candidate": 79,
+            "affected_candidate": 78,
+            "global_multiplier": 0.15
         }
     },
     {
@@ -22475,7 +22515,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 15485,
             "candidate": 79,
-            "answer_feedback": "Most of what people hear from Alytus is either eccentric orders to police schools for drugs with sniffing dogs, or corruption scandals in your government. You have some credentials, but they won't appeal to everyone."
+            "answer_feedback": "Your leadership of Alytus is quite famous, whether it is for ordering police to patrol schools for drugs or vigorously leading the response to tire yard fires and clashing with the Government over their inadequate response. You have some credentials, but they won't appeal to everyone."
         }
     },
     {
@@ -24632,6 +24672,8 @@ e.presidentswitched = false;
 ranforpres = false;
 lying = false;
 retired = false;
+duch = false;
+alytus = false;
 
 cyoAdventure = function (a) {
 answer = e.player_answers[e.player_answers.length - 1]; // get current answer selection
@@ -24715,6 +24757,7 @@ if(answer == 15480 && e.player_answers.includes(14516) && e.player_answers.inclu
 	campaignTrail_temp.running_mate_last_name = 'Duchniewicz';
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	retired = true;
+	duch = true;
 	
 	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/zR3GVzZ.png';
 	// Duchniewicz attracts a lot of Right, True Green, and LLRA-KŠS votes, but loses out some votes from the populists. Your voters are also much less likely to vote for NA.
@@ -24724,9 +24767,11 @@ if(answer == 15480 && e.player_answers.includes(14516) && e.player_answers.inclu
 	changeWeight(weights, 13838, 79, 0.5);
 	changeWeight(weights, 14300, 79, 1);
 	changeWeight(weights, 78, 79, -0.2);
-	changeWeight(weights, 13915, 79, -0.2);
+	changeWeight(weights, 13915, 79, -0.4);
 	changeWeight(weights, 79, 13915, -0.4);
 	changeWeight(weights, 79, 78, -0.1);
+	changeWeight(weights, 13992, 79, -0.3);
+	changeWeight(weights, 14818, 79, -0.3);
 	return;
 }
 if(answer == 15480 && e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14467) && e.player_answers.includes(14481)) {
@@ -24740,6 +24785,7 @@ if(answer == 15480 && e.player_answers.includes(14517) && e.player_answers.inclu
 	campaignTrail_temp.running_mate_last_name = 'Cesiulis';
 	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	retired = true;
+	alytus = true;
 	
 	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/VvksJ9L.png';
 	// Cesiulis pisses off Freedom and the Conservatives, but populist parties are overjoyed. Your voters are less likely to vote Conservative.
@@ -25748,26 +25794,38 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
       }
 	  else if (aa[0].candidate == 79 && !retired && !lying && !negotiationsDone) { // LSDP Plurality
           e.header = "<h2>The Return of the True Left!</h2>"
-          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. And yet, we've returned. And it's all thanks to you, Vilija - our Queen, our Guide, our Leader! Your new course, your touch with the people has not only redeemed Social Democracy, but also yielded us one of the best electoral performances in history!</p><p>Now it's time to get to work! I know, I know, you seem hesitant. Really, though, I don't see anything to be worried about. Concerned about your poor heart? That you don't have the skills? That you didn't want to be here in the first place? Oh, come on, you'll do fine! You have a whole team around you, ready to support the greatest hero of Social Democracy as long as your approval ratings don't get <i>too</i> low.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. Yet, we've returned. And it's all thanks to you, Vilija - our Queen, our Guide, our Leader! Your new course, your touch with the people has not only redeemed Social Democracy, but also yielded us one of the best electoral performances in history!</p><p>Now it's time to get to work! I know, I know, you seem hesitant. Really, though, I don't see anything to be worried about. Concerned about your poor heart? That you don't have the skills? That you didn't want to be here in the first place? Oh, come on, you'll do fine! You have a whole team around you, ready to support the greatest hero of Social Democracy as long as your approval ratings don't get <i>too</i> low.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/jTWjnYf.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 79 && !retired && lying && !negotiationsDone) { // LSDP Plurality
           e.header = "<h2>The Return of the True Left!</h2>"
-          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. And yet, we've returned. And it's all thanks to you, Vilija - our Queen, our Guide, our Leader! Your new course, your touch with the people has not only redeemed Social Democracy, but also yielded us one of the best electoral performances in history!</p><p>All right then, your job is done. We've already prepared you a speech to announce your refusal to assume the Prime Minister post, and tickets to Brussels too. I'm sure the People will understand your reasons. Health problems, a desire for a government which will more effectively implement the party program and be more capable to form a coalition. And if not - well, we can always blame the Conservatives. Have fun in Brussels!</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. Yet, we've returned. And it's all thanks to you, Vilija - our Queen, our Guide, our Leader! Your new course, your touch with the people has not only redeemed Social Democracy, but also yielded us one of the best electoral performances in history!</p><p>All right then, your job is done. We've already prepared you a speech to announce your refusal to assume the Prime Minister post, and tickets to Brussels too. I'm sure the People will understand your reasons. Health problems, a desire for a government which will more effectively implement the party program and be more capable to form a coalition. And if not - well, we can always blame the Conservatives. Have fun in Brussels!</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/jTWjnYf.png";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 79 && duch && !negotiationsDone) { // LSDP Plurality
+          e.header = "<h2>The Return of the True Left!</h2>"
+          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. You, however, managed to work the same magic you did in Vilnius Region last year - and now you command the largest parliamentary group in the Seimas. Doubters claiming that a firm progressive could never win an election in Lithuania have now been completely silenced.</p><p>It is unfortunate that you're forced to leave your Mayor office - right as you began rooting out LLRA-KŠS's clientelist network. That's the only sour thought in your mind. Can your successor manage to win like you did and keep your municipality back in Social Democratic hands? You, on the other hand, will focus on national politics from now on. Your clique of idealistic dreamers and toughened, pragmatized progressives hope that you'll be the one to bring Swedish social democracy to Lithuania - don't disappoint them!</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.image = "https://i.imgur.com/xBpYDzJ.png";
+          return construct(0);
+      }
+	  else if (aa[0].candidate == 79 && alytus && !negotiationsDone) { // LSDP Plurality
+          e.header = "<h2>The Return of the True Left!</h2>"
+          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. You and your faction knew why this was the case - the idiot progressives ran this party to the ground. As soon as a capable, down-to-earth leader kicked them out of power in the party, you won us the largest parliamentary group in the Seimas - the last of the doubters have thus been silenced.</p><p>It's unfortunate that you have to leave your comfortable position in Alytus - you truly love your home city, and it's loved you as well. Still, whoever is nominated to succeed you is sure to win the office for the Social Democrats once more. You, meanwhile, will focus on national politics from now on. You've long dreamed of holding high office - but you assumed it'd be a ministerial position, not leadership of the whole country. Of course, you won't say no to that, either!</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.image = "https://i.imgur.com/87uhLZw.png";
           return construct(0);
       }
 	  else if (aa[0].candidate == 79 && !negotiationsDone) { // LSDP Plurality
           e.header = "<h2>The Return of the True Left!</h2>"
-          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. And it was all thanks to you. Four years ago, everyone laughed at you when you led the party and didn't perform well - where are they now? Outside parliament, more often than not - while you're in, and leading the largest parliamentary group to boot.</p><p>All right then, it's time to get to work. You never enjoyed the chaotic nature of elections and campaigns, anyway. You're much more in your element fiddling with taxes and legislation - and you're about to receive the opportunity to do so on a nationwide scale. Of course, as long as you manage to form a coalition - but with so many MPs at your side, that'll surely be a mere victory lap.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
+          e.pages = [`<p>Since 2016, they've been saying that the Social Democratic Party is on its way out. A party of dying out Communist nomenklatura with no future, they say. And, indeed, we felt the squeeze for a few elections, performed worse than ever before, got relegated to an unprecedented secondary role in the Seimas. But we've returned, and it was all thanks to you. Four years ago, everyone laughed at you when you led the party and didn't perform well - where are they now? Outside parliament, more often than not - while you're in, and leading the largest parliamentary group to boot.</p><p>All right then, it's time to get to work. You never enjoyed the chaotic nature of elections and campaigns, anyway. You're much more in your element fiddling with taxes and legislation - and you're about to receive the opportunity to do so on a nationwide scale. Of course, as long as you manage to form a coalition - but with so many MPs at your side, that'll surely be a mere victory lap.</p>`, `<div id="coalitionList"><p>As the results trickle in, the total number of seats of each party is calculated. As expected, neither you nor any other party has gained an outright majority and a coalition will be necessary. As the largest party, you get to take the initiative in this process, but be careful: if your negotiations stall, you may find yourself being relegated to the opposition by a coalition of smaller parties.</p></div>`]
           e.image = "https://i.imgur.com/W1qu5nz.png";
           return construct(0);
       }
 	  else if (aa[0].candidate !== 79 && quickstats[1] < 5) { // LSDP Loss (Complete)
-          e.header = "<h2>Social Democracy is over. Pack your bags.</h2>"
-          e.pages = [`<p>Seeing the results, you mutter a faint 'It's over'. You not only failed to reinvigorate the Social Democratic Party or redeem your wing - you doomed the party outright, as you failed to even get over the five percent threshold. The last of the party's voters have scattered to the LVŽS, Labour or LSDDP, and all you are left with is a handful of mayors and a few loyal constituencies. Even those are likely to be lost over the next four years.</p><p>One hundred and twenty years of history end today. What is left of the LSDP will disband and move on to various directions - some will turn to the LSDDP, even though it's likely to vanish over the next four years as well, while others will join numerous small, doomed 'new social democracy' projects. Some more will surrender to the Peasants - they are, after all, the strongest left-wing force in the country now, and without competition from the LSDP, they are likely to remain in that role for the foreseeable future.</p><p>You are now a persona non grata among the former Social Democrats. Find your own failed project, or retire.</p>`]
-          e.image = "https://i.imgur.com/bn7AVNb.png";
+          e.header = "<h2>Social democrats in Lithuania? Preposterous.</h2>"
+          e.pages = [`<p><i>October 1st, 2024, 17:34</i></p><p>With the 2024 parliamentary election in only two weeks, we at Freedom TV would like to look back at the growing tension during the election campaign as well as the past twelve years which contributed to such a tense atmosphere in our country. This election is held after the third term of the National Union government, which, alongside the LKDP, the Labour Party and the Regions Party, forms the 'For Lithuania in Lithuania' electoral alliance which has won all elections since 2012. Though several politicians served as Prime Minister during this time, the real power in the government is undoubtedly Ramūnas Karbauskis, millionaire businessman and current Chairman of the National Union Party.</p><p>The Christian conservative, right-wing government has significantly curtailed the freedoms of the state broadcaster LRT, which is believed to be the mouthpiece of the government. Mass protests have been held several times during this period, including protests against the restriction of abortion rights, reforms to the Constitutional Court of Lithuania, and expansions to the Law for the Protection of Minors. Recently, the European Union has issued a one million Euro fine to Lithuania in protest of the recent restrictions of civil liberties.</p><p>In this year's nailbiter election, the government is challenged by the Citizens' Alliance (Piliečių aljansas), a coalition of Christian democratic, liberal, and progressive parties led by Member of the Seimas Eligijus Masiulis, who...</p>`]
+          e.image = "https://i.imgur.com/OwpFoKo.png";
           return construct(0);
       }
 	  else if (aa[1].candidate == 79) { // LSDP Loss (Second Place)
