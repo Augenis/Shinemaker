@@ -1,12 +1,12 @@
 e = campaignTrail_temp;
-campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/vAeWTdC.png';
-document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#DC343B"
-nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#e2555b"
+campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/FoiZwji.png';
+document.getElementById("header").src = "https://i.imgur.com/w05sDcR.png"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#B7814A"
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#c59a6e"
 $("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window;
 $(".footer a").css({"color":"#200000"});
 document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
-$(".container")[0].style.backgroundColor = "#f0a9ac"
+$(".container")[0].style.backgroundColor = "#d3b392"
 const partyLeaders = [
     { party: 77, leaderName: 'Šimonytė II', image: 'https://i.imgur.com/vmNvG7x.jpg' },
     { party: 78, leaderName: 'Veryga', image: 'https://i.imgur.com/eMlJF4x.jpg' },
@@ -26,12 +26,12 @@ const partyLeaders = [
 // Party weights for supporting another in the second round.
 const weights = [
 	{ candidate: 77, weights: { 78: 0.5, 79: 0.75, 80: 3, 13761: 2.5, 13838: 0.2, 13915: 0.5, 13992: 0.5, 14069: 0.5, 14146: 2, 14223: 0.75, 14300: 2, 14377: 1, 14818: 0.1 } },
-	{ candidate: 78, weights: { 77: 0.5, 79: 1.75, 80: 1, 13761: 0.5, 13838: 0.5, 13915: 2, 13992: 2.5, 14069: 2, 14146: 2, 14223: 3, 14300: 1, 14377: 2, 14818: 0.5 } },
-	{ candidate: 79, weights: { 77: 1, 78: 1, 80: 0.75, 13761: 0.5, 13838: 0.5, 13915: 1.2, 13992: 2, 14069: 1, 14146: 0.75, 14223: 2.5, 14300: 2, 14377: 1, 14818: 0.25 } },
+	{ candidate: 78, weights: { 77: 0.5, 79: 2, 80: 1, 13761: 0.5, 13838: 0.5, 13915: 2, 13992: 2.5, 14069: 2, 14146: 2, 14223: 3, 14300: 1, 14377: 2, 14818: 0.5 } },
+	{ candidate: 79, weights: { 77: 0.75, 78: 1.25, 80: 0.75, 13761: 0.5, 13838: 0.5, 13915: 1.5, 13992: 2, 14069: 1, 14146: 0.75, 14223: 2.5, 14300: 2, 14377: 1, 14818: 0.25 } },
 	{ candidate: 80, weights: { 77: 2.5, 78: 0.75, 79: 0.75, 13761: 2.5, 13838: 0.1, 13915: 0.5, 13992: 0.5, 14069: 0.5, 14146: 1, 14223: 0.75, 14300: 2, 14377: 1, 14818: 0.1 } },
 	{ candidate: 13761, weights: { 77: 2, 78: 0.5, 79: 0.75, 80: 3, 13838: 0.1, 13915: 0.5, 13992: 0.5, 14069: 0.5, 14146: 0.5, 14223: 0.5, 14300: 2, 14377: 1, 14818: 0.05 } },
 	{ candidate: 13838, weights: { 77: 0.1, 78: 1.5, 79: 1, 80: 0.25, 13761: 0.1, 13915: 1.5, 13992: 1.5, 14069: 0.5, 14146: 0.25, 14223: 1, 14300: 0.25, 14377: 2, 14818: 2 } },
-	{ candidate: 13915, weights: { 77: 0.5, 78: 3, 79: 1.75, 80: 0.75, 13761: 0.25, 13838: 0.75, 13992: 2.5, 14069: 3, 14146: 2, 14223: 2, 14300: 1, 14377: 2, 14818: 0.5 } },
+	{ candidate: 13915, weights: { 77: 0.5, 78: 3, 79: 2, 80: 0.75, 13761: 0.25, 13838: 0.75, 13992: 2.5, 14069: 3, 14146: 2, 14223: 2, 14300: 1, 14377: 2, 14818: 0.5 } },
 	{ candidate: 13992, weights: { 77: 0.5, 78: 2, 79: 3, 80: 0.5, 13761: 0.25, 13838: 0.25, 13915: 2, 14069: 1.5, 14146: 1, 14223: 1.5, 14300: 1, 14377: 2, 14818: 0.5 } },
 	{ candidate: 14069, weights: { 77: 0.75, 78: 3, 79: 1.5, 80: 0.5, 13761: 0.25, 13838: 0.1, 13915: 3, 13992: 2, 14146: 2, 14223: 2, 14300: 1, 14377: 2, 14818: 1.5 } },
 	{ candidate: 14146, weights: { 77: 1.5, 78: 1.5, 79: 0.75, 80: 0.5, 13761: 0.5, 13838: 0.1, 13915: 0.75, 13992: 0.75, 14069: 1.5, 14223: 1, 14300: 0.5, 14377: 1, 14818: 0.1 } },
@@ -40,6 +40,30 @@ const weights = [
 	{ candidate: 14818, weights: { 77: 0.1, 78: 1, 79: 1, 80: 0.1, 13761: 0.01, 13838: 2, 13915: 1.5, 13992: 1, 14069: 2, 14146: 0.5, 14223: 0.75, 14300: 0.25, 14377: 1 } },
 	{ candidate: 14377, weights: { 77: 1, 78: 1, 79: 1.5, 80: 1, 13761: 0.5, 13838: 0.1, 13915: 1.5, 13992: 1.5, 14069: 1, 14146: 1.5, 14223: 2, 14300: 1, 14818: 0.25 } }
 ];
+setMusic = (url, override = false) => {
+  let aud;
+  if ($("#music_player")[0]) {
+	$("#music_player")[0].remove();
+  } 
+  if (override && document.getElementById("endingAudio")) {
+	aud = document.getElementById("endingAudio");
+	aud.src = url;
+	aud.play();
+	return 0;
+  }
+  if (document.getElementById("endingAudio")) {
+	return 0;
+  }
+  aud = document.createElement("audio");
+  aud.id = "endingAudio";
+  aud.src = url;
+  aud.loop = true;
+  aud.autoplay = true;
+  document.body.appendChild(aud);
+  aud.play();
+  return 0;
+}
+setMusic("");
 
 
 // Generated mapping code
@@ -25778,68 +25802,6 @@ changeTheme = (theme) => { // I'm borrowing your stuff Decstar
   
     return "Unknown theme";
   }
-  setMusic = (url, override = false) => {
-	  let aud;
-	  if ($("#music_player")[0]) {
-		$("#music_player")[0].remove();
-	  } 
-	  if (override && document.getElementById("endingAudio")) {
-		aud = document.getElementById("endingAudio");
-		aud.src = url;
-		aud.play();
-		return 0;
-	  }
-	  if (document.getElementById("endingAudio")) {
-		return 0;
-	  }
-	  aud = document.createElement("audio");
-	  aud.id = "endingAudio";
-	  aud.src = url;
-	  aud.loop = true;
-	  aud.autoplay = true;
-	  document.body.appendChild(aud);
-	  aud.play();
-	  return 0;
-	}
-	
-	construct = (a = 1) => {
-      e.page = e.page + a < e.pages.length ? e.page + a : 0
-      let html = e.header;
-      html += e.pages[e.page] + "<br>";
-      if (e.page > 0) {
-        html += `<button onclick='endingConstructor(a = -1)'>Back</button>`
-      }
-      if (e.page < e.pages.length - 1) {
-        html += `<button onclick='endingConstructor(a = 1)'>Next</button>`
-      }
-	  if (e.page == 1) { // Modders beware, this is part of the coalition system!
-        addCoalitions();
-      }
-    
-      if (e.image == true)
-        setTimeout(()=>{
-          candImg = $(".person_image")[0]
-          if (candImg) {
-            candImg.remove()
-            $("#final_results_description")[0].style = `
-              text-align:center;
-              width: 70%;
-              text-overflow: ellipsis;
-              display: block;
-              margin-left: auto;
-              margin-right: auto;
-            `
-          }
-        }, 10)
-      else if (e.image)
-      setTimeout(()=>{
-          candImg = $(".person_image")[0];
-          if (candImg)
-            candImg.src = e.image;
-        }, 10)
-    
-      return html;
-    }
     
     endingConstructor = (a = 1) => {
       $("#final_results_description")[0].innerHTML = construct(a);
@@ -26347,8 +26309,8 @@ applyTooltipsToObject(campaignTrail_temp.questions_json);
 applyTooltipsToObject(campaignTrail_temp.answers_json);
 applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
 
-campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/E5GTkEf.png';
-campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/b05WCyn.png';
-campaignTrail_temp.candidate_last_name = 'LSDP';
-campaignTrail_temp.running_mate_last_name = 'Blinkevičiūtė';
+campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/dTUXcfr.png';
+campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/Py9Doak.png';
+campaignTrail_temp.candidate_last_name = 'NA';
+campaignTrail_temp.running_mate_last_name = 'Žemaitaitis';
 campaignTrail_temp.running_mate_state_id = '13571';
