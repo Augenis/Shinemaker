@@ -147,52 +147,31 @@ setMusic("");
     );
     
     const song2 = new Song(
-      "Arrest the President",
-      "Ice Cube",
-      "https://i.imgur.com/BBOMLln.png",
-      "https://audio.jukehost.co.uk/c2cWOAnjSfzh2YI3OhW923cClDn3Iqic"
+      "Big Brother",
+      "G&G Sindikatas",
+      "https://i.imgur.com/cEPjJDm.png",
+      "https://audio.jukehost.co.uk/NnX9eQi0o0WKpphiRxobdqYoaCjThlZi"
     );
   
     const song3 = new Song(
-      "This is America",
-      "Childish Gambino",
-      "https://i.imgur.com/cBtRj9K.png",
-      "https://audio.jukehost.co.uk/ZaGEkUEbz72UP4IMnC01mwSxwqX4gen6"
+      "Wrath of Thunder",
+      "G&G Sindikatas",
+      "https://i.imgur.com/cEPjJDm.png",
+      "https://audio.jukehost.co.uk/KkgJBb18G7WnABy9mlsuguJnhEmqBLMt"
     );
   
     const song4 = new Song(
-      "Troubled Times",
-      "Green Day",
-      "https://i.imgur.com/unNGqOH.png",
-      "https://audio.jukehost.co.uk/CeVuU7lokNQcuzCWWR2cJ6I6qJuSffzT"
+      "To Those, Who Fear Nothing",
+      "G&G Sindikatas",
+      "https://i.imgur.com/6dvviZQ.png",
+      "https://audio.jukehost.co.uk/1z08cYfbG8BxwOF17hOx8stYtfiCpvJn"
     );
-  
-    const song5 = new Song(
-      "Is This the Life We Really Want",
-      "Roger Waters",
-      "https://i.imgur.com/3NCgTGN.png",
-      "https://audio.jukehost.co.uk/ng58tjZYGQSrNKrGgmH5pFp4wobiaUPe"
-    );
-  
-    const song6 = new Song(
-      "The Kids are Alt-Right",
-      "Bad Religion",
-      "https://i.imgur.com/KzlAiiO.png",
-      "https://audio.jukehost.co.uk/f9HDWEKzRO8NtI5ePOLgh0Nn6pz4nXmQ"
-    );
-  
-    const song7 = new Song(
-      "Vigilante Man",
-      "Glen Hansard",
-      "https://i.imgur.com/SvUzGQH.png",
-      "https://audio.jukehost.co.uk/MasC7udHqmabHGNLCJdlD9sSHIx9gpnV"
-    );
-  
-    const song8 = new Song(
-      "Real American",
-      "Rick Derringer",
-      "https://i.imgur.com/CalYXXW.png",
-      "https://audio.jukehost.co.uk/5aZ2PQqoNvJN2kPuLCaOoGSHmkmI95lk"
+	
+	const song5 = new Song(
+      "demonz",
+      "G&G Sindikatas",
+      "https://i.imgur.com/xCT2v5L.png",
+      "https://audio.jukehost.co.uk/S5ancoMb3lIlo6wlURqP5fcZFsCEfBXy"
     );
   
     playlist.addSong(song1);
@@ -200,9 +179,6 @@ setMusic("");
     playlist.addSong(song3);
     playlist.addSong(song4);
     playlist.addSong(song5);
-    playlist.addSong(song6);
-    playlist.addSong(song7);
-    playlist.addSong(song8);
   
     const playerContainer = document.createElement("div");
     playerContainer.id = "player";
@@ -216,9 +192,9 @@ setMusic("");
   
   const infoContainer = document.createElement("div");
   infoContainer.id = "info-container";
-  infoContainer.style.backgroundImage = "url('https://i.imgur.com/BB1ejv6.png')";
+  infoContainer.style.backgroundImage = "url('https://i.imgur.com/9Ztzpok.png')";
   infoContainer.style.backgroundSize = "cover"; // Optional: adjust based on your needs
-  infoContainer.style.color = "white"; // Set text color to white
+  infoContainer.style.color = "#414141"; // Set text color to white
   
   const songInfo = document.createElement("div");
   songInfo.id = "song-info";
@@ -245,19 +221,19 @@ setMusic("");
   
   const prevButton = document.createElement("img");
   prevButton.id = "prevButton";
-  prevButton.src = "https://i.imgur.com/imIqTEA.png";
+  prevButton.src = "https://i.imgur.com/q0d2TVh.png";
   prevButton.alt = "Previous";
   controls.appendChild(prevButton);
   
   const playPauseButton = document.createElement("img");
   playPauseButton.id = "playPauseButton";
-  playPauseButton.src = "https://i.imgur.com/oQbfTxw.png"; // Set the default play image
+  playPauseButton.src = "https://i.imgur.com/n8kjG7s.png"; // Set the default play image
   playPauseButton.alt = "Play/Pause";
   controls.appendChild(playPauseButton);
   
   const nextButton = document.createElement("img");
   nextButton.id = "nextButton";
-  nextButton.src = "https://i.imgur.com/7TtaN04.png";
+  nextButton.src = "https://i.imgur.com/NaryEyl.png";
   nextButton.alt = "Next";
   controls.appendChild(nextButton);
   
@@ -267,10 +243,10 @@ setMusic("");
     const audio = document.getElementById("audio");
     if (audio.paused) {
       audio.play();
-      playPauseButton.src = "https://i.imgur.com/oQbfTxw.png"; // Set the pause image
+      playPauseButton.src = "https://i.imgur.com/n8kjG7s.png"; // Set the pause image
     } else {
       audio.pause();
-      playPauseButton.src = "https://i.imgur.com/ttdoyfG.png"; // Set the play image
+      playPauseButton.src = "https://i.imgur.com/wLemCsM.png"; // Set the play image
     }
   });
   
@@ -308,7 +284,7 @@ setMusic("");
     volumeContainer.id = "volume-container";
   
   const volumeLabel = document.createElement("img");
-  volumeLabel.src = "https://i.imgur.com/0BJYsXt.png";
+  volumeLabel.src = "https://i.imgur.com/il9UHrW.png";
   volumeLabel.alt = "Volume";
   volumeContainer.appendChild(volumeLabel);
   
@@ -369,7 +345,7 @@ setMusic("");
       audio.play();
     });
   
-      let currentVolume = 1; // Initial volume
+      let currentVolume = 4; // Initial volume
   
     volumeSlider.addEventListener("input", function () {
       currentVolume = parseInt(volumeSlider.value, 10);
@@ -400,7 +376,7 @@ setMusic("");
       display: flex;
       flex-direction: row;
     height:191px;
-      background-Image: url("https://i.imgur.com/Ok791w6.png");
+      background-Image: url("https://i.imgur.com/oia99lr.png");
     }
   
     #display-box {
@@ -418,7 +394,7 @@ setMusic("");
       display: flex;
       flex-direction: row;
       height:178px;
-    width:127px;
+    width:135px;
     margin-top: 3px;
     }
   
