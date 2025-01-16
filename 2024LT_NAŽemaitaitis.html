@@ -486,7 +486,24 @@ campaignTrail_temp.questions_json = [
             "likelihood": 1
         }
     },
-    
+	{
+        "model": "campaign_trail.question",
+        "pk": 393,
+        "fields": {
+            "priority": 1,
+            "description": "<font face='Garamond'>You decide to skip the European Parliament election and focus solely on the Seimas. Your stocks are rising. For the first time, Dawn is showing up in the polls - garbage as they are. You're attracting interest. Fear from the Elite and the Vilnius bubble, anticipation from your fellow warriors against the establishment. Already three independents have decided join your party. They want to be your Number 2- and not just them. Whole bunch of other bastards from the political graveyard think they can hitch a ride on your bus. But maybe one of them would be helpful, to set the tone for your campaign, bring some votes. Who are you choosing?</font>",
+            "likelihood": 1
+        }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 343,
+        "fields": {
+            "priority": 2,
+            "description": "The European Parliament election has passed - and congratulations, you have been reelected as one of LSDP's two parliamentarians! However, this further compounds one of your biggest issues - the nation is still uncertain whether you seriously intend to lead the Social Democrats during the parliamentary election or whether you will propose someone else for Prime Minister. The Right's line of attack against you is that you intend to 'retire to the European Parliament' and run away from any responsibility. How will you answer these claims?",
+            "likelihood": 1
+        }
+    },
 	{
         "model": "campaign_trail.question",
         "pk": 369,
@@ -731,7 +748,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14459,
         "fields": {
             "question": 393,
-            "description": "Another example of Conservative incompetence and corruption - let's connect this scandal to other scandalous or poorly performing ministers, like Kęstutis Navickas and Arūnas Dulkys, and demand a cabinet reset."
+            "description": "<font size='-1' face='Garamond'>Agnė Širinskienė, she is my strawberry. They say she's- of course, the Landsbergis clan says she's controversial, but we know that they hate her. Who cares- well, the media cares, but who cares about them? The people love her, she rips the mask off those elites and landsbergists, and she'll siphon some of those lost Peasant votes as well. I'll- look, I'll talk to her.</font>"
         }
     },
     {
@@ -739,7 +756,15 @@ campaignTrail_temp.answers_json = [
         "pk": 14460,
         "fields": {
             "question": 393,
-            "description": "Frankly, I feel a little sad for Monika. She has to defend herself when even her husband and party abandoned her. But we're not letting this scandal go. Let the President hammer Navickienė, we will focus on the incompetent corrupt Conservative party in general."
+            "description": "<font size='-1' face='Garamond'>Ignas Hofmanas, impressive man, highest calibre. If we look at agriculture - we started once, we saw the problems, we picketed together, we went to the European Commission, we went to the European Parliament, we know each other, he knows what's going on out there in the countryside, the people know him well, he wants to be in politics. Good choice.</font>"
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 14461,
+        "fields": {
+            "question": 393,
+            "description": "<font size='-1' face='Garamond'>Artūras Zuokas - he got left behind in Freedom and Justice, he doesn't like my brown color, but we're friends, we're good friends. We rode in the same car once, we sat by the same table once, he still has some uh- maybe he'd get some of those Vilnius bastards to think about their tone a bit. 'Cause you know, he almost became their mayor. Message him.</font>"
         }
     },
     {
@@ -747,7 +772,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14463,
         "fields": {
             "question": 393,
-            "description": "Yes!! Let's tear her a new one. Let's lead the charge in analyzing every detail of this scandal - all of Navickienę's connections, failures and her husband's corrupt deals. Let's set up a parliamentary commission to investigate, perhaps alongside Agnė Širinskienė."
+            "description": "<font size='-1' face='Garamond'>Artūras Orlauskas -okay, look, I find the Marchists stupid myself, even if they had some good ideas- see, well, they were an easy tool for the Landsbergis clan to paint all their opponents as crazy idiots, especially when that psycho bandit Celofanas attached to them, but they had good ideas. And he could bring them to me. See if he answers.</font>"
         }
     },
     {
@@ -23343,8 +23368,8 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 771,
         "fields": {
             "answer": 3393,
-            "candidate": 79,
-            "answer_feedback": "Algirdas Sysas, that old man, rails against your decision in the press. The Right attacks you for supporting a \"homophobe\". But you've got a strategy. And you know this alliance will draw the People to you."
+            "candidate": 13915,
+            "answer_feedback": "<font face='Garamond'>'LIVE WITH POLITICAL SCIENTIST RAMŪNAS VILPIŠAUSKAS: WHAT HAPPENED?'</font>"
         }
     },
     {
@@ -25188,24 +25213,6 @@ questionSheath = [
       "likelihood": 1
     }
   },
-  {
-        "model": "campaign_trail.question",
-        "pk": 393,
-        "fields": {
-            "priority": 1,
-            "description": "While Ingrida Šimonytė is chipping her teeth against Nausėda in the presidential election, the Conservatives have given you a treasure trove of scandals to hit on. Minister of Social Security, Monika Navickienė, has reportedly been involved in a scandal of conflict of interest. Her husband is a former head of fintech company Foxpay, which won government contracts during the government's term, even though authorities vetting strategic deals concluded that the company might compromise national security. Foxpay is connected with known financial criminal Vilhelmas Germanas, who even provided Navickienė with private jet flights to Dubai. How shall we react to this scandal?",
-            "likelihood": 1
-        }
-    },
-    {
-        "model": "campaign_trail.question",
-        "pk": 343,
-        "fields": {
-            "priority": 2,
-            "description": "The European Parliament election has passed - and congratulations, you have been reelected as one of LSDP's two parliamentarians! However, this further compounds one of your biggest issues - the nation is still uncertain whether you seriously intend to lead the Social Democrats during the parliamentary election or whether you will propose someone else for Prime Minister. The Right's line of attack against you is that you intend to 'retire to the European Parliament' and run away from any responsibility. How will you answer these claims?",
-            "likelihood": 1
-        }
-    },
 	{
         "model": "campaign_trail.question",
         "pk": 350,
@@ -25300,25 +25307,6 @@ answer = e.player_answers[e.player_answers.length - 1]; // get current answer se
 // weights is weights, source candidate is the "outer" one, target candidate the "inner" one and changeAmount is added to it
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
 
-if(answer == 3393) {
-	e.questions_json.splice(1, 0 , getQuestionFromPk(393))
-	e.questions_json.splice(2, 0 , getQuestionFromPk(343))
-	e.global_parameter_json[0].fields.question_count = 25
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	applyTooltipsToObject(campaignTrail_temp.answers_json);
-	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
-	return;
-}
-if(answer == 3394) {
-	e.questions_json.splice(1, 0 , getQuestionFromPk(4025))
-	ranforpres = true;
-	e.global_parameter_json[0].fields.question_count = 25
-	document.getElementById("header").src = "https://i.imgur.com/uQwck46.png"
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	applyTooltipsToObject(campaignTrail_temp.answers_json);
-	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
-	return;
-}
 if(answer == 15466) {
 	// First pres question
 	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
