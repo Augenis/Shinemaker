@@ -536,7 +536,7 @@ campaignTrail_temp.questions_json = [
         "pk": 349,
         "fields": {
             "priority": 2,
-            "description": "On the last week of the spring session of the Seimas, the Freedom Party has suddenly put the Partnership Law forward one more time. After a narrow successful vote in 2022, it now only needs to pass one more reading to become law - and Freedom either hopes to ram it through before the election or are using this law as leverage against Gabrielius Landsbergis. We Social Democrats have been a swing vote on the law, but the majority of the population and many of our members are against it. How should we act?",
+            "description": "Besides you, several other parties aim to represent the anti-systemic electorate this election, and there is great hope for a coalition list between them to prevent vote splitting. While you are unlikely to make a deal with the Peasants, some of the smaller parties could give up their campaigns and put themselves under your list. On the other hand, the potential such a list would bring is questionable. Will you attempt to form a united anti-systemic list?",
             "likelihood": 1
         }
     },
@@ -836,7 +836,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14480,
         "fields": {
             "question": 349,
-            "description": "Dear, dear... I support gay rights, I really do, but I cannot participate in what is clearly Freedom's power game against Gabrielius Landsbergis. We will participate in a walkout of the opposition to break parliamentary quorum and so stop the law."
+            "description": "Let's do it. We will offer Regions, the Coalition of Peace and TTS positions on an anti-systemic coalition list."
         }
     },
     {
@@ -844,15 +844,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14481,
         "fields": {
             "question": 349,
-            "description": "What a bother. The People are against this law, we cannot support it. Let us vote against and kill it alongside the rest of the opposition and the Christian Democrats."
-        }
-    },
-    {
-        "model": "campaign_trail.answer",
-        "pk": 14484,
-        "fields": {
-            "question": 349,
-            "description": "I'd rather this law not become a part of the election campaign, but there is nothing we can do now. We will attend the session and vote the same way we always have. Those of us who vote yes - vote yes. Those of us who vote no - vote no."
+            "description": "I am not worried about the smaller anti-systemic parties. We will run as our own brand."
         }
     },
     {
@@ -24546,8 +24538,8 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 14482,
         "fields": {
             "answer": 14480,
-            "candidate": 79,
-            "answer_feedback": "This kills the attempt to vote on the Partnership Law. The Right take to the media and spin a frustrated story of you betraying your party program and becoming no different from Slovakia's SMER. A rallying cry for the Vilnius bubble, out of touch claims for the People."
+            "candidate": 13915,
+            "answer_feedback": "The Regions Party still runs independently, but the Coalition of Peace and TTS disband and absorb themselves into a joint ticket, the 'For Family and Nation' Coalition. You retain the no. 1 spot, but you're not sure if this coalition will actually help."
         }
     },
     {
@@ -24555,8 +24547,8 @@ campaignTrail_temp.answer_feedback_json = [
         "pk": 14483,
         "fields": {
             "answer": 14481,
-            "candidate": 79,
-            "answer_feedback": "You've previously equivocated on partnerships and now you lunged straight into the anti-LGBT crowd. The progressive wing revolts against this decision, but ultimately the Partnership Law is killed. Expect significant backlash from within and without."
+            "candidate": 13915,
+            "answer_feedback": "No harm, no foul. They'll vote for your candidates in second rounds anyway."
         }
     },
     {
@@ -25315,44 +25307,35 @@ answer = e.player_answers[e.player_answers.length - 1]; // get current answer se
 // weights is weights, source candidate is the "outer" one, target candidate the "inner" one and changeAmount is added to it
 // changeWeight(weights, ("outer" party), (party they are changing factor towards), (amount of change));
 
-if(answer == 15466) {
-	// First pres question
-	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
+if(answer == 14494) {
+	// SNAP BACK TO REALITY
+	document.getElementById("header").src = "https://i.imgur.com/Aje4Oqh.png"
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/Py9Doak.png';
 	return;
 }
-if(answer == 15467) {
-	// First pres question
-	e.questions_json.splice(2, 0 , getQuestionFromPk(4030))
+if(answer == 14495) {
+	// SNAP BACK TO REALITY
+	document.getElementById("header").src = "https://i.imgur.com/Aje4Oqh.png"
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/Py9Doak.png';
 	return;
 }
-if(answer == 15468) {
-	// First pres question
-	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
+if(answer == 14496) {
+	// SNAP BACK TO REALITY
+	document.getElementById("header").src = "https://i.imgur.com/Aje4Oqh.png"
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/Py9Doak.png';
 	return;
 }
-if(answer == 15469) {
-	// First pres question
-	e.questions_json.splice(2, 0 , getQuestionFromPk(4026))
+if(answer == 14497) {
+	// SNAP BACK TO REALITY
+	document.getElementById("header").src = "https://i.imgur.com/Aje4Oqh.png"
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/Py9Doak.png';
 	return;
 }
-if(answer == 15477) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 15478) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 15479) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 25477) {
-	// Restore the original banner
-	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
+if(answer == 14480) {
+	// Form the For Family and Nation coalition. Make sure to add restored headers and running mate images
+	e.candidate_json[2].fields.last_name = "K-UŠT"
+	campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/bkmGQhI.png';
+	campaignTrail_temp.candidate_last_name = 'K-UŠT';
 	return;
 }
 if(answer == 25478) {
