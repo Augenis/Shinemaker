@@ -482,7 +482,7 @@ campaignTrail_temp.questions_json = [
         "pk": 366,
         "fields": {
             "priority": 0,
-            "description": "<font face='Garamond'>Few people cared when you declared that you were running for President. Just another washed-up populist trying to convert his expulsion from parliament into political strength. Ignas Vėgėlė - that clueless pseudo-intellectual - he's supposed to be the real - or fake - challenge to the Elite and not you. You knew better than the court politologists. You worked. Hard. Now you sit down with your team on the evening of May 12th.<br>The first stations report... you are at second place. You're beating them. You're beating Vėgėlė, Ingrida Šimonytė, everyone. Thousands of frightened Facebook posts and confused political scientist comments follow. By the end of the night, you're back in the fourth place they said you deserve. But it's close. Everyone is talking about you. Everyone is afraid.</font>",
+            "description": "<font face='Garamond'>Few people cared when you declared that you were running for President. Just another washed-up populist trying to convert his expulsion from parliament into political strength. Ignas Vėgėlė - that clueless pseudo-intellectual - he's supposed to be the real - or fake - challenge to the Elite and not you. You knew better than the court politologists. You worked. Hard. Now you sit down with your team on the evening of May 12th.<br>The first stations report... you are at second place. You're beating them. You're beating Vėgėlė, Ingrida Šimonytė - everyone. Thousands of frightened Facebook posts and confused political scientist comments follow. By the end of the night, you're back in the fourth place they said you deserve. But it's close. Everyone is talking about you. Everyone is afraid.</font>",
             "likelihood": 1
         }
     },
@@ -545,7 +545,7 @@ campaignTrail_temp.questions_json = [
         "pk": 346,
         "fields": {
             "priority": 2,
-            "description": "Ever since the presidential election, where their leader performed surprisingly well, Žemaitaitis's clique has been steadily growing in the polls. There's little chance that they will overtake you or the TS-LKD, but their presence has thrown out old coalition predictions. The 'Right' have begun pressuring you - will you join them in a cordon sanitaire against Žemaitaitis, refusing to endorse his party or include them into the coalition?",
+            "description": "<font face='Garamond'>Your tour has ended up in... deep in the countryside. A town, name forgotten. Seventy percent of the people are retired. The Vilnius bubble has fucked them over. First, they closed their school - too few children. Then, they drove up inflation and did nothing to help them. Then, they called them homophobes, vatniks, their voice worthless. Because they vote for the wrong party. You are their rage. Channel it.</font>",
             "likelihood": 1
         }
     },
@@ -900,7 +900,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14500,
         "fields": {
             "question": 346,
-            "description": "My dear people, the problem of Žemaitaitis - created by the Conservatives themselves, I may add - hides a devious project. It is to force a so-called 'grand coalition' and so prevent a true left-wing government. I will state this firmly - I have my concerns about Žemaitaitis, but I wish to see a left-wing government, no matter what."
+            "description": "<font size='-1' face='Garamond'>The Landsbergis clan, they want to- they will force genderism on you and your children. They persecute me, but they're not after me, not after me. They're after you. They'll turn your children to girls, they- They're protecting pedophiles, and they hate you because you resist all of that. And so do I.</font>"
         }
     },
     {
@@ -908,7 +908,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14501,
         "fields": {
             "question": 346,
-            "description": "We Social Democrats have been the party most firmly opposed to discrimination and antisemitism in all its forms - not like the Conservatives, I should add. This I believe in, my dear people, and I can be clear with you - I find it highly improbable that me and Žemaitaitis could ever find common ground."
+            "description": "<font size='-1' face='Garamond'>See, talking about schools- the education system, the Conservatives have set up a fascinating racket there. They're paying millions to Austėja, to others- did you know that private schools get the same state funding as public schools? And then collect dues on top of that? Many people don't know that. And so the trick is to squeeze out and kill normal, rural schools like yours, and force all of you into ones owned by the Landsbergis clan.</font>"
         }
     },
     {
@@ -916,7 +916,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14504,
         "fields": {
             "question": 346,
-            "description": "My dear people, we Social Democrats have always been a party of the people, not of the elite. In Žemaitaitis's rhetoric, I find a lot of concerning statements, but also a very strong desire to work for the people, and as long as he withdraws those concerning statements, I believe we can cooperate for the people's sake."
+            "description": "<font size='-1' face='Garamond'>Look, the Elite, they- why would they care if you suffer? Their voters are 3000 euro earning IT hipariks to whom inflation was, well, 'Oh well, I guess I won't go on vacation this year'. But- And when you point out the data, that inflation's high, that people under poverty line, more of them than before, they squirm and ignore the data. 'Cause we're the New Nordics, can't have that. I'm going to cut food prices. Cut inflation. Bring back to the people.</font>"
         }
     },
     {
@@ -25332,10 +25332,19 @@ if(answer == 14497) {
 	return;
 }
 if(answer == 14480) {
-	// Form the For Family and Nation coalition. Make sure to add restored headers and running mate images
+	// Form the For Family and Nation coalition. Restore the old header
 	e.candidate_json[2].fields.last_name = "K-UŠT"
 	campaignTrail_temp.candidate_image_url = 'https://i.imgur.com/bkmGQhI.png';
 	campaignTrail_temp.candidate_last_name = 'K-UŠT';
+	
+	document.getElementById("header").src = "https://i.imgur.com/w05sDcR.png"
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/3TgKvdP.png';
+	return;
+}
+if(answer == 14481) {
+	// Restore the old header
+	document.getElementById("header").src = "https://i.imgur.com/w05sDcR.png"
+	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/3TgKvdP.png';
 	return;
 }
 if(answer == 25478) {
@@ -25629,12 +25638,6 @@ if(answer == 14481) {
   changeWeight(weights, 13915, 79, 0.2);
   changeWeight(weights, 14818, 79, 0.3);
   changeWeight(weights, 78, 79, 0.3);
-  return;
-}
-if(answer == 14480) {
-  // Freedom voters hate this.
-  changeWeight(weights, 13761, 79, -0.2);
-  changeWeight(weights, 80, 79, -0.1);
   return;
 }
 if(answer == 14504) {
