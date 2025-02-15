@@ -572,7 +572,7 @@ campaignTrail_temp.questions_json = [
         "pk": 344,
         "fields": {
             "priority": 2,
-            "description": "Barbora has been managing the campaign thus far, and they believe that by strategically investing in certain constituencies, we may greatly open up the electoral map - Kaunas, which has never seen a constituency won by the Social Democrats before, as well as Šiauliai and Panevėžys may be in play. This view isn't shared by everyone in the party, however - our branches in the west are highly worried about Žemaitaitis's clique and believe that his populist movement threatens several safe constituencies westwards. Which strategy will you support?",
+            "description": "<font face='Garamond'>Your tour is moving to the East. Of the country that is, not the, uh, other thing. Širvintos - a town just out of the boundaries of Vilnius, yet still lovely and traditional. The people are listening - dozens of them, waiting for your every word, watching you pick up your marker and draw on the- Wait. The door opens. Some woman- no, Živilė Pinskuvienė, and she</font> confronts you regarding several of your statements before and during the campaign. According to Pinskuvienė, your campaign is a 'controlled opposition' run, and she argues this with several of your past statements, such as your lukewarm support for same-sex partnerships and mandatory vaccination. How do you answer?",
             "likelihood": 1
         }
     },
@@ -980,7 +980,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14516,
         "fields": {
             "question": 344,
-            "description": "Barbora is right. The Conservatives are weak and the Peasants have abandoned their urban constituencies - we have a once in a lifetime opportunity to make inroads into the cities and we shouldn't waste it. "
+            "description": "I will debate her and shoot back at her claims. I'm not afraid of a challenge."
         }
     },
     {
@@ -988,7 +988,7 @@ campaignTrail_temp.answers_json = [
         "pk": 14517,
         "fields": {
             "question": 344,
-            "description": "If we give up the west to Žemaitaitis now, we may not dislodge him or his party from there again. And if we seek a Social Democratic majority, then I'd rather trust the elderly, lower class electorates of rural municipalities over the hostile cities."
+            "description": "I am not worried about the Regions Party, they <font size='-1' face='Garamond'>Look- see, I understand her desperation, it's a difficult time of them, losing everywhere, missed out on the European Parliament, down in the polls. I'm just- look, I'm worried for her husband who has to deal with such a hysterical woman. What do her kids think when mom runs around with papers she doesn't even understand? And also, I'm very thankful to her for this ad campaign, couldn't have come up with a better ad for us!</font>"
         }
     },
     {
@@ -25356,171 +25356,6 @@ if(answer == 25478) {
 if(answer == 25479) {
 	// Restore the original banner
 	document.getElementById("header").src = "https://i.imgur.com/potbhB8.png"
-	return;
-}
-if(answer == 14516 && ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14517 && ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(4027))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14516 && !ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 14517 && !ranforpres) {
-	// Ran for president branching
-	e.questions_json.splice(11, 0 , getQuestionFromPk(350))
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	return;
-}
-if(answer == 15480 && e.player_answers.includes(14516) && e.player_answers.includes(14509) && e.player_answers.includes(14501) && e.player_answers.includes(14469) && (e.player_answers.includes(14484) || e.player_answers.includes(14480))) {
-	// Duchniewicz - needs Barbora, support Dovilė, go against Jonava, oppose Žemaitaitis coalition, do not go against partnerships
-	e.questions_json.splice(12, 0 , getQuestionFromPk(355))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Duchniewicz';
-	leader105.image = 'https://i.imgur.com/3ugJuQ1.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/3ugJuQ1.png';
-	campaignTrail_temp.running_mate_last_name = 'Duchniewicz';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	retired = true;
-	duch = true;
-	
-	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/zR3GVzZ.png';
-	// Duchniewicz attracts a lot of Right, True Green, and LLRA-KŠS votes, but loses out some votes from the populists. Your voters are also much less likely to vote for NA.
-	changeWeight(weights, 13761, 79, 0.5);
-	changeWeight(weights, 80, 79, 0.3);
-	changeWeight(weights, 77, 79, 0.15);
-	changeWeight(weights, 13838, 79, 0.5);
-	changeWeight(weights, 14300, 79, 1);
-	changeWeight(weights, 78, 79, -0.2);
-	changeWeight(weights, 13915, 79, -0.4);
-	changeWeight(weights, 79, 13915, -0.4);
-	changeWeight(weights, 79, 78, -0.1);
-	changeWeight(weights, 13992, 79, -0.3);
-	changeWeight(weights, 14818, 79, -0.3);
-	return;
-}
-if(answer == 15480 && e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14467) && e.player_answers.includes(14481)) {
-	// Cesiulis - oppose Barbora, give Sinkevičius a spot, support Žemaitaitis coalition, go against partnerships
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4028))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Cesiulis';
-	leader105.image = 'https://i.imgur.com/kmOKPWe.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/kmOKPWe.png';
-	campaignTrail_temp.running_mate_last_name = 'Cesiulis';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	retired = true;
-	alytus = true;
-	
-	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/VvksJ9L.png';
-	// Cesiulis pisses off Freedom and the Conservatives, but populist parties are overjoyed. Your voters are less likely to vote Conservative.
-	changeWeight(weights, 13761, 79, -0.5);
-	changeWeight(weights, 80, 79, -0.3);
-	changeWeight(weights, 77, 79, -0.25);
-	changeWeight(weights, 14300, 79, -0.5);
-	changeWeight(weights, 78, 79, 0.5);
-	changeWeight(weights, 13915, 79, 0.15);
-	changeWeight(weights, 79, 13915, 0.15);
-	changeWeight(weights, 79, 78, 0.4);
-	changeWeight(weights, 79, 77, -0.25);
-	return;
-}
-if(answer == 15480 && !(e.player_answers.includes(14517) && e.player_answers.includes(14504) && e.player_answers.includes(14467) && e.player_answers.includes(14481)) && !(e.player_answers.includes(14516) && e.player_answers.includes(14509) && e.player_answers.includes(14501) && e.player_answers.includes(14469) && (e.player_answers.includes(14484) || e.player_answers.includes(14480)))) {
-	// Paluckas - if you qualify for neither path. Maybe I should have done this in a less stupid way
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_last_name = 'Paluckas';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/OuoTB5T.png';
-	retired = true;
-	
-	// Paluckas improves your standing with Liberals and LŽP, but you lose out on some populist votes. Your voters are now also less friendly to NA and LVŽS.
-	changeWeight(weights, 13761, 79, 0.3);
-	changeWeight(weights, 80, 79, 0.2);
-	changeWeight(weights, 14300, 79, 0.75);
-	changeWeight(weights, 78, 79, -0.2);
-	changeWeight(weights, 13915, 79, -0.2);
-	changeWeight(weights, 79, 13915, -0.1);
-	changeWeight(weights, 79, 78, -0.1);
-	return;
-}
-if(answer == 15481) {
-	// Give up to Paluckas
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_last_name = 'Paluckas';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/OuoTB5T.png';
-	retired = true;
-	
-	// Paluckas improves your standing with Liberals and LŽP, but you lose out on some populist votes. Your voters are now also less friendly to NA and LVŽS.
-	changeWeight(weights, 13761, 79, 0.3);
-	changeWeight(weights, 80, 79, 0.2);
-	changeWeight(weights, 14300, 79, 0.75);
-	changeWeight(weights, 78, 79, -0.2);
-	changeWeight(weights, 13915, 79, -0.2);
-	changeWeight(weights, 79, 13915, -0.1);
-	changeWeight(weights, 79, 78, -0.1);
-	return;
-}
-if(answer == 14524) {
-	// Give up to Paluckas
-	e.questions_json.splice(12, 0 , getQuestionFromPk(4029))
-	e.global_parameter_json[0].fields.question_count = 25
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_image_url = 'https://i.imgur.com/YZoUOZV.png';
-	campaignTrail_temp.running_mate_last_name = 'Paluckas';
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	campaignTrail_temp.election_json[0].fields.advisor_url = 'https://i.imgur.com/OuoTB5T.png';
-	retired = true;
-	
-	// Paluckas improves your standing with Liberals and LŽP, but you lose out on some populist votes. Your voters are now also less friendly to NA and LVŽS.
-	changeWeight(weights, 13761, 79, 0.3);
-	changeWeight(weights, 80, 79, 0.2);
-	changeWeight(weights, 14300, 79, 0.75);
-	changeWeight(weights, 78, 79, -0.2);
-	changeWeight(weights, 13915, 79, -0.2);
-	changeWeight(weights, 79, 13915, -0.1);
-	changeWeight(weights, 79, 78, -0.1);
-	return;
-}
-if(answer == 14522) {
-	// Stay in charge
-	e.questions_json.splice(12, 0 , getQuestionFromPk(362))
-	e.global_parameter_json[0].fields.question_count = 25
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	lying = true;
-	const leader105 = partyLeaders.find((leader) => leader.party === 79);
-	leader105.leaderName = 'Paluckas';
-	leader105.image = 'https://i.imgur.com/YZoUOZV.png';
-	return;
-}
-if(answer == 14523) {
-	// Stay in charge
-	e.questions_json.splice(12, 0 , getQuestionFromPk(362))
-	e.global_parameter_json[0].fields.question_count = 25
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
 	return;
 }
 
